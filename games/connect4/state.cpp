@@ -103,11 +103,7 @@ int Connect4State::GetLegalMoves(Common::Player player, Connect4Move moves[MAX_M
         for (int row = ROWS - 1; row >= 0; --row) {
             if (mPosition[row][col].player == Common::Player::NONE)
             {
-                moves[++found] = Connect4Move{ 
-                    .player = player,
-                    .row = row,
-                    .col = col
-                    };
+                moves[found++] = Connect4Move(player, row, col);
                 break;
             }
         }

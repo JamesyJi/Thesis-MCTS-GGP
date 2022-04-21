@@ -1,7 +1,7 @@
 #ifndef GAMES_CONNECT4_MOVE_H_
 #define GAMES_CONNECT4_MOVE_H_
 
-#include <common/game_types.h>
+#include <mcts/move.h>
 
 namespace Connect4
 {
@@ -14,9 +14,14 @@ namespace Connect4
 //      x: player1 or 2
 //      y: row index (0 to 5)
 //      x: col index (0 to 6)
-struct Connect4Move
+struct Connect4Move : MCTS::Move
 {
-    Common::Player player;
+    Connect4Move(Common::Player player, int row, int col)
+    : Move(player)
+    , row(row)
+    , col(col)
+    {}
+
     int row;
     int col;
 };
