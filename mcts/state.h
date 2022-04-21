@@ -1,10 +1,10 @@
-#ifndef INTERFACES_STATE_H_
-#define INTERFACES_STATE_H_
+#ifndef MCTS_STATE_H_
+#define MCTS_STATE_H_
 
 #include <common/game_types.h>
 #include <games/connect4/move.h>
 
-namespace Interfaces
+namespace MCTS
 {
 
 template <typename GameState, typename Move>
@@ -18,8 +18,10 @@ public:
     virtual int GetLegalMoves(Common::Player, Move[]) const = 0;
     virtual GameState MakeMove(const Move&) const = 0;
     virtual void SimulateMove(const Move&) = 0;
-    virtual void Print() = 0;
-    virtual bool Equals() = 0;
+    
+    virtual GameState& operator=(const GameState&) = 0;
+    virtual friend bool operator==(const Connect4State&, const Connect4State&) = 0;
+    virtual friend ostream& operator<<(ostream& os, const GameState&) = 0;
 };
 
 }

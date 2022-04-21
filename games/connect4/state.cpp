@@ -1,3 +1,4 @@
+#include <iostream>
 #include <games/connect4/state.h>
 #include <game_types.h>
 
@@ -126,5 +127,53 @@ Connect4State Connect4State::MakeMove(const Connect4Move& move) const
     return newState;
 }
 
+// Makes a move, modifying the current state
+// Assumes the given move is valid
+void Connect4State::SimulateMove(const Connect4Move& move)
+{
+    mPosition[move.row][move.col] = move.player;
+}
+
+// True if the positions are equal
+bool operator==(const Connect4State& lhs, const Connect4State& rhs)
+{
+    for (int i = 0; i < Connect4State::ROWS; ++i)
+    {
+        for (int j = 0; j < Connect4State::COLS; ++j)
+        {
+            if (lhs.mPosition[i][j].player != rhs.mPosition[i][j].player) return false;
+        }
+    }
+    return true;
+}
+
+// Prints the current position
+ostream& operator<<(ostream& os, const Connect4State& state)
+{
+    for (int i = 0; i < Connect4State::ROWS; ++i)
+    {
+        for (int j = 0; j < Connect4State::COLS; ++j)
+        {
+            switch (state.mPosition[i][j].player)
+            {
+            case Common::Player::PLAYER1:
+                os << "\033[1;34mX\033[0m";
+                break;
+            case Common::Player::PLAYER2:
+                os << "\033[1;31mO\033[0m";
+                break;
+            case Common::Player::NONE:
+                os << " ";
+                break;
+            default:
+                break;
+            }
+            os << " | ";
+        }
+        os << "\n";
+    }
+
+    return os;
+}
 
 }

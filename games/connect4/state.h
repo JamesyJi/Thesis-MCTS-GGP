@@ -1,14 +1,15 @@
 #ifndef GAMES_CONNECT4_STATE_H_
 #define GAMES_CONNECT4_STATE_H_
 
+#include <iostream>
 #include <common/pieces.h>
-#include <interfaces/state.h>
+#include <mcts/state.h>
 #include <games/connect4/move.h>
 
 namespace Connect4 
 {
 
-class Connect4State : public Interfaces::State<Connect4State, Connect4Move>
+class Connect4State : public MCTS::State<Connect4State, Connect4Move>
 {
 public:
     static const int ROWS = 6;
@@ -30,8 +31,10 @@ public:
     int GetLegalMoves(Common::Player, Connect4Move[MAX_MOVES]) const;
     Connect4State MakeMove(const Connect4Move&) const;
     void SimulateMove(const Connect4Move&);
-    void Print();
-    bool Equals();
+
+    Connect4State& operator=(const Connect4State& state);
+    friend bool operator==(const Connect4State& lhs, const Connect4State& rhs);
+    friend ostream& operator<<(ostream& os, const Connect4State& state);
 
 private:
     Common::Piece mPosition[ROWS][COLS];
