@@ -7,18 +7,18 @@
 namespace MCTS
 {
 
+template<typename GameState, typename Move>
 class State
 {
 public:
     virtual ~State(){}
 
-    virtual Common::Result EvaluateState() = 0;
     virtual Common::Result EvaluateState(const Move&) = 0;
     virtual int GetLegalMoves(Common::Player, Move[]) const = 0;
-    virtual State MakeMove(const Move&) const = 0;
+    virtual GameState MakeMove(const Move&) const = 0;
     virtual void SimulateMove(const Move&) = 0;
     
-    virtual State& operator=(const State&) = 0;
+    virtual GameState& operator=(const GameState&) = 0;
 };
 
 }

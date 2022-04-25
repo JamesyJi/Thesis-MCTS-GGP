@@ -17,6 +17,13 @@ public:
     static const int WIN_COND = 4; // Required number of consecutive pieces to win
     static const int MAX_MOVES = 7; // Maximum number of possible moves at any given time
 
+    Connect4State()
+    {
+        for (int row = 0; row < ROWS; ++row)
+            for (int col = 0; col < COLS; ++col)
+                mPosition[row][col] = Common::Piece();        
+    }
+
     Connect4State(const Common::Piece position[ROWS][COLS])
     {
         for (int row = 0; row < ROWS; ++row)
@@ -26,7 +33,6 @@ public:
     
     ~Connect4State(){}
     
-    Common::Result EvaluateState();
     Common::Result EvaluateState(const Connect4Move&);
     int GetLegalMoves(Common::Player, Connect4Move[MAX_MOVES]) const;
     Connect4State MakeMove(const Connect4Move&) const;
@@ -34,7 +40,7 @@ public:
 
     Connect4State& operator=(const Connect4State& state);
     friend bool operator==(const Connect4State& lhs, const Connect4State& rhs);
-    friend ostream& operator<<(ostream& os, const Connect4State& state);
+    friend std::ostream& operator<<(std::ostream& os, const Connect4State& state);
 
 private:
     Common::Piece mPosition[ROWS][COLS];

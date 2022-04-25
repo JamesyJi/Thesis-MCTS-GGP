@@ -7,20 +7,49 @@
 namespace MCTS
 {
 
+template<typename GameState, typename Move>
 class Node
 {
 public:
-    Node(State& state, Common::Player player, Node& parent)
+    using GState = State<GameState, Move>;
+
+    Node(GState& state, Common::Player player, Node* parent, Move& lastMove)
     : mState(state)
-    , mPlayer(player)
+    , mPlayerTurn(player)
     , mParent(parent)
-    , 
+    , mLastMove(lastMove)
     {}
 
+    ~Node(){} // TODO
+
+    Node& GetRandomChild();
+    Node& GetMostVisitedChild();
+    Node& GetHighestScoreChild();
+    void ExpandNode();
+    double GetNodeScore();
+    Node& GetChild(Move& opponentMove);
+
+    void NullParent()
+    {
+        mParent = nullptr;
+    }
+
+    Move& GetLastMove()
+    {
+        return mLastMove;
+    }
+
 private:
-    State& mState;
-    Player mPlayer;
-    Node* const mParent;
+    GState& mState;
+    Node* const mParent = nullptr;
+    Node mChildren[State::MAX_MOVES];
+    int mNumChildren = 0;
+
+    double mValue = 0;
+    int mVisits = 0;
+
+    const Move mLastMove;
+    Common::Player mPlayerTurn;
 };
 
 }

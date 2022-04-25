@@ -19,7 +19,7 @@ enum class Result
     ONGOING
 };
 
-Result PlayerToResult(Player player)
+inline Result PlayerToResult(Player player)
 {
     switch (player)
     {
@@ -31,6 +31,33 @@ Result PlayerToResult(Player player)
             throw "Only Player1 or Player2 can convert to a result!";
     }
 }
+
+inline Player GetOtherPlayer(Player player)
+{
+    return player == Player::PLAYER1 ? Player::PLAYER2 : Player::PLAYER1;
+}
+
+std::ostream& operator<<(std::ostream& os, Player player)
+{
+    switch (player)
+    {
+        case Player::NONE : return os << "NONE";
+        case Player::PLAYER1 : return os << "PLAYER1";
+        case Player::PLAYER2 : return os << "PLAYER2";
+    }
+}
+
+std::ostream& operator<<(std::ostream& os, Result result)
+{
+    switch (result)
+    {
+        case Result::PLAYER1_WIN : return os << "PLAYER1_WIN";
+        case Result::PLAYER2_WIN : return os << "PLAYER2_WIN";
+        case Result::DRAW : return os << "DRAW";
+        case Result::ONGOING : return os << "ONGOING";
+    }
+}
+
 
 }
 #endif

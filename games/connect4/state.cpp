@@ -1,17 +1,17 @@
 #include <iostream>
 #include <games/connect4/state.h>
-#include <game_types.h>
+#include <common/game_types.h>
 
 namespace Connect4 
 {
 
-Common::Result Connect4State::EvaluateState()
-{
-    return Common::Result::ONGOING;
-}
-
 Common::Result Connect4State::EvaluateState(const Connect4Move& lastMove)
 {
+    if (lastMove.player == Common::Player::NONE)
+    {
+        return Common::Result::ONGOING;
+    }
+
     // Check all the wins in the row
     for (int col = 0, counter = 0; col < COLS; ++col)
     {
@@ -144,7 +144,7 @@ bool operator==(const Connect4State& lhs, const Connect4State& rhs)
 }
 
 // Prints the current position
-ostream& operator<<(ostream& os, const Connect4State& state)
+std::ostream& operator<<(std::ostream& os, const Connect4State& state)
 {
     for (int i = 0; i < Connect4State::ROWS; ++i)
     {
