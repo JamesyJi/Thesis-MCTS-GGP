@@ -1,8 +1,8 @@
 #include <limits>
 #include <cmath>
 
-#include <mcts/node.h>
-#include <common/game_types.h>
+#include "mcts/node.h"
+#include "common/game_types.h"
 
 namespace MCTS
 {

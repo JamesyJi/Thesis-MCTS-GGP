@@ -1,7 +1,6 @@
-#ifndef COMMON_PIECES_H_
-#define COMMON_PIECES_H_
+#pragma once
 
-#include <game_types.h>
+#include "common/game_types.h"
 
 namespace Common
 {
@@ -23,6 +22,3 @@ struct Piece
 };
 
 }
-
-
-#endif

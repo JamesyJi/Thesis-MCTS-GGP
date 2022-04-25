@@ -42,7 +42,7 @@ public:
 private:
     GState& mState;
     Node* const mParent = nullptr;
-    Node mChildren[State::MAX_MOVES];
+    Node mChildren[GameState::MAX_MOVES];
     int mNumChildren = 0;
 
     double mValue = 0;

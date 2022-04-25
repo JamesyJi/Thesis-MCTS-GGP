@@ -1,5 +1,4 @@
-#ifndef COMMON_GAME_TYPES_H_
-#define COMMON_GAME_TYPES_H_
+#pragma once
 
 namespace Common
 {
@@ -58,6 +57,4 @@ std::ostream& operator<<(std::ostream& os, Result result)
     }
 }
 
-
 }
-#endif

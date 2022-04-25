@@ -1,10 +1,9 @@
-#ifndef MCTS_MODEL_H_
-#define MCTS_MODEL_H_
+#pragma once
 
-#include <common/game_types.h>
-#include <common/resource.h>
-#include <mcts/state.h>
-#include <mcts/node.h>
+#include "common/game_types.h"
+#include "common/resource.h"
+#include "mcts/state.h"
+#include "mcts/node.h"
 
 namespace Models
 {
@@ -13,8 +12,8 @@ template<typename GameState, typename Move>
 class Model
 {
 public:
-    using GState = State<GameState, Move>;
-    using GNode = Node<GameState, Move>;
+    using GState = MCTS::State<GameState, Move>;
+    using GNode = MCTS::Node<GameState, Move>;
 
     Model(Common::Player player, GState& state)
     : mPlayer(player)
@@ -33,5 +32,3 @@ private:
 };
 
 }
-
-#endif

@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/james/Documents/Thesis_C++/build",
+  "command": "/usr/bin/clang++  -I/Users/james/Documents/Thesis_C++/. -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o -c /Users/james/Documents/Thesis_C++/experimenter.cpp",
+  "file": "/Users/james/Documents/Thesis_C++/experimenter.cpp"
+}
+]

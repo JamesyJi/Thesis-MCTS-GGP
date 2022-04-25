@@ -1,5 +1,4 @@
-#ifndef COMMON_RESOURCE_H_
-#define COMMON_RESOURCE_H_
+#pragma once
 
 #include <chrono>
 
@@ -20,10 +19,10 @@ class TimeResource : public Resource
 {
 private:
     // In milliseconds
-    double mLimit;
-    double mEnd;
+    std::chrono::milliseconds mLimit;
+    std::chrono::time_point<std::chrono::high_resolution_clock> mEnd;
 public:
-    TimeResource(double seconds)
+    TimeResource(int seconds)
     : mLimit(1000 * seconds)
     {}
     
@@ -31,13 +30,12 @@ public:
 
     void ResetAndStart() 
     {
-        auto now = std::chrono::high_resolution_clock::now();
-        mEnd = std::chrono::duration_cast<std::chrono::seconds>(now) + mLimit;
+        mEnd = std::chrono::high_resolution_clock::now() + mLimit;
     }
 
     bool UseResource()
     {
-        return std::chrono::duration_cast<std::chrono::seconds>(std::chrono::high_resolution_clock::now()) < mEnd;
+        return std::chrono::high_resolution_clock::now() < mEnd;
     }
 };
 
@@ -63,5 +61,3 @@ public:
     }
 };
 }
-
-#endif
