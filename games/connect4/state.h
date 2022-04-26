@@ -30,6 +30,10 @@ public:
             for (int col = 0; col < COLS; ++col)
                 mPosition[row][col] = position[row][col];
     }
+
+    Connect4State(const Connect4State& other)
+    : Connect4State(other.mPosition)
+    {}
     
     ~Connect4State(){}
     
@@ -38,7 +42,6 @@ public:
     Connect4State MakeMove(const Connect4Move&) const;
     void SimulateMove(const Connect4Move&);
 
-    Connect4State& operator=(const Connect4State& state);
     friend bool operator==(const Connect4State& lhs, const Connect4State& rhs);
     friend std::ostream& operator<<(std::ostream& os, const Connect4State& state);
 

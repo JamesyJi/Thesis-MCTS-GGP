@@ -3,14 +3,13 @@
 namespace Models
 {
 
-template<typename GameState, typename Move>
-GameState& Model<GameState, Move>::DecideMove(Common::Resource& resource)
+template<typename M, typename TTraits>
+Model<M,TTraits>::MoveT Model<M, TTraits>::DecideMove(Common::Resource& resource)
 {
     while (resource.UseResource())
     {
-        ExecuteStrategy();
+        static_cast<M*>(this)->ExecuteStrategy();
     }
-    
 
     mRoot = mRoot.GetMostVisitedChild();
     mRoot.mParent.NullParent();

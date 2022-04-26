@@ -28,15 +28,26 @@ public:
     void ExpandNode();
     double GetNodeScore();
     Node& GetChild(Move& opponentMove);
+    bool HasChildren();
 
     void NullParent()
     {
         mParent = nullptr;
     }
 
+    GState& GetState()
+    {
+        return mState;
+    }
+
     Move& GetLastMove()
     {
         return mLastMove;
+    }
+
+    Common::Player GetPlayerTurn()
+    {
+        return mPlayerTurn;
     }
 
 private:

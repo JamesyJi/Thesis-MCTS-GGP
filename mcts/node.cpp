@@ -88,4 +88,11 @@ Node<GameState, Move>& Node<GameState, Move>::GetChild(Move& bove)
     return mChildren[mNumChildren];
 }
 
+// True if this node has children, false if it does not
+template <typename GameState, typename Move>
+bool Node<GameState, Move>::HasChildren()
+{
+    return mNumChildren == 0;
+}
+
 }
