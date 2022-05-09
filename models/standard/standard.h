@@ -9,11 +9,11 @@ template<typename TTraits>
 class Standard : public Model<Standard<TTraits>, TTraits>
 {
 public:
-    using GameStateT = typename TTraits::GameStateT;
+    using StateT = typename TTraits::StateT;
     using MoveT = typename TTraits::MoveT;
-    using NodeT = typename TTraits::NodeT;
+    using NodeT = MCTS::Node<StateT, MoveT>;
 
-    Standard(Common::Player player, GameStateT& state)
+    Standard(Common::Player player, StateT& state)
     : Model<Standard<TTraits>, TTraits>(player, state)
     {}
 
@@ -55,11 +55,11 @@ public:
 
     Common::Result Simulate(NodeT& node)
     {
-        GameStateT& simulateState = node.GetState();
+        StateT& simulateState = node.GetState();
         auto playerTurn = node.GetPlayerTurn();
         MoveT& move = node.GetLastMove();
         
-        MoveT legalMoves[GameStateT::MAX_MOVES];
+        MoveT legalMoves[StateT::MAX_MOVES];
         int nLegalMoves;
         while (simulateState.EvaluateState(move) == Common::Result::ONGOING)
         {

@@ -8,25 +8,25 @@ namespace MCTS
 {
 
 // Assumption is that the node has children
-template<typename GameState, typename Move>
-Node<GameState, Move>& Node<GameState, Move>::GetRandomChild()
+template<typename TState, typename TMove>
+Node<TState, TMove>& Node<TState, TMove>::GetRandomChild() const
 {
     // TODO: Can use faster random
     return mChildren[rand() % mNumChildren];
 }
 
 // Assumption is that the node has children
-template<typename GameState, typename Move>
-Node<GameState, Move>& Node<GameState, Move>::GetMostVisitedChild()
+template<typename TState, typename TMove>
+Node<TState, TMove>& Node<TState, TMove>::GetMostVisitedChild() const
 {
     int maxIndex = 0;
     int maxVisits = 0;
     for (int i = 0; i < mNumChildren; ++i) 
     {
-        if (mChildren[i].visits > maxVisits) 
+        if (mChildren[i]->GetVisits() > maxVisits) 
         {
             maxIndex = i;
-            maxVisits = mChildren[i].visits;
+            maxVisits = mChildren[i]->GetVisits();
         }
     }
 
@@ -34,17 +34,17 @@ Node<GameState, Move>& Node<GameState, Move>::GetMostVisitedChild()
 }
 
 // Assumption is that the node has children
-template<typename GameState, typename Move>
-Node<GameState, Move>& Node<GameState, Move>::GetHighestScoreChild()
+template<typename TState, typename TMove>
+Node<TState, TMove>& Node<TState, TMove>::GetHighestScoreChild() const
 {
     int maxIndex = 0;
     double maxScore = std::numeric_limits<double>::min();
     for (int i = 0; i < mNumChildren; ++i)
     {
-        if (mChildren[i].GetNodeScore() > maxScore)
+        if (mChildren[i]->GetNodeScore() > maxScore)
         {
             maxIndex = i;
-            maxScore = mChildren[i].GetNodeScore();
+            maxScore = mChildren[i]->GetNodeScore();
         }
     }
 
@@ -53,44 +53,44 @@ Node<GameState, Move>& Node<GameState, Move>::GetHighestScoreChild()
 
 
 // Expands the node, adding all legal possible nodes as children
-template<typename GameState, typename Move>
-void Node<GameState, Move>::ExpandNode()
+template<typename TState, typename TMove>
+void Node<TState, TMove>::ExpandNode()
 {
-    auto legalMoves = Move[GameState::MAX_MOVES];
-    int nLegalMoves = mState.GetLegalMoves(mPlayerTurn, legalMoves);
+    auto legalMoves = TMove[TState::MAX_MOVES];
+    int nLegalMoves = mState->GetLegalMoves(mPlayerTurn, legalMoves);
 
     for (int i = 0; i < nLegalMoves; ++i) 
     {
-        mChildren[i] = Node(mState.MakeMove(legalMoves[i]), Common::GetOtherPlayer(mPlayerTurn), this, legalMoves[i])
+        mChildren[i] = Node(mState->MakeMove(legalMoves[i]), Common::GetOtherPlayer(mPlayerTurn), this, legalMoves[i])
     }
 }
 
 // Assumes that the parent exists and is not null
-template<typename GameState, typename Move>
-double Node<GameState, Move>::GetNodeScore()
+template<typename TState, typename TMove>
+double Node<TState, TMove>::GetNodeScore() const
 {
     if (mVisits == 0) return std::numeric_limits<double>::max();
 
-    return (mValue / mVisits + 1.41 * std::sqrt(std::log(mParent->mVisits) / mVisits));
+    return (mValue / mVisits + 1.41 * std::sqrt(std::log(mParent->GetVisits()) / mVisits));
 }
 
 // Returns the child node matching the move or creates it if it doesn't exist
-template<typename GameState, typename Move>
-Node<GameState, Move>& Node<GameState, Move>::GetChild(Move& bove)
+template<typename TState, typename TMove>
+Node<TState, TMove>& Node<TState, TMove>::GetChild(TMove& move) const
 {
     for (int i = 0; i < mNumChildren; ++i)
     {
-        if (mChildren[i].mLastMove == move) return mChildren[i];
+        if (mChildren[i]->mLastMove == move) return mChildren[i];
     }
 
     // TODO: We could use SimulateMove if we are sure the parent will no longer refer to the state after this function
-    mChildren[mNumChildren++] = Node(mState.MakeMove(move), Common::GetOtherPlayer(mPlayerTurn), this, move);    
+    mChildren[mNumChildren++] = Node(mState->MakeMove(move), Common::GetOtherPlayer(mPlayerTurn), this, move);    
     return mChildren[mNumChildren];
 }
 
 // True if this node has children, false if it does not
-template <typename GameState, typename Move>
-bool Node<GameState, Move>::HasChildren()
+template <typename TState, typename TMove>
+bool Node<TState, TMove>::HasChildren() const
 {
     return mNumChildren == 0;
 }

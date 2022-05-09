@@ -1,34 +1,30 @@
-#ifndef MCTS_NODE_H_
-#define MCTS_NODE_H_
+#pragma once
 
-#include <mcts/state.h>
 #include <common/game_types.h>
+
+#include <memory>
 
 namespace MCTS
 {
 
-template<typename GameState, typename Move>
+template<typename TState, typename TMove>
 class Node
 {
 public:
-    using GState = State<GameState, Move>;
-
-    Node(GState& state, Common::Player player, Node* parent, Move& lastMove)
-    : mState(state)
+    Node(std::unique_ptr<TState> state, Common::Player player, Node* parent, const TMove& lastMove)
+    : mState(std::move(state))
     , mPlayerTurn(player)
     , mParent(parent)
     , mLastMove(lastMove)
     {}
 
-    ~Node(){} // TODO
-
-    Node& GetRandomChild();
-    Node& GetMostVisitedChild();
-    Node& GetHighestScoreChild();
+    Node& GetRandomChild() const;
+    Node& GetMostVisitedChild() const;
+    Node& GetHighestScoreChild() const;
     void ExpandNode();
-    double GetNodeScore();
-    Node& GetChild(Move& opponentMove);
-    bool HasChildren();
+    double GetNodeScore() const;
+    Node& GetChild(TMove& opponentMove) const;
+    bool HasChildren() const;
 
     void NullParent()
     {
@@ -55,12 +51,17 @@ public:
         return mParent;
     }
 
-    GState& GetState() const
+    TState& GetState() const
     {
         return mState;
     }
 
-    Move& GetLastMove() const
+    int GetVisits() const
+    {
+        return mVisits;
+    }
+
+    TMove& GetLastMove() const
     {
         return mLastMove;
     }
@@ -71,18 +72,16 @@ public:
     }
 
 private:
-    GState mState;
+    std::unique_ptr<TState> mState;
     Node* const mParent = nullptr;
-    Node mChildren[GState::MAX_MOVES];
+    std::unique_ptr<Node> mChildren[TState::MAX_MOVES];
     int mNumChildren = 0;
 
     double mValue = 0;
     int mVisits = 0;
 
-    const Move mLastMove;
+    const TMove mLastMove;
     Common::Player mPlayerTurn;
 };
 
 }
-
-#endif

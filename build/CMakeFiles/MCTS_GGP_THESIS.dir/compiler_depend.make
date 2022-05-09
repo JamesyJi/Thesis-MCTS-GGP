@@ -418,24 +418,21 @@ CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o: ../experimenter.cpp \
   ../models/model.h \
   ../common/game_types.h \
   ../common/resource.h \
-  ../mcts/state.h \
-  ../games/connect4/move.h \
   ../mcts/node.h \
   ../models/standard/standard.h \
   ../models/model_factory.h \
   ../games/connect4/state.h \
-  ../common/pieces.h
+  ../common/pieces.h \
+  ../games/connect4/move.h
 
+
+../games/connect4/move.h:
 
 ../games/connect4/state.h:
 
 ../models/model_factory.h:
 
 ../models/standard/standard.h:
-
-../games/connect4/move.h:
-
-../mcts/state.h:
 
 ../common/resource.h:
 

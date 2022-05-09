@@ -2,27 +2,27 @@
 
 #include "common/game_types.h"
 #include "common/resource.h"
-#include "mcts/state.h"
 #include "mcts/node.h"
+
+#include <memory>
 
 namespace Models
 {
 
-template<typename TGameState, typename TMove>
+template<typename TState, typename TMove>
 struct Traits
 {
-    using GameStateT = TGameState;
+    using StateT = TState;
     using MoveT = TMove;
-    using NodeT = MCTS::Node<TGameState, TMove>;
 };
 
 template<typename M, typename TTraits>
 class Model
 {
 public:
-    using GameStateT = typename TTraits::GameStateT;
+    using StateT = typename TTraits::StateT;
     using MoveT = typename TTraits::MoveT;
-    using NodeT = typename TTraits::NodeT;
+    using NodeT = MCTS::Node<StateT, MoveT>;
     
     MoveT DecideMove(Common::Resource& resource);
     
@@ -48,8 +48,9 @@ public:
 
 
 protected:
-    Model(Common::Player player, GameStateT& state)
+    Model(Common::Player player, StateT& state)
     : mPlayer(player)
+    , mRoot(std::make_unique<StateT>(state), player, nullptr, MoveT())
     {}
 
     Common::Player mPlayer;
