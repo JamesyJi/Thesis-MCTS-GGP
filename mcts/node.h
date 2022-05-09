@@ -35,25 +35,45 @@ public:
         mParent = nullptr;
     }
 
-    GState& GetState()
+    void IncrValue()
+    {
+        ++mValue;
+    }
+
+    void DecrValue()
+    {
+        --mValue;
+    }
+
+    void Visit()
+    {
+        ++mVisits;
+    }
+
+    Node* GetParent() const
+    {
+        return mParent;
+    }
+
+    GState& GetState() const
     {
         return mState;
     }
 
-    Move& GetLastMove()
+    Move& GetLastMove() const
     {
         return mLastMove;
     }
 
-    Common::Player GetPlayerTurn()
+    Common::Player GetPlayerTurn() const
     {
         return mPlayerTurn;
     }
 
 private:
-    GState& mState;
+    GState mState;
     Node* const mParent = nullptr;
-    Node mChildren[GameState::MAX_MOVES];
+    Node mChildren[GState::MAX_MOVES];
     int mNumChildren = 0;
 
     double mValue = 0;

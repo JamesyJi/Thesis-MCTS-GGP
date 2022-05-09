@@ -16,13 +16,13 @@ struct Traits
     using NodeT = MCTS::Node<TGameState, TMove>;
 };
 
-template<typename M, typename Traits>
+template<typename M, typename TTraits>
 class Model
 {
 public:
-    using GameStateT = TTraits::GameStateT;
-    using MoveT = TTraits::MoveT;
-    using NodeT = TTraits::NodeT;
+    using GameStateT = typename TTraits::GameStateT;
+    using MoveT = typename TTraits::MoveT;
+    using NodeT = typename TTraits::NodeT;
     
     MoveT DecideMove(Common::Resource& resource);
     
@@ -46,8 +46,6 @@ public:
         static_cast<M*>(this)->BackPropagate(node, result);
     }
 
-    
-
 
 protected:
     Model(Common::Player player, GameStateT& state)
@@ -57,30 +55,5 @@ protected:
     Common::Player mPlayer;
     NodeT mRoot;
 };
-
-
-// template<typename GameState, typename Move>
-// class Model
-// {
-// public:
-//     using GState = MCTS::State<GameState, Move>;
-//     using GNode = MCTS::Node<GameState, Move>;
-
-//     Model(Common::Player player, GState& state)
-//     : mPlayer(player)
-//     {}
-
-//     ~Model(){}
-
-//     GameState& DecideMove(Common::Resource&);
-
-//     void ExecuteStrategy() = 0;
-//     virtual GNode& SelectBestChild() = 0;
-//     virtual void BackPropagate() = 0;
-
-// protected:
-//     Common::Player mPlayer;
-//     GNode& mRoot;
-// };
 
 }

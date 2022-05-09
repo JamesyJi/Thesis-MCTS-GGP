@@ -37,3 +37,8 @@
 /Users/james/Documents/Thesis_C++/build/common/CMakeFiles/test.dir
 /Users/james/Documents/Thesis_C++/build/common/CMakeFiles/edit_cache.dir
 /Users/james/Documents/Thesis_C++/build/common/CMakeFiles/rebuild_cache.dir
+/Users/james/Documents/Thesis_C++/build/models/CMakeFiles/package.dir
+/Users/james/Documents/Thesis_C++/build/models/CMakeFiles/package_source.dir
+/Users/james/Documents/Thesis_C++/build/models/CMakeFiles/test.dir
+/Users/james/Documents/Thesis_C++/build/models/CMakeFiles/edit_cache.dir
+/Users/james/Documents/Thesis_C++/build/models/CMakeFiles/rebuild_cache.dir

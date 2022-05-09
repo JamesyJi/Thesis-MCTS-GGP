@@ -1,5 +1,7 @@
 #pragma once
 
+#include <tuple>
+
 namespace Common
 {
 
@@ -28,6 +30,32 @@ inline Result PlayerToResult(Player player)
             return Result::PLAYER2_WIN;
         default:
             throw "Only Player1 or Player2 can convert to a result!";
+    }
+}
+
+inline Player ResultToPlayer(Result result)
+{
+    switch (result)
+    {
+        case Result::PLAYER1_WIN:
+            return Player::PLAYER1;
+        case Result::PLAYER2_WIN:
+            return Player::PLAYER2;
+        default:
+            return Player::NONE;
+    }
+}
+
+inline std::tuple<Player, Player> GetWinnerAndLoser(Result result)
+{
+    switch (result)
+    {
+        case Result::PLAYER1_WIN:
+            return {Player::PLAYER1, Player::PLAYER2};
+        case Result::PLAYER2_WIN:
+            return {Player::PLAYER2, Player::PLAYER1};
+        default:
+            return {Player::NONE, Player::NONE};
     }
 }
 

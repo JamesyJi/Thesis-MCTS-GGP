@@ -11,7 +11,7 @@ add_subdirectory(common)
 # add_subdirectory(games)
 # add_subdirectory(main)
 # add_subdirectory(mcts)
-# add_subdirectory(models)
+add_subdirectory(models)
 
 include_directories(.)
 

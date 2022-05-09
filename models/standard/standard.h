@@ -9,9 +9,9 @@ template<typename TTraits>
 class Standard : public Model<Standard<TTraits>, TTraits>
 {
 public:
-    using GameStateT = TTraits::GameStateT;
-    using MoveT = TTraits::MoveT;
-    using NodeT = TTraits::NodeT;  
+    using GameStateT = typename TTraits::GameStateT;
+    using MoveT = typename TTraits::MoveT;
+    using NodeT = typename TTraits::NodeT;
 
     Standard(Common::Player player, GameStateT& state)
     : Model<Standard<TTraits>, TTraits>(player, state)
@@ -31,8 +31,8 @@ public:
         }
 
         // Simulation
-        NodeT& exploreNode;
-        if (promisingNode.HasChildren()) exploreNode = promisingNode
+        NodeT* exploreNode;
+        if (promisingNode.HasChildren()) exploreNode = promisingNode;
         else exploreNode = promisingNode;
 
         auto evaluation = Simulate(exploreNode);
@@ -43,7 +43,7 @@ public:
 
     NodeT& SelectBestChild()
     {
-        NodeT& bestChild = mRoot;
+        NodeT& bestChild = this->mRoot;
 
         while (bestChild.HasChildren())
         {
@@ -59,22 +59,39 @@ public:
         auto playerTurn = node.GetPlayerTurn();
         MoveT& move = node.GetLastMove();
         
-        Move[GameStateT::MAX_MOVES] legalMoves;
+        MoveT legalMoves[GameStateT::MAX_MOVES];
         int nLegalMoves;
         while (simulateState.EvaluateState(move) == Common::Result::ONGOING)
         {
             nLegalMoves = simulateState.GetLegalMoves(playerTurn, legalMoves);
             move = legalMoves[rand() % nLegalMoves];
-            simualteState.SimulateMove(move);
+            simulateState.SimulateMove(move);
             playerTurn = Common::GetOtherPlayer(playerTurn);
         }
 
         return simulateState.EvaluateState(move);
     }
 
-    void BackPropagate()
+    void BackPropagate(NodeT& node, Common::Result result)
     {
-        
+        auto winnerloser = Common::GetWinnerAndLoser(result);
+
+        NodeT* curNode = node;
+        while (curNode != nullptr)
+        {
+            switch (curNode->GetPlayerTurn())
+            {
+                case std::get<0>(winnerloser):
+                    curNode->IncrValue();
+                    break;
+                case std::get<1>(winnerloser):
+                    curNode->DecrValue();
+                    break;
+            }
+
+            curNode->Visit();
+            curNode = curNode->GetParent();
+        }
     }
 };
 

@@ -8,7 +8,8 @@
 					"build" : ".",
 					"childIndexes" : 
 					[
-						1
+						1,
+						2
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -60,6 +61,17 @@
 					"parentIndex" : 0,
 					"projectIndex" : 0,
 					"source" : "common"
+				},
+				{
+					"build" : "models",
+					"jsonFile" : "directory-models-Debug-85536f1cc26d7ce72aeb.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "models"
 				}
 			],
 			"name" : "Debug",
@@ -69,7 +81,8 @@
 					"directoryIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					],
 					"name" : "MCTS_GGP_THESIS",
 					"targetIndexes" : 
