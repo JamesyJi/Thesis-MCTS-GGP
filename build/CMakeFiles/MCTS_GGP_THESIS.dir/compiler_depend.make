@@ -420,6 +420,10 @@ CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o: ../experimenter.cpp \
   ../common/game_types.h \
   ../common/resource.h \
   ../mcts/node.h \
+  ../mcts/node.cpp \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/cmath \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/math.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/math.h \
   ../models/standard/standard.h \
   ../games/connect4/state.h \
   ../common/pieces.h \
@@ -431,6 +435,10 @@ CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o: ../experimenter.cpp \
 ../games/connect4/state.h:
 
 ../models/standard/standard.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/math.h:
+
+../mcts/node.cpp:
 
 ../common/resource.h:
 
@@ -651,6 +659,8 @@ CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o: ../experimenter.cpp \
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__algorithm/count_if.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/xlocale/_string.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/cmath:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__algorithm/count.h:
 
@@ -1145,6 +1155,8 @@ CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o: ../experimenter.cpp \
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__memory/shared_ptr.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/sys/_pthread/_pthread_key_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/math.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/_types/_wctype_t.h:
 

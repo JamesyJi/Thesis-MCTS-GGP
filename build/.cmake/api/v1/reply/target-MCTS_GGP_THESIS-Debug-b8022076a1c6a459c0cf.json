@@ -15,8 +15,7 @@
 		],
 		"files" : 
 		[
-			"CMakeLists.txt",
-			"models/CMakeLists.txt"
+			"CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -26,23 +25,14 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 15,
+				"line" : 19,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 17,
+				"line" : 21,
 				"parent" : 0
-			},
-			{
-				"file" : 1
-			},
-			{
-				"command" : 1,
-				"file" : 1,
-				"line" : 10,
-				"parent" : 3
 			}
 		]
 	},
@@ -62,11 +52,15 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/Users/james/Documents/Thesis_C++/main"
+					"path" : "/Users/james/Documents/Thesis_C++/common"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/Users/james/Documents/Thesis_C++/common"
+					"path" : "/Users/james/Documents/Thesis_C++/games"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/james/Documents/Thesis_C++/games/connect4"
 				},
 				{
 					"backtrace" : 2,
@@ -78,7 +72,7 @@
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/Users/james/Documents/Thesis_C++/games"
+					"path" : "/Users/james/Documents/Thesis_C++/main"
 				}
 			],
 			"language" : "CXX",
@@ -126,7 +120,17 @@
 			},
 			{
 				"backtrace" : 2,
+				"fragment" : "games/connect4/libconnect4.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
 				"fragment" : "models/libmodels.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "mcts/libmcts.a",
 				"role" : "libraries"
 			},
 			{
@@ -140,7 +144,7 @@
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 4,
+				"backtrace" : 2,
 				"fragment" : "mcts/libmcts.a",
 				"role" : "libraries"
 			}

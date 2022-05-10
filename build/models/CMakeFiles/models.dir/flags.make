@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/clang++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/james/Documents/Thesis_C++/mcts -I/Users/james/Documents/Thesis_C++/common
+CXX_INCLUDES = -I/Users/james/Documents/Thesis_C++/models -I/Users/james/Documents/Thesis_C++/mcts -I/Users/james/Documents/Thesis_C++/common
 
 CXX_FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
 

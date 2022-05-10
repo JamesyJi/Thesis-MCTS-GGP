@@ -1,2 +1,0 @@
-/usr/bin/ar qc libgames.a 
-/usr/bin/ranlib libgames.a
