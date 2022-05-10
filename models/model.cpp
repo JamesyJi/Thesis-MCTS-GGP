@@ -1,10 +1,10 @@
-#include <models/model.h>
+#include "model.h"
 
 namespace Models
 {
 
 template<typename M, typename TTraits>
-Model<M,TTraits>::MoveT Model<M, TTraits>::DecideMove(Common::Resource& resource)
+typename Model<M, TTraits>::MoveT Model<M, TTraits>::DecideMove(Common::Resource& resource)
 {
     while (resource.UseResource())
     {
@@ -12,9 +12,17 @@ Model<M,TTraits>::MoveT Model<M, TTraits>::DecideMove(Common::Resource& resource
     }
 
     mRoot = mRoot.GetMostVisitedChild();
-    mRoot.mParent.NullParent();
+    mRoot.NullParent();
 
     return mRoot.GetLastMove();
 }
+
+template<typename M, typename TTraits>
+void Model<M, TTraits>::NotifyOfOpponentMove(MoveT& move)
+{
+    mRoot = mRoot.GetChild(move);
+    mRoot.NullParent();
+}
+
 
 }

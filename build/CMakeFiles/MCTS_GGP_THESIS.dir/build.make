@@ -92,6 +92,10 @@ MCTS_GGP_THESIS_EXTERNAL_OBJECTS =
 
 MCTS_GGP_THESIS: CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o
 MCTS_GGP_THESIS: CMakeFiles/MCTS_GGP_THESIS.dir/build.make
+MCTS_GGP_THESIS: models/libmodels.a
+MCTS_GGP_THESIS: games/connect4/libconnect4.a
+MCTS_GGP_THESIS: models/libmodels.a
+MCTS_GGP_THESIS: mcts/libmcts.a
 MCTS_GGP_THESIS: CMakeFiles/MCTS_GGP_THESIS.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable MCTS_GGP_THESIS"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MCTS_GGP_THESIS.dir/link.txt --verbose=$(VERBOSE)

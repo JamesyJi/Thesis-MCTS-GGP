@@ -1,9 +1,8 @@
-#ifndef GAMES_CONNECT4_STATE_H_
-#define GAMES_CONNECT4_STATE_H_
+#pragma once
 
 #include <iostream>
-#include <common/pieces.h>
-#include <games/connect4/move.h>
+#include "pieces.h"
+#include "move.h"
 
 namespace Connect4 
 {
@@ -52,5 +51,3 @@ private:
 };
 
 }
-
-#endif

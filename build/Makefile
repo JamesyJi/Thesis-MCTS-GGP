@@ -523,6 +523,45 @@ MCTS_GGP_THESIS/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCTS_GGP_THESIS.dir/build.make CMakeFiles/MCTS_GGP_THESIS.dir/build
 .PHONY : MCTS_GGP_THESIS/fast
 
+#=============================================================================
+# Target rules for targets named connect4
+
+# Build rule for target.
+connect4: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 connect4
+.PHONY : connect4
+
+# fast build rule for target.
+connect4/fast:
+	$(MAKE) $(MAKESILENT) -f games/connect4/CMakeFiles/connect4.dir/build.make games/connect4/CMakeFiles/connect4.dir/build
+.PHONY : connect4/fast
+
+#=============================================================================
+# Target rules for targets named mcts
+
+# Build rule for target.
+mcts: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mcts
+.PHONY : mcts
+
+# fast build rule for target.
+mcts/fast:
+	$(MAKE) $(MAKESILENT) -f mcts/CMakeFiles/mcts.dir/build.make mcts/CMakeFiles/mcts.dir/build
+.PHONY : mcts/fast
+
+#=============================================================================
+# Target rules for targets named models
+
+# Build rule for target.
+models: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 models
+.PHONY : models
+
+# fast build rule for target.
+models/fast:
+	$(MAKE) $(MAKESILENT) -f models/CMakeFiles/models.dir/build.make models/CMakeFiles/models.dir/build
+.PHONY : models/fast
+
 experimenter.o: experimenter.cpp.o
 .PHONY : experimenter.o
 
@@ -587,6 +626,9 @@ help:
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
 	@echo "... MCTS_GGP_THESIS"
+	@echo "... connect4"
+	@echo "... mcts"
+	@echo "... models"
 	@echo "... experimenter.o"
 	@echo "... experimenter.i"
 	@echo "... experimenter.s"

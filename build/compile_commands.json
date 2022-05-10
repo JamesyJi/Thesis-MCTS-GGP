@@ -1,7 +1,22 @@
 [
 {
   "directory": "/Users/james/Documents/Thesis_C++/build",
-  "command": "/usr/bin/clang++  -I/Users/james/Documents/Thesis_C++/. -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o -c /Users/james/Documents/Thesis_C++/experimenter.cpp",
+  "command": "/usr/bin/clang++  -I/Users/james/Documents/Thesis_C++/main -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/models -I/Users/james/Documents/Thesis_C++/mcts -I/Users/james/Documents/Thesis_C++/games -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o -c /Users/james/Documents/Thesis_C++/experimenter.cpp",
   "file": "/Users/james/Documents/Thesis_C++/experimenter.cpp"
+},
+{
+  "directory": "/Users/james/Documents/Thesis_C++/build/games/connect4",
+  "command": "/usr/bin/clang++  -I/Users/james/Documents/Thesis_C++/common -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o CMakeFiles/connect4.dir/state.cpp.o -c /Users/james/Documents/Thesis_C++/games/connect4/state.cpp",
+  "file": "/Users/james/Documents/Thesis_C++/games/connect4/state.cpp"
+},
+{
+  "directory": "/Users/james/Documents/Thesis_C++/build/mcts",
+  "command": "/usr/bin/clang++  -I/Users/james/Documents/Thesis_C++/common -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o CMakeFiles/mcts.dir/node.cpp.o -c /Users/james/Documents/Thesis_C++/mcts/node.cpp",
+  "file": "/Users/james/Documents/Thesis_C++/mcts/node.cpp"
+},
+{
+  "directory": "/Users/james/Documents/Thesis_C++/build/models",
+  "command": "/usr/bin/clang++  -I/Users/james/Documents/Thesis_C++/mcts -I/Users/james/Documents/Thesis_C++/common -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o CMakeFiles/models.dir/model.cpp.o -c /Users/james/Documents/Thesis_C++/models/model.cpp",
+  "file": "/Users/james/Documents/Thesis_C++/models/model.cpp"
 }
 ]

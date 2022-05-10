@@ -1,0 +1,2 @@
+/usr/bin/ar qc libconnect4.a CMakeFiles/connect4.dir/state.cpp.o
+/usr/bin/ranlib libconnect4.a

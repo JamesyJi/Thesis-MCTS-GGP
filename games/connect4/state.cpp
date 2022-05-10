@@ -1,7 +1,7 @@
 #include <iostream>
-#include <games/connect4/state.h>
-#include <common/game_types.h>
 #include <memory>
+
+#include "state.h"
 
 namespace Connect4 
 {

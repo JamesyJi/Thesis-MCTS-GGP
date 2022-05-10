@@ -7,7 +7,6 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCInformation.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCXXInformation.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeGenericSystem.cmake"
@@ -15,35 +14,30 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake"
-  "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CPack.cmake"
-  "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CPackComponent.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTest.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTestTargets.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTestUseLaunchers.cmake"
-  "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/Clang.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/GNU.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/DartConfiguration.tcl.in"
-  "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake"
-  "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Darwin.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/UnixPaths.cmake"
-  "/Applications/CMake.app/Contents/share/cmake-3.23/Templates/CPackConfig.cmake.in"
   "../CMakeLists.txt"
-  "CMakeFiles/3.23.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.23.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.23.1/CMakeSystem.cmake"
   "../common/CMakeLists.txt"
   "../games/CMakeLists.txt"
+  "../games/connect4/CMakeLists.txt"
   "../main/CMakeLists.txt"
   "../mcts/CMakeLists.txt"
   "../models/CMakeLists.txt"
+  "../models/standard/CMakeLists.txt"
   )
 
 # The corresponding makefile is:
@@ -55,14 +49,14 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "DartConfiguration.tcl"
-  "CPackConfig.cmake"
-  "CPackSourceConfig.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "common/CMakeFiles/CMakeDirectoryInformation.cmake"
   "games/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "main/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "games/connect4/CMakeFiles/CMakeDirectoryInformation.cmake"
   "mcts/CMakeFiles/CMakeDirectoryInformation.cmake"
   "models/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "models/standard/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "main/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -96,4 +90,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/ContinuousMemCheck.dir/DependInfo.cmake"
   "CMakeFiles/ContinuousSubmit.dir/DependInfo.cmake"
   "CMakeFiles/MCTS_GGP_THESIS.dir/DependInfo.cmake"
+  "games/connect4/CMakeFiles/connect4.dir/DependInfo.cmake"
+  "mcts/CMakeFiles/mcts.dir/DependInfo.cmake"
+  "models/CMakeFiles/models.dir/DependInfo.cmake"
   )

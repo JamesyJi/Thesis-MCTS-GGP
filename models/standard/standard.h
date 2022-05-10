@@ -1,6 +1,6 @@
 #pragma once
 
-#include "models/model.h"
+#include "model.h"
 
 namespace Models::Standard
 {

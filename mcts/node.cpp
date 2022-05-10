@@ -1,8 +1,7 @@
 #include <limits>
 #include <cmath>
 
-#include "mcts/node.h"
-#include "common/game_types.h"
+#include "node.h"
 
 namespace MCTS
 {
@@ -56,12 +55,12 @@ Node<TState, TMove>& Node<TState, TMove>::GetHighestScoreChild() const
 template<typename TState, typename TMove>
 void Node<TState, TMove>::ExpandNode()
 {
-    auto legalMoves = TMove[TState::MAX_MOVES];
+    TMove legalMoves[TState::MAX_MOVES];
     int nLegalMoves = mState->GetLegalMoves(mPlayerTurn, legalMoves);
 
     for (int i = 0; i < nLegalMoves; ++i) 
     {
-        mChildren[i] = Node(mState->MakeMove(legalMoves[i]), Common::GetOtherPlayer(mPlayerTurn), this, legalMoves[i])
+        mChildren[i] = Node(mState->MakeMove(legalMoves[i]), Common::GetOtherPlayer(mPlayerTurn), this, legalMoves[i]);
     }
 }
 

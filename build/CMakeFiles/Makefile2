@@ -66,17 +66,17 @@ CMAKE_BINARY_DIR = /Users/james/Documents/Thesis_C++/build
 all: CMakeFiles/MCTS_GGP_THESIS.dir/all
 all: common/all
 all: games/all
-all: main/all
 all: mcts/all
 all: models/all
+all: main/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: common/preinstall
 preinstall: games/preinstall
-preinstall: main/preinstall
 preinstall: mcts/preinstall
 preinstall: models/preinstall
+preinstall: main/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
@@ -111,9 +111,9 @@ clean: CMakeFiles/ContinuousSubmit.dir/clean
 clean: CMakeFiles/MCTS_GGP_THESIS.dir/clean
 clean: common/clean
 clean: games/clean
-clean: main/clean
 clean: mcts/clean
 clean: models/clean
+clean: main/clean
 .PHONY : clean
 
 #=============================================================================
@@ -135,16 +135,31 @@ common/clean:
 # Directory level rules for directory games
 
 # Recursive "all" directory target.
-games/all:
+games/all: games/connect4/all
 .PHONY : games/all
 
 # Recursive "preinstall" directory target.
-games/preinstall:
+games/preinstall: games/connect4/preinstall
 .PHONY : games/preinstall
 
 # Recursive "clean" directory target.
-games/clean:
+games/clean: games/connect4/clean
 .PHONY : games/clean
+
+#=============================================================================
+# Directory level rules for directory games/connect4
+
+# Recursive "all" directory target.
+games/connect4/all: games/connect4/CMakeFiles/connect4.dir/all
+.PHONY : games/connect4/all
+
+# Recursive "preinstall" directory target.
+games/connect4/preinstall:
+.PHONY : games/connect4/preinstall
+
+# Recursive "clean" directory target.
+games/connect4/clean: games/connect4/CMakeFiles/connect4.dir/clean
+.PHONY : games/connect4/clean
 
 #=============================================================================
 # Directory level rules for directory main
@@ -165,7 +180,7 @@ main/clean:
 # Directory level rules for directory mcts
 
 # Recursive "all" directory target.
-mcts/all:
+mcts/all: mcts/CMakeFiles/mcts.dir/all
 .PHONY : mcts/all
 
 # Recursive "preinstall" directory target.
@@ -173,23 +188,40 @@ mcts/preinstall:
 .PHONY : mcts/preinstall
 
 # Recursive "clean" directory target.
-mcts/clean:
+mcts/clean: mcts/CMakeFiles/mcts.dir/clean
 .PHONY : mcts/clean
 
 #=============================================================================
 # Directory level rules for directory models
 
 # Recursive "all" directory target.
-models/all:
+models/all: models/CMakeFiles/models.dir/all
+models/all: models/standard/all
 .PHONY : models/all
 
 # Recursive "preinstall" directory target.
-models/preinstall:
+models/preinstall: models/standard/preinstall
 .PHONY : models/preinstall
 
 # Recursive "clean" directory target.
-models/clean:
+models/clean: models/CMakeFiles/models.dir/clean
+models/clean: models/standard/clean
 .PHONY : models/clean
+
+#=============================================================================
+# Directory level rules for directory models/standard
+
+# Recursive "all" directory target.
+models/standard/all:
+.PHONY : models/standard/all
+
+# Recursive "preinstall" directory target.
+models/standard/preinstall:
+.PHONY : models/standard/preinstall
+
+# Recursive "clean" directory target.
+models/standard/clean:
+.PHONY : models/standard/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/Experimental.dir
@@ -923,7 +955,9 @@ CMakeFiles/ContinuousSubmit.dir/clean:
 # Target rules for target CMakeFiles/MCTS_GGP_THESIS.dir
 
 # All Build rule for target.
-CMakeFiles/MCTS_GGP_THESIS.dir/all:
+CMakeFiles/MCTS_GGP_THESIS.dir/all: games/connect4/CMakeFiles/connect4.dir/all
+CMakeFiles/MCTS_GGP_THESIS.dir/all: mcts/CMakeFiles/mcts.dir/all
+CMakeFiles/MCTS_GGP_THESIS.dir/all: models/CMakeFiles/models.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCTS_GGP_THESIS.dir/build.make CMakeFiles/MCTS_GGP_THESIS.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCTS_GGP_THESIS.dir/build.make CMakeFiles/MCTS_GGP_THESIS.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=1,2 "Built target MCTS_GGP_THESIS"
@@ -931,7 +965,7 @@ CMakeFiles/MCTS_GGP_THESIS.dir/all:
 
 # Build rule for subdir invocation for target.
 CMakeFiles/MCTS_GGP_THESIS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MCTS_GGP_THESIS.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 0
 .PHONY : CMakeFiles/MCTS_GGP_THESIS.dir/rule
@@ -944,6 +978,84 @@ MCTS_GGP_THESIS: CMakeFiles/MCTS_GGP_THESIS.dir/rule
 CMakeFiles/MCTS_GGP_THESIS.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCTS_GGP_THESIS.dir/build.make CMakeFiles/MCTS_GGP_THESIS.dir/clean
 .PHONY : CMakeFiles/MCTS_GGP_THESIS.dir/clean
+
+#=============================================================================
+# Target rules for target games/connect4/CMakeFiles/connect4.dir
+
+# All Build rule for target.
+games/connect4/CMakeFiles/connect4.dir/all:
+	$(MAKE) $(MAKESILENT) -f games/connect4/CMakeFiles/connect4.dir/build.make games/connect4/CMakeFiles/connect4.dir/depend
+	$(MAKE) $(MAKESILENT) -f games/connect4/CMakeFiles/connect4.dir/build.make games/connect4/CMakeFiles/connect4.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=3,4 "Built target connect4"
+.PHONY : games/connect4/CMakeFiles/connect4.dir/all
+
+# Build rule for subdir invocation for target.
+games/connect4/CMakeFiles/connect4.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 games/connect4/CMakeFiles/connect4.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 0
+.PHONY : games/connect4/CMakeFiles/connect4.dir/rule
+
+# Convenience name for target.
+connect4: games/connect4/CMakeFiles/connect4.dir/rule
+.PHONY : connect4
+
+# clean rule for target.
+games/connect4/CMakeFiles/connect4.dir/clean:
+	$(MAKE) $(MAKESILENT) -f games/connect4/CMakeFiles/connect4.dir/build.make games/connect4/CMakeFiles/connect4.dir/clean
+.PHONY : games/connect4/CMakeFiles/connect4.dir/clean
+
+#=============================================================================
+# Target rules for target mcts/CMakeFiles/mcts.dir
+
+# All Build rule for target.
+mcts/CMakeFiles/mcts.dir/all:
+	$(MAKE) $(MAKESILENT) -f mcts/CMakeFiles/mcts.dir/build.make mcts/CMakeFiles/mcts.dir/depend
+	$(MAKE) $(MAKESILENT) -f mcts/CMakeFiles/mcts.dir/build.make mcts/CMakeFiles/mcts.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=5,6 "Built target mcts"
+.PHONY : mcts/CMakeFiles/mcts.dir/all
+
+# Build rule for subdir invocation for target.
+mcts/CMakeFiles/mcts.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mcts/CMakeFiles/mcts.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 0
+.PHONY : mcts/CMakeFiles/mcts.dir/rule
+
+# Convenience name for target.
+mcts: mcts/CMakeFiles/mcts.dir/rule
+.PHONY : mcts
+
+# clean rule for target.
+mcts/CMakeFiles/mcts.dir/clean:
+	$(MAKE) $(MAKESILENT) -f mcts/CMakeFiles/mcts.dir/build.make mcts/CMakeFiles/mcts.dir/clean
+.PHONY : mcts/CMakeFiles/mcts.dir/clean
+
+#=============================================================================
+# Target rules for target models/CMakeFiles/models.dir
+
+# All Build rule for target.
+models/CMakeFiles/models.dir/all: mcts/CMakeFiles/mcts.dir/all
+	$(MAKE) $(MAKESILENT) -f models/CMakeFiles/models.dir/build.make models/CMakeFiles/models.dir/depend
+	$(MAKE) $(MAKESILENT) -f models/CMakeFiles/models.dir/build.make models/CMakeFiles/models.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=7,8 "Built target models"
+.PHONY : models/CMakeFiles/models.dir/all
+
+# Build rule for subdir invocation for target.
+models/CMakeFiles/models.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 models/CMakeFiles/models.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 0
+.PHONY : models/CMakeFiles/models.dir/rule
+
+# Convenience name for target.
+models: models/CMakeFiles/models.dir/rule
+.PHONY : models
+
+# clean rule for target.
+models/CMakeFiles/models.dir/clean:
+	$(MAKE) $(MAKESILENT) -f models/CMakeFiles/models.dir/build.make models/CMakeFiles/models.dir/clean
+.PHONY : models/CMakeFiles/models.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

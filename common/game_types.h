@@ -1,6 +1,7 @@
 #pragma once
 
 #include <tuple>
+#include <iostream>
 
 namespace Common
 {
@@ -64,7 +65,7 @@ inline Player GetOtherPlayer(Player player)
     return player == Player::PLAYER1 ? Player::PLAYER2 : Player::PLAYER1;
 }
 
-std::ostream& operator<<(std::ostream& os, Player player)
+static std::ostream& operator<<(std::ostream& os, Player player)
 {
     switch (player)
     {
@@ -74,7 +75,7 @@ std::ostream& operator<<(std::ostream& os, Player player)
     }
 }
 
-std::ostream& operator<<(std::ostream& os, Result result)
+static std::ostream& operator<<(std::ostream& os, Result result)
 {
     switch (result)
     {

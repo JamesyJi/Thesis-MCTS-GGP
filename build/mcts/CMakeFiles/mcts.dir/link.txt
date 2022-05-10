@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmcts.a CMakeFiles/mcts.dir/node.cpp.o
+/usr/bin/ranlib libmcts.a

@@ -1,10 +1,11 @@
 #pragma once
 
-#include "common/game_types.h"
-#include "common/resource.h"
-#include "mcts/node.h"
-
 #include <memory>
+
+#include "game_types.h"
+#include "resource.h"
+#include "node.h"
+
 
 namespace Models
 {
@@ -26,6 +27,8 @@ public:
     
     MoveT DecideMove(Common::Resource& resource);
     
+    void NotifyOfOpponentMove(MoveT& move);
+
     void ExecuteStrategy()
     {
         static_cast<M*>(this)->ExecuteStrategy();
@@ -46,13 +49,12 @@ public:
         static_cast<M*>(this)->BackPropagate(node, result);
     }
 
-
-protected:
     Model(Common::Player player, const StateT& state)
     : mPlayer(player)
     , mRoot(std::make_unique<StateT>(state), player, nullptr, MoveT())
     {}
 
+protected:
     Common::Player mPlayer;
     NodeT mRoot;
 };

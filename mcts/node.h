@@ -1,6 +1,6 @@
 #pragma once
 
-#include <common/game_types.h>
+#include "game_types.h"
 
 #include <memory>
 

@@ -1,20 +1,24 @@
-cmake_minimum_required(VERSION 3.0.0)
-project(MCTS_GGP_THESIS VERSION 0.1.0)
-set (CMAKE_CXX_STANDARD 17)
+cmake_minimum_required(VERSION 3.1.4)
+project(MCTS_GGP_THESIS VERSION 0.1.0 LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 include(CTest)
 enable_testing()
 
-add_executable(MCTS_GGP_THESIS experimenter.cpp)
-
 add_subdirectory(common)
 add_subdirectory(games)
-add_subdirectory(main)
 add_subdirectory(mcts)
 add_subdirectory(models)
+add_subdirectory(main)
 
-include_directories(.)
+add_executable(${PROJECT_NAME} experimenter.cpp)
 
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-include(CPack)
+target_link_libraries(${PROJECT_NAME}
+    main
+    models
+    standard
+    games
+    connect4
+    common
+)

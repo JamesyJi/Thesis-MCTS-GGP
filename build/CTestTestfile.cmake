@@ -6,6 +6,6 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("common")
 subdirs("games")
-subdirs("main")
 subdirs("mcts")
 subdirs("models")
+subdirs("main")

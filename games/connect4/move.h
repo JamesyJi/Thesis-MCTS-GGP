@@ -1,5 +1,4 @@
-#ifndef GAMES_CONNECT4_MOVE_H_
-#define GAMES_CONNECT4_MOVE_H_
+#pragma once
 
 namespace Connect4
 {
@@ -30,5 +29,3 @@ struct Connect4Move
 };
 
 }
-
-#endif

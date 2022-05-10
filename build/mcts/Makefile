@@ -146,6 +146,44 @@ depend:
 	cd /Users/james/Documents/Thesis_C++/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+mcts/CMakeFiles/mcts.dir/rule:
+	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mcts/CMakeFiles/mcts.dir/rule
+.PHONY : mcts/CMakeFiles/mcts.dir/rule
+
+# Convenience name for target.
+mcts: mcts/CMakeFiles/mcts.dir/rule
+.PHONY : mcts
+
+# fast build rule for target.
+mcts/fast:
+	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f mcts/CMakeFiles/mcts.dir/build.make mcts/CMakeFiles/mcts.dir/build
+.PHONY : mcts/fast
+
+node.o: node.cpp.o
+.PHONY : node.o
+
+# target to build an object file
+node.cpp.o:
+	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f mcts/CMakeFiles/mcts.dir/build.make mcts/CMakeFiles/mcts.dir/node.cpp.o
+.PHONY : node.cpp.o
+
+node.i: node.cpp.i
+.PHONY : node.i
+
+# target to preprocess a source file
+node.cpp.i:
+	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f mcts/CMakeFiles/mcts.dir/build.make mcts/CMakeFiles/mcts.dir/node.cpp.i
+.PHONY : node.cpp.i
+
+node.s: node.cpp.s
+.PHONY : node.s
+
+# target to generate assembly for a file
+node.cpp.s:
+	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f mcts/CMakeFiles/mcts.dir/build.make mcts/CMakeFiles/mcts.dir/node.cpp.s
+.PHONY : node.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -157,6 +195,10 @@ help:
 	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... mcts"
+	@echo "... node.o"
+	@echo "... node.i"
+	@echo "... node.s"
 .PHONY : help
 
 

@@ -1,1 +1,1 @@
-/usr/bin/clang++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o -o MCTS_GGP_THESIS 
+/usr/bin/clang++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o -o MCTS_GGP_THESIS  models/libmodels.a games/connect4/libconnect4.a models/libmodels.a mcts/libmcts.a 
