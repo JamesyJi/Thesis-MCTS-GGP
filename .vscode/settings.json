@@ -60,6 +60,10 @@
         "utility": "cpp",
         "vector": "cpp",
         "iostream": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "__bits": "cpp",
+        "clocale": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp"
     }
 }

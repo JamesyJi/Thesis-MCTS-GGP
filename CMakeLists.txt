@@ -8,9 +8,9 @@ enable_testing()
 add_executable(MCTS_GGP_THESIS experimenter.cpp)
 
 add_subdirectory(common)
-# add_subdirectory(games)
-# add_subdirectory(main)
-# add_subdirectory(mcts)
+add_subdirectory(games)
+add_subdirectory(main)
+add_subdirectory(mcts)
 add_subdirectory(models)
 
 include_directories(.)

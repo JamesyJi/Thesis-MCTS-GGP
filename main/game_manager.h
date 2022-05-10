@@ -4,25 +4,23 @@
 #include <iostream>
 
 #include <models/model.h>
+#include <models/model_factory.h>
 #include <common/game_types.h>
 #include <common/resource.h>
-#include <main/game_manager.h>
-#include <mcts/state.h>
 
 namespace Main
 {
 
-template <typename GameState, typename Move>
+template <typename TState, typename TMove>
 class GameManager
 {
 public:
-    using GModel = Model<GameState, Move>;
-    using GModelFactory = ModelFactory<GameState, Move>;
+    using TraitsT = Models::Traits<TState, TMove>;
 
-    GameManager(ModelType modelType1, ModelType modelType2)
-    : mModelType1(modelType1)
-    , mModelType2(modelType2)
-    {}
+    GameManager(Models::ModelType model1Type, Models::ModelType model2Type)
+    : mModel1Type(model1Type)
+    , mModel2Type(model2Type)
+    {};
 
     ~GameManager(){};
 
@@ -31,41 +29,50 @@ public:
         for (int i = 0; i < rounds; ++i)
         {
             std::cout << "Starting round " << i << "\n";
-            auto model1 = GModelFactory::MakeModel(mModelType1);
-            auto model2 = GModelFactory::MakeModel(mModelType2);
+            auto model1 = Models::ModelFactory<TraitsT>::MakeModel(Common::Player::PLAYER1, mModel1Type);
+            auto model2 = Models::ModelFactory<TraitsT>::MakeModel(Common::Player::PLAYER2, mModel2Type);
 
-            auto result = StartNewGame(GModel model1, GModel model2, resource);
+            auto result = StartNewGame(model1, model2, resource);
 
             std::cout << result << "\n";
         }
     }
 
-    Common::Result StartNewGame(GModel& model1, GModel& model2, Common::Resource& resource)
+
+    Common::Result StartNewGame(Model1T& model1, Model2T& model2, Common::Resource& resource)
     {
-        GameState state;
-        Move move;
-        GModel* curPlayer = model1;
-        GModel* oppPlayer = model2;
+        TState state;
+        TMove move;
+        
+        auto playerTurn = Common::Player::PLAYER1;
 
         while (state.EvaluateState(move) == Common::Result::ONGOING)
         {
             resource.ResetAndStart();
-            move = curPlayer->DecideMove(resource);
+            switch (playerTurn)
+            {
+                case Common::Player::PLAYER1:
+                    move = model1.DecideMove(resource);
+                    model2.GetChild(move);
+                    break;
+                case Common::Player::PLAYER2:
+                    move = model2.DecideMove(resource);
+                    model1.GetChild(move);
+                    break;
+                default:
+                    std::throw "No player's turn";
+            }
 
-            oppPlayer->GetChild(move);
             state.SimulateMove(move);
-
-            std::swap(curPlayer, oppPlayer);
 
             std::cout << state;
         }
 
         return state.EvaluateState(move);
     }
-
 private:
-    ModelType mModelType1;
-    ModelType mModelType2;
+    Models::ModelType mModel1Type;
+    Models::ModelType mModel2Type;
 };
 
 }

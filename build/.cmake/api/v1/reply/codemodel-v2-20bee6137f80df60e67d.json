@@ -9,7 +9,10 @@
 					"childIndexes" : 
 					[
 						1,
-						2
+						2,
+						3,
+						4,
+						5
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -63,6 +66,39 @@
 					"source" : "common"
 				},
 				{
+					"build" : "games",
+					"jsonFile" : "directory-games-Debug-9e8413e5a81dfbce0392.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "games"
+				},
+				{
+					"build" : "main",
+					"jsonFile" : "directory-main-Debug-c59558c0a3fb20727b44.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "main"
+				},
+				{
+					"build" : "mcts",
+					"jsonFile" : "directory-mcts-Debug-0247e7e798f1e7309218.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "mcts"
+				},
+				{
 					"build" : "models",
 					"jsonFile" : "directory-models-Debug-85536f1cc26d7ce72aeb.json",
 					"minimumCMakeVersion" : 
@@ -82,7 +118,10 @@
 					[
 						0,
 						1,
-						2
+						2,
+						3,
+						4,
+						5
 					],
 					"name" : "MCTS_GGP_THESIS",
 					"targetIndexes" : 

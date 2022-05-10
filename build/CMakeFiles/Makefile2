@@ -65,11 +65,17 @@ CMAKE_BINARY_DIR = /Users/james/Documents/Thesis_C++/build
 # The main recursive "all" target.
 all: CMakeFiles/MCTS_GGP_THESIS.dir/all
 all: common/all
+all: games/all
+all: main/all
+all: mcts/all
 all: models/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: common/preinstall
+preinstall: games/preinstall
+preinstall: main/preinstall
+preinstall: mcts/preinstall
 preinstall: models/preinstall
 .PHONY : preinstall
 
@@ -104,6 +110,9 @@ clean: CMakeFiles/ContinuousMemCheck.dir/clean
 clean: CMakeFiles/ContinuousSubmit.dir/clean
 clean: CMakeFiles/MCTS_GGP_THESIS.dir/clean
 clean: common/clean
+clean: games/clean
+clean: main/clean
+clean: mcts/clean
 clean: models/clean
 .PHONY : clean
 
@@ -121,6 +130,51 @@ common/preinstall:
 # Recursive "clean" directory target.
 common/clean:
 .PHONY : common/clean
+
+#=============================================================================
+# Directory level rules for directory games
+
+# Recursive "all" directory target.
+games/all:
+.PHONY : games/all
+
+# Recursive "preinstall" directory target.
+games/preinstall:
+.PHONY : games/preinstall
+
+# Recursive "clean" directory target.
+games/clean:
+.PHONY : games/clean
+
+#=============================================================================
+# Directory level rules for directory main
+
+# Recursive "all" directory target.
+main/all:
+.PHONY : main/all
+
+# Recursive "preinstall" directory target.
+main/preinstall:
+.PHONY : main/preinstall
+
+# Recursive "clean" directory target.
+main/clean:
+.PHONY : main/clean
+
+#=============================================================================
+# Directory level rules for directory mcts
+
+# Recursive "all" directory target.
+mcts/all:
+.PHONY : mcts/all
+
+# Recursive "preinstall" directory target.
+mcts/preinstall:
+.PHONY : mcts/preinstall
+
+# Recursive "clean" directory target.
+mcts/clean:
+.PHONY : mcts/clean
 
 #=============================================================================
 # Directory level rules for directory models

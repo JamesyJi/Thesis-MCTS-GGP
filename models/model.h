@@ -48,7 +48,7 @@ public:
 
 
 protected:
-    Model(Common::Player player, StateT& state)
+    Model(Common::Player player, const StateT& state)
     : mPlayer(player)
     , mRoot(std::make_unique<StateT>(state), player, nullptr, MoveT())
     {}
