@@ -5,11 +5,12 @@ add_library(models
     model.cpp
 )
 
-target_include_directories(models INTERFACE ${CMAKE_CURRENT_LIST_DIR})
+target_include_directories(models PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 
-target_link_libraries(models 
+target_link_libraries(
+    models 
     mcts
-    common)
+)
 
 
 # add_library(common)

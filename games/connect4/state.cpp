@@ -13,21 +13,25 @@ Common::Result Connect4State::EvaluateState(const Connect4Move& lastMove)
         return Common::Result::ONGOING;
     }
 
+    // std::cout << "check row wins\n";
+
     // Check all the wins in the row
     for (int col = 0, counter = 0; col < COLS; ++col)
     {
         if (mPosition[lastMove.row][col].player == lastMove.player)
         {
-            if (counter++ == WIN_COND) return Common::PlayerToResult(lastMove.player);
+            if (++counter == WIN_COND) return Common::PlayerToResult(lastMove.player);
         } else counter = 0;
     }
 
+    // std::cout << "check col wins\n";
+    
     // Check all the wins in the col
     for (int row = 0, counter = 0; row < ROWS; ++row)
     {
         if (mPosition[row][lastMove.col].player == lastMove.player)
         {
-            if (counter++ == WIN_COND) return Common::PlayerToResult(lastMove.player);
+            if (++counter == WIN_COND) return Common::PlayerToResult(lastMove.player);
         } else counter = 0;
     }
 
@@ -43,14 +47,14 @@ Common::Result Connect4State::EvaluateState(const Connect4Move& lastMove)
         if (go_top && top_row >= 0 && top_col >= 0 
             && mPosition[top_row][top_col].player == lastMove.player) 
         {
-            if (counter++ == WIN_COND) return Common::PlayerToResult(lastMove.player);
+            if (++counter == WIN_COND) return Common::PlayerToResult(lastMove.player);
             else { --top_row; --top_col;}
         } else go_top = false;
 
         if (go_bot && bot_row < ROWS && bot_col < COLS 
             && mPosition[bot_row][bot_col].player == lastMove.player) 
         {
-            if (counter++ == WIN_COND) return Common::PlayerToResult(lastMove.player);
+            if (++counter == WIN_COND) return Common::PlayerToResult(lastMove.player);
             else { ++bot_row; ++bot_col; }
         } else go_bot = false;
     }
@@ -67,14 +71,14 @@ Common::Result Connect4State::EvaluateState(const Connect4Move& lastMove)
         if (go_top && top_row >= 0 && top_col < COLS
             && mPosition[top_row][top_col].player == lastMove.player)
         {
-            if (counter++ == WIN_COND) return Common::PlayerToResult((lastMove.player));
+            if (++counter == WIN_COND) return Common::PlayerToResult((lastMove.player));
             else { --top_row; ++top_col; }
         } else go_top = false;
 
         if (go_bot && bot_row < ROWS && bot_col >= 0 
             && mPosition[bot_row][bot_col].player == lastMove.player) 
         {
-            if (counter++ == WIN_COND) return Common::PlayerToResult(lastMove.player);
+            if (++counter == WIN_COND) return Common::PlayerToResult(lastMove.player);
             else { ++bot_row; --bot_col; }
         } else go_bot = false;
     }

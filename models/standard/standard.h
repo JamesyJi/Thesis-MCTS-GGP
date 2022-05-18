@@ -22,71 +22,83 @@ public:
     void ExecuteStrategy()
     {
         // Selection
+        // std::cout << "selection...\n";
         NodeT& promisingNode = SelectBestChild();
-        
+        StateT& promisingState = *promisingNode.GetState();
+
         // Expansion
-        if (promisingNode.EvaluateState(promisingNode.mLastMove))
+        if (promisingState.EvaluateState(promisingNode.GetLastMove()) == Common::Result::ONGOING)
         {
+            // std::cout << "expansion...\n";
             promisingNode.ExpandNode();
         }
 
         // Simulation
-        NodeT* exploreNode;
-        if (promisingNode.HasChildren()) exploreNode = promisingNode;
-        else exploreNode = promisingNode;
+        NodeT& exploreNode = promisingNode.HasChildren() ? promisingNode.GetRandomChild() : promisingNode;
+        // std::cout << "explore node is before\n";
+        // std::cout << *exploreNode.GetState();
 
         auto evaluation = Simulate(exploreNode);
     
+        // std::cout << "explore node is after\n";
+        // std::cout << *exploreNode.GetState();
+
         // Back Propagation
         BackPropagate(exploreNode, evaluation);
     }
 
     NodeT& SelectBestChild()
     {
-        NodeT& bestChild = this->mRoot;
+        // std::cout << "SelectBestChild()\n";
+        NodeT* bestChild = this->mRoot.get();
 
-        while (bestChild.HasChildren())
+        while (bestChild->HasChildren())
         {
-            bestChild = bestChild.GetHighestScoreChild();
+            bestChild = &bestChild->GetHighestScoreChild();
         }
 
-        return bestChild;
+        return *bestChild;
     }
 
     Common::Result Simulate(NodeT& node)
     {
-        StateT& simulateState = node.GetState();
+        StateT simulateState = *node.GetState();
         auto playerTurn = node.GetPlayerTurn();
-        MoveT& move = node.GetLastMove();
+        MoveT move = node.GetLastMove();
         
         MoveT legalMoves[StateT::MAX_MOVES];
         int nLegalMoves;
         while (simulateState.EvaluateState(move) == Common::Result::ONGOING)
         {
+            // std::cout << simulateState;
+            // std::cout << "==============\n";
             nLegalMoves = simulateState.GetLegalMoves(playerTurn, legalMoves);
             move = legalMoves[rand() % nLegalMoves];
             simulateState.SimulateMove(move);
             playerTurn = Common::GetOtherPlayer(playerTurn);
         }
 
+        // std::cout << simulateState;            
+        // std::cout << "==============\n";
+
         return simulateState.EvaluateState(move);
     }
 
     void BackPropagate(NodeT& node, Common::Result result)
     {
+        // std::cout << "Backpropagation...\n";
+
         auto winnerloser = Common::GetWinnerAndLoser(result);
 
-        NodeT* curNode = node;
+        NodeT* curNode = &node;
         while (curNode != nullptr)
         {
-            switch (curNode->GetPlayerTurn())
+            // std::cout << *curNode->GetState();
+            if (std::get<0>(winnerloser) == curNode->GetPlayerTurn())
             {
-                case std::get<0>(winnerloser):
-                    curNode->IncrValue();
-                    break;
-                case std::get<1>(winnerloser):
-                    curNode->DecrValue();
-                    break;
+                curNode->IncrValue();
+            } else if (std::get<0>(winnerloser) == curNode->GetPlayerTurn()) {
+                curNode->DecrValue();
             }
 
             curNode->Visit();

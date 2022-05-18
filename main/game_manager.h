@@ -10,7 +10,7 @@
 namespace Main
 {
 
-template<template <typename> class Model1, template <typename> class Model2, typename TState, typename TMove>
+template<typename Model1, typename Model2, typename TState, typename TMove>
 class GameManager
 {
 public:
@@ -26,8 +26,8 @@ public:
         for (int i = 0; i < rounds; ++i)
         {
             std::cout << "Starting round " << i << "\n";
-            auto model1 = Models::Model<Model1<TraitsT>, TraitsT>(Common::Player::PLAYER1, TState());
-            auto model2 = Models::Model<Model2<TraitsT>, TraitsT>(Common::Player::PLAYER2, TState());
+            auto model1 = Models::Model<Model1, TraitsT>(Common::Player::PLAYER1, TState());
+            auto model2 = Models::Model<Model2, TraitsT>(Common::Player::PLAYER2, TState());
 
             // auto model1 = Model1<TraitsT>(Common::Player::PLAYER1, TState());
             // auto model2 = Model2<TraitsT>(Common::Player::PLAYER2, TState());
@@ -39,7 +39,7 @@ public:
     }
 
 
-    Common::Result StartNewGame(Models::Model<Model1<TraitsT>, TraitsT>& model1, Models::Model<Model2<TraitsT>, TraitsT> & model2, Common::Resource& resource)
+    Common::Result StartNewGame(Models::Model<Model1, TraitsT>& model1, Models::Model<Model2, TraitsT> & model2, Common::Resource& resource)
     {
         TState state;
         TMove move;
@@ -52,12 +52,12 @@ public:
             switch (playerTurn)
             {
                 case Common::Player::PLAYER1:
-                    // move = model1.DecideMove(resource);
-                    // model2.NotifyOfOpponentMove(move);
+                    move = model1.DecideMove(resource);
+                    model2.NotifyOfOpponentMove(move);
                     break;
                 case Common::Player::PLAYER2:
-                    // move = model2.DecideMove(resource);
-                    // model1.NotifyOfOpponentMove(move);
+                    move = model2.DecideMove(resource);
+                    model1.NotifyOfOpponentMove(move);
                     break;
                 default:
                     throw std::runtime_error("No player's turn");
@@ -65,10 +65,14 @@ public:
 
             state.SimulateMove(move);
 
+            std::cout << "===============\n";
             std::cout << state;
+            std::cout << "===============\n";
 
             playerTurn = Common::GetOtherPlayer(playerTurn);
         }
+
+        std::cout << "GAME END\n";
 
         return state.EvaluateState(move);
     }

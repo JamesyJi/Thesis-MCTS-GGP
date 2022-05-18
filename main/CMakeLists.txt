@@ -8,4 +8,6 @@ target_link_libraries(main INTERFACE
     standard
     games
     models
+    mcts
+    connect4
 )

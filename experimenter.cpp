@@ -6,9 +6,10 @@
 
 int main(void)
 {
-    auto manager = Main::GameManager<Models::Standard::Standard, Models::Standard::Standard, Connect4::Connect4State, Connect4::Connect4Move>();
+    using s = Models::Traits<Connect4::Connect4State, Connect4::Connect4Move>;
+    auto manager = Main::GameManager<Models::Standard::Standard<s>, Models::Standard::Standard<s>, Connect4::Connect4State, Connect4::Connect4Move>();
     auto resource = Common::TimeResource(10);
-    manager.StartExperiment(resource, 10);
+    manager.StartExperiment(resource, 1);
 
     return 0;
 }

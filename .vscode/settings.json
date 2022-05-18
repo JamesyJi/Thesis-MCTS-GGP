@@ -64,6 +64,8 @@
         "__bits": "cpp",
         "clocale": "cpp",
         "compare": "cpp",
-        "concepts": "cpp"
+        "concepts": "cpp",
+        "memory_resource": "cpp",
+        "__functional_03": "cpp"
     }
 }

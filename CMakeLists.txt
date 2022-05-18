@@ -12,13 +12,19 @@ add_subdirectory(mcts)
 add_subdirectory(models)
 add_subdirectory(main)
 
-add_executable(${PROJECT_NAME} experimenter.cpp)
+file(GLOB SOURCES
+    experimenter.cpp
+)
+
+add_executable(${PROJECT_NAME} ${SOURCES})
 
 target_link_libraries(${PROJECT_NAME}
-    main
-    models
-    standard
+    common
     games
     connect4
-    common
+    models
+    standard
+    mcts
+    main
 )
+

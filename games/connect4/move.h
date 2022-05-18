@@ -23,6 +23,11 @@ struct Connect4Move
     , col(col)
     {}
 
+    friend bool operator==(const Connect4Move& lhs, const Connect4Move& rhs)
+    {
+        return lhs.player == rhs.player && lhs.row == rhs.row && lhs.col == rhs.col;
+    }
+
     Common::Player player;
     int row;
     int col;

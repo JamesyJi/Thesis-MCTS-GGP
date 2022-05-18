@@ -1,8 +1,8 @@
 #pragma once
 
-#include "game_types.h"
-
 #include <memory>
+
+#include "game_types.h"
 
 namespace MCTS
 {
@@ -19,13 +19,13 @@ public:
     {}
 
     Node& GetRandomChild() const;
-    Node& GetMostVisitedChild() const;
+    std::unique_ptr<Node>& GetMostVisitedChild();
     Node& GetHighestScoreChild() const;
     void ExpandNode();
     double GetNodeScore() const;
-    Node& GetChild(TMove& opponentMove) const;
+    std::unique_ptr<Node> GetChild(TMove& opponentMove);
     bool HasChildren() const;
-
+    
     void NullParent()
     {
         mParent = nullptr;
@@ -51,9 +51,9 @@ public:
         return mParent;
     }
 
-    TState& GetState() const
+    TState* GetState()
     {
-        return mState;
+        return mState.get();
     }
 
     int GetVisits() const
@@ -61,7 +61,7 @@ public:
         return mVisits;
     }
 
-    TMove& GetLastMove() const
+    const TMove& GetLastMove()
     {
         return mLastMove;
     }
@@ -73,7 +73,7 @@ public:
 
 private:
     std::unique_ptr<TState> mState;
-    Node* const mParent = nullptr;
+    Node* mParent = nullptr;
     std::unique_ptr<Node> mChildren[TState::MAX_MOVES];
     int mNumChildren = 0;
 
