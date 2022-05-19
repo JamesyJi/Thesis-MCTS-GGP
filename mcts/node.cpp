@@ -16,9 +16,9 @@ Node<TState, TMove>& Node<TState, TMove>::GetRandomChild() const
 
 // Assumption is that the node has children
 template<typename TState, typename TMove>
-std::unique_ptr<Node<TState, TMove>>& Node<TState, TMove>::GetMostVisitedChild()
+std::unique_ptr<Node<TState, TMove>> Node<TState, TMove>::GetMostVisitedChild()
 {
-    int maxIndex = 0;
+    int maxIndex = -1;
     int maxVisits = 0;
     for (int i = 0; i < mNumChildren; ++i) 
     {
@@ -29,7 +29,7 @@ std::unique_ptr<Node<TState, TMove>>& Node<TState, TMove>::GetMostVisitedChild()
         }
     }
 
-    return mChildren[maxIndex];
+    return std::move(mChildren[maxIndex]);
 }
 
 // Assumption is that the node has children

@@ -19,7 +19,7 @@ public:
     {}
 
     Node& GetRandomChild() const;
-    std::unique_ptr<Node>& GetMostVisitedChild();
+    std::unique_ptr<Node> GetMostVisitedChild();
     Node& GetHighestScoreChild() const;
     void ExpandNode();
     double GetNodeScore() const;
@@ -69,6 +69,15 @@ public:
     Common::Player GetPlayerTurn() const
     {
         return mPlayerTurn;
+    }
+
+    void LogChildStats() const
+    {
+        for (int i = 0; i < mNumChildren; ++i)
+        {
+            std::cout << "value " << mValue << " visits " << mVisits << "\n";
+            std::cout << *(mChildren[i]->GetState());
+        }
     }
 
 private:

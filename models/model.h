@@ -35,7 +35,13 @@ public:
             static_cast<M*>(this)->ExecuteStrategy();
         }
 
-        mRoot = std::move(mRoot->GetMostVisitedChild());
+        std::cout << "DECIDED MOVE\n";
+        mRoot->LogChildStats();
+
+        int i;
+        std::cin >> i;
+        
+        mRoot = mRoot->GetMostVisitedChild();
         mRoot->NullParent();
 
         return mRoot->GetLastMove();
@@ -70,7 +76,7 @@ public:
 
     Model(Common::Player player, const StateT& state)
     : mPlayer(player)
-    , mRoot(std::make_unique<NodeT>(std::make_unique<StateT>(state), player, nullptr, MoveT()))
+    , mRoot(std::make_unique<NodeT>(std::make_unique<StateT>(state), Common::Player::PLAYER1, nullptr, MoveT()))
     {
         std::cout << "model constructor\n";
     }

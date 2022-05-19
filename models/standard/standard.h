@@ -94,10 +94,19 @@ public:
         while (curNode != nullptr)
         {
             // std::cout << *curNode->GetState();
-            if (std::get<0>(winnerloser) == curNode->GetPlayerTurn())
+            if (std::get<1>(winnerloser) == curNode->GetPlayerTurn())
             {
+                // std::cout << curNode->GetPlayerTurn() << " win\n";
+                // std::cout << *curNode->GetState();
+                // int i;
+                // std::cin >> i;
                 curNode->IncrValue();
             } else if (std::get<0>(winnerloser) == curNode->GetPlayerTurn()) {
+                // std::cout << curNode->GetPlayerTurn() << " loss\n";
+                // std::cout << *curNode->GetState();
+                // int i;
+                // std::cin >> i;
+
                 curNode->DecrValue();
             }
 
