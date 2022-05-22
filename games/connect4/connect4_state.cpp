@@ -56,7 +56,6 @@ Common::Result Connect4State::EvaluateState(const Connect4Move& lastMove)
         if (go_top && top_row >= 0 && top_col >= 0 
             && mPosition[top_row][top_col].player == lastMove.player) 
         {
-            std::cout << top_row << ", " << top_col << " top is same piece\n";
             if (++counter == WIN_COND) {
                 return Common::PlayerToResult(lastMove.player);
             } else { --top_row; --top_col;}
@@ -66,7 +65,6 @@ Common::Result Connect4State::EvaluateState(const Connect4Move& lastMove)
             && mPosition[bot_row][bot_col].player == lastMove.player) 
         {
             if (++counter == WIN_COND) {
-                std::cout << bot_row << ", " << bot_col << " bot is same piece\n";
                 return Common::PlayerToResult(lastMove.player);
             } else { ++bot_row; ++bot_col; }
         } else go_bot = false;

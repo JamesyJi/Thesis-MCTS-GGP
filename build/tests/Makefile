@@ -185,29 +185,29 @@ MCTS_TESTS/fast:
 	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/MCTS_TESTS.dir/build.make tests/CMakeFiles/MCTS_TESTS.dir/build
 .PHONY : MCTS_TESTS/fast
 
-connect4/state_unittest.o: connect4/state_unittest.cpp.o
-.PHONY : connect4/state_unittest.o
+connect4/connect4_state_unittest.o: connect4/connect4_state_unittest.cpp.o
+.PHONY : connect4/connect4_state_unittest.o
 
 # target to build an object file
-connect4/state_unittest.cpp.o:
-	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/MCTS_TESTS.dir/build.make tests/CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.o
-.PHONY : connect4/state_unittest.cpp.o
+connect4/connect4_state_unittest.cpp.o:
+	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/MCTS_TESTS.dir/build.make tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o
+.PHONY : connect4/connect4_state_unittest.cpp.o
 
-connect4/state_unittest.i: connect4/state_unittest.cpp.i
-.PHONY : connect4/state_unittest.i
+connect4/connect4_state_unittest.i: connect4/connect4_state_unittest.cpp.i
+.PHONY : connect4/connect4_state_unittest.i
 
 # target to preprocess a source file
-connect4/state_unittest.cpp.i:
-	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/MCTS_TESTS.dir/build.make tests/CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.i
-.PHONY : connect4/state_unittest.cpp.i
+connect4/connect4_state_unittest.cpp.i:
+	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/MCTS_TESTS.dir/build.make tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.i
+.PHONY : connect4/connect4_state_unittest.cpp.i
 
-connect4/state_unittest.s: connect4/state_unittest.cpp.s
-.PHONY : connect4/state_unittest.s
+connect4/connect4_state_unittest.s: connect4/connect4_state_unittest.cpp.s
+.PHONY : connect4/connect4_state_unittest.s
 
 # target to generate assembly for a file
-connect4/state_unittest.cpp.s:
-	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/MCTS_TESTS.dir/build.make tests/CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.s
-.PHONY : connect4/state_unittest.cpp.s
+connect4/connect4_state_unittest.cpp.s:
+	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/MCTS_TESTS.dir/build.make tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.s
+.PHONY : connect4/connect4_state_unittest.cpp.s
 
 # Help Target
 help:
@@ -223,9 +223,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... MCTS_TESTS"
-	@echo "... connect4/state_unittest.o"
-	@echo "... connect4/state_unittest.i"
-	@echo "... connect4/state_unittest.s"
+	@echo "... connect4/connect4_state_unittest.o"
+	@echo "... connect4/connect4_state_unittest.i"
+	@echo "... connect4/connect4_state_unittest.s"
 .PHONY : help
 
 

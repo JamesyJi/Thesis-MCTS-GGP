@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.o"
-  "CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.o.d"
+  "CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o"
+  "CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o.d"
   "MCTS_TESTS"
   "MCTS_TESTS.pdb"
 )

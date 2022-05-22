@@ -1,10 +1,10 @@
-Start testing: May 23 01:38 AEST
+Start testing: May 23 01:53 AEST
 ----------------------------------------------------------
 1/1 Testing: MCTS_TESTS
 1/1 Test: MCTS_TESTS
 Command: "/Users/james/Documents/Thesis_C++/build/tests/MCTS_TESTS"
 Directory: /Users/james/Documents/Thesis_C++/build/tests
-"MCTS_TESTS" start time: May 23 01:38 AEST
+"MCTS_TESTS" start time: May 23 01:53 AEST
 Output:
 ----------------------------------------------------------
 Running main() from /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -14,54 +14,86 @@ Running main() from /Users/james/Documents/Thesis_C++/build/_deps/googletest-src
 [ RUN      ] state_unittest.EvaluateRowWin
 [       OK ] state_unittest.EvaluateRowWin (0 ms)
 [ RUN      ] state_unittest.EvaluateBottomRightTopLeftDiagonalWin
+Checking top 4 4
 4, 4 top is same piece
+Checking bot 6 6
+Checking top 3 3
 3, 3 top is same piece
+Checking bot 6 6
+Checking top 2 2
 2, 2 top is same piece
+Checking top 3 3
 3, 3 top is same piece
-2, 2 top is same piece
-2, 2 top is same piece
+Checking bot 5 5
 5, 5 bot is same piece
+Checking top 2 2
+2, 2 top is same piece
+Checking top 2 2
+2, 2 top is same piece
+Checking bot 4 4
+4, 4 bot is same piece
+Checking top 1 1
+Checking bot 5 5
 5, 5 bot is same piece
-/Users/james/Documents/Thesis_C++/tests/connect4/state_unittest.cpp:52: Failure
-Expected equality of these values:
-  s2.EvaluateState(Connect4::Connect4Move(Common::Player::PLAYER2, 1, 2))
-    Which is: ONGOING
-  Common::Result::PLAYER2_WIN
-    Which is: PLAYER2_WIN
-/Users/james/Documents/Thesis_C++/tests/connect4/state_unittest.cpp:53: Failure
-Expected equality of these values:
-  s2.EvaluateState(Connect4::Connect4Move(Common::Player::PLAYER2, 2, 3))
-    Which is: ONGOING
-  Common::Result::PLAYER2_WIN
-    Which is: PLAYER2_WIN
-/Users/james/Documents/Thesis_C++/tests/connect4/state_unittest.cpp:54: Failure
-Expected equality of these values:
-  s2.EvaluateState(Connect4::Connect4Move(Common::Player::PLAYER2, 3, 4))
-    Which is: ONGOING
-  Common::Result::PLAYER2_WIN
-    Which is: PLAYER2_WIN
-/Users/james/Documents/Thesis_C++/tests/connect4/state_unittest.cpp:55: Failure
-Expected equality of these values:
-  s2.EvaluateState(Connect4::Connect4Move(Common::Player::PLAYER2, 4, 5))
-    Which is: ONGOING
-  Common::Result::PLAYER2_WIN
-    Which is: PLAYER2_WIN
-[  FAILED  ] state_unittest.EvaluateBottomRightTopLeftDiagonalWin (0 ms)
+Checking top 1 1
+Checking bot 3 3
+3, 3 bot is same piece
+Checking top 1 1
+Checking bot 4 4
+4, 4 bot is same piece
+Checking top 1 1
+Checking bot 5 5
+5, 5 bot is same piece
+  |   |   |   |   |   |   | 
+  |   |   |   |   |   |   | 
+  | [1;31mO[0m |   |   |   |   |   | 
+  | [1;34mX[0m | [1;31mO[0m | [1;34mX[0m | [1;31mO[0m | [1;34mX[0m |   | 
+  | [1;31mO[0m | [1;31mO[0m | [1;31mO[0m | [1;34mX[0m | [1;34mX[0m |   | 
+  | [1;34mX[0m | [1;34mX[0m | [1;31mO[0m | [1;31mO[0m | [1;34mX[0m | [1;34mX[0m | 
+3, 2
+Checking top 2 1
+2, 1 top is same piece
+Checking bot 4 3
+4, 3 bot is same piece
+Checking top 1 0
+Checking bot 5 4
+5, 4 bot is same piece
+1, 2
+Checking top 1 0
+Checking bot 3 2
+3, 2 bot is same piece
+Checking top 1 0
+Checking bot 4 3
+4, 3 bot is same piece
+Checking top 1 0
+Checking bot 5 4
+5, 4 bot is same piece
+Checking top 3 2
+3, 2 top is same piece
+Checking bot 5 4
+5, 4 bot is same piece
+Checking top 2 1
+2, 1 top is same piece
+Checking top 4 3
+4, 3 top is same piece
+Checking bot 6 5
+Checking top 3 2
+3, 2 top is same piece
+Checking bot 6 5
+Checking top 2 1
+2, 1 top is same piece
+[       OK ] state_unittest.EvaluateBottomRightTopLeftDiagonalWin (0 ms)
 [----------] 2 tests from state_unittest (0 ms total)
 
 [----------] Global test environment tear-down
 [==========] 2 tests from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
-[  FAILED  ] 1 test, listed below:
-[  FAILED  ] state_unittest.EvaluateBottomRightTopLeftDiagonalWin
-
- 1 FAILED TEST
+[  PASSED  ] 2 tests.
 <end of output>
-Test time =   0.48 sec
+Test time =   0.32 sec
 ----------------------------------------------------------
-Test Failed.
-"MCTS_TESTS" end time: May 23 01:38 AEST
+Test Passed.
+"MCTS_TESTS" end time: May 23 01:53 AEST
 "MCTS_TESTS" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: May 23 01:38 AEST
+End testing: May 23 01:53 AEST

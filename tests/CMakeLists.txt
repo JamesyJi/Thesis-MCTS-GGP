@@ -15,7 +15,7 @@ target_link_libraries(GTest::GTest INTERFACE gtest_main)
 set(This MCTS_TESTS)
 
 set(Sources
-  connect4/state_unittest.cpp
+  connect4/connect4_state_unittest.cpp
 )
 
 add_executable(${This} ${Sources})

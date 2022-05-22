@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/james/Documents/Thesis_C++/tests/connect4/state_unittest.cpp" "tests/CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.o" "gcc" "tests/CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.o.d"
+  "/Users/james/Documents/Thesis_C++/tests/connect4/connect4_state_unittest.cpp" "tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o" "gcc" "tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o.d"
   )
 
 # Targets to which this target links.

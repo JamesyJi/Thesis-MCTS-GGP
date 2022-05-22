@@ -21,8 +21,8 @@
 },
 {
   "directory": "/Users/james/Documents/Thesis_C++/build/tests",
-  "command": "/usr/bin/clang++  -I/Users/james/Documents/Thesis_C++/tests/connect4 -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/common -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.o -c /Users/james/Documents/Thesis_C++/tests/connect4/state_unittest.cpp",
-  "file": "/Users/james/Documents/Thesis_C++/tests/connect4/state_unittest.cpp"
+  "command": "/usr/bin/clang++  -I/Users/james/Documents/Thesis_C++/tests/connect4 -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/common -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o -c /Users/james/Documents/Thesis_C++/tests/connect4/connect4_state_unittest.cpp",
+  "file": "/Users/james/Documents/Thesis_C++/tests/connect4/connect4_state_unittest.cpp"
 },
 {
   "directory": "/Users/james/Documents/Thesis_C++/build/_deps/googletest-build/googlemock",

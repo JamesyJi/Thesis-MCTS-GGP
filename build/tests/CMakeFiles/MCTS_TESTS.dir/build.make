@@ -69,28 +69,28 @@ include tests/CMakeFiles/MCTS_TESTS.dir/progress.make
 # Include the compile flags for this target's objects.
 include tests/CMakeFiles/MCTS_TESTS.dir/flags.make
 
-tests/CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.o: tests/CMakeFiles/MCTS_TESTS.dir/flags.make
-tests/CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.o: ../tests/connect4/state_unittest.cpp
-tests/CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.o: tests/CMakeFiles/MCTS_TESTS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.o"
-	cd /Users/james/Documents/Thesis_C++/build/tests && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.o -MF CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.o.d -o CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.o -c /Users/james/Documents/Thesis_C++/tests/connect4/state_unittest.cpp
+tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o: tests/CMakeFiles/MCTS_TESTS.dir/flags.make
+tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o: ../tests/connect4/connect4_state_unittest.cpp
+tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o: tests/CMakeFiles/MCTS_TESTS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o"
+	cd /Users/james/Documents/Thesis_C++/build/tests && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o -MF CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o.d -o CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o -c /Users/james/Documents/Thesis_C++/tests/connect4/connect4_state_unittest.cpp
 
-tests/CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.i"
-	cd /Users/james/Documents/Thesis_C++/build/tests && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/james/Documents/Thesis_C++/tests/connect4/state_unittest.cpp > CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.i
+tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.i"
+	cd /Users/james/Documents/Thesis_C++/build/tests && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/james/Documents/Thesis_C++/tests/connect4/connect4_state_unittest.cpp > CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.i
 
-tests/CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.s"
-	cd /Users/james/Documents/Thesis_C++/build/tests && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/james/Documents/Thesis_C++/tests/connect4/state_unittest.cpp -o CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.s
+tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.s"
+	cd /Users/james/Documents/Thesis_C++/build/tests && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/james/Documents/Thesis_C++/tests/connect4/connect4_state_unittest.cpp -o CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.s
 
 # Object files for target MCTS_TESTS
 MCTS_TESTS_OBJECTS = \
-"CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.o"
+"CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o"
 
 # External object files for target MCTS_TESTS
 MCTS_TESTS_EXTERNAL_OBJECTS =
 
-tests/MCTS_TESTS: tests/CMakeFiles/MCTS_TESTS.dir/connect4/state_unittest.cpp.o
+tests/MCTS_TESTS: tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o
 tests/MCTS_TESTS: tests/CMakeFiles/MCTS_TESTS.dir/build.make
 tests/MCTS_TESTS: lib/libgtest_maind.a
 tests/MCTS_TESTS: games/connect4/libconnect4.a

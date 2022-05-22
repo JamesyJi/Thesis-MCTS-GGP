@@ -48,10 +48,11 @@ TEST(state_unittest, EvaluateBottomRightTopLeftDiagonalWin) {
         {E, O, O, O, X, X, E},
         {E, X, X, O, O, X, X},
     };
-    auto s2 = Connect4::Connect4State(position1);
-    EXPECT_EQ(s2.EvaluateState(Connect4::Connect4Move(Common::Player::PLAYER2, 1, 2)), Common::Result::PLAYER2_WIN);
-    EXPECT_EQ(s2.EvaluateState(Connect4::Connect4Move(Common::Player::PLAYER2, 2, 3)), Common::Result::PLAYER2_WIN);
-    EXPECT_EQ(s2.EvaluateState(Connect4::Connect4Move(Common::Player::PLAYER2, 3, 4)), Common::Result::PLAYER2_WIN);
-    EXPECT_EQ(s2.EvaluateState(Connect4::Connect4Move(Common::Player::PLAYER2, 4, 5)), Common::Result::PLAYER2_WIN);
+    
+    auto s2 = Connect4::Connect4State(position2);    
+    EXPECT_EQ(s2.EvaluateState(Connect4::Connect4Move(Common::Player::PLAYER2, 2, 1)), Common::Result::PLAYER2_WIN);
+    EXPECT_EQ(s2.EvaluateState(Connect4::Connect4Move(Common::Player::PLAYER2, 3, 2)), Common::Result::PLAYER2_WIN);
+    EXPECT_EQ(s2.EvaluateState(Connect4::Connect4Move(Common::Player::PLAYER2, 4, 3)), Common::Result::PLAYER2_WIN);
+    EXPECT_EQ(s2.EvaluateState(Connect4::Connect4Move(Common::Player::PLAYER2, 5, 4)), Common::Result::PLAYER2_WIN);
 
 }
