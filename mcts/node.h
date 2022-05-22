@@ -56,6 +56,11 @@ public:
         return mState.get();
     }
 
+    double GetValue() const
+    {
+        return mValue;
+    }
+
     int GetVisits() const
     {
         return mVisits;
@@ -75,7 +80,7 @@ public:
     {
         for (int i = 0; i < mNumChildren; ++i)
         {
-            std::cout << "value " << mValue << " visits " << mVisits << "\n";
+            std::cout << "value " << mChildren[i]->GetValue() << " visits " << mChildren[i]->GetVisits() << " score " << mChildren[i]->GetNodeScore() << "\n";
             std::cout << *(mChildren[i]->GetState());
         }
     }

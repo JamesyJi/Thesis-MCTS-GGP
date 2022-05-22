@@ -36,9 +36,8 @@ std::unique_ptr<Node<TState, TMove>> Node<TState, TMove>::GetMostVisitedChild()
 template<typename TState, typename TMove>
 Node<TState, TMove>& Node<TState, TMove>::GetHighestScoreChild() const
 {
-    // std::cout << "GetHighestScoreChild()\n";
     int maxIndex = 0;
-    double maxScore = std::numeric_limits<double>::min();
+    double maxScore = std::numeric_limits<double>::lowest();
     for (int i = 0; i < mNumChildren; ++i)
     {
         if (mChildren[i]->GetNodeScore() > maxScore)
