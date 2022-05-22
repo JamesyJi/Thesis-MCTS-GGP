@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/connect4.dir/state.cpp.o"
-  "CMakeFiles/connect4.dir/state.cpp.o.d"
+  "CMakeFiles/connect4.dir/connect4_state.cpp.o"
+  "CMakeFiles/connect4.dir/connect4_state.cpp.o.d"
   "libconnect4.a"
   "libconnect4.pdb"
 )

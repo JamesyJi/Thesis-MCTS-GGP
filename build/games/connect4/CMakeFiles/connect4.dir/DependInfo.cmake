@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/james/Documents/Thesis_C++/games/connect4/state.cpp" "games/connect4/CMakeFiles/connect4.dir/state.cpp.o" "gcc" "games/connect4/CMakeFiles/connect4.dir/state.cpp.o.d"
+  "/Users/james/Documents/Thesis_C++/games/connect4/connect4_state.cpp" "games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.o" "gcc" "games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.o.d"
   )
 
 # Targets to which this target links.

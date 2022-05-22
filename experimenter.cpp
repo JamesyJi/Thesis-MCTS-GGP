@@ -2,7 +2,7 @@
 #include "game_manager.h"
 #include "resource.h"
 #include "standard/standard.h"
-#include "connect4/state.h"
+#include "connect4_state.h"
 
 int main(void)
 {

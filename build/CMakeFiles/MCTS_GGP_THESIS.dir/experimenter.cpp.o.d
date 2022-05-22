@@ -423,6 +423,6 @@ CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/math.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/math.h \
   /Users/james/Documents/Thesis_C++/models/standard/standard.h \
-  /Users/james/Documents/Thesis_C++/games/connect4/state.h \
+  /Users/james/Documents/Thesis_C++/games/connect4/connect4_state.h \
   /Users/james/Documents/Thesis_C++/common/pieces.h \
-  /Users/james/Documents/Thesis_C++/games/connect4/move.h
+  /Users/james/Documents/Thesis_C++/games/connect4/connect4_move.h

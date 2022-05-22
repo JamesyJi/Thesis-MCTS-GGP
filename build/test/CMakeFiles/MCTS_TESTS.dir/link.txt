@@ -1,0 +1,1 @@
+/usr/bin/clang++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/MCTS_TESTS.dir/games/connect4/state_unittest.cpp.o -o MCTS_TESTS  ../lib/libgtest_maind.a ../games/connect4/libconnect4.a ../lib/libgtestd.a 

@@ -69,28 +69,28 @@ include games/connect4/CMakeFiles/connect4.dir/progress.make
 # Include the compile flags for this target's objects.
 include games/connect4/CMakeFiles/connect4.dir/flags.make
 
-games/connect4/CMakeFiles/connect4.dir/state.cpp.o: games/connect4/CMakeFiles/connect4.dir/flags.make
-games/connect4/CMakeFiles/connect4.dir/state.cpp.o: ../games/connect4/state.cpp
-games/connect4/CMakeFiles/connect4.dir/state.cpp.o: games/connect4/CMakeFiles/connect4.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object games/connect4/CMakeFiles/connect4.dir/state.cpp.o"
-	cd /Users/james/Documents/Thesis_C++/build/games/connect4 && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT games/connect4/CMakeFiles/connect4.dir/state.cpp.o -MF CMakeFiles/connect4.dir/state.cpp.o.d -o CMakeFiles/connect4.dir/state.cpp.o -c /Users/james/Documents/Thesis_C++/games/connect4/state.cpp
+games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.o: games/connect4/CMakeFiles/connect4.dir/flags.make
+games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.o: ../games/connect4/connect4_state.cpp
+games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.o: games/connect4/CMakeFiles/connect4.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.o"
+	cd /Users/james/Documents/Thesis_C++/build/games/connect4 && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.o -MF CMakeFiles/connect4.dir/connect4_state.cpp.o.d -o CMakeFiles/connect4.dir/connect4_state.cpp.o -c /Users/james/Documents/Thesis_C++/games/connect4/connect4_state.cpp
 
-games/connect4/CMakeFiles/connect4.dir/state.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/connect4.dir/state.cpp.i"
-	cd /Users/james/Documents/Thesis_C++/build/games/connect4 && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/james/Documents/Thesis_C++/games/connect4/state.cpp > CMakeFiles/connect4.dir/state.cpp.i
+games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/connect4.dir/connect4_state.cpp.i"
+	cd /Users/james/Documents/Thesis_C++/build/games/connect4 && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/james/Documents/Thesis_C++/games/connect4/connect4_state.cpp > CMakeFiles/connect4.dir/connect4_state.cpp.i
 
-games/connect4/CMakeFiles/connect4.dir/state.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/connect4.dir/state.cpp.s"
-	cd /Users/james/Documents/Thesis_C++/build/games/connect4 && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/james/Documents/Thesis_C++/games/connect4/state.cpp -o CMakeFiles/connect4.dir/state.cpp.s
+games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/connect4.dir/connect4_state.cpp.s"
+	cd /Users/james/Documents/Thesis_C++/build/games/connect4 && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/james/Documents/Thesis_C++/games/connect4/connect4_state.cpp -o CMakeFiles/connect4.dir/connect4_state.cpp.s
 
 # Object files for target connect4
 connect4_OBJECTS = \
-"CMakeFiles/connect4.dir/state.cpp.o"
+"CMakeFiles/connect4.dir/connect4_state.cpp.o"
 
 # External object files for target connect4
 connect4_EXTERNAL_OBJECTS =
 
-games/connect4/libconnect4.a: games/connect4/CMakeFiles/connect4.dir/state.cpp.o
+games/connect4/libconnect4.a: games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.o
 games/connect4/libconnect4.a: games/connect4/CMakeFiles/connect4.dir/build.make
 games/connect4/libconnect4.a: games/connect4/CMakeFiles/connect4.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libconnect4.a"

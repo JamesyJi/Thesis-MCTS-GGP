@@ -95,6 +95,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd /Users/james/Documents/Thesis_C++/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles /Users/james/Documents/Thesis_C++/build/games/connect4//CMakeFiles/progress.marks
@@ -140,29 +185,29 @@ connect4/fast:
 	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f games/connect4/CMakeFiles/connect4.dir/build.make games/connect4/CMakeFiles/connect4.dir/build
 .PHONY : connect4/fast
 
-state.o: state.cpp.o
-.PHONY : state.o
+connect4_state.o: connect4_state.cpp.o
+.PHONY : connect4_state.o
 
 # target to build an object file
-state.cpp.o:
-	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f games/connect4/CMakeFiles/connect4.dir/build.make games/connect4/CMakeFiles/connect4.dir/state.cpp.o
-.PHONY : state.cpp.o
+connect4_state.cpp.o:
+	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f games/connect4/CMakeFiles/connect4.dir/build.make games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.o
+.PHONY : connect4_state.cpp.o
 
-state.i: state.cpp.i
-.PHONY : state.i
+connect4_state.i: connect4_state.cpp.i
+.PHONY : connect4_state.i
 
 # target to preprocess a source file
-state.cpp.i:
-	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f games/connect4/CMakeFiles/connect4.dir/build.make games/connect4/CMakeFiles/connect4.dir/state.cpp.i
-.PHONY : state.cpp.i
+connect4_state.cpp.i:
+	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f games/connect4/CMakeFiles/connect4.dir/build.make games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.i
+.PHONY : connect4_state.cpp.i
 
-state.s: state.cpp.s
-.PHONY : state.s
+connect4_state.s: connect4_state.cpp.s
+.PHONY : connect4_state.s
 
 # target to generate assembly for a file
-state.cpp.s:
-	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f games/connect4/CMakeFiles/connect4.dir/build.make games/connect4/CMakeFiles/connect4.dir/state.cpp.s
-.PHONY : state.cpp.s
+connect4_state.cpp.s:
+	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f games/connect4/CMakeFiles/connect4.dir/build.make games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.s
+.PHONY : connect4_state.cpp.s
 
 # Help Target
 help:
@@ -171,12 +216,16 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... connect4"
-	@echo "... state.o"
-	@echo "... state.i"
-	@echo "... state.s"
+	@echo "... connect4_state.o"
+	@echo "... connect4_state.i"
+	@echo "... connect4_state.s"
 .PHONY : help
 
 

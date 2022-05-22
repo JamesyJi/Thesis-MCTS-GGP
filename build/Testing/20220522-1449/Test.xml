@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Darwin-clang++"
+	BuildStamp="20220522-1449-Experimental"
+	Name="Jamess-MacBook-Pro-3.local"
+	Generator="ctest-3.23.1"
+	CompilerName="/usr/bin/clang++"
+	CompilerVersion="13.1.6.13160021"
+	OSName="macOS"
+	Hostname="Jamess-MacBook-Pro-3.local"
+	OSRelease="12.4"
+	OSVersion="21F5071b"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="78"
+	ProcessorCacheSize="32768"
+	NumberOfLogicalCPU="4"
+	NumberOfPhysicalCPU="2"
+	TotalVirtualMemory="3072"
+	TotalPhysicalMemory="8192"
+	LogicalProcessorsPerPhysical="8"
+	ProcessorClockFrequency="2900"
+	>
+	<Testing>
+		<StartDateTime>May 23 01:38 AEST</StartDateTime>
+		<StartTestTime>1653233919</StartTestTime>
+		<TestList>
+			<Test>./tests/MCTS_TESTS</Test>
+		</TestList>
+		<Test Status="failed">
+			<Name>MCTS_TESTS</Name>
+			<Path>./tests</Path>
+			<FullName>./tests/MCTS_TESTS</FullName>
+			<FullCommandLine>/Users/james/Documents/Thesis_C++/build/tests/MCTS_TESTS</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="text/string" name="Exit Code">
+					<Value>Failed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Exit Value">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.479016</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/Users/james/Documents/Thesis_C++/build/tests/MCTS_TESTS</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJzNVdFu2jAUffdX3EeiQrICeYm0B1ZShMagClRoQigy4RI8OXYWO7D+/WxCo4JWFa0V6lWkxMfH5+YeJ9dRKQQTKWSUiYYDm0Jm4D0qLJT3i2aovL5MygyFVt5si4qp+O7mxluVjK+9eI258lIpU44alW6pInkx9A5D+xRbdTdJyOJrHUuIjqnbYDmqyn17GIAqmUaXLFp1LGHA5Yryah7FjhVS2BcDhbpV5mfkE1Glqca4FExbkCwgehzDIZZnc264o7w0SCT3cyYMtYrJ97eo0PgCmXIuEv8mtZZZxNKtnsl8hBvdZzSVgnKbs9uELmiZA1OgzB5AzjBB0mlC5x9wu2lrfSf7Fdhvgg8rqS+D3/5sDlviJVIITHTXO3MnyfPAbwdwTxkvCyThn9zQcA34u6Sc6SeQG9BGDcH6iCogAKpduzq1co27o3oQPD/9kDsLZ5kUQfDA6RMW5j7q/QwjU/etKd1xiN2v+ZYlW1NUAJPxYDIcDwz6vC5CVXJdr4vnw/HZmpczH2JF59pWmKvzOa3oXtsK8/t0P6cV/rWtMO3I/3ArTF+97w1HYf9/u2Tdbi9s+hXf9DhNuUMuO1g00qK1lntxem69el5BQYV7msjU+dCbTqs6K657WnwFNoEzZbdyhVzug/f7Q4hRPkrMwumM/AUak5kK====</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>May 23 01:38 AEST</EndDateTime>
+		<EndTestTime>1653233919</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
