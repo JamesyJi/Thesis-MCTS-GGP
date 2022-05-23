@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lib/libgtest_maind.a"
+			"path" : "lib/libgtest_main.a"
 		}
 	],
 	"backtrace" : 3,
@@ -86,7 +86,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk"
+					"fragment" : "-O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk"
 				},
 				{
 					"fragment" : "-Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls"
@@ -146,7 +146,7 @@
 		}
 	},
 	"name" : "gtest_main",
-	"nameOnDisk" : "libgtest_maind.a",
+	"nameOnDisk" : "libgtest_main.a",
 	"paths" : 
 	{
 		"build" : "_deps/googletest-build/googletest",

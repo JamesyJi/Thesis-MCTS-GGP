@@ -24,8 +24,8 @@
 	ProcessorClockFrequency="2900"
 	>
 	<Testing>
-		<StartDateTime>May 23 01:53 AEST</StartDateTime>
-		<StartTestTime>1653234836</StartTestTime>
+		<StartDateTime>May 23 01:54 AEST</StartDateTime>
+		<StartTestTime>1653234885</StartTestTime>
 		<TestList>
 			<Test>./tests/MCTS_TESTS</Test>
 		</TestList>
@@ -36,7 +36,7 @@
 			<FullCommandLine>/Users/james/Documents/Thesis_C++/build/tests/MCTS_TESTS</FullCommandLine>
 			<Results>
 				<NamedMeasurement type="numeric/double" name="Execution Time">
-					<Value>0.324696</Value>
+					<Value>0.271916</Value>
 				</NamedMeasurement>
 				<NamedMeasurement type="numeric/double" name="Processors">
 					<Value>1</Value>
@@ -51,12 +51,12 @@
 					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
 				</NamedMeasurement>
 				<Measurement>
-					<Value encoding="base64" compression="gzip">eJy1U01PwzAMvedX+Aja1rLu48aFgTiAQKpAHKZp6lqvDbRxVTsbSPx4kg2NARpsSFiKHMfv+bmuHFtjtMmhSrQ5OoZ5QxWE94wNh49JhRyeU2orNMLhXYGseTpqtcKZ1WUWTjOsOcyJ8hIFWTrcpFthuAr9beqrB2mqxqcbm0D8Lh2Bx/Bau7sKgK0WDNS4s7EJXJY0S8p1Hs1CN2R8Y8AoHVt/AX8qypIITq3R4h/VGOL7G1jZ5EsuuFgkpXUvMS0ftHHQtd1e/QaFoxOo+Hiv4mckQlWs80LuqL7GuZzrJCeTlF5zVGD65AcjVEMf+qrfds4HmoHdT4FaY4ofuBkJDGH4mdiDnuq1nTuUGEGkorYf4G7iIQIDGKhB2zkf/FBvX919cF5qM7lfdLvQ/VvD34ibiRxK/I9WAV5h19lKBkGg3GJD47eK5iDuvtowslJbgWXCLlfRAjNgbVIE7bbvOUXMeA0uHLWgMvPs7knkPuLFFQjUGyaEYw4=</Value>
+					<Value encoding="base64" compression="gzip">eJyNUU1PwzAMvfdX+LhpagPcOQCdOIAAdZs4TFWVdV4XlMRV7Wx/n35ME5sE9J1i++U9f2TBe+MrcNr4yRR2DTlQK8aG1Zd2yCqlMjj0wmq5RzZcPM1mahOM3apiizWriqiyKMgSc1P+CFUfdq+iU0/KMlrfn5FDdrK+g47Dg/dtHwAHI5hE6/iMHJ4tbbQd6ugPpiHfNQaMEof6inwhyqIFi+CNdMloDdnqDXrkV7VkftA2tJmMjp/Gt9QB7y//UWFyA46no8QfSYRcZqq9LKl+xZ2kRlfktR3r+afCuZWRCxn4ICTaTqNxSxfUTbylo7+86a+3hEb75NKonfPjYbGYp92mTh+T6BsCX9n/====</Value>
 				</Measurement>
 			</Results>
 		</Test>
-		<EndDateTime>May 23 01:53 AEST</EndDateTime>
-		<EndTestTime>1653234837</EndTestTime>
+		<EndDateTime>May 23 01:54 AEST</EndDateTime>
+		<EndTestTime>1653234885</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>
