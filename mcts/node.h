@@ -11,8 +11,8 @@ template<typename TState, typename TMove>
 class Node
 {
 public:
-    Node(std::unique_ptr<TState> state, Common::Player player, Node* parent, const TMove& lastMove)
-    : mState(std::move(state))
+    Node(const TState& state, Common::Player player, Node* parent, const TMove& lastMove)
+    : mState(state)
     , mPlayerTurn(player)
     , mParent(parent)
     , mLastMove(lastMove)
@@ -51,9 +51,14 @@ public:
         return mParent;
     }
 
-    TState* GetState()
+    TState GetStateCopy() const
     {
-        return mState.get();
+        return mState;
+    }
+
+    TState& GetStateRef()
+    {
+        return mState;
     }
 
     double GetValue() const
@@ -81,12 +86,12 @@ public:
         for (int i = 0; i < mNumChildren; ++i)
         {
             std::cout << "value " << mChildren[i]->GetValue() << " visits " << mChildren[i]->GetVisits() << " score " << mChildren[i]->GetNodeScore() << "\n";
-            std::cout << *(mChildren[i]->GetState());
+            std::cout << mChildren[i]->GetStateRef();
         }
     }
 
 private:
-    std::unique_ptr<TState> mState;
+    TState mState;
     Node* mParent = nullptr;
     std::unique_ptr<Node> mChildren[TState::MAX_MOVES];
     int mNumChildren = 0;

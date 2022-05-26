@@ -24,7 +24,7 @@ public:
         // Selection
         // std::cout << "selection...\n";
         NodeT& promisingNode = SelectBestChild();
-        StateT& promisingState = *promisingNode.GetState();
+        StateT& promisingState = promisingNode.GetStateRef();
 
         // Expansion
         if (promisingState.EvaluateState(promisingNode.GetLastMove()) == Common::Result::ONGOING)
@@ -62,7 +62,7 @@ public:
 
     Common::Result Simulate(NodeT& node)
     {
-        StateT simulateState = *node.GetState();
+        StateT simulateState = node.GetStateCopy();
         auto playerTurn = node.GetPlayerTurn();
         MoveT move = node.GetLastMove();
         

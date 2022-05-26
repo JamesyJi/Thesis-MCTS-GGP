@@ -56,11 +56,11 @@ template<typename TState, typename TMove>
 void Node<TState, TMove>::ExpandNode()
 {
     TMove legalMoves[TState::MAX_MOVES];
-    mNumChildren = mState->GetLegalMoves(mPlayerTurn, legalMoves);
+    mNumChildren = mState.GetLegalMoves(mPlayerTurn, legalMoves);
 
     for (int i = 0; i < mNumChildren; ++i) 
     {
-        mChildren[i] = std::make_unique<Node<TState, TMove>>(std::make_unique<TState>(mState->MakeMove(legalMoves[i])), Common::GetOtherPlayer(mPlayerTurn), this, legalMoves[i]);
+        mChildren[i] = std::make_unique<Node<TState, TMove>>(TState(mState.MakeMove(legalMoves[i])), Common::GetOtherPlayer(mPlayerTurn), this, legalMoves[i]);
     }
 }
 
@@ -84,7 +84,7 @@ std::unique_ptr<Node<TState, TMove>> Node<TState, TMove>::GetChild(TMove& move)
     }
 
     // TODO: We could use SimulateMove if we are sure the parent will no longer refer to the state after this function
-    mChildren[mNumChildren++] = std::make_unique<Node<TState, TMove>>(std::make_unique<TState>(mState->MakeMove(move)), Common::GetOtherPlayer(mPlayerTurn), this, move);    
+    mChildren[mNumChildren++] = std::make_unique<Node<TState, TMove>>(mState.MakeMove(move), Common::GetOtherPlayer(mPlayerTurn), this, move);    
     return std::move(mChildren[mNumChildren - 1]);
 }
 

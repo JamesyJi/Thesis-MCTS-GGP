@@ -76,7 +76,7 @@ public:
 
     Model(Common::Player player, const StateT& state)
     : mPlayer(player)
-    , mRoot(std::make_unique<NodeT>(std::make_unique<StateT>(state), Common::Player::PLAYER1, nullptr, MoveT()))
+    , mRoot(std::make_unique<NodeT>(state, Common::Player::PLAYER1, nullptr, MoveT()))
     {
         std::cout << "model constructor\n";
     }
