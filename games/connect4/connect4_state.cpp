@@ -148,6 +148,13 @@ void Connect4State::SimulateMove(const Connect4Move& move)
     mPosition[move.row][move.col] = move.player;
 }
 
+// Given a move, undoes it
+// Assumes the given move is valid
+void Connect4State::UndoMove(const Connect4Move& move)
+{
+    mPosition[move.row][move.col] = Common::Player::NONE;
+}
+
 // True if the positions are equal
 bool operator==(const Connect4State& lhs, const Connect4State& rhs)
 {

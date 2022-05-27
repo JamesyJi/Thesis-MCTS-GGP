@@ -74,12 +74,12 @@ public:
         static_cast<M*>(this)->BackPropagate(node, result);
     }
 
+    Common::Result Minimax(StateT& state, MoveT& lastMove, int depth, Common::Result alpha, Common::Result beta, Common::Player player);
+
     Model(Common::Player player, const StateT& state)
     : mPlayer(player)
     , mRoot(std::make_unique<NodeT>(state, Common::Player::PLAYER1, nullptr, MoveT()))
-    {
-        std::cout << "model constructor\n";
-    }
+    {}
 
 protected:
     Common::Player mPlayer;

@@ -40,6 +40,7 @@ public:
     int GetLegalMoves(Common::Player player, Connect4Move[MAX_MOVES]) const;
     Connect4State MakeMove(const Connect4Move&) const;
     void SimulateMove(const Connect4Move&);
+    void UndoMove(const Connect4Move&);
 
     friend bool operator==(const Connect4State& lhs, const Connect4State& rhs);
     friend std::ostream& operator<<(std::ostream& os, const Connect4State& state);

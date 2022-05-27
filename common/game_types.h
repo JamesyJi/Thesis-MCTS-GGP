@@ -21,6 +21,110 @@ enum class Result
     ONGOING
 };
 
+inline bool operator<(Result a, Result b)
+{
+    switch (a)
+    {
+        case Result::PLAYER1_WIN:
+            return false;
+        case Result::PLAYER2_WIN:
+            switch (b)
+            {
+                case Result::PLAYER2_WIN:
+                    return false;
+                default:
+                    return true;
+            }
+        case Result::DRAW:
+        case Result::ONGOING:
+            switch (b)
+            {
+                case Result::PLAYER1_WIN:
+                    return true;
+                default:
+                    return false;
+            }
+    }
+}
+
+inline bool operator<=(Result a, Result b)
+{
+    switch (a)
+    {
+        case Result::PLAYER1_WIN:
+            switch (b)
+            {
+                case Result::PLAYER1_WIN:
+                    return true;
+                default:
+                    return false;
+            }
+        case Result::PLAYER2_WIN:
+            return true;
+        case Result::DRAW:
+        case Result::ONGOING:
+            switch (b)
+            {
+                case Result::PLAYER2_WIN:
+                    return false;
+                default:
+                    return true;
+            }
+    }
+}
+
+inline bool operator>(Result a, Result b)
+{
+    switch (a)
+    {
+        case Result::PLAYER1_WIN:
+            switch (b)
+            {
+                case Result::PLAYER1_WIN:
+                    return false;
+                default:
+                    return true;
+            }
+        case Result::PLAYER2_WIN:
+            return false;
+        case Result::DRAW:
+        case Result::ONGOING:
+            switch (b)
+            {
+                case Result::PLAYER2_WIN:
+                    return true;
+                default:
+                    return false;
+            }
+    }
+}
+
+inline bool operator>=(Result a, Result b)
+{
+    switch (a)
+    {
+        case Result::PLAYER1_WIN:
+            return true;
+        case Result::PLAYER2_WIN:
+            switch (b)
+            {
+                case Result::PLAYER2_WIN:
+                    return true;
+                default:
+                    return false;
+            }
+        case Result::DRAW:
+        case Result::ONGOING:
+            switch (b)
+            {
+                case Result::PLAYER1_WIN:
+                    return false;
+                default:
+                    return true;
+            }
+    }
+}
+
 inline Result PlayerToResult(Player player)
 {
     switch (player)
