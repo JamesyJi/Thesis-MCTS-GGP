@@ -25,10 +25,23 @@ public:
     double GetNodeScore() const;
     std::unique_ptr<Node> GetChild(TMove& opponentMove);
     bool HasChildren() const;
-    
+    bool TryProveWinFromChildren();
+
     void NullParent()
     {
         mParent = nullptr;
+    }
+
+    void ProveResult(double value)
+    {
+        mProven = true;
+        mValue = value;
+        mVisits = std::numeric_limits<int>::max();
+    }
+
+    bool IsProven() const
+    {
+        return mProven;
     }
 
     void IncrValue()
@@ -96,6 +109,7 @@ private:
     std::unique_ptr<Node> mChildren[TState::MAX_MOVES];
     int mNumChildren = 0;
 
+    bool mProven = false; // Toggle to true when we have proven the result so no need to adjust value
     double mValue = 0;
     int mVisits = 0;
 

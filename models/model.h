@@ -74,7 +74,9 @@ public:
         static_cast<M*>(this)->BackPropagate(node, result);
     }
 
-    Common::Result Minimax(StateT& state, MoveT& lastMove, int depth, Common::Result alpha, Common::Result beta, Common::Player player);
+    void BackPropagateProven(NodeT& node, Common::Result result);
+
+    Common::Result Minimax(StateT& state, const MoveT& lastMove, int depth, Common::Result alpha, Common::Result beta, Common::Player player);
 
     Model(Common::Player player, const StateT& state)
     : mPlayer(player)

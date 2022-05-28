@@ -95,4 +95,23 @@ bool Node<TState, TMove>::HasChildren() const
     return mNumChildren != 0;
 }
 
+// PRECONDITION: This node has expanded all its child nodes
+// Tries to prove that this node is a win based on its children.
+// If all children nodes are proven losses, then this node itself must be a win
+// Returns true is this node is proven to be a win and false otherwise
+template <typename TState, typename TMove>
+bool Node<TState, TMove>::TryProveWinFromChildren()
+{
+    for (int i = 0; i < mNumChildren; ++i)
+    {
+        if (!mChildren[i]->IsProven() || mChildren[i]->GetValue() != std::numeric_limits<double>::lowest())
+        {
+            return false;
+        }
+    }
+
+    ProveResult(std::numeric_limits<double>::max());
+    return true;
+}
+
 }

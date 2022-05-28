@@ -93,6 +93,12 @@ public:
         NodeT* curNode = &node;
         while (curNode != nullptr)
         {
+            if (curNode->IsProven())
+            {
+                curNode = curNode->GetParent();
+                continue;
+            }
+
             // std::cout << *curNode->GetState();
             if (std::get<1>(winnerloser) == curNode->GetPlayerTurn())
             {

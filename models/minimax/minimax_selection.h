@@ -2,6 +2,9 @@
 
 #include "model.h"
 
+#define DEPTH 4
+#define N_VISITS 2
+
 namespace Models::Minimax
 {
 
@@ -35,6 +38,9 @@ public:
         NodeT& exploreNode = promisingNode.HasChildren() ? promisingNode.GetRandomChild() : promisingNode;
     
         auto evaluation = Simulate(exploreNode);
+
+        // Back Propagation
+        BackPropagate(exploreNode, evaluation)
     }
 
     NodeT& SelectBestChild()
@@ -50,17 +56,14 @@ public:
                 // Perform minimax in selection phase after a certain number of visits
                 if (bestChild->GetVisits() == N_VISITS)
                 {
-                    // TODO
+                    auto evaluation = Minimax(bestChild->GetStateRef(), bestChild->GetLastMove(), DEPTH, Common::Result::PLAYER2_WIN, Common::Result::PLAYER1_WIN, bestChild->GetPlayerTurn())
+                    BackPropagateProven(bestChild, evaluation)
                 }
             }
-
-            if (bestChild->GetValue() == std::numeric_limits<int>::max() || bestChild->GetValue() == std::numeric_limits<int>)
         }
 
         return *bestChild;
     }
-
-
 };
 
 }

@@ -5,10 +5,57 @@
 namespace Models
 {
 
-// typename Model<M, TTraits>::MoveT Model<M, TTraits>::DecideMove
+// Backpropagates proven results
+template<typename M, typename TTraits>
+void Model<M, TTraits>::BackPropagateProven(NodeT& node, Common::Result result)
+{
+    if (result == Common::Result::ONGOING || result == Common::Result::DRAW)
+    {
+        return;
+    }
+
+    auto curPlayer = node.GetPlayerTurn();
+    auto otherPlayer = Common::GetOtherPlayer(curPlayer);
+
+    NodeT* curNode;
+
+    if constexpr (result == Common::PlayerToResult(curPlayer))
+    {
+        // The player who moved into this turn lost
+        node.ProveResult(std::numeric_limits<double>::lowest());
+        curNode = node.GetParent();
+    } else if constexpr (result == Common::PlayerToResult(otherPlayer))
+    {
+        // The player who moved into this turn won
+        node.ProveResult(std::numeric_limits<double>::max());
+        curNode = node.GetParent();
+        if (curNode != nullptr) {
+            curNode->ProveResult(std::numeric_limits<double>::lowest());
+            curNode = curNode->GetParent();
+        }
+    }
+
+    // Try to propagate everything up the tree as far as possible by checking
+    // to see if all children nodes are proven
+    while (curNode != nullptr)
+    {
+        if (!curNode->TryProveWinFromChildren())
+        {
+            return;
+        }
+
+        // Node has been proven to be a win. The prior move must be a loss
+        curNode = curNode->GetParent();
+        if (curNode != nullptr)
+        {
+            curNode->ProveResult(std::numeric_limits<double>::lowest());
+            curNode = curNode->GetParent();
+        }
+    }
+}
 
 template<typename M, typename TTraits>
-Common::Result Model<M, TTraits>::Minimax(StateT& state, MoveT& lastMove, int depth, Common::Result alpha, Common::Result beta, Common::Player player)
+Common::Result Model<M, TTraits>::Minimax(StateT& state, const MoveT& lastMove, int depth, Common::Result alpha, Common::Result beta, Common::Player player)
 {
 
     if (depth == 0 || state.EvaluateState(lastMove)) return state.EvaluateState(lastMove);
@@ -55,28 +102,5 @@ Common::Result Model<M, TTraits>::Minimax(StateT& state, MoveT& lastMove, int de
     }
 
 }
-
-// template<typename M, typename TTraits>
-// typename Model<M, TTraits>::MoveT Model<M, TTraits>::DecideMove(Common::Resource& resource)
-// {
-//     std::cout << "Deciding move...\n";
-//     while (resource.UseResource())
-//     {
-//         static_cast<M*>(this)->ExecuteStrategy();
-//     }
-
-//     mRoot = mRoot.GetMostVisitedChild();
-//     mRoot.NullParent();
-
-//     return mRoot.GetLastMove();
-// }
-
-// template<typename M, typename TTraits>
-// void Model<M, TTraits>::NotifyOfOpponentMove(MoveT& move)
-// {
-//     mRoot = mRoot.GetChild(move);
-//     mRoot.NullParent();
-// }
-
 
 }
