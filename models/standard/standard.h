@@ -44,7 +44,7 @@ public:
         // std::cout << *exploreNode.GetState();
 
         // Back Propagation
-        BackPropagate(exploreNode, evaluation);
+        this->BackPropagate(exploreNode, evaluation);
     }
 
     NodeT& SelectBestChild()
@@ -82,43 +82,6 @@ public:
         // std::cout << "==============\n";
 
         return simulateState.EvaluateState(move);
-    }
-
-    void BackPropagate(NodeT& node, Common::Result result)
-    {
-        // std::cout << "Backpropagation...\n";
-
-        auto winnerloser = Common::GetWinnerAndLoser(result);
-
-        NodeT* curNode = &node;
-        while (curNode != nullptr)
-        {
-            if (curNode->IsProven())
-            {
-                curNode = curNode->GetParent();
-                continue;
-            }
-
-            // std::cout << *curNode->GetState();
-            if (std::get<1>(winnerloser) == curNode->GetPlayerTurn())
-            {
-                // std::cout << curNode->GetPlayerTurn() << " win\n";
-                // std::cout << *curNode->GetState();
-                // int i;
-                // std::cin >> i;
-                curNode->IncrValue();
-            } else if (std::get<0>(winnerloser) == curNode->GetPlayerTurn()) {
-                // std::cout << curNode->GetPlayerTurn() << " loss\n";
-                // std::cout << *curNode->GetState();
-                // int i;
-                // std::cin >> i;
-
-                curNode->DecrValue();
-            }
-
-            curNode->Visit();
-            curNode = curNode->GetParent();
-        }
     }
 };
 

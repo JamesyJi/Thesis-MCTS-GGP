@@ -69,10 +69,7 @@ public:
         static_cast<M*>(this)->Simulate(node);
     }
 
-    void BackPropagate(NodeT& node, Common::Result result)
-    {
-        static_cast<M*>(this)->BackPropagate(node, result);
-    }
+    void BackPropagate(NodeT& node, Common::Result result);
 
     void BackPropagateProven(NodeT& node, Common::Result result);
 
@@ -89,3 +86,5 @@ protected:
 };
 
 }
+
+#include "model.cpp" // Template definitions

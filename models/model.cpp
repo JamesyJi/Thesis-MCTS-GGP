@@ -5,6 +5,34 @@
 namespace Models
 {
 
+// Backpropagates results
+template<typename M, typename TTraits>
+void Model<M, TTraits>::BackPropagate(NodeT& node, Common::Result result)
+{
+    auto winnerloser = Common::GetWinnerAndLoser(result);
+
+        NodeT* curNode = &node;
+        while (curNode != nullptr)
+        {
+            if (curNode->IsProven())
+            {
+                curNode = curNode->GetParent();
+                continue;
+            }
+
+            if (std::get<1>(winnerloser) == curNode->GetPlayerTurn())
+            {
+                curNode->IncrValue();
+            } else if (std::get<0>(winnerloser) == curNode->GetPlayerTurn()) {
+                curNode->DecrValue();
+            }
+
+            curNode->Visit();
+            curNode = curNode->GetParent();
+        }
+}
+
+
 // Backpropagates proven results
 template<typename M, typename TTraits>
 void Model<M, TTraits>::BackPropagateProven(NodeT& node, Common::Result result)
