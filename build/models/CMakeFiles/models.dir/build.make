@@ -69,31 +69,15 @@ include models/CMakeFiles/models.dir/progress.make
 # Include the compile flags for this target's objects.
 include models/CMakeFiles/models.dir/flags.make
 
-models/CMakeFiles/models.dir/model.cpp.o: models/CMakeFiles/models.dir/flags.make
-models/CMakeFiles/models.dir/model.cpp.o: ../models/model.cpp
-models/CMakeFiles/models.dir/model.cpp.o: models/CMakeFiles/models.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object models/CMakeFiles/models.dir/model.cpp.o"
-	cd /Users/james/Documents/Thesis_C++/build/models && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT models/CMakeFiles/models.dir/model.cpp.o -MF CMakeFiles/models.dir/model.cpp.o.d -o CMakeFiles/models.dir/model.cpp.o -c /Users/james/Documents/Thesis_C++/models/model.cpp
-
-models/CMakeFiles/models.dir/model.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/models.dir/model.cpp.i"
-	cd /Users/james/Documents/Thesis_C++/build/models && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/james/Documents/Thesis_C++/models/model.cpp > CMakeFiles/models.dir/model.cpp.i
-
-models/CMakeFiles/models.dir/model.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/models.dir/model.cpp.s"
-	cd /Users/james/Documents/Thesis_C++/build/models && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/james/Documents/Thesis_C++/models/model.cpp -o CMakeFiles/models.dir/model.cpp.s
-
 # Object files for target models
-models_OBJECTS = \
-"CMakeFiles/models.dir/model.cpp.o"
+models_OBJECTS =
 
 # External object files for target models
 models_EXTERNAL_OBJECTS =
 
-models/libmodels.a: models/CMakeFiles/models.dir/model.cpp.o
 models/libmodels.a: models/CMakeFiles/models.dir/build.make
 models/libmodels.a: models/CMakeFiles/models.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libmodels.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX static library libmodels.a"
 	cd /Users/james/Documents/Thesis_C++/build/models && $(CMAKE_COMMAND) -P CMakeFiles/models.dir/cmake_clean_target.cmake
 	cd /Users/james/Documents/Thesis_C++/build/models && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/models.dir/link.txt --verbose=$(VERBOSE)
 

@@ -249,7 +249,6 @@ mcts/clean: mcts/CMakeFiles/mcts.dir/clean
 # Directory level rules for directory models
 
 # Recursive "all" directory target.
-models/all: models/CMakeFiles/models.dir/all
 models/all: models/standard/all
 .PHONY : models/all
 
@@ -258,7 +257,6 @@ models/preinstall: models/standard/preinstall
 .PHONY : models/preinstall
 
 # Recursive "clean" directory target.
-models/clean: models/CMakeFiles/models.dir/clean
 models/clean: models/standard/clean
 .PHONY : models/clean
 
@@ -1028,7 +1026,6 @@ CMakeFiles/ContinuousSubmit.dir/clean:
 # All Build rule for target.
 CMakeFiles/MCTS_GGP_THESIS.dir/all: games/connect4/CMakeFiles/connect4.dir/all
 CMakeFiles/MCTS_GGP_THESIS.dir/all: mcts/CMakeFiles/mcts.dir/all
-CMakeFiles/MCTS_GGP_THESIS.dir/all: models/CMakeFiles/models.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCTS_GGP_THESIS.dir/build.make CMakeFiles/MCTS_GGP_THESIS.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCTS_GGP_THESIS.dir/build.make CMakeFiles/MCTS_GGP_THESIS.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=1,2 "Built target MCTS_GGP_THESIS"
@@ -1036,7 +1033,7 @@ CMakeFiles/MCTS_GGP_THESIS.dir/all: models/CMakeFiles/models.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/MCTS_GGP_THESIS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MCTS_GGP_THESIS.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 0
 .PHONY : CMakeFiles/MCTS_GGP_THESIS.dir/rule
@@ -1101,32 +1098,6 @@ mcts: mcts/CMakeFiles/mcts.dir/rule
 mcts/CMakeFiles/mcts.dir/clean:
 	$(MAKE) $(MAKESILENT) -f mcts/CMakeFiles/mcts.dir/build.make mcts/CMakeFiles/mcts.dir/clean
 .PHONY : mcts/CMakeFiles/mcts.dir/clean
-
-#=============================================================================
-# Target rules for target models/CMakeFiles/models.dir
-
-# All Build rule for target.
-models/CMakeFiles/models.dir/all: mcts/CMakeFiles/mcts.dir/all
-	$(MAKE) $(MAKESILENT) -f models/CMakeFiles/models.dir/build.make models/CMakeFiles/models.dir/depend
-	$(MAKE) $(MAKESILENT) -f models/CMakeFiles/models.dir/build.make models/CMakeFiles/models.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=17,18 "Built target models"
-.PHONY : models/CMakeFiles/models.dir/all
-
-# Build rule for subdir invocation for target.
-models/CMakeFiles/models.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 models/CMakeFiles/models.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 0
-.PHONY : models/CMakeFiles/models.dir/rule
-
-# Convenience name for target.
-models: models/CMakeFiles/models.dir/rule
-.PHONY : models
-
-# clean rule for target.
-models/CMakeFiles/models.dir/clean:
-	$(MAKE) $(MAKESILENT) -f models/CMakeFiles/models.dir/build.make models/CMakeFiles/models.dir/clean
-.PHONY : models/CMakeFiles/models.dir/clean
 
 #=============================================================================
 # Target rules for target tests/CMakeFiles/MCTS_TESTS.dir

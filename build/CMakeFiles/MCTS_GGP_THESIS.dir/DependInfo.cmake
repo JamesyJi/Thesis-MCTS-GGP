@@ -14,7 +14,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/Users/james/Documents/Thesis_C++/build/games/connect4/CMakeFiles/connect4.dir/DependInfo.cmake"
-  "/Users/james/Documents/Thesis_C++/build/models/CMakeFiles/models.dir/DependInfo.cmake"
   "/Users/james/Documents/Thesis_C++/build/mcts/CMakeFiles/mcts.dir/DependInfo.cmake"
   )
 

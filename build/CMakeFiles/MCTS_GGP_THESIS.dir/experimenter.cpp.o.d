@@ -414,7 +414,7 @@ CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__bsd_locale_defaults.h \
   /Users/james/Documents/Thesis_C++/main/game_manager.h \
-  /Users/james/Documents/Thesis_C++/models/model.h \
+  /Users/james/Documents/Thesis_C++/models/./model.h \
   /Users/james/Documents/Thesis_C++/common/game_types.h \
   /Users/james/Documents/Thesis_C++/common/resource.h \
   /Users/james/Documents/Thesis_C++/mcts/node.h \
@@ -422,7 +422,8 @@ CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/cmath \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/math.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/math.h \
-  /Users/james/Documents/Thesis_C++/models/standard/standard.h \
+  /Users/james/Documents/Thesis_C++/models/./model.cpp \
+  /Users/james/Documents/Thesis_C++/models/./standard/standard.h \
   /Users/james/Documents/Thesis_C++/games/connect4/connect4_state.h \
   /Users/james/Documents/Thesis_C++/common/pieces.h \
   /Users/james/Documents/Thesis_C++/games/connect4/connect4_move.h

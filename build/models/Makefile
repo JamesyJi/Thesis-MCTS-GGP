@@ -171,44 +171,6 @@ depend:
 	cd /Users/james/Documents/Thesis_C++/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-# Convenience name for target.
-models/CMakeFiles/models.dir/rule:
-	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 models/CMakeFiles/models.dir/rule
-.PHONY : models/CMakeFiles/models.dir/rule
-
-# Convenience name for target.
-models: models/CMakeFiles/models.dir/rule
-.PHONY : models
-
-# fast build rule for target.
-models/fast:
-	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f models/CMakeFiles/models.dir/build.make models/CMakeFiles/models.dir/build
-.PHONY : models/fast
-
-model.o: model.cpp.o
-.PHONY : model.o
-
-# target to build an object file
-model.cpp.o:
-	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f models/CMakeFiles/models.dir/build.make models/CMakeFiles/models.dir/model.cpp.o
-.PHONY : model.cpp.o
-
-model.i: model.cpp.i
-.PHONY : model.i
-
-# target to preprocess a source file
-model.cpp.i:
-	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f models/CMakeFiles/models.dir/build.make models/CMakeFiles/models.dir/model.cpp.i
-.PHONY : model.cpp.i
-
-model.s: model.cpp.s
-.PHONY : model.s
-
-# target to generate assembly for a file
-model.cpp.s:
-	cd /Users/james/Documents/Thesis_C++/build && $(MAKE) $(MAKESILENT) -f models/CMakeFiles/models.dir/build.make models/CMakeFiles/models.dir/model.cpp.s
-.PHONY : model.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,10 +184,6 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... models"
-	@echo "... model.o"
-	@echo "... model.i"
-	@echo "... model.s"
 .PHONY : help
 
 

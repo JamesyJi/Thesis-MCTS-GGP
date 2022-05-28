@@ -64,7 +64,7 @@
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/Users/james/Documents/Thesis_C++/models"
+					"path" : "/Users/james/Documents/Thesis_C++/models/."
 				},
 				{
 					"backtrace" : 2,
@@ -99,10 +99,6 @@
 		{
 			"backtrace" : 2,
 			"id" : "mcts::@66056454a45d9adb555d"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "models::@e634d7a1dd90e0496988"
 		}
 	],
 	"id" : "MCTS_GGP_THESIS::@6890427a1f51a3e7e1df",
@@ -125,22 +121,12 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "models/libmodels.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 2,
 				"fragment" : "mcts/libmcts.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
 				"fragment" : "games/connect4/libconnect4.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "models/libmodels.a",
 				"role" : "libraries"
 			},
 			{

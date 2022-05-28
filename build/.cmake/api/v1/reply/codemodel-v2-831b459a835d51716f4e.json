@@ -125,11 +125,7 @@
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
-					"source" : "models",
-					"targetIndexes" : 
-					[
-						36
-					]
+					"source" : "models"
 				},
 				{
 					"build" : "models/standard",
@@ -282,8 +278,7 @@
 						28,
 						29,
 						30,
-						35,
-						36
+						35
 					]
 				},
 				{
@@ -460,7 +455,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "MCTS_GGP_THESIS::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-MCTS_GGP_THESIS-Release-0bc28acabaf1875babeb.json",
+					"jsonFile" : "target-MCTS_GGP_THESIS-Release-8b8b106d31db552f88c2.json",
 					"name" : "MCTS_GGP_THESIS",
 					"projectIndex" : 0
 				},
@@ -581,13 +576,6 @@
 					"id" : "mcts::@66056454a45d9adb555d",
 					"jsonFile" : "target-mcts-Release-e0c288358e533c42b89a.json",
 					"name" : "mcts",
-					"projectIndex" : 0
-				},
-				{
-					"directoryIndex" : 5,
-					"id" : "models::@e634d7a1dd90e0496988",
-					"jsonFile" : "target-models-Release-f2f0c8eae371484f8e68.json",
-					"name" : "models",
 					"projectIndex" : 0
 				}
 			]

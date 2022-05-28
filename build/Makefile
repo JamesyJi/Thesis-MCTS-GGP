@@ -575,19 +575,6 @@ mcts/fast:
 .PHONY : mcts/fast
 
 #=============================================================================
-# Target rules for targets named models
-
-# Build rule for target.
-models: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 models
-.PHONY : models
-
-# fast build rule for target.
-models/fast:
-	$(MAKE) $(MAKESILENT) -f models/CMakeFiles/models.dir/build.make models/CMakeFiles/models.dir/build
-.PHONY : models/fast
-
-#=============================================================================
 # Target rules for targets named MCTS_TESTS
 
 # Build rule for target.
@@ -725,7 +712,6 @@ help:
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... mcts"
-	@echo "... models"
 	@echo "... experimenter.o"
 	@echo "... experimenter.i"
 	@echo "... experimenter.s"
