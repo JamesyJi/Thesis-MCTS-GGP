@@ -14,10 +14,21 @@ Node<TState, TMove>& Node<TState, TMove>::GetRandomChild() const
     return *mChildren[rand() % mNumChildren].get();
 }
 
-// Assumption is that the node has children
+// PRECONDITION: Node has children
+// Returns the child node which will lead to the best outcome for the player of the current node
+// 1. Looks for any nodes which are proven wins
+// 2. Looks for most visited node
 template<typename TState, typename TMove>
-std::unique_ptr<Node<TState, TMove>> Node<TState, TMove>::GetMostVisitedChild()
+std::unique_ptr<Node<TState, TMove>> Node<TState, TMove>::DecideOnBestChild()
 {
+    for (int i = 0; i < mNumChildren; ++i)
+    {
+        if (mChildren[i]->GetProven() == Common::Proven::WIN)
+        {
+            return std::move(mChildren[i]);
+        }
+    }
+
     int maxIndex = -1;
     int maxVisits = 0;
     for (int i = 0; i < mNumChildren; ++i) 
@@ -104,13 +115,13 @@ bool Node<TState, TMove>::TryProveWinFromChildren()
 {
     for (int i = 0; i < mNumChildren; ++i)
     {
-        if (!mChildren[i]->IsProven() || mChildren[i]->GetValue() != std::numeric_limits<double>::lowest())
+        if (mChildren[i]->GetProven() != Common::Proven::LOSS)
         {
             return false;
         }
     }
 
-    ProveResult(std::numeric_limits<double>::max());
+    ProveResult<Common::Proven::WIN>();
     return true;
 }
 

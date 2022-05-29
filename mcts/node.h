@@ -19,7 +19,7 @@ public:
     {}
 
     Node& GetRandomChild() const;
-    std::unique_ptr<Node> GetMostVisitedChild();
+    std::unique_ptr<Node> DecideOnBestChild();
     Node& GetHighestScoreChild() const;
     void ExpandNode();
     double GetNodeScore() const;
@@ -32,16 +32,22 @@ public:
         mParent = nullptr;
     }
 
-    void ProveResult(double value)
+    template<Common::Proven R>
+    void ProveResult()
     {
-        mProven = true;
-        mValue = value;
-        mVisits = std::numeric_limits<int>::max();
+        mProven = R;
+        if constexpr (R == Common::Proven::WIN)
+        {
+            mValue = std::numeric_limits<double>::max();
+        } else if constexpr (R == Common::Proven::LOSS)
+        {
+            mValue = std::numeric_limits<double>::lowest();
+        }
     }
 
     bool IsProven() const
     {
-        return mProven;
+        return mProven != Common::Proven::NONE;
     }
 
     void IncrValue()
@@ -72,6 +78,11 @@ public:
     TState& GetStateRef()
     {
         return mState;
+    }
+
+    Common::Proven GetProven() const
+    {
+        return mProven;
     }
 
     double GetValue() const
@@ -109,7 +120,7 @@ private:
     std::unique_ptr<Node> mChildren[TState::MAX_MOVES];
     int mNumChildren = 0;
 
-    bool mProven = false; // Toggle to true when we have proven the result so no need to adjust value
+    Common::Proven mProven = Common::Proven::NONE;
     double mValue = 0;
     int mVisits = 0;
 

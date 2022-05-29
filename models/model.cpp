@@ -9,7 +9,6 @@ namespace Models
 template<typename M, typename TTraits>
 void Model<M, TTraits>::BackPropagate(NodeT& node, Common::Result result)
 {
-    std::cout << "Backpropagate\n";
     auto winnerloser = Common::GetWinnerAndLoser(result);
 
         NodeT* curNode = &node;
@@ -51,15 +50,15 @@ void Model<M, TTraits>::BackPropagateProven(NodeT& node, Common::Result result)
     if (result == Common::PlayerToResult(curPlayer))
     {
         // The player who moved into this turn lost
-        node.ProveResult(std::numeric_limits<double>::lowest());
+        node.template ProveResult<Common::Proven::LOSS>();
         curNode = node.GetParent();
     } else if (result == Common::PlayerToResult(otherPlayer))
     {
         // The player who moved into this turn won
-        node.ProveResult(std::numeric_limits<double>::max());
+        node.template ProveResult<Common::Proven::WIN>();
         curNode = node.GetParent();
         if (curNode != nullptr) {
-            curNode->ProveResult(std::numeric_limits<double>::lowest());
+            curNode->template ProveResult<Common::Proven::LOSS>();
             curNode = curNode->GetParent();
         }
     }
@@ -77,7 +76,7 @@ void Model<M, TTraits>::BackPropagateProven(NodeT& node, Common::Result result)
         curNode = curNode->GetParent();
         if (curNode != nullptr)
         {
-            curNode->ProveResult(std::numeric_limits<double>::lowest());
+            curNode->template ProveResult<Common::Proven::LOSS>();
             curNode = curNode->GetParent();
         }
     }

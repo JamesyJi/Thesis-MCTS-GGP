@@ -28,7 +28,7 @@ public:
         NodeT& promisingNode = SelectBestChild();
         StateT& promisingState = promisingNode.GetStateRef();
 
-        std::cout << "Expansion\n";
+        // std::cout << "Expansion\n";
         // Expansion
         if (promisingState.EvaluateState(promisingNode.GetLastMove()) == Common::Result::ONGOING)
         {
@@ -38,7 +38,7 @@ public:
         // Simulation
         NodeT& exploreNode = promisingNode.HasChildren() ? promisingNode.GetRandomChild() : promisingNode;
 
-        std::cout << "Simulation\n";
+        // std::cout << "Simulation\n";
         auto evaluation = this->Simulate(exploreNode);
 
         // Back Propagation
@@ -47,7 +47,7 @@ public:
 
     NodeT& SelectBestChild()
     {
-        std::cout << "Select best child\n";
+        // std::cout << "Select best child\n";
         NodeT* bestChild = this->mRoot.get();
 
         while (bestChild->HasChildren())

@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/models/. -I/Users/james/Documents/Thesis_C++/mcts -I/Users/james/Documents/Thesis_C++/main
 
-CXX_FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
+CXX_FLAGS = -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
 

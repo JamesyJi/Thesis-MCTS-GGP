@@ -36,12 +36,12 @@ public:
         }
 
         std::cout << "DECIDED MOVE\n";
-        // mRoot->LogChildStats();
+        mRoot->LogChildStats();
 
-        // int i;
-        // std::cin >> i;
+        int i;
+        std::cin >> i;
         
-        mRoot = mRoot->GetMostVisitedChild();
+        mRoot = mRoot->DecideOnBestChild();
         mRoot->NullParent();
 
         return mRoot->GetLastMove();

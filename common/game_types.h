@@ -21,6 +21,13 @@ enum class Result
     ONGOING
 };
 
+enum class Proven
+{
+    WIN,
+    LOSS,
+    NONE,
+};
+
 inline bool operator<(Result a, Result b)
 {
     switch (a)

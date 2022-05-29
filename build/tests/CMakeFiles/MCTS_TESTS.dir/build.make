@@ -92,9 +92,9 @@ MCTS_TESTS_EXTERNAL_OBJECTS =
 
 tests/MCTS_TESTS: tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o
 tests/MCTS_TESTS: tests/CMakeFiles/MCTS_TESTS.dir/build.make
-tests/MCTS_TESTS: lib/libgtest_maind.a
+tests/MCTS_TESTS: lib/libgtest_main.a
 tests/MCTS_TESTS: games/connect4/libconnect4.a
-tests/MCTS_TESTS: lib/libgtestd.a
+tests/MCTS_TESTS: lib/libgtest.a
 tests/MCTS_TESTS: tests/CMakeFiles/MCTS_TESTS.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable MCTS_TESTS"
 	cd /Users/james/Documents/Thesis_C++/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MCTS_TESTS.dir/link.txt --verbose=$(VERBOSE)
