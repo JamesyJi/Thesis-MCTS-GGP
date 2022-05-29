@@ -31,29 +31,8 @@ public:
         for (int i = 0; i < rounds; ++i)
         {
             std::cout << "Starting round " << i << "\n";
-            const Common::Piece position1[TState::ROWS][TState::COLS] = 
-            {
-                {O, E, X, O, E, E, E},
-                {X, E, O, O, E, X, E},
-                {O, E, X, O, E, X, O},
-                {X, E, O, X, E, O, X},
-                {X, E, X, O, E, X, O},
-                {X, O, O, X, O, O, X},
-            };
-            const Common::Piece position2[TState::ROWS][TState::COLS] = 
-            {
-                {O, E, X, O, E, E, E},
-                {X, E, O, O, E, X, E},
-                {O, E, X, O, E, X, O},
-                {X, E, O, X, E, O, X},
-                {X, E, X, O, E, X, O},
-                {X, O, O, X, O, O, X},
-            };
-            auto model1 = Models::Model<Model1, TraitsT>(Common::Player::PLAYER1, TState(position1));
-            auto model2 = Models::Model<Model2, TraitsT>(Common::Player::PLAYER2, TState(position2));
-
-            // auto model1 = Model1<TraitsT>(Common::Player::PLAYER1, TState());
-            // auto model2 = Model2<TraitsT>(Common::Player::PLAYER2, TState());
+            auto model1 = Models::Model<Model1, TraitsT>(Common::Player::PLAYER1, TState());
+            auto model2 = Models::Model<Model2, TraitsT>(Common::Player::PLAYER2, TState());
 
             auto result = StartNewGame(model1, model2, resource);
 
@@ -64,17 +43,7 @@ public:
 
     Common::Result StartNewGame(Models::Model<Model1, TraitsT>& model1, Models::Model<Model2, TraitsT> & model2, Common::Resource& resource)
     {
-        const Common::Piece position[TState::ROWS][TState::COLS] = 
-        {
-            {O, E, X, O, E, E, E},
-            {X, E, O, O, E, X, E},
-            {O, E, X, O, E, X, O},
-            {X, E, O, X, E, O, X},
-            {X, E, X, O, E, X, O},
-            {X, O, O, X, O, O, X},
-        };
-
-        TState state(position);
+        TState state;
         TMove move;
         
         auto playerTurn = Common::Player::PLAYER1;
