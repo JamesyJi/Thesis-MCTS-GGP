@@ -37,10 +37,10 @@ public:
         // Simulation
         NodeT& exploreNode = promisingNode.HasChildren() ? promisingNode.GetRandomChild() : promisingNode;
     
-        auto evaluation = Simulate(exploreNode);
+        auto evaluation = this->Simulate(exploreNode);
 
         // Back Propagation
-        BackPropagate(exploreNode, evaluation)
+        this->BackPropagate(exploreNode, evaluation);
     }
 
     NodeT& SelectBestChild()
@@ -50,15 +50,12 @@ public:
         while (bestChild->HasChildren())
         {
             bestChild = &bestChild->GetHighestScoreChild();
-            
-            switch (bestChild->GetValue())
+
+            // Perform minimax in selection phase after a certain number of visits
+            if (bestChild->GetVisits() == N_VISITS)
             {
-                // Perform minimax in selection phase after a certain number of visits
-                if (bestChild->GetVisits() == N_VISITS)
-                {
-                    auto evaluation = Minimax(bestChild->GetStateRef(), bestChild->GetLastMove(), DEPTH, Common::Result::PLAYER2_WIN, Common::Result::PLAYER1_WIN, bestChild->GetPlayerTurn())
-                    BackPropagateProven(bestChild, evaluation)
-                }
+                auto evaluation = this->MinimaxAB(bestChild->GetStateRef(), bestChild->GetLastMove(), DEPTH, Common::Result::PLAYER2_WIN, Common::Result::PLAYER1_WIN, bestChild->GetPlayerTurn());
+                this->BackPropagateProven(*bestChild, evaluation);
             }
         }
 

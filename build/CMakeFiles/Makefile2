@@ -250,15 +250,33 @@ mcts/clean: mcts/CMakeFiles/mcts.dir/clean
 
 # Recursive "all" directory target.
 models/all: models/standard/all
+models/all: models/minimax/all
 .PHONY : models/all
 
 # Recursive "preinstall" directory target.
 models/preinstall: models/standard/preinstall
+models/preinstall: models/minimax/preinstall
 .PHONY : models/preinstall
 
 # Recursive "clean" directory target.
 models/clean: models/standard/clean
+models/clean: models/minimax/clean
 .PHONY : models/clean
+
+#=============================================================================
+# Directory level rules for directory models/minimax
+
+# Recursive "all" directory target.
+models/minimax/all:
+.PHONY : models/minimax/all
+
+# Recursive "preinstall" directory target.
+models/minimax/preinstall:
+.PHONY : models/minimax/preinstall
+
+# Recursive "clean" directory target.
+models/minimax/clean:
+.PHONY : models/minimax/clean
 
 #=============================================================================
 # Directory level rules for directory models/standard

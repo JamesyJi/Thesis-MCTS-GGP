@@ -61,19 +61,19 @@ public:
 
     NodeT& SelectBestChild()
     {
-        static_cast<M*>(this)->SelectBestChild();
+        return static_cast<M*>(this)->SelectBestChild();
     }
 
     Common::Result Simulate(NodeT& node)
     {
-        static_cast<M*>(this)->Simulate(node);
+        return static_cast<M*>(this)->Simulate(node);
     }
 
     void BackPropagate(NodeT& node, Common::Result result);
 
     void BackPropagateProven(NodeT& node, Common::Result result);
 
-    Common::Result Minimax(StateT& state, const MoveT& lastMove, int depth, Common::Result alpha, Common::Result beta, Common::Player player);
+    Common::Result MinimaxAB(StateT& state, const MoveT& lastMove, int depth, Common::Result alpha, Common::Result beta, Common::Player player);
 
     Model(Common::Player player, const StateT& state)
     : mPlayer(player)

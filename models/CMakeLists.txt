@@ -1,4 +1,5 @@
 add_subdirectory(standard)
+add_subdirectory(minimax)
 
 # add_library(models
 #     model.h

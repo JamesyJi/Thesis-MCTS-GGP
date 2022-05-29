@@ -68,6 +68,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../main/CMakeLists.txt"
   "../mcts/CMakeLists.txt"
   "../models/CMakeLists.txt"
+  "../models/minimax/CMakeLists.txt"
   "../models/standard/CMakeLists.txt"
   "../tests/CMakeLists.txt"
   )
@@ -88,6 +89,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "mcts/CMakeFiles/CMakeDirectoryInformation.cmake"
   "models/CMakeFiles/CMakeDirectoryInformation.cmake"
   "models/standard/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "models/minimax/CMakeFiles/CMakeDirectoryInformation.cmake"
   "main/CMakeFiles/CMakeDirectoryInformation.cmake"
   "_deps/googletest-subbuild/CMakeLists.txt"
   "tests/CMakeFiles/CMakeDirectoryInformation.cmake"

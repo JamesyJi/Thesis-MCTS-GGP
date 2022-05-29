@@ -424,7 +424,9 @@ CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o: ../experimenter.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/cmath \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/math.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/math.h \
+  ../models/model.cpp \
   ../models/standard/standard.h \
+  ../models/minimax/minimax_selection.h \
   ../games/connect4/connect4_state.h \
   ../common/pieces.h \
   ../games/connect4/connect4_move.h
@@ -432,7 +434,11 @@ CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o: ../experimenter.cpp \
 
 ../games/connect4/connect4_state.h:
 
+../models/minimax/minimax_selection.h:
+
 ../models/standard/standard.h:
+
+../models/model.cpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/math.h:
 

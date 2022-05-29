@@ -47,12 +47,12 @@ void Model<M, TTraits>::BackPropagateProven(NodeT& node, Common::Result result)
 
     NodeT* curNode;
 
-    if constexpr (result == Common::PlayerToResult(curPlayer))
+    if (result == Common::PlayerToResult(curPlayer))
     {
         // The player who moved into this turn lost
         node.ProveResult(std::numeric_limits<double>::lowest());
         curNode = node.GetParent();
-    } else if constexpr (result == Common::PlayerToResult(otherPlayer))
+    } else if (result == Common::PlayerToResult(otherPlayer))
     {
         // The player who moved into this turn won
         node.ProveResult(std::numeric_limits<double>::max());
@@ -83,10 +83,10 @@ void Model<M, TTraits>::BackPropagateProven(NodeT& node, Common::Result result)
 }
 
 template<typename M, typename TTraits>
-Common::Result Model<M, TTraits>::Minimax(StateT& state, const MoveT& lastMove, int depth, Common::Result alpha, Common::Result beta, Common::Player player)
+Common::Result Model<M, TTraits>::MinimaxAB(StateT& state, const MoveT& lastMove, int depth, Common::Result alpha, Common::Result beta, Common::Player player)
 {
 
-    if (depth == 0 || state.EvaluateState(lastMove)) return state.EvaluateState(lastMove);
+    if (depth == 0 || state.EvaluateState(lastMove) != Common::Result::ONGOING) return state.EvaluateState(lastMove);
 
     MoveT legalMoves[StateT::MAX_MOVES];
     int nLegalMoves = state.GetLegalMoves(player, legalMoves);
@@ -100,7 +100,7 @@ Common::Result Model<M, TTraits>::Minimax(StateT& state, const MoveT& lastMove, 
             for (int i = 0; i < nLegalMoves; ++i)
             {
                 state.SimulateMove(legalMoves[i]);
-                Common::Result evaluation = Minimax(state, legalMoves[i], depth - 1, alpha, beta, Common::GetOtherPlayer(player));
+                Common::Result evaluation = MinimaxAB(state, legalMoves[i], depth - 1, alpha, beta, Common::GetOtherPlayer(player));
                 state.UndoMove(legalMoves[i]);    
                 if (evaluation > maxEval) maxEval = evaluation;
                 if (maxEval > alpha) alpha = maxEval;
@@ -116,7 +116,7 @@ Common::Result Model<M, TTraits>::Minimax(StateT& state, const MoveT& lastMove, 
             for (int i = 0; i < nLegalMoves; ++i)
             {
                 state.SimulateMove(legalMoves[i]);
-                Common::Result evaluation = Minimax(state, legalMoves[i], depth - 1, alpha, beta, Common::GetOtherPlayer(player));
+                Common::Result evaluation = MinimaxAB(state, legalMoves[i], depth - 1, alpha, beta, Common::GetOtherPlayer(player));
                 state.UndoMove(legalMoves[i]);
                 if (evaluation < minEval) minEval = evaluation;
                 if (minEval < beta) beta = minEval;
