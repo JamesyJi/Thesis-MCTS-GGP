@@ -122,7 +122,7 @@
 			"destination" : "lib",
 			"paths" : 
 			[
-				"lib/libgtest.a"
+				"lib/libgtestd.a"
 			],
 			"targetId" : "gtest::@1ea2dfc0605fe3ab2a3f",
 			"targetIndex" : 33,
@@ -134,7 +134,7 @@
 			"destination" : "lib",
 			"paths" : 
 			[
-				"lib/libgtest_main.a"
+				"lib/libgtest_maind.a"
 			],
 			"targetId" : "gtest_main::@1ea2dfc0605fe3ab2a3f",
 			"targetIndex" : 34,

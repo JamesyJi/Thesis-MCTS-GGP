@@ -9,6 +9,7 @@ namespace Models
 template<typename M, typename TTraits>
 void Model<M, TTraits>::BackPropagate(NodeT& node, Common::Result result)
 {
+    std::cout << "Backpropagate\n";
     auto winnerloser = Common::GetWinnerAndLoser(result);
 
         NodeT* curNode = &node;

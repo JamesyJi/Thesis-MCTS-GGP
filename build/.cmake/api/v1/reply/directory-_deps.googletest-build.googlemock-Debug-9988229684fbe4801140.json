@@ -69,7 +69,7 @@
 			"destination" : "lib",
 			"paths" : 
 			[
-				"lib/libgmock.a"
+				"lib/libgmockd.a"
 			],
 			"targetId" : "gmock::@0f7bb11d64f3678238c7",
 			"targetIndex" : 31,
@@ -81,7 +81,7 @@
 			"destination" : "lib",
 			"paths" : 
 			[
-				"lib/libgmock_main.a"
+				"lib/libgmock_maind.a"
 			],
 			"targetId" : "gmock_main::@0f7bb11d64f3678238c7",
 			"targetIndex" : 32,

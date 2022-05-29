@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "mcts/libmcts.a"
+			"path" : "games/connect4/libconnect4.a"
 		}
 	],
 	"backtrace" : 1,
@@ -17,7 +17,7 @@
 		],
 		"files" : 
 		[
-			"mcts/CMakeLists.txt"
+			"games/connect4/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -33,13 +33,13 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 6,
+				"line" : 7,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 8,
+				"line" : 9,
 				"parent" : 0
 			}
 		]
@@ -50,7 +50,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk"
+					"fragment" : "-g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk"
 				},
 				{
 					"fragment" : "-std=gnu++17"
@@ -60,7 +60,7 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/Users/james/Documents/Thesis_C++/mcts"
+					"path" : "/Users/james/Documents/Thesis_C++/games/connect4"
 				},
 				{
 					"backtrace" : 3,
@@ -78,17 +78,17 @@
 			},
 			"sourceIndexes" : 
 			[
-				1
+				2
 			]
 		}
 	],
-	"id" : "mcts::@66056454a45d9adb555d",
-	"name" : "mcts",
-	"nameOnDisk" : "libmcts.a",
+	"id" : "connect4::@3d302b91b8fbe374edb6",
+	"name" : "connect4",
+	"nameOnDisk" : "libconnect4.a",
 	"paths" : 
 	{
-		"build" : "mcts",
-		"source" : "mcts"
+		"build" : "games/connect4",
+		"source" : "games/connect4"
 	},
 	"sourceGroups" : 
 	[
@@ -96,14 +96,15 @@
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		},
 		{
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				1
+				2
 			]
 		}
 	],
@@ -111,13 +112,18 @@
 	[
 		{
 			"backtrace" : 1,
-			"path" : "mcts/node.h",
+			"path" : "games/connect4/connect4_move.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "games/connect4/connect4_state.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "mcts/node.cpp",
+			"path" : "games/connect4/connect4_state.cpp",
 			"sourceGroupIndex" : 1
 		}
 	],
