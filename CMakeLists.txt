@@ -11,7 +11,9 @@ add_subdirectory(games)
 add_subdirectory(mcts)
 add_subdirectory(models)
 add_subdirectory(main)
+add_subdirectory(strategy)
 add_subdirectory(tests)
+
 
 file(GLOB SOURCES
     experimenter.cpp
@@ -23,6 +25,7 @@ target_link_libraries(${PROJECT_NAME}
     common
     games
     connect4
+    strategy
     models
     standard
     mcts

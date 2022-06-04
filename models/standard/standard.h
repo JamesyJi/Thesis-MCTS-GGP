@@ -13,8 +13,8 @@ public:
     using MoveT = typename TTraits::MoveT;
     using NodeT = MCTS::Node<StateT, MoveT>;
 
-    Standard(Common::Player player, const StateT& state)
-    : Model<Standard<TTraits>, TTraits>(player, state)
+    Standard(Common::Player player, const StateT& state, const Games::GameState& gameState)
+    : Model<Standard<TTraits>, TTraits>(player, state, gameState)
     {}
 
     ~Standard(){}

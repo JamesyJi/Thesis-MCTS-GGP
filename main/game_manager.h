@@ -21,8 +21,7 @@ class GameManager
 public:
     using TraitsT = Models::Traits<TState, TMove>;
 
-    GameManager()
-    {};
+    GameManager(){};
 
     ~GameManager(){};
 
@@ -31,27 +30,28 @@ public:
         for (int i = 0; i < rounds; ++i)
         {
             std::cout << "Starting round " << i << "\n";
-            auto model1 = Models::Model<Model1, TraitsT>(Common::Player::PLAYER1, TState());
-            auto model2 = Models::Model<Model2, TraitsT>(Common::Player::PLAYER2, TState());
 
-            auto result = StartNewGame(model1, model2, resource);
+            auto result = StartNewGame(resource);
 
             std::cout << result << "\n";
         }
     }
 
 
-    Common::Result StartNewGame(Models::Model<Model1, TraitsT>& model1, Models::Model<Model2, TraitsT> & model2, Common::Resource& resource)
+    Common::Result StartNewGame(Common::Resource& resource)
     {
+        Games::GameState gameState;
+
+        auto model1 = Models::Model<Model1, TraitsT>(Common::Player::PLAYER1, TState(), gameState);
+        auto model2 = Models::Model<Model2, TraitsT>(Common::Player::PLAYER2, TState(), gameState);
+
         TState state;
         TMove move;
         
-        auto playerTurn = Common::Player::PLAYER1;
-
         while (state.EvaluateState(move) == Common::Result::ONGOING)
         {
             resource.ResetAndStart();
-            switch (playerTurn)
+            switch (gameState.GetPlayerTurn())
             {
                 case Common::Player::PLAYER1:
                     move = model1.DecideMove(resource);
@@ -71,7 +71,7 @@ public:
             std::cout << state;
             std::cout << "===============\n";
 
-            playerTurn = Common::GetOtherPlayer(playerTurn);
+            gameState.NextTurn();
         }
 
         std::cout << "GAME END\n";

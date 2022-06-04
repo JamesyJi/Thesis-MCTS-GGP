@@ -70,6 +70,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../models/CMakeLists.txt"
   "../models/minimax/CMakeLists.txt"
   "../models/standard/CMakeLists.txt"
+  "../strategy/CMakeLists.txt"
   "../tests/CMakeLists.txt"
   )
 
@@ -91,6 +92,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "models/standard/CMakeFiles/CMakeDirectoryInformation.cmake"
   "models/minimax/CMakeFiles/CMakeDirectoryInformation.cmake"
   "main/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "strategy/CMakeFiles/CMakeDirectoryInformation.cmake"
   "_deps/googletest-subbuild/CMakeLists.txt"
   "tests/CMakeFiles/CMakeDirectoryInformation.cmake"
   "_deps/googletest-build/CMakeFiles/CMakeDirectoryInformation.cmake"
@@ -137,6 +139,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/MCTS_GGP_THESIS.dir/DependInfo.cmake"
   "games/connect4/CMakeFiles/connect4.dir/DependInfo.cmake"
   "mcts/CMakeFiles/mcts.dir/DependInfo.cmake"
+  "strategy/CMakeFiles/strategy.dir/DependInfo.cmake"
   "tests/CMakeFiles/MCTS_TESTS.dir/DependInfo.cmake"
   "_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
   "_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake"

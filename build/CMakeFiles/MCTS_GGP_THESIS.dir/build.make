@@ -93,6 +93,7 @@ MCTS_GGP_THESIS_EXTERNAL_OBJECTS =
 MCTS_GGP_THESIS: CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o
 MCTS_GGP_THESIS: CMakeFiles/MCTS_GGP_THESIS.dir/build.make
 MCTS_GGP_THESIS: games/connect4/libconnect4.a
+MCTS_GGP_THESIS: strategy/libstrategy.a
 MCTS_GGP_THESIS: mcts/libmcts.a
 MCTS_GGP_THESIS: games/connect4/libconnect4.a
 MCTS_GGP_THESIS: mcts/libmcts.a

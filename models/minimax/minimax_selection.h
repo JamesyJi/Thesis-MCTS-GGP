@@ -1,6 +1,7 @@
 #pragma once
 
 #include "model.h"
+#include "strategy.h"
 
 #define DEPTH 4
 #define N_VISITS 2
@@ -16,8 +17,8 @@ public:
     using MoveT = typename TTraits::MoveT;
     using NodeT = MCTS::Node<StateT, MoveT>;
 
-    MinimaxSelection(Common::Player player, const StateT& state)
-    : Model<MinimaxSelection<TTraits>, TTraits>(player, state)
+    MinimaxSelection(Common::Player player, const StateT& state, const Games::GameState& gameState)
+    : Model<MinimaxSelection<TTraits>, TTraits>(player, state, gameState)
     {}
 
     ~MinimaxSelection(){}
@@ -57,7 +58,7 @@ public:
             // Perform minimax in selection phase after a certain number of visits
             if (bestChild->GetVisits() == N_VISITS)
             {
-                auto evaluation = this->MinimaxAB(bestChild->GetStateRef(), bestChild->GetLastMove(), DEPTH, Common::Result::PLAYER2_WIN, Common::Result::PLAYER1_WIN, bestChild->GetPlayerTurn());
+                auto evaluation = this->MinimaxAB(bestChild->GetStateRef(), bestChild->GetLastMove(), Strategy::DepthFromTurn<StateT>(this->mGameState), Common::Result::PLAYER2_WIN, Common::Result::PLAYER1_WIN, bestChild->GetPlayerTurn());
                 this->BackPropagateProven(*bestChild, evaluation);
             }
         }

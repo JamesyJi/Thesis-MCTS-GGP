@@ -575,6 +575,19 @@ mcts/fast:
 .PHONY : mcts/fast
 
 #=============================================================================
+# Target rules for targets named strategy
+
+# Build rule for target.
+strategy: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 strategy
+.PHONY : strategy
+
+# fast build rule for target.
+strategy/fast:
+	$(MAKE) $(MAKESILENT) -f strategy/CMakeFiles/strategy.dir/build.make strategy/CMakeFiles/strategy.dir/build
+.PHONY : strategy/fast
+
+#=============================================================================
 # Target rules for targets named MCTS_TESTS
 
 # Build rule for target.
@@ -712,6 +725,7 @@ help:
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... mcts"
+	@echo "... strategy"
 	@echo "... experimenter.o"
 	@echo "... experimenter.i"
 	@echo "... experimenter.s"

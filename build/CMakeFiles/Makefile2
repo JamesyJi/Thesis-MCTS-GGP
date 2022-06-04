@@ -69,6 +69,7 @@ all: games/all
 all: mcts/all
 all: models/all
 all: main/all
+all: strategy/all
 all: tests/all
 .PHONY : all
 
@@ -78,6 +79,7 @@ preinstall: games/preinstall
 preinstall: mcts/preinstall
 preinstall: models/preinstall
 preinstall: main/preinstall
+preinstall: strategy/preinstall
 preinstall: tests/preinstall
 .PHONY : preinstall
 
@@ -116,6 +118,7 @@ clean: games/clean
 clean: mcts/clean
 clean: models/clean
 clean: main/clean
+clean: strategy/clean
 clean: tests/clean
 .PHONY : clean
 
@@ -292,6 +295,21 @@ models/standard/preinstall:
 # Recursive "clean" directory target.
 models/standard/clean:
 .PHONY : models/standard/clean
+
+#=============================================================================
+# Directory level rules for directory strategy
+
+# Recursive "all" directory target.
+strategy/all: strategy/CMakeFiles/strategy.dir/all
+.PHONY : strategy/all
+
+# Recursive "preinstall" directory target.
+strategy/preinstall:
+.PHONY : strategy/preinstall
+
+# Recursive "clean" directory target.
+strategy/clean: strategy/CMakeFiles/strategy.dir/clean
+.PHONY : strategy/clean
 
 #=============================================================================
 # Directory level rules for directory tests
@@ -1044,6 +1062,7 @@ CMakeFiles/ContinuousSubmit.dir/clean:
 # All Build rule for target.
 CMakeFiles/MCTS_GGP_THESIS.dir/all: games/connect4/CMakeFiles/connect4.dir/all
 CMakeFiles/MCTS_GGP_THESIS.dir/all: mcts/CMakeFiles/mcts.dir/all
+CMakeFiles/MCTS_GGP_THESIS.dir/all: strategy/CMakeFiles/strategy.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCTS_GGP_THESIS.dir/build.make CMakeFiles/MCTS_GGP_THESIS.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCTS_GGP_THESIS.dir/build.make CMakeFiles/MCTS_GGP_THESIS.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=1,2 "Built target MCTS_GGP_THESIS"
@@ -1051,7 +1070,7 @@ CMakeFiles/MCTS_GGP_THESIS.dir/all: mcts/CMakeFiles/mcts.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/MCTS_GGP_THESIS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MCTS_GGP_THESIS.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 0
 .PHONY : CMakeFiles/MCTS_GGP_THESIS.dir/rule
@@ -1116,6 +1135,32 @@ mcts: mcts/CMakeFiles/mcts.dir/rule
 mcts/CMakeFiles/mcts.dir/clean:
 	$(MAKE) $(MAKESILENT) -f mcts/CMakeFiles/mcts.dir/build.make mcts/CMakeFiles/mcts.dir/clean
 .PHONY : mcts/CMakeFiles/mcts.dir/clean
+
+#=============================================================================
+# Target rules for target strategy/CMakeFiles/strategy.dir
+
+# All Build rule for target.
+strategy/CMakeFiles/strategy.dir/all: games/connect4/CMakeFiles/connect4.dir/all
+	$(MAKE) $(MAKESILENT) -f strategy/CMakeFiles/strategy.dir/build.make strategy/CMakeFiles/strategy.dir/depend
+	$(MAKE) $(MAKESILENT) -f strategy/CMakeFiles/strategy.dir/build.make strategy/CMakeFiles/strategy.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/james/Documents/Thesis_C++/build/CMakeFiles --progress-num=17,18 "Built target strategy"
+.PHONY : strategy/CMakeFiles/strategy.dir/all
+
+# Build rule for subdir invocation for target.
+strategy/CMakeFiles/strategy.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 strategy/CMakeFiles/strategy.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/james/Documents/Thesis_C++/build/CMakeFiles 0
+.PHONY : strategy/CMakeFiles/strategy.dir/rule
+
+# Convenience name for target.
+strategy: strategy/CMakeFiles/strategy.dir/rule
+.PHONY : strategy
+
+# clean rule for target.
+strategy/CMakeFiles/strategy.dir/clean:
+	$(MAKE) $(MAKESILENT) -f strategy/CMakeFiles/strategy.dir/build.make strategy/CMakeFiles/strategy.dir/clean
+.PHONY : strategy/CMakeFiles/strategy.dir/clean
 
 #=============================================================================
 # Target rules for target tests/CMakeFiles/MCTS_TESTS.dir
