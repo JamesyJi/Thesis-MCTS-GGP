@@ -10,15 +10,52 @@ const int TURN_DEPTH[] = {
     -1,
     0,
     0,
-    0,
     6,
-    6
+    6,
+    6,
+    6,
+    0,
+    0,
+    0,
+    4,
+    4,
+    4,
+    5,
+    6,
+    6,
+    7,
+    7,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    12,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
 };
 
 template <>
 int DepthFromTurn<Connect4::Connect4State>(const Games::GameState& gameState) 
 {
-    return 4;
+    return TURN_DEPTH[gameState.GetTurn()];
 };
 
 }

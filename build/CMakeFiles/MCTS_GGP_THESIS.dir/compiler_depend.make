@@ -436,9 +436,9 @@ CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o: ../experimenter.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/iomanip \
   ../common/pieces.h \
   ../models/minimax/minimax_selection.h \
-  ../strategy/strategy.h \
   ../games/connect4/connect4_state.h \
-  ../games/connect4/connect4_move.h
+  ../games/connect4/connect4_move.h \
+  ../strategy/strategy.h
 
 
 ../games/connect4/connect4_state.h:
