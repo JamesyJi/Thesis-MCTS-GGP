@@ -22,8 +22,8 @@ private:
     std::chrono::milliseconds mLimit;
     std::chrono::time_point<std::chrono::high_resolution_clock> mEnd;
 public:
-    TimeResource(int seconds)
-    : mLimit(1000 * seconds)
+    TimeResource(double seconds)
+    : mLimit(static_cast<int>(1000 * seconds))
     {}
     
     ~TimeResource(){}

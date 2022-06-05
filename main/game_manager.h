@@ -4,6 +4,7 @@
 
 #include "model.h"
 #include "standard/standard.h"
+#include "game_results.h"
 #include "game_types.h"
 #include "pieces.h"
 #include "resource.h"
@@ -34,7 +35,11 @@ public:
             auto result = StartNewGame(resource);
 
             std::cout << result << "\n";
+
+            mGameResults.UpdateResult(result);
         }
+
+        mGameResults.Log("results.txt");
     }
 
 
@@ -78,6 +83,9 @@ public:
 
         return state.EvaluateState(move);
     }
+
+private:
+    GameResults mGameResults;
 };
 
 }

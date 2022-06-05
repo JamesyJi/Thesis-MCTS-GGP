@@ -9,11 +9,16 @@ int main(void)
 {
     srand(time(NULL));
     
-    using s = Models::Traits<Connect4::Connect4State, Connect4::Connect4Move>;
-    auto manager = Main::GameManager<Models::Minimax::MinimaxSelection<s>, Models::Minimax::MinimaxSelection<s>, Connect4::Connect4State, Connect4::Connect4Move>();
-    auto resource = Common::IterationResource(100000);
-    // auto resource = Common::TimeResource(10);
-    manager.StartExperiment(resource, 1);
+    using MoveT = Connect4::Connect4Move;
+    using StateT = Connect4::Connect4State;
+    using GameT = Models::Traits<Connect4::Connect4State, Connect4::Connect4Move>;
+    using Model1T = Models::Minimax::MinimaxSelection<GameT>;
+    using Model2T = Models::Minimax::MinimaxSelection<GameT>;
+
+    auto manager = Main::GameManager<Model1T, Model2T, StateT, MoveT>();
+    // auto resource = Common::IterationResource(100000);
+    auto resource = Common::TimeResource(0.3);
+    manager.StartExperiment(resource, 10);
 
     return 0;
 }

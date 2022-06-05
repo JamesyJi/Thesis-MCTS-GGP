@@ -50,14 +50,14 @@ public:
     NodeT& SelectBestChild()
     {
         // std::cout << "SelectBestChild()\n";
-        NodeT& bestChild = *this->mRoot;
+        NodeT* bestChild = this->mRoot.get();
 
-        while (bestChild.HasChildren())
+        while (bestChild->HasChildren())
         {
-            bestChild = bestChild->GetHighestScoreChild();
+            bestChild = &bestChild->GetHighestScoreChild();
         }
 
-        return bestChild;
+        return *bestChild;
     }
 
     Common::Result Simulate(NodeT& node)
