@@ -98,11 +98,11 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "connect4::@3d302b91b8fbe374edb6"
+			"id" : "mcts::@66056454a45d9adb555d"
 		},
 		{
 			"backtrace" : 2,
-			"id" : "mcts::@66056454a45d9adb555d"
+			"id" : "connect4::@3d302b91b8fbe374edb6"
 		},
 		{
 			"backtrace" : 2,

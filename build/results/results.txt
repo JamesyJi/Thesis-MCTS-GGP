@@ -1,4 +1,4 @@
-Player1 Win: 0
-Player2 Win: 10
-Draws: 0
+Player1 Win: 6
+Player2 Win: 3
+Draws: 1
 Total: 10

@@ -1060,8 +1060,8 @@ CMakeFiles/ContinuousSubmit.dir/clean:
 # Target rules for target CMakeFiles/MCTS_GGP_THESIS.dir
 
 # All Build rule for target.
-CMakeFiles/MCTS_GGP_THESIS.dir/all: games/connect4/CMakeFiles/connect4.dir/all
 CMakeFiles/MCTS_GGP_THESIS.dir/all: mcts/CMakeFiles/mcts.dir/all
+CMakeFiles/MCTS_GGP_THESIS.dir/all: games/connect4/CMakeFiles/connect4.dir/all
 CMakeFiles/MCTS_GGP_THESIS.dir/all: strategy/CMakeFiles/strategy.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCTS_GGP_THESIS.dir/build.make CMakeFiles/MCTS_GGP_THESIS.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCTS_GGP_THESIS.dir/build.make CMakeFiles/MCTS_GGP_THESIS.dir/build
