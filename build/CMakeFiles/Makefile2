@@ -254,17 +254,35 @@ mcts/clean: mcts/CMakeFiles/mcts.dir/clean
 # Recursive "all" directory target.
 models/all: models/standard/all
 models/all: models/minimax/all
+models/all: models/detector/all
 .PHONY : models/all
 
 # Recursive "preinstall" directory target.
 models/preinstall: models/standard/preinstall
 models/preinstall: models/minimax/preinstall
+models/preinstall: models/detector/preinstall
 .PHONY : models/preinstall
 
 # Recursive "clean" directory target.
 models/clean: models/standard/clean
 models/clean: models/minimax/clean
+models/clean: models/detector/clean
 .PHONY : models/clean
+
+#=============================================================================
+# Directory level rules for directory models/detector
+
+# Recursive "all" directory target.
+models/detector/all:
+.PHONY : models/detector/all
+
+# Recursive "preinstall" directory target.
+models/detector/preinstall:
+.PHONY : models/detector/preinstall
+
+# Recursive "clean" directory target.
+models/detector/clean:
+.PHONY : models/detector/clean
 
 #=============================================================================
 # Directory level rules for directory models/minimax
@@ -1060,8 +1078,8 @@ CMakeFiles/ContinuousSubmit.dir/clean:
 # Target rules for target CMakeFiles/MCTS_GGP_THESIS.dir
 
 # All Build rule for target.
-CMakeFiles/MCTS_GGP_THESIS.dir/all: mcts/CMakeFiles/mcts.dir/all
 CMakeFiles/MCTS_GGP_THESIS.dir/all: games/connect4/CMakeFiles/connect4.dir/all
+CMakeFiles/MCTS_GGP_THESIS.dir/all: mcts/CMakeFiles/mcts.dir/all
 CMakeFiles/MCTS_GGP_THESIS.dir/all: strategy/CMakeFiles/strategy.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCTS_GGP_THESIS.dir/build.make CMakeFiles/MCTS_GGP_THESIS.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCTS_GGP_THESIS.dir/build.make CMakeFiles/MCTS_GGP_THESIS.dir/build

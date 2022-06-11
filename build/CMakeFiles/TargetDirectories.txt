@@ -85,6 +85,13 @@
 /Users/james/Documents/Thesis_C++/build/models/minimax/CMakeFiles/install.dir
 /Users/james/Documents/Thesis_C++/build/models/minimax/CMakeFiles/install/local.dir
 /Users/james/Documents/Thesis_C++/build/models/minimax/CMakeFiles/install/strip.dir
+/Users/james/Documents/Thesis_C++/build/models/detector/CMakeFiles/test.dir
+/Users/james/Documents/Thesis_C++/build/models/detector/CMakeFiles/edit_cache.dir
+/Users/james/Documents/Thesis_C++/build/models/detector/CMakeFiles/rebuild_cache.dir
+/Users/james/Documents/Thesis_C++/build/models/detector/CMakeFiles/list_install_components.dir
+/Users/james/Documents/Thesis_C++/build/models/detector/CMakeFiles/install.dir
+/Users/james/Documents/Thesis_C++/build/models/detector/CMakeFiles/install/local.dir
+/Users/james/Documents/Thesis_C++/build/models/detector/CMakeFiles/install/strip.dir
 /Users/james/Documents/Thesis_C++/build/main/CMakeFiles/test.dir
 /Users/james/Documents/Thesis_C++/build/main/CMakeFiles/edit_cache.dir
 /Users/james/Documents/Thesis_C++/build/main/CMakeFiles/rebuild_cache.dir

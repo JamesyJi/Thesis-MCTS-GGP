@@ -2,32 +2,35 @@
 
 #include "model.h"
 
-#define N_VISITS 2
-
-namespace Models::Minimax
+namespace Models::Detector
 {
 
-template<typename TTraits, auto DepthFunc>
-class MinimaxSelection : public Model<MinimaxSelection<TTraits, DepthFunc>, TTraits>
+template<typename TTraits>
+class TerminalDetector : public Model<TerminalDetector<TTraits>, TTraits>
 {
 public:
     using StateT = typename TTraits::StateT;
     using MoveT = typename TTraits::MoveT;
     using NodeT = MCTS::Node<StateT, MoveT>;
 
-    MinimaxSelection(Common::Player player, const StateT& state, Games::GameState& gameState)
-    : Model<MinimaxSelection<TTraits, DepthFunc>, TTraits>(player, state, gameState)
+    TerminalDetector(Common::Player player, const StateT& state, Games::GameState& gameState)
+    : Model<TerminalDetector<TTraits>, TTraits>(player, state, gameState)
     {}
 
-    ~MinimaxSelection(){}
+    ~TerminalDetector(){}
 
     void ExecuteStrategy()
     {
+        // Only run detector once per turn
+        if (mLastRanDetector != this->mGameState.GetTurn()) {
+            DetectTerminalStates();
+            mLastRanDetector = this->mGameState.GetTurn();
+        }
+
         // Selection
         NodeT& promisingNode = SelectBestChild();
         StateT& promisingState = promisingNode.GetStateRef();
 
-        // std::cout << "Expansion\n";
         // Expansion
         if (promisingState.EvaluateState(promisingNode.GetLastMove()) == Common::Result::ONGOING)
         {
@@ -37,28 +40,35 @@ public:
         // Simulation
         NodeT& exploreNode = promisingNode.HasChildren() ? promisingNode.GetRandomChild() : promisingNode;
 
-        // std::cout << "Simulation\n";
-        auto evaluation = this->Simulate(exploreNode);
-
+        auto evaluation = Simulate(exploreNode);
+    
         // Back Propagation
         this->BackPropagate(exploreNode, evaluation);
     }
 
+    void DetectTerminalStates() {
+        // Log for depths 1 2 3 4 5 6 7 8 9 10 11 12
+        std::cout << "detecting terminal state\n";
+        for (int i = 1; i <= 12; ++i) 
+        {
+            std::cout << i << "\n";
+            auto result = this->MinimaxAB(this->mRoot->GetStateRef(), this->mRoot->GetLastMove(), i, Common::Result::PLAYER2_WIN, Common::Result::PLAYER1_WIN, this->mRoot->GetPlayerTurn());
+            if (result != Common::Result::ONGOING)
+            {
+                std::cout << "DETECTED " << result << "\n";
+                this->mGameState.FoundTerminal(i);
+            }
+        }
+        std::cout << "finished detecting terminal state\n";
+    }
+
     NodeT& SelectBestChild()
     {
-        // std::cout << "Select best child\n";
         NodeT* bestChild = this->mRoot.get();
 
         while (bestChild->HasChildren())
         {
             bestChild = &bestChild->GetHighestScoreChild();
-
-            // Perform minimax in selection phase after a certain number of visits
-            if (bestChild->GetVisits() == N_VISITS)
-            {
-                auto evaluation = this->MinimaxAB(bestChild->GetStateRef(), bestChild->GetLastMove(), DepthFunc(this->mGameState), Common::Result::PLAYER2_WIN, Common::Result::PLAYER1_WIN, bestChild->GetPlayerTurn());
-                this->BackPropagateProven(*bestChild, evaluation);
-            }
         }
 
         return *bestChild;
@@ -74,19 +84,17 @@ public:
         int nLegalMoves;
         while (simulateState.EvaluateState(move) == Common::Result::ONGOING)
         {
-            // std::cout << simulateState;
-            // std::cout << "==============\n";
             nLegalMoves = simulateState.GetLegalMoves(playerTurn, legalMoves);
             move = legalMoves[rand() % nLegalMoves];
             simulateState.SimulateMove(move);
             playerTurn = Common::GetOtherPlayer(playerTurn);
         }
 
-        // std::cout << simulateState;            
-        // std::cout << "==============\n";
-
         return simulateState.EvaluateState(move);
     }
+
+private:
+    int mLastRanDetector = 0;
 };
 
 }

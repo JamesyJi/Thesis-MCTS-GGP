@@ -12,9 +12,9 @@
 						2,
 						4,
 						5,
-						8,
 						9,
-						10
+						10,
+						11
 					],
 					"hasInstallRule" : true,
 					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
@@ -118,7 +118,8 @@
 					"childIndexes" : 
 					[
 						6,
-						7
+						7,
+						8
 					],
 					"jsonFile" : "directory-models-Release-85536f1cc26d7ce72aeb.json",
 					"minimumCMakeVersion" : 
@@ -152,6 +153,17 @@
 					"source" : "models/minimax"
 				},
 				{
+					"build" : "models/detector",
+					"jsonFile" : "directory-models.detector-Release-ac53965198bd402f8e8b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 0,
+					"source" : "models/detector"
+				},
+				{
 					"build" : "main",
 					"jsonFile" : "directory-main-Release-c59558c0a3fb20727b44.json",
 					"minimumCMakeVersion" : 
@@ -181,7 +193,7 @@
 					"build" : "tests",
 					"childIndexes" : 
 					[
-						11
+						12
 					],
 					"hasInstallRule" : true,
 					"jsonFile" : "directory-tests-Release-b01f6abb0ab61427ef3b.json",
@@ -201,7 +213,7 @@
 					"build" : "_deps/googletest-build",
 					"childIndexes" : 
 					[
-						12
+						13
 					],
 					"hasInstallRule" : true,
 					"jsonFile" : "directory-_deps.googletest-build-Release-325181791364522dc3de.json",
@@ -209,7 +221,7 @@
 					{
 						"string" : "2.8.12"
 					},
-					"parentIndex" : 10,
+					"parentIndex" : 11,
 					"projectIndex" : 1,
 					"source" : "build/_deps/googletest-src"
 				},
@@ -217,7 +229,7 @@
 					"build" : "_deps/googletest-build/googlemock",
 					"childIndexes" : 
 					[
-						13
+						14
 					],
 					"hasInstallRule" : true,
 					"jsonFile" : "directory-_deps.googletest-build.googlemock-Release-5b2bb00c3a0d0324c33c.json",
@@ -225,7 +237,7 @@
 					{
 						"string" : "2.8.12"
 					},
-					"parentIndex" : 11,
+					"parentIndex" : 12,
 					"projectIndex" : 2,
 					"source" : "build/_deps/googletest-src/googlemock",
 					"targetIndexes" : 
@@ -242,7 +254,7 @@
 					{
 						"string" : "2.8.12"
 					},
-					"parentIndex" : 12,
+					"parentIndex" : 13,
 					"projectIndex" : 3,
 					"source" : "build/_deps/googletest-src/googletest",
 					"targetIndexes" : 
@@ -272,7 +284,8 @@
 						7,
 						8,
 						9,
-						10
+						10,
+						11
 					],
 					"name" : "MCTS_GGP_THESIS",
 					"targetIndexes" : 
@@ -319,7 +332,7 @@
 					],
 					"directoryIndexes" : 
 					[
-						11
+						12
 					],
 					"name" : "googletest-distribution",
 					"parentIndex" : 0
@@ -331,7 +344,7 @@
 					],
 					"directoryIndexes" : 
 					[
-						12
+						13
 					],
 					"name" : "gmock",
 					"parentIndex" : 1,
@@ -344,7 +357,7 @@
 				{
 					"directoryIndexes" : 
 					[
-						13
+						14
 					],
 					"name" : "gtest",
 					"parentIndex" : 2,
@@ -486,12 +499,12 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "MCTS_GGP_THESIS::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-MCTS_GGP_THESIS-Release-0b056a7b998ea0eb238f.json",
+					"jsonFile" : "target-MCTS_GGP_THESIS-Release-97c79c744126376888d9.json",
 					"name" : "MCTS_GGP_THESIS",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 10,
+					"directoryIndex" : 11,
 					"id" : "MCTS_TESTS::@a44f0ac069e85531cdee",
 					"jsonFile" : "target-MCTS_TESTS-Release-3c9e46f0b6be451e8ad5.json",
 					"name" : "MCTS_TESTS",
@@ -575,28 +588,28 @@
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 12,
+					"directoryIndex" : 13,
 					"id" : "gmock::@0f7bb11d64f3678238c7",
 					"jsonFile" : "target-gmock-Release-0bedf8ab38225ebdd4de.json",
 					"name" : "gmock",
 					"projectIndex" : 2
 				},
 				{
-					"directoryIndex" : 12,
+					"directoryIndex" : 13,
 					"id" : "gmock_main::@0f7bb11d64f3678238c7",
 					"jsonFile" : "target-gmock_main-Release-64975248bb41c5391a85.json",
 					"name" : "gmock_main",
 					"projectIndex" : 2
 				},
 				{
-					"directoryIndex" : 13,
+					"directoryIndex" : 14,
 					"id" : "gtest::@1ea2dfc0605fe3ab2a3f",
 					"jsonFile" : "target-gtest-Release-419dbf3ba9f51b2f249e.json",
 					"name" : "gtest",
 					"projectIndex" : 3
 				},
 				{
-					"directoryIndex" : 13,
+					"directoryIndex" : 14,
 					"id" : "gtest_main::@1ea2dfc0605fe3ab2a3f",
 					"jsonFile" : "target-gtest_main-Release-e7188249fa32c5c3f036.json",
 					"name" : "gtest_main",
@@ -610,7 +623,7 @@
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 9,
+					"directoryIndex" : 10,
 					"id" : "strategy::@241ee8dc02c6c148167d",
 					"jsonFile" : "target-strategy-Release-cd2bb7f4b10c3aec7f2e.json",
 					"name" : "strategy",

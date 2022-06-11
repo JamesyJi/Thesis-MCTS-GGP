@@ -35,11 +35,10 @@ public:
             auto result = StartNewGame(resource);
 
             std::cout << result << "\n";
-
-            mGameResults.UpdateResult(result);
         }
 
         mGameResults.Log("results.txt");
+        mGameResults.LogTerminals("terminals.csv");
     }
 
 
@@ -52,7 +51,7 @@ public:
 
         TState state;
         TMove move;
-        
+
         while (state.EvaluateState(move) == Common::Result::ONGOING)
         {
             resource.ResetAndStart();
@@ -81,7 +80,10 @@ public:
 
         std::cout << "GAME END\n";
 
-        return state.EvaluateState(move);
+        auto result = state.EvaluateState(move);
+        mGameResults.UpdateResult(result);
+        mGameResults.Accumulate(gameState);
+        return result;
     }
 
 private:

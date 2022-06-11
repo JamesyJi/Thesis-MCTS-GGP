@@ -76,16 +76,16 @@ public:
 
     Common::Result MinimaxAB(StateT& state, const MoveT& lastMove, int depth, Common::Result alpha, Common::Result beta, Common::Player player);
 
-    Model(Common::Player player, const StateT& state, const Games::GameState& gameState)
+    Model(Common::Player player, const StateT& state, Games::GameState& gameState)
     : mPlayer(player)
     , mRoot(std::make_unique<NodeT>(state, Common::Player::PLAYER1, nullptr, MoveT()))
     , mGameState(gameState)
     {};
 
 protected:
-    Common::Player mPlayer;
+    const Common::Player mPlayer;
     std::unique_ptr<NodeT> mRoot;
-    const Games::GameState mGameState;
+    Games::GameState& mGameState;
 };
 
 }

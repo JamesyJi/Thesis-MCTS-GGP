@@ -3,6 +3,7 @@
 #include "resource.h"
 #include "standard/standard.h"
 #include "minimax/minimax_selection.h"
+#include "detector/terminal_detector.h"
 #include "connect4_state.h"
 #include "strategy.h"
 
@@ -15,13 +16,14 @@ int main(void)
     using GameT = Models::Traits<Connect4::Connect4State, Connect4::Connect4Move>;
     // using Model1T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth6>;
     // using Model2T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth5>;
-    using Model1T = Models::Standard::Standard<GameT>;
+    // using Model1T = Models::Standard::Standard<GameT>;
     using Model2T = Models::Standard::Standard<GameT>;
+    using Model1T = Models::Detector::TerminalDetector<GameT>;
 
     auto manager = Main::GameManager<Model1T, Model2T, StateT, MoveT>();
     auto resource = Common::IterationResource(100000);
     // auto resource = Common::TimeResource(0.3);
-    manager.StartExperiment(resource, 5);
+    manager.StartExperiment(resource, 1);
 
     return 0;
 }
