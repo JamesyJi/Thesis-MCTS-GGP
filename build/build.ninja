@@ -1,0 +1,2269 @@
+## This file contains all the build statements describing the
+# compilation DAG.
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# 
+# Which is the root file.
+# =============================================================================
+
+# =============================================================================
+# Project: MCTS_GGP_THESIS
+# Configurations: Release
+# =============================================================================
+
+#############################################
+# Minimal version of Ninja required by this file
+
+ninja_required_version = 1.5
+
+
+#############################################
+# Set configuration variable for custom commands.
+
+CONFIGURATION = Release
+# =============================================================================
+# Include auxiliary files.
+
+
+#############################################
+# Include rules file.
+
+include CMakeFiles/rules.ninja
+
+# =============================================================================
+
+#############################################
+# Logical path to working directory; prefix for absolute paths.
+
+cmake_ninja_workdir = /Users/james/Documents/Thesis_C++/build/
+
+#############################################
+# Utility command for Experimental
+
+build Experimental: phony CMakeFiles/Experimental
+
+
+#############################################
+# Utility command for Nightly
+
+build Nightly: phony CMakeFiles/Nightly
+
+
+#############################################
+# Utility command for Continuous
+
+build Continuous: phony CMakeFiles/Continuous
+
+
+#############################################
+# Utility command for NightlyMemoryCheck
+
+build NightlyMemoryCheck: phony CMakeFiles/NightlyMemoryCheck
+
+
+#############################################
+# Utility command for NightlyStart
+
+build NightlyStart: phony CMakeFiles/NightlyStart
+
+
+#############################################
+# Utility command for NightlyUpdate
+
+build NightlyUpdate: phony CMakeFiles/NightlyUpdate
+
+
+#############################################
+# Utility command for NightlyConfigure
+
+build NightlyConfigure: phony CMakeFiles/NightlyConfigure
+
+
+#############################################
+# Utility command for NightlyBuild
+
+build NightlyBuild: phony CMakeFiles/NightlyBuild
+
+
+#############################################
+# Utility command for NightlyTest
+
+build NightlyTest: phony CMakeFiles/NightlyTest
+
+
+#############################################
+# Utility command for NightlyCoverage
+
+build NightlyCoverage: phony CMakeFiles/NightlyCoverage
+
+
+#############################################
+# Utility command for NightlyMemCheck
+
+build NightlyMemCheck: phony CMakeFiles/NightlyMemCheck
+
+
+#############################################
+# Utility command for NightlySubmit
+
+build NightlySubmit: phony CMakeFiles/NightlySubmit
+
+
+#############################################
+# Utility command for ExperimentalStart
+
+build ExperimentalStart: phony CMakeFiles/ExperimentalStart
+
+
+#############################################
+# Utility command for ExperimentalUpdate
+
+build ExperimentalUpdate: phony CMakeFiles/ExperimentalUpdate
+
+
+#############################################
+# Utility command for ExperimentalConfigure
+
+build ExperimentalConfigure: phony CMakeFiles/ExperimentalConfigure
+
+
+#############################################
+# Utility command for ExperimentalBuild
+
+build ExperimentalBuild: phony CMakeFiles/ExperimentalBuild
+
+
+#############################################
+# Utility command for ExperimentalTest
+
+build ExperimentalTest: phony CMakeFiles/ExperimentalTest
+
+
+#############################################
+# Utility command for ExperimentalCoverage
+
+build ExperimentalCoverage: phony CMakeFiles/ExperimentalCoverage
+
+
+#############################################
+# Utility command for ExperimentalMemCheck
+
+build ExperimentalMemCheck: phony CMakeFiles/ExperimentalMemCheck
+
+
+#############################################
+# Utility command for ExperimentalSubmit
+
+build ExperimentalSubmit: phony CMakeFiles/ExperimentalSubmit
+
+
+#############################################
+# Utility command for ContinuousStart
+
+build ContinuousStart: phony CMakeFiles/ContinuousStart
+
+
+#############################################
+# Utility command for ContinuousUpdate
+
+build ContinuousUpdate: phony CMakeFiles/ContinuousUpdate
+
+
+#############################################
+# Utility command for ContinuousConfigure
+
+build ContinuousConfigure: phony CMakeFiles/ContinuousConfigure
+
+
+#############################################
+# Utility command for ContinuousBuild
+
+build ContinuousBuild: phony CMakeFiles/ContinuousBuild
+
+
+#############################################
+# Utility command for ContinuousTest
+
+build ContinuousTest: phony CMakeFiles/ContinuousTest
+
+
+#############################################
+# Utility command for ContinuousCoverage
+
+build ContinuousCoverage: phony CMakeFiles/ContinuousCoverage
+
+
+#############################################
+# Utility command for ContinuousMemCheck
+
+build ContinuousMemCheck: phony CMakeFiles/ContinuousMemCheck
+
+
+#############################################
+# Utility command for ContinuousSubmit
+
+build ContinuousSubmit: phony CMakeFiles/ContinuousSubmit
+
+# =============================================================================
+# Object build statements for EXECUTABLE target MCTS_GGP_THESIS
+
+
+#############################################
+# Order-only phony target for MCTS_GGP_THESIS
+
+build cmake_object_order_depends_target_MCTS_GGP_THESIS: phony || cmake_object_order_depends_target_breakthrough cmake_object_order_depends_target_connect4 cmake_object_order_depends_target_mcts cmake_object_order_depends_target_strategy
+
+build CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o: CXX_COMPILER__MCTS_GGP_THESIS_Release /Users/james/Documents/Thesis_C++/experimenter.cpp || cmake_object_order_depends_target_MCTS_GGP_THESIS
+  DEP_FILE = CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/games/breakthrough -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/models/. -I/Users/james/Documents/Thesis_C++/mcts -I/Users/james/Documents/Thesis_C++/main
+  OBJECT_DIR = CMakeFiles/MCTS_GGP_THESIS.dir
+  OBJECT_FILE_DIR = CMakeFiles/MCTS_GGP_THESIS.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target MCTS_GGP_THESIS
+
+
+#############################################
+# Link the executable MCTS_GGP_THESIS
+
+build MCTS_GGP_THESIS: CXX_EXECUTABLE_LINKER__MCTS_GGP_THESIS_Release CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o | games/connect4/libconnect4.a games/breakthrough/libbreakthrough.a strategy/libstrategy.a mcts/libmcts.a games/connect4/libconnect4.a games/breakthrough/libbreakthrough.a mcts/libmcts.a || games/breakthrough/libbreakthrough.a games/connect4/libconnect4.a mcts/libmcts.a strategy/libstrategy.a
+  FLAGS = -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
+  LINK_LIBRARIES = games/connect4/libconnect4.a  games/breakthrough/libbreakthrough.a  strategy/libstrategy.a  mcts/libmcts.a  games/connect4/libconnect4.a  games/breakthrough/libbreakthrough.a  mcts/libmcts.a
+  OBJECT_DIR = CMakeFiles/MCTS_GGP_THESIS.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = MCTS_GGP_THESIS
+  TARGET_PDB = MCTS_GGP_THESIS.dbg
+
+
+#############################################
+# Utility command for test
+
+build CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build test: phony CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+
+#############################################
+# Custom command for CMakeFiles/Experimental
+
+build CMakeFiles/Experimental | ${cmake_ninja_workdir}CMakeFiles/Experimental: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D Experimental
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/Nightly
+
+build CMakeFiles/Nightly | ${cmake_ninja_workdir}CMakeFiles/Nightly: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D Nightly
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/Continuous
+
+build CMakeFiles/Continuous | ${cmake_ninja_workdir}CMakeFiles/Continuous: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D Continuous
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyMemoryCheck
+
+build CMakeFiles/NightlyMemoryCheck | ${cmake_ninja_workdir}CMakeFiles/NightlyMemoryCheck: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D NightlyMemoryCheck
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyStart
+
+build CMakeFiles/NightlyStart | ${cmake_ninja_workdir}CMakeFiles/NightlyStart: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D NightlyStart
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyUpdate
+
+build CMakeFiles/NightlyUpdate | ${cmake_ninja_workdir}CMakeFiles/NightlyUpdate: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D NightlyUpdate
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyConfigure
+
+build CMakeFiles/NightlyConfigure | ${cmake_ninja_workdir}CMakeFiles/NightlyConfigure: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D NightlyConfigure
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyBuild
+
+build CMakeFiles/NightlyBuild | ${cmake_ninja_workdir}CMakeFiles/NightlyBuild: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D NightlyBuild
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyTest
+
+build CMakeFiles/NightlyTest | ${cmake_ninja_workdir}CMakeFiles/NightlyTest: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D NightlyTest
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyCoverage
+
+build CMakeFiles/NightlyCoverage | ${cmake_ninja_workdir}CMakeFiles/NightlyCoverage: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D NightlyCoverage
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlyMemCheck
+
+build CMakeFiles/NightlyMemCheck | ${cmake_ninja_workdir}CMakeFiles/NightlyMemCheck: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D NightlyMemCheck
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/NightlySubmit
+
+build CMakeFiles/NightlySubmit | ${cmake_ninja_workdir}CMakeFiles/NightlySubmit: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D NightlySubmit
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalStart
+
+build CMakeFiles/ExperimentalStart | ${cmake_ninja_workdir}CMakeFiles/ExperimentalStart: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D ExperimentalStart
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalUpdate
+
+build CMakeFiles/ExperimentalUpdate | ${cmake_ninja_workdir}CMakeFiles/ExperimentalUpdate: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D ExperimentalUpdate
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalConfigure
+
+build CMakeFiles/ExperimentalConfigure | ${cmake_ninja_workdir}CMakeFiles/ExperimentalConfigure: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D ExperimentalConfigure
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalBuild
+
+build CMakeFiles/ExperimentalBuild | ${cmake_ninja_workdir}CMakeFiles/ExperimentalBuild: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D ExperimentalBuild
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalTest
+
+build CMakeFiles/ExperimentalTest | ${cmake_ninja_workdir}CMakeFiles/ExperimentalTest: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D ExperimentalTest
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalCoverage
+
+build CMakeFiles/ExperimentalCoverage | ${cmake_ninja_workdir}CMakeFiles/ExperimentalCoverage: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D ExperimentalCoverage
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalMemCheck
+
+build CMakeFiles/ExperimentalMemCheck | ${cmake_ninja_workdir}CMakeFiles/ExperimentalMemCheck: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D ExperimentalMemCheck
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ExperimentalSubmit
+
+build CMakeFiles/ExperimentalSubmit | ${cmake_ninja_workdir}CMakeFiles/ExperimentalSubmit: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D ExperimentalSubmit
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousStart
+
+build CMakeFiles/ContinuousStart | ${cmake_ninja_workdir}CMakeFiles/ContinuousStart: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D ContinuousStart
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousUpdate
+
+build CMakeFiles/ContinuousUpdate | ${cmake_ninja_workdir}CMakeFiles/ContinuousUpdate: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D ContinuousUpdate
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousConfigure
+
+build CMakeFiles/ContinuousConfigure | ${cmake_ninja_workdir}CMakeFiles/ContinuousConfigure: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D ContinuousConfigure
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousBuild
+
+build CMakeFiles/ContinuousBuild | ${cmake_ninja_workdir}CMakeFiles/ContinuousBuild: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D ContinuousBuild
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousTest
+
+build CMakeFiles/ContinuousTest | ${cmake_ninja_workdir}CMakeFiles/ContinuousTest: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D ContinuousTest
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousCoverage
+
+build CMakeFiles/ContinuousCoverage | ${cmake_ninja_workdir}CMakeFiles/ContinuousCoverage: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D ContinuousCoverage
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousMemCheck
+
+build CMakeFiles/ContinuousMemCheck | ${cmake_ninja_workdir}CMakeFiles/ContinuousMemCheck: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D ContinuousMemCheck
+  pool = console
+
+
+#############################################
+# Custom command for CMakeFiles/ContinuousSubmit
+
+build CMakeFiles/ContinuousSubmit | ${cmake_ninja_workdir}CMakeFiles/ContinuousSubmit: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build && /Applications/CMake.app/Contents/bin/ctest -D ContinuousSubmit
+  pool = console
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/james/Documents/Thesis_C++/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for test
+
+build common/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/common && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build common/test: phony common/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build common/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/common && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build common/edit_cache: phony common/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build common/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/common && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build common/rebuild_cache: phony common/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build common/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build common/CMakeFiles/install.util: CUSTOM_COMMAND common/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/common && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build common/install: phony common/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build common/CMakeFiles/install/local.util: CUSTOM_COMMAND common/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/common && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build common/install/local: phony common/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build common/CMakeFiles/install/strip.util: CUSTOM_COMMAND common/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/common && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build common/install/strip: phony common/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/james/Documents/Thesis_C++/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for test
+
+build games/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build games/test: phony games/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build games/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build games/edit_cache: phony games/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build games/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build games/rebuild_cache: phony games/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build games/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build games/CMakeFiles/install.util: CUSTOM_COMMAND games/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build games/install: phony games/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build games/CMakeFiles/install/local.util: CUSTOM_COMMAND games/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build games/install/local: phony games/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build games/CMakeFiles/install/strip.util: CUSTOM_COMMAND games/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build games/install/strip: phony games/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/james/Documents/Thesis_C++/games/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target breakthrough
+
+
+#############################################
+# Order-only phony target for breakthrough
+
+build cmake_object_order_depends_target_breakthrough: phony || games/breakthrough/CMakeFiles/breakthrough.dir
+
+build games/breakthrough/CMakeFiles/breakthrough.dir/breakthrough_state.cpp.o: CXX_COMPILER__breakthrough_Release /Users/james/Documents/Thesis_C++/games/breakthrough/breakthrough_state.cpp || cmake_object_order_depends_target_breakthrough
+  DEP_FILE = games/breakthrough/CMakeFiles/breakthrough.dir/breakthrough_state.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/games/breakthrough -I/Users/james/Documents/Thesis_C++/common
+  OBJECT_DIR = games/breakthrough/CMakeFiles/breakthrough.dir
+  OBJECT_FILE_DIR = games/breakthrough/CMakeFiles/breakthrough.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target breakthrough
+
+
+#############################################
+# Link the static library games/breakthrough/libbreakthrough.a
+
+build games/breakthrough/libbreakthrough.a: CXX_STATIC_LIBRARY_LINKER__breakthrough_Release games/breakthrough/CMakeFiles/breakthrough.dir/breakthrough_state.cpp.o
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = games/breakthrough/CMakeFiles/breakthrough.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = games/breakthrough/libbreakthrough.a
+  TARGET_PDB = breakthrough.a.dbg
+
+
+#############################################
+# Utility command for test
+
+build games/breakthrough/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games/breakthrough && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build games/breakthrough/test: phony games/breakthrough/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build games/breakthrough/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games/breakthrough && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build games/breakthrough/edit_cache: phony games/breakthrough/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build games/breakthrough/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games/breakthrough && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build games/breakthrough/rebuild_cache: phony games/breakthrough/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build games/breakthrough/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build games/breakthrough/CMakeFiles/install.util: CUSTOM_COMMAND games/breakthrough/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games/breakthrough && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build games/breakthrough/install: phony games/breakthrough/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build games/breakthrough/CMakeFiles/install/local.util: CUSTOM_COMMAND games/breakthrough/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games/breakthrough && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build games/breakthrough/install/local: phony games/breakthrough/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build games/breakthrough/CMakeFiles/install/strip.util: CUSTOM_COMMAND games/breakthrough/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games/breakthrough && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build games/breakthrough/install/strip: phony games/breakthrough/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/james/Documents/Thesis_C++/games/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target connect4
+
+
+#############################################
+# Order-only phony target for connect4
+
+build cmake_object_order_depends_target_connect4: phony || games/connect4/CMakeFiles/connect4.dir
+
+build games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.o: CXX_COMPILER__connect4_Release /Users/james/Documents/Thesis_C++/games/connect4/connect4_state.cpp || cmake_object_order_depends_target_connect4
+  DEP_FILE = games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/common
+  OBJECT_DIR = games/connect4/CMakeFiles/connect4.dir
+  OBJECT_FILE_DIR = games/connect4/CMakeFiles/connect4.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target connect4
+
+
+#############################################
+# Link the static library games/connect4/libconnect4.a
+
+build games/connect4/libconnect4.a: CXX_STATIC_LIBRARY_LINKER__connect4_Release games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.o
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = games/connect4/CMakeFiles/connect4.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = games/connect4/libconnect4.a
+  TARGET_PDB = connect4.a.dbg
+
+
+#############################################
+# Utility command for test
+
+build games/connect4/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games/connect4 && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build games/connect4/test: phony games/connect4/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build games/connect4/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games/connect4 && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build games/connect4/edit_cache: phony games/connect4/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build games/connect4/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games/connect4 && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build games/connect4/rebuild_cache: phony games/connect4/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build games/connect4/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build games/connect4/CMakeFiles/install.util: CUSTOM_COMMAND games/connect4/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games/connect4 && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build games/connect4/install: phony games/connect4/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build games/connect4/CMakeFiles/install/local.util: CUSTOM_COMMAND games/connect4/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games/connect4 && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build games/connect4/install/local: phony games/connect4/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build games/connect4/CMakeFiles/install/strip.util: CUSTOM_COMMAND games/connect4/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/games/connect4 && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build games/connect4/install/strip: phony games/connect4/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/james/Documents/Thesis_C++/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target mcts
+
+
+#############################################
+# Order-only phony target for mcts
+
+build cmake_object_order_depends_target_mcts: phony || mcts/CMakeFiles/mcts.dir
+
+build mcts/CMakeFiles/mcts.dir/node.cpp.o: CXX_COMPILER__mcts_Release /Users/james/Documents/Thesis_C++/mcts/node.cpp || cmake_object_order_depends_target_mcts
+  DEP_FILE = mcts/CMakeFiles/mcts.dir/node.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/mcts -I/Users/james/Documents/Thesis_C++/common
+  OBJECT_DIR = mcts/CMakeFiles/mcts.dir
+  OBJECT_FILE_DIR = mcts/CMakeFiles/mcts.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target mcts
+
+
+#############################################
+# Link the static library mcts/libmcts.a
+
+build mcts/libmcts.a: CXX_STATIC_LIBRARY_LINKER__mcts_Release mcts/CMakeFiles/mcts.dir/node.cpp.o
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = mcts/CMakeFiles/mcts.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = mcts/libmcts.a
+  TARGET_PDB = mcts.a.dbg
+
+
+#############################################
+# Utility command for test
+
+build mcts/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/mcts && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build mcts/test: phony mcts/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build mcts/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/mcts && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build mcts/edit_cache: phony mcts/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build mcts/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/mcts && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build mcts/rebuild_cache: phony mcts/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build mcts/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build mcts/CMakeFiles/install.util: CUSTOM_COMMAND mcts/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/mcts && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build mcts/install: phony mcts/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build mcts/CMakeFiles/install/local.util: CUSTOM_COMMAND mcts/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/mcts && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build mcts/install/local: phony mcts/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build mcts/CMakeFiles/install/strip.util: CUSTOM_COMMAND mcts/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/mcts && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build mcts/install/strip: phony mcts/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/james/Documents/Thesis_C++/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for test
+
+build models/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build models/test: phony models/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build models/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build models/edit_cache: phony models/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build models/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build models/rebuild_cache: phony models/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build models/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build models/CMakeFiles/install.util: CUSTOM_COMMAND models/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build models/install: phony models/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build models/CMakeFiles/install/local.util: CUSTOM_COMMAND models/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build models/install/local: phony models/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build models/CMakeFiles/install/strip.util: CUSTOM_COMMAND models/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build models/install/strip: phony models/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/james/Documents/Thesis_C++/models/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for test
+
+build models/standard/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/standard && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build models/standard/test: phony models/standard/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build models/standard/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/standard && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build models/standard/edit_cache: phony models/standard/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build models/standard/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/standard && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build models/standard/rebuild_cache: phony models/standard/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build models/standard/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build models/standard/CMakeFiles/install.util: CUSTOM_COMMAND models/standard/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/standard && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build models/standard/install: phony models/standard/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build models/standard/CMakeFiles/install/local.util: CUSTOM_COMMAND models/standard/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/standard && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build models/standard/install/local: phony models/standard/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build models/standard/CMakeFiles/install/strip.util: CUSTOM_COMMAND models/standard/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/standard && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build models/standard/install/strip: phony models/standard/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/james/Documents/Thesis_C++/models/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for test
+
+build models/minimax/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/minimax && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build models/minimax/test: phony models/minimax/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build models/minimax/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/minimax && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build models/minimax/edit_cache: phony models/minimax/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build models/minimax/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/minimax && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build models/minimax/rebuild_cache: phony models/minimax/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build models/minimax/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build models/minimax/CMakeFiles/install.util: CUSTOM_COMMAND models/minimax/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/minimax && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build models/minimax/install: phony models/minimax/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build models/minimax/CMakeFiles/install/local.util: CUSTOM_COMMAND models/minimax/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/minimax && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build models/minimax/install/local: phony models/minimax/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build models/minimax/CMakeFiles/install/strip.util: CUSTOM_COMMAND models/minimax/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/minimax && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build models/minimax/install/strip: phony models/minimax/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/james/Documents/Thesis_C++/models/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for test
+
+build models/detector/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/detector && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build models/detector/test: phony models/detector/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build models/detector/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/detector && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build models/detector/edit_cache: phony models/detector/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build models/detector/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/detector && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build models/detector/rebuild_cache: phony models/detector/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build models/detector/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build models/detector/CMakeFiles/install.util: CUSTOM_COMMAND models/detector/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/detector && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build models/detector/install: phony models/detector/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build models/detector/CMakeFiles/install/local.util: CUSTOM_COMMAND models/detector/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/detector && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build models/detector/install/local: phony models/detector/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build models/detector/CMakeFiles/install/strip.util: CUSTOM_COMMAND models/detector/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/models/detector && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build models/detector/install/strip: phony models/detector/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/james/Documents/Thesis_C++/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for test
+
+build main/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/main && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build main/test: phony main/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build main/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/main && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build main/edit_cache: phony main/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build main/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/main && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build main/rebuild_cache: phony main/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build main/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build main/CMakeFiles/install.util: CUSTOM_COMMAND main/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/main && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build main/install: phony main/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build main/CMakeFiles/install/local.util: CUSTOM_COMMAND main/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/main && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build main/install/local: phony main/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build main/CMakeFiles/install/strip.util: CUSTOM_COMMAND main/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/main && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build main/install/strip: phony main/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/james/Documents/Thesis_C++/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target strategy
+
+
+#############################################
+# Order-only phony target for strategy
+
+build cmake_object_order_depends_target_strategy: phony || cmake_object_order_depends_target_connect4
+
+build strategy/CMakeFiles/strategy.dir/connect4_strategy.cpp.o: CXX_COMPILER__strategy_Release /Users/james/Documents/Thesis_C++/strategy/connect4_strategy.cpp || cmake_object_order_depends_target_strategy
+  DEP_FILE = strategy/CMakeFiles/strategy.dir/connect4_strategy.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/common
+  OBJECT_DIR = strategy/CMakeFiles/strategy.dir
+  OBJECT_FILE_DIR = strategy/CMakeFiles/strategy.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target strategy
+
+
+#############################################
+# Link the static library strategy/libstrategy.a
+
+build strategy/libstrategy.a: CXX_STATIC_LIBRARY_LINKER__strategy_Release strategy/CMakeFiles/strategy.dir/connect4_strategy.cpp.o || games/connect4/libconnect4.a
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = strategy/CMakeFiles/strategy.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = strategy/libstrategy.a
+  TARGET_PDB = strategy.a.dbg
+
+
+#############################################
+# Utility command for test
+
+build strategy/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/strategy && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build strategy/test: phony strategy/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build strategy/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/strategy && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build strategy/edit_cache: phony strategy/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build strategy/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/strategy && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build strategy/rebuild_cache: phony strategy/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build strategy/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build strategy/CMakeFiles/install.util: CUSTOM_COMMAND strategy/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/strategy && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build strategy/install: phony strategy/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build strategy/CMakeFiles/install/local.util: CUSTOM_COMMAND strategy/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/strategy && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build strategy/install/local: phony strategy/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build strategy/CMakeFiles/install/strip.util: CUSTOM_COMMAND strategy/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/strategy && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build strategy/install/strip: phony strategy/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/james/Documents/Thesis_C++/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target MCTS_TESTS
+
+
+#############################################
+# Order-only phony target for MCTS_TESTS
+
+build cmake_object_order_depends_target_MCTS_TESTS: phony || cmake_object_order_depends_target_breakthrough cmake_object_order_depends_target_connect4 cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
+
+build tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o: CXX_COMPILER__MCTS_TESTS_Release /Users/james/Documents/Thesis_C++/tests/connect4/connect4_state_unittest.cpp || cmake_object_order_depends_target_MCTS_TESTS
+  DEP_FILE = tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o.d
+  FLAGS = -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/tests/connect4 -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/breakthrough -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest
+  OBJECT_DIR = tests/CMakeFiles/MCTS_TESTS.dir
+  OBJECT_FILE_DIR = tests/CMakeFiles/MCTS_TESTS.dir/connect4
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target MCTS_TESTS
+
+
+#############################################
+# Link the executable tests/MCTS_TESTS
+
+build tests/MCTS_TESTS: CXX_EXECUTABLE_LINKER__MCTS_TESTS_Release tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o | lib/libgtest_main.a games/connect4/libconnect4.a games/breakthrough/libbreakthrough.a lib/libgtest.a || games/breakthrough/libbreakthrough.a games/connect4/libconnect4.a lib/libgtest.a lib/libgtest_main.a
+  FLAGS = -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
+  LINK_LIBRARIES = lib/libgtest_main.a  games/connect4/libconnect4.a  games/breakthrough/libbreakthrough.a  lib/libgtest.a
+  OBJECT_DIR = tests/CMakeFiles/MCTS_TESTS.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = tests/MCTS_TESTS
+  TARGET_PDB = MCTS_TESTS.dbg
+
+
+#############################################
+# Utility command for test
+
+build tests/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/tests && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build tests/test: phony tests/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build tests/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/tests && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build tests/edit_cache: phony tests/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build tests/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/tests && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build tests/rebuild_cache: phony tests/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build tests/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build tests/CMakeFiles/install.util: CUSTOM_COMMAND tests/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/tests && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build tests/install: phony tests/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build tests/CMakeFiles/install/local.util: CUSTOM_COMMAND tests/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/tests && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build tests/install/local: phony tests/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build tests/CMakeFiles/install/strip.util: CUSTOM_COMMAND tests/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/tests && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build tests/install/strip: phony tests/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/james/Documents/Thesis_C++/tests/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for test
+
+build _deps/googletest-build/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/test: phony _deps/googletest-build/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build _deps/googletest-build/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/edit_cache: phony _deps/googletest-build/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build _deps/googletest-build/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/rebuild_cache: phony _deps/googletest-build/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build _deps/googletest-build/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build _deps/googletest-build/CMakeFiles/install.util: CUSTOM_COMMAND _deps/googletest-build/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/install: phony _deps/googletest-build/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build _deps/googletest-build/CMakeFiles/install/local.util: CUSTOM_COMMAND _deps/googletest-build/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/install/local: phony _deps/googletest-build/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build _deps/googletest-build/CMakeFiles/install/strip.util: CUSTOM_COMMAND _deps/googletest-build/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/install/strip: phony _deps/googletest-build/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Order-only phony target for gmock
+
+build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depends_target_gtest
+
+build _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: CXX_COMPILER__gmock_Release /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
+  DEP_FILE = _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o.d
+  FLAGS = -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -std=c++17
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googlemock/include -I/Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googlemock -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest
+  OBJECT_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock.dir
+  OBJECT_FILE_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Link the static library lib/libgmock.a
+
+build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_Release _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o || lib/libgtest.a
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgmock.a
+  TARGET_PDB = gmock.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Order-only phony target for gmock_main
+
+build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_depends_target_gmock cmake_object_order_depends_target_gtest
+
+build _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o: CXX_COMPILER__gmock_main_Release /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
+  DEP_FILE = _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o.d
+  FLAGS = -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -std=c++17
+  INCLUDES = -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googlemock/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googlemock -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest
+  OBJECT_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir
+  OBJECT_FILE_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Link the static library lib/libgmock_main.a
+
+build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Release _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o || lib/libgmock.a lib/libgtest.a
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgmock_main.a
+  TARGET_PDB = gmock_main.a.dbg
+
+
+#############################################
+# Utility command for test
+
+build _deps/googletest-build/googlemock/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build/googlemock && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googlemock/test: phony _deps/googletest-build/googlemock/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build _deps/googletest-build/googlemock/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build/googlemock && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googlemock/edit_cache: phony _deps/googletest-build/googlemock/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build _deps/googletest-build/googlemock/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build/googlemock && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googlemock/rebuild_cache: phony _deps/googletest-build/googlemock/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build _deps/googletest-build/googlemock/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build _deps/googletest-build/googlemock/CMakeFiles/install.util: CUSTOM_COMMAND _deps/googletest-build/googlemock/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build/googlemock && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googlemock/install: phony _deps/googletest-build/googlemock/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build _deps/googletest-build/googlemock/CMakeFiles/install/local.util: CUSTOM_COMMAND _deps/googletest-build/googlemock/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build/googlemock && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googlemock/install/local: phony _deps/googletest-build/googlemock/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build _deps/googletest-build/googlemock/CMakeFiles/install/strip.util: CUSTOM_COMMAND _deps/googletest-build/googlemock/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build/googlemock && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googlemock/install/strip: phony _deps/googletest-build/googlemock/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googlemock/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Order-only phony target for gtest
+
+build cmake_object_order_depends_target_gtest: phony || _deps/googletest-build/googletest/CMakeFiles/gtest.dir
+
+build _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o: CXX_COMPILER__gtest_Release /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
+  DEP_FILE = _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o.d
+  FLAGS = -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -std=c++17
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -I/Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest
+  OBJECT_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest.dir
+  OBJECT_FILE_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Link the static library lib/libgtest.a
+
+build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_Release _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgtest.a
+  TARGET_PDB = gtest.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Order-only phony target for gtest_main
+
+build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_depends_target_gtest
+
+build _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: CXX_COMPILER__gtest_main_Release /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
+  DEP_FILE = _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.d
+  FLAGS = -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -std=c++17
+  INCLUDES = -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest
+  OBJECT_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir
+  OBJECT_FILE_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Link the static library lib/libgtest_main.a
+
+build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Release _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o || lib/libgtest.a
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgtest_main.a
+  TARGET_PDB = gtest_main.a.dbg
+
+
+#############################################
+# Utility command for test
+
+build _deps/googletest-build/googletest/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build/googletest && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googletest/test: phony _deps/googletest-build/googletest/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build _deps/googletest-build/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build/googletest && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googletest/edit_cache: phony _deps/googletest-build/googletest/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build _deps/googletest-build/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build/googletest && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googletest/rebuild_cache: phony _deps/googletest-build/googletest/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build _deps/googletest-build/googletest/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build _deps/googletest-build/googletest/CMakeFiles/install.util: CUSTOM_COMMAND _deps/googletest-build/googletest/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build/googletest && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googletest/install: phony _deps/googletest-build/googletest/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build _deps/googletest-build/googletest/CMakeFiles/install/local.util: CUSTOM_COMMAND _deps/googletest-build/googletest/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build/googletest && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googletest/install/local: phony _deps/googletest-build/googletest/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build _deps/googletest-build/googletest/CMakeFiles/install/strip.util: CUSTOM_COMMAND _deps/googletest-build/googletest/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/_deps/googletest-build/googletest && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googletest/install/strip: phony _deps/googletest-build/googletest/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Target aliases.
+
+build MCTS_TESTS: phony tests/MCTS_TESTS
+
+build breakthrough: phony games/breakthrough/libbreakthrough.a
+
+build connect4: phony games/connect4/libconnect4.a
+
+build gmock: phony lib/libgmock.a
+
+build gmock_main: phony lib/libgmock_main.a
+
+build gtest: phony lib/libgtest.a
+
+build gtest_main: phony lib/libgtest_main.a
+
+build libbreakthrough.a: phony games/breakthrough/libbreakthrough.a
+
+build libconnect4.a: phony games/connect4/libconnect4.a
+
+build libgmock.a: phony lib/libgmock.a
+
+build libgmock_main.a: phony lib/libgmock_main.a
+
+build libgtest.a: phony lib/libgtest.a
+
+build libgtest_main.a: phony lib/libgtest_main.a
+
+build libmcts.a: phony mcts/libmcts.a
+
+build libstrategy.a: phony strategy/libstrategy.a
+
+build mcts: phony mcts/libmcts.a
+
+build strategy: phony strategy/libstrategy.a
+
+# =============================================================================
+# Folder targets.
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build
+
+build all: phony MCTS_GGP_THESIS common/all games/all mcts/all models/all main/all strategy/all tests/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build/_deps/googletest-build
+
+build _deps/googletest-build/all: phony _deps/googletest-build/googlemock/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build/_deps/googletest-build/googlemock
+
+build _deps/googletest-build/googlemock/all: phony lib/libgmock.a lib/libgmock_main.a _deps/googletest-build/googletest/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build/_deps/googletest-build/googletest
+
+build _deps/googletest-build/googletest/all: phony lib/libgtest.a lib/libgtest_main.a
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build/common
+
+build common/all: phony
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build/games
+
+build games/all: phony games/breakthrough/all games/connect4/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build/games/breakthrough
+
+build games/breakthrough/all: phony games/breakthrough/libbreakthrough.a
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build/games/connect4
+
+build games/connect4/all: phony games/connect4/libconnect4.a
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build/main
+
+build main/all: phony
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build/mcts
+
+build mcts/all: phony mcts/libmcts.a
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build/models
+
+build models/all: phony models/standard/all models/minimax/all models/detector/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build/models/detector
+
+build models/detector/all: phony
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build/models/minimax
+
+build models/minimax/all: phony
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build/models/standard
+
+build models/standard/all: phony
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build/strategy
+
+build strategy/all: phony strategy/libstrategy.a
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build/tests
+
+build tests/all: phony tests/MCTS_TESTS _deps/googletest-build/all
+
+# =============================================================================
+# Built-in targets
+
+
+#############################################
+# Re-run CMake if any of its inputs changed.
+
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../common/CMakeLists.txt ../games/CMakeLists.txt ../games/breakthrough/CMakeLists.txt ../games/connect4/CMakeLists.txt ../main/CMakeLists.txt ../mcts/CMakeLists.txt ../models/CMakeLists.txt ../models/detector/CMakeLists.txt ../models/minimax/CMakeLists.txt ../models/standard/CMakeLists.txt ../strategy/CMakeLists.txt ../tests/CMakeLists.txt /Applications/CMake.app/Contents/share/cmake-3.23/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeDependentOption.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTest.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTestTargets.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTestUseLaunchers.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckIncludeFile.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckLibraryExists.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/DartConfiguration.tcl.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FetchContent.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FetchContent/CMakeLists.cmake.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindGit.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPython.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPython/Support.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindThreads.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/GNUInstallDirs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.23.1/CMakeCCompiler.cmake CMakeFiles/3.23.1/CMakeCXXCompiler.cmake CMakeFiles/3.23.1/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake
+  pool = console
+
+
+#############################################
+# A missing CMake input file is not an error.
+
+build ../CMakeLists.txt ../common/CMakeLists.txt ../games/CMakeLists.txt ../games/breakthrough/CMakeLists.txt ../games/connect4/CMakeLists.txt ../main/CMakeLists.txt ../mcts/CMakeLists.txt ../models/CMakeLists.txt ../models/detector/CMakeLists.txt ../models/minimax/CMakeLists.txt ../models/standard/CMakeLists.txt ../strategy/CMakeLists.txt ../tests/CMakeLists.txt /Applications/CMake.app/Contents/share/cmake-3.23/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeDependentOption.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTest.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTestTargets.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTestUseLaunchers.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckIncludeFile.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckLibraryExists.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/DartConfiguration.tcl.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FetchContent.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FetchContent/CMakeLists.cmake.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindGit.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPython.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPython/Support.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindThreads.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/GNUInstallDirs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.23.1/CMakeCCompiler.cmake CMakeFiles/3.23.1/CMakeCXXCompiler.cmake CMakeFiles/3.23.1/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake: phony
+
+
+#############################################
+# Clean all the built files.
+
+build clean: CLEAN
+
+
+#############################################
+# Print all primary targets available.
+
+build help: HELP
+
+
+#############################################
+# Make the all target the default.
+
+default all

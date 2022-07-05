@@ -34,6 +34,7 @@ target_include_directories(
 target_link_libraries(${This} PUBLIC
     gtest_main
     connect4
+    breakthrough
 )
 
 

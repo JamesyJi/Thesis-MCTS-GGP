@@ -1,3 +1,4 @@
+add_subdirectory(breakthrough)
 add_subdirectory(connect4)
 
 add_library(games INTERFACE)

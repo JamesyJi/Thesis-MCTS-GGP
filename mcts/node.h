@@ -105,6 +105,16 @@ public:
         return mPlayerTurn;
     }
 
+    int GetNumChildren() const
+    {
+        return mNumChildren;
+    }
+
+    Node* GetChild(int index) const
+    {
+        return mChildren[index].get();
+    }
+
     void LogChildStats() const
     {
         for (int i = 0; i < mNumChildren; ++i)

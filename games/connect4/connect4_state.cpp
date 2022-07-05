@@ -137,7 +137,7 @@ int Connect4State::GetLegalMoves(Common::Player player, Connect4Move moves[MAX_M
 Connect4State Connect4State::MakeMove(const Connect4Move& move) const
 {
     Connect4State newState = Connect4State(mPosition);
-    newState.mPosition[move.row][move.col] = move.player;
+    newState.mPosition[move.row][move.col].player = move.player;
     return newState;
 }
 
@@ -145,14 +145,14 @@ Connect4State Connect4State::MakeMove(const Connect4Move& move) const
 // Assumes the given move is valid
 void Connect4State::SimulateMove(const Connect4Move& move)
 {
-    mPosition[move.row][move.col] = move.player;
+    mPosition[move.row][move.col].player = move.player;
 }
 
 // Given a move, undoes it
 // Assumes the given move is valid
 void Connect4State::UndoMove(const Connect4Move& move)
 {
-    mPosition[move.row][move.col] = Common::Player::NONE;
+    mPosition[move.row][move.col].player = Common::Player::NONE;
 }
 
 // True if the positions are equal

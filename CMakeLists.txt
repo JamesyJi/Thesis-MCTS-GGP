@@ -25,6 +25,7 @@ target_link_libraries(${PROJECT_NAME}
     common
     games
     connect4
+    breakthrough
     strategy
     models
     standard

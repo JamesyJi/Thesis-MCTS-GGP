@@ -1,2 +1,0 @@
-/usr/bin/ar qc libstrategy.a CMakeFiles/strategy.dir/connect4_strategy.cpp.o
-/usr/bin/ranlib libstrategy.a

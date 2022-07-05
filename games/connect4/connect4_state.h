@@ -36,7 +36,7 @@ public:
     
     ~Connect4State(){}
 
-    Common::Result EvaluateState(const Connect4Move& move);
+    Common::Result EvaluateState(const Connect4Move& lastMove);
     int GetLegalMoves(Common::Player player, Connect4Move[MAX_MOVES]) const;
     Connect4State MakeMove(const Connect4Move&) const;
     void SimulateMove(const Connect4Move&);

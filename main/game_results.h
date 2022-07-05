@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <fstream>
-#include <unordered_map>
+#include <map>
 
 #include "game_types.h"
 #include "game_state.h"
@@ -79,7 +79,7 @@ private:
     int mTotalGames = 0;
 
     // Number of terminal games turn : {depth : count }
-    std::unordered_map<int, std::unordered_map<int, int>> mTerminals = {};
+    std::map<int, std::map<int, int>> mTerminals = {};
 };
 
 }

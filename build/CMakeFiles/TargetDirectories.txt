@@ -48,6 +48,14 @@
 /Users/james/Documents/Thesis_C++/build/games/CMakeFiles/install.dir
 /Users/james/Documents/Thesis_C++/build/games/CMakeFiles/install/local.dir
 /Users/james/Documents/Thesis_C++/build/games/CMakeFiles/install/strip.dir
+/Users/james/Documents/Thesis_C++/build/games/breakthrough/CMakeFiles/breakthrough.dir
+/Users/james/Documents/Thesis_C++/build/games/breakthrough/CMakeFiles/test.dir
+/Users/james/Documents/Thesis_C++/build/games/breakthrough/CMakeFiles/edit_cache.dir
+/Users/james/Documents/Thesis_C++/build/games/breakthrough/CMakeFiles/rebuild_cache.dir
+/Users/james/Documents/Thesis_C++/build/games/breakthrough/CMakeFiles/list_install_components.dir
+/Users/james/Documents/Thesis_C++/build/games/breakthrough/CMakeFiles/install.dir
+/Users/james/Documents/Thesis_C++/build/games/breakthrough/CMakeFiles/install/local.dir
+/Users/james/Documents/Thesis_C++/build/games/breakthrough/CMakeFiles/install/strip.dir
 /Users/james/Documents/Thesis_C++/build/games/connect4/CMakeFiles/connect4.dir
 /Users/james/Documents/Thesis_C++/build/games/connect4/CMakeFiles/test.dir
 /Users/james/Documents/Thesis_C++/build/games/connect4/CMakeFiles/edit_cache.dir

@@ -38,12 +38,14 @@ public:
         // std::cout << "explore node is before\n";
         // std::cout << *exploreNode.GetState();
 
+        // std::cout << "simulation...\n";
         auto evaluation = Simulate(exploreNode);
     
         // std::cout << "explore node is after\n";
         // std::cout << *exploreNode.GetState();
 
         // Back Propagation
+        // std::cout << "backpropagation...\n";
         this->BackPropagate(exploreNode, evaluation);
     }
 

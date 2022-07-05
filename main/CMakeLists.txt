@@ -10,4 +10,5 @@ target_link_libraries(main INTERFACE
     models
     mcts
     connect4
+    breakthrough
 )

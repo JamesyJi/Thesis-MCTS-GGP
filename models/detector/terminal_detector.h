@@ -49,16 +49,29 @@ public:
     void DetectTerminalStates() {
         // Log for depths 1 2 3 4 5 6 7 8 9 10 11 12
         std::cout << "detecting terminal state\n";
-        for (int i = 1; i <= 12; ++i) 
+        if (this->mRoot->GetStateRef().EvaluateState(this->mRoot->GetLastMove()) != Common::Result::ONGOING)
         {
-            std::cout << i << "\n";
-            auto result = this->MinimaxAB(this->mRoot->GetStateRef(), this->mRoot->GetLastMove(), i, Common::Result::PLAYER2_WIN, Common::Result::PLAYER1_WIN, this->mRoot->GetPlayerTurn());
-            if (result != Common::Result::ONGOING)
+            return;
+        }
+
+        if (!this->mRoot->HasChildren())
+        {
+            this->mRoot->ExpandNode();
+        }
+
+        for (int i = 0; i < this->mRoot->GetNumChildren(); ++i)
+        {
+            for (int depth = 1; depth <= 12; ++depth) 
             {
-                std::cout << "DETECTED " << result << "\n";
-                this->mGameState.FoundTerminal(i);
+                auto child = this->mRoot->GetChild(i);
+                auto result = this->MinimaxAB(child->GetStateRef(), child->GetLastMove(), depth, Common::Result::PLAYER2_WIN, Common::Result::PLAYER1_WIN, child->GetPlayerTurn());
+                if (result != Common::Result::ONGOING)
+                {
+                    this->mGameState.FoundTerminal(depth);
+                }
             }
         }
+
         std::cout << "finished detecting terminal state\n";
     }
 
