@@ -46,7 +46,7 @@ public:
         mPlayer2RemainingPieces = other.mPlayer2RemainingPieces;
     }
 
-    Common::Result EvaluateState(const BreakthroughMove& move);
+    Common::Result EvaluateState(const BreakthroughMove& lastMove);
     int GetLegalMoves(Common::Player player, BreakthroughMove[MAX_MOVES]) const;
     BreakthroughState MakeMove(const BreakthroughMove&) const;
     void SimulateMove(const BreakthroughMove&);
@@ -65,7 +65,7 @@ public:
         --mPlayer2RemainingPieces;
     }
 
-    bool IsInBounds(int row, int col) const
+    inline bool IsInBounds(int row, int col) const
     {
         return row >= 0 && row < ROWS && col >= 0 && col < COLS;
     }
