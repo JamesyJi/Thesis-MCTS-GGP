@@ -62,10 +62,15 @@ private:
 private:
     inline Common::Result DetermineWinner() const;
 
+    bool IsAdjacentToOtherPlayer(Common::Player otherPlayer, int row, int col, Direction *opponentDirection) const;
+
+    bool FindUpdateCaptureDirections(Common::Player player, int row, int col, Direction dir, OthelloMove& move) const;
+
     bool IsInBounds(int row, int col) const
     {
         return row >= 0 && row < ROWS && col >= 0 && col < COLS;
     }
+
 };
 
 }

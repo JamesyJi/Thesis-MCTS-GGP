@@ -45,32 +45,33 @@ struct OthelloMove
     : player(Common::Player::NONE)
     {}
 
-    OthelloMove(Common::Player player, int row, int col, Direction direction, int flankRow, int flankCol)
+    OthelloMove(Common::Player player, int row, int col)
     : player(player)
     , row(row)
     , col(col)
-    , flankRow(flankRow)
-    , flankCol(flankCol)
     {}
 
     friend bool operator==(const OthelloMove& lhs, const OthelloMove& rhs)
     {
+        for (int dir = 0; dir != END; ++dir)
+        {
+            if (lhs.directions[dir] != rhs.directions[dir]) return false;
+        }
+
         return lhs.player == rhs.player &&
             lhs.row == rhs.row &&
-            lhs.col == rhs.col &&
-            lhs.flankRow == rhs.flankRow &&
-            lhs.flankCol == rhs.flankCol;
+            lhs.col == rhs.col;
+    }
+
+    void CaptureInDirection(Direction dir)
+    {
+        directions[dir] = true;
     }
 
     Common::Player player;
-    int row;
-    int col;
-    Direction direction; // Which direction we captured in
-    
-    // The flanking row/col between which we captured pieces
-    int flankRow;
-    int flankCol;
-
+    int row = 0;
+    int col = 0;
+    bool directions[NUM_DIRECTIONS]{}; // True if we captured in that direction
 };
 
 }

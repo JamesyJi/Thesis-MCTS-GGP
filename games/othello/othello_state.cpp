@@ -42,39 +42,13 @@ int OthelloState::GetLegalMoves(Common::Player player, OthelloMove legalMoves[MA
         {
             if (mPosition[row][col].player != Common::Player::NONE) continue;
 
-            // Determine if this is adjacent to an opponent's piece
-            for (int d = NW; d != END; ++d)
-            {
-                Direction dir = static_cast<Othello::Direction>(d);
-                int stepRow = row + Directions[dir].row;
-                int stepCol = col + Directions[dir].col;
-                
-                if (!IsInBounds(stepRow, stepCol)) continue;
+            Direction dir;
+            if (!IsAdjacentToOtherPlayer(player, row, col, &dir)) continue;
 
-                if (mPosition[stepRow][stepCol].player != otherPlayer) continue;
+            OthelloMove move(player, row, col);
+            if (!FindUpdateCaptureDirections(player, row, col, dir, move)) continue;
 
-                // We can potentially place a piece here as it's in a valid 
-                // square and adjacent to the opponent.
-                // However before we do, we need to check if it "flanks" the opponent's pieces
-                stepRow += Directions[dir].row;
-                stepCol += Directions[dir].col;
-                while (IsInBounds(stepRow, stepCol))
-                {
-                    if (mPosition[stepRow][stepCol].player == Common::Player::NONE) break;
-
-                    if (mPosition[stepRow][stepCol].player == player)
-                    {
-                        // Found a flanking piece
-                        legalMoves[found++] = OthelloMove(player, row, col, dir, stepRow, stepCol);
-                        goto nextSquare;
-                    }
-
-                    stepRow += Directions[dir].row;
-                    stepCol += Directions[dir].col;
-                }
-            }
-            
-            nextSquare:;
+            legalMoves[found++] = move;
         }
     }
 
@@ -90,6 +64,7 @@ int OthelloState::GetLegalMoves(Common::Player player, OthelloMove legalMoves[MA
 // The assumption here is that our move is valid (flanks pieces)
 OthelloState OthelloState::MakeMove(const OthelloMove& move) const
 {
+    std::cout << "make move " << move.row << " " << move.col << " " << move.direction << " " << move.flankRow << " " << move.flankCol << "\n";
     OthelloState newState(*this);
 
     if (move.player == Common::Player::NONE)
@@ -106,8 +81,10 @@ OthelloState OthelloState::MakeMove(const OthelloMove& move) const
     const Step& step = Directions[move.direction];
     int stepRow = move.row + step.row;
     int stepCol = move.col + step.col;
+    std::cout << "step.row = " << step.row << " step.col = " << step.col << "\n"; 
     while (stepRow != move.flankRow && stepCol != move.flankCol)
     {
+        std::cout << "stepRow = " << stepRow << " stepCol = " << stepCol << "\n";
         newState.mPosition[step.row][step.col].player = move.player;
 
         stepRow += step.row;
@@ -207,8 +184,74 @@ std::ostream& operator<<(std::ostream& os, const OthelloState& state)
         }
         os << "\n";
     }
-return os;
+    return os;
 }
+
+// Precondition: row, col are in bounds
+// Returns true if this move would be adjacent to the other player.
+// It will also update the direction the first opponent was discovered in
+bool OthelloState::IsAdjacentToOtherPlayer(Common::Player otherPlayer, int row, int col, Direction *opponentDirection) const
+{
+    for (int d = NW; d != END; ++d)
+    {
+        Direction dir = static_cast<Direction>(d);
+        int checkRow = row + Directions[dir].row;
+        int checkCol = col + Directions[dir].col;
+        if (!IsInBounds(checkRow, checkCol)) continue;
+        
+        if (mPosition[checkRow][checkCol].player != otherPlayer) continue;
+        
+        *opponentDirection = dir;
+        return true;
+    }
+
+    return false;
+}
+
+// Precondition: All directions before this are not adjacent to an opponent
+// Returns true if this would result in a capture
+// It will update the move with all the captures in all directions
+// NOTE: We can pass in a starting direction for optimisation as we know the
+// prior directions have not been checked
+bool OthelloState::FindUpdateCaptureDirections(Common::Player player, int row, int col, Direction dir, OthelloMove &move) const
+{
+    bool foundCapture = false;
+
+    for (int d = dir; d != END; ++d)
+    {
+        dir = static_cast<Direction>(d);
+        // Check if this would flank pieces.
+        Step& step = Directions[dir];
+        
+        // Adjacent should be opponent,
+        int checkRow = row + step.row;
+        int checkCol = col + step.col;
+        if (!IsInBounds(checkRow, checkCol) || mPosition[checkRow][checkCol] != Common::GetOtherPlayer(player))
+        {
+            return false;
+        }
+
+        // We should have a piece in this direction afterwards
+        checkRow += step.row;
+        checkCol += step.col;
+        while (IsInBounds(checkRow, checkCol))
+        {
+            if (mPosition[checkRow][checkCol].player == player)
+            {
+                // Found a capture!
+                move.CaptureInDirection(dir);
+                foundCapture = true;
+                break;
+            }
+            checkRow += step.row;
+            checkCol += step.col;
+        }
+    }
+    
+    return foundCapture;
+}
+
+
 
 
 }

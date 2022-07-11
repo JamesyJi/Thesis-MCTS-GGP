@@ -48,7 +48,7 @@ TEST(othello_state_unnitest, MakeMoveFlipsPieces) {
         {E, E, E, E, E, E, E, E},
         {E, E, E, E, E, E, E, E},
         {E, E, E, E, X, E, E, E},
-        {E, E, E, X, O, E, E, E},
+        {E, E, E, X, X, E, E, E},
         {E, E, E, O, X, E, E, E},
         {E, E, E, E, E, E, E, E},
         {E, E, E, E, E, E, E, E},
