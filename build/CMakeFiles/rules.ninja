@@ -79,6 +79,25 @@ rule CXX_STATIC_LIBRARY_LINKER__connect4_Release
 #############################################
 # Rule for compiling CXX files.
 
+rule CXX_COMPILER__othello_Release
+  depfile = $DEP_FILE
+  deps = gcc
+  command = /usr/bin/clang++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building CXX object $out
+
+
+#############################################
+# Rule for linking CXX static library.
+
+rule CXX_STATIC_LIBRARY_LINKER__othello_Release
+  command = $PRE_LINK && /Applications/CMake.app/Contents/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && /Applications/CMake.app/Contents/bin/cmake -E touch $TARGET_FILE && $POST_BUILD
+  description = Linking CXX static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling CXX files.
+
 rule CXX_COMPILER__mcts_Release
   depfile = $DEP_FILE
   deps = gcc

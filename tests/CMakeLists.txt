@@ -16,6 +16,7 @@ set(This MCTS_TESTS)
 
 set(Sources
   connect4/connect4_state_unittest.cpp
+  othello/othello_state_unittest.cpp
 )
 
 add_executable(${This} ${Sources})
@@ -29,12 +30,15 @@ target_include_directories(
   ${This}
   PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}/connect4
+  ${CMAKE_CURRENT_SOURCE_DIR}/othello
 )
+
 
 target_link_libraries(${This} PUBLIC
     gtest_main
     connect4
     breakthrough
+    othello
 )
 
 

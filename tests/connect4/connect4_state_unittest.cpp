@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 #include "pieces.h"
 #include "connect4_state.h"
-#include "connect4_move.h"
 
 #define X Common::Piece(Common::Player::PLAYER1)
 #define O Common::Piece(Common::Player::PLAYER2)

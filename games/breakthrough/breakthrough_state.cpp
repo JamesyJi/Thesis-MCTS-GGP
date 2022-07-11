@@ -26,6 +26,13 @@ Common::Result BreakthroughState::BreakthroughState::EvaluateState(const Breakth
     }
 }
 
+BreakthroughMove BreakthroughState::GetRandomLegalMove(Common::Player player) const
+{
+    BreakthroughMove legalMoves[MAX_MOVES];
+    int nLegalMoves = GetLegalMoves(player, legalMoves);
+    return legalMoves[rand() % nLegalMoves];
+}
+
 int BreakthroughState::GetLegalMoves(Common::Player player, BreakthroughMove moves[MAX_MOVES]) const
 {
     int found = 0;

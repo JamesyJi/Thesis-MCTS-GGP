@@ -27,11 +27,27 @@ public:
         mPosition[4][3] = Common::Piece(Common::Player::PLAYER2);
     }
 
+    OthelloState(const Common::Piece position[ROWS][COLS])
+    {
+        for (int row = 0; row < ROWS; ++row)
+            for (int col = 0; col < COLS; ++col)
+                mPosition[row][col] = position[row][col];
+    }
+
     Common::Result EvaluateState(const OthelloMove& lastMove);
-    int GetLegalMoves(Common::Player player, OthelloMove[MAX_MOVES]) const;
+    OthelloMove GetRandomLegalMove(Common::Player player) const;
+    int GetLegalMoves(Common::Player player, OthelloMove legalMoves[MAX_MOVES]) const;
     OthelloState MakeMove(const OthelloMove&) const;
     void SimulateMove(const OthelloMove&);
     void UndoMove(const OthelloMove&);
+    inline void SkipTurn()
+    {
+        ++mSkippedTurns;
+    }
+    inline void ResetSkippedTurns()
+    {
+        mSkippedTurns = 0;
+    }
 
     friend bool operator==(const OthelloState& lhs, const OthelloState& rhs);
     friend std::ostream& operator<<(std::ostream& os, const OthelloState& state);
@@ -44,7 +60,7 @@ private:
     int mSkippedTurns = 0;
 
 private:
-    Common::Result CountWinner() const;
+    inline Common::Result DetermineWinner() const;
 
     bool IsInBounds(int row, int col) const
     {

@@ -27,13 +27,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 21,
+				"line" : 22,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 34,
+				"line" : 37,
 				"parent" : 0
 			},
 			{
@@ -48,7 +48,7 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 28,
+				"line" : 29,
 				"parent" : 0
 			}
 		]
@@ -72,6 +72,10 @@
 					"path" : "/Users/james/Documents/Thesis_C++/tests/connect4"
 				},
 				{
+					"backtrace" : 5,
+					"path" : "/Users/james/Documents/Thesis_C++/tests/othello"
+				},
+				{
 					"backtrace" : 2,
 					"path" : "/Users/james/Documents/Thesis_C++/games/connect4"
 				},
@@ -82,6 +86,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "/Users/james/Documents/Thesis_C++/games/breakthrough"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/james/Documents/Thesis_C++/games/othello"
 				},
 				{
 					"backtrace" : 2,
@@ -105,7 +113,8 @@
 			},
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		}
 	],
@@ -118,6 +127,10 @@
 		{
 			"backtrace" : 2,
 			"id" : "connect4::@3d302b91b8fbe374edb6"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "othello::@a7dac983ce104e7bdc1d"
 		},
 		{
 			"backtrace" : 2,
@@ -157,6 +170,11 @@
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 2,
+				"fragment" : "games/othello/libothello.a",
+				"role" : "libraries"
+			},
+			{
 				"backtrace" : 4,
 				"fragment" : "lib/libgtest.a",
 				"role" : "libraries"
@@ -177,7 +195,8 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		}
 	],
@@ -187,6 +206,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "tests/connect4/connect4_state_unittest.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "tests/othello/othello_state_unittest.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

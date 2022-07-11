@@ -6,7 +6,7 @@
 namespace Connect4 
 {
 
-Common::Result Connect4State::EvaluateState(const Connect4Move& lastMove)
+Common::Result Connect4State::EvaluateState(const Connect4Move& lastMove) const
 {
     if (lastMove.player == Common::Player::NONE)
     {
@@ -107,11 +107,14 @@ Common::Result Connect4State::EvaluateState(const Connect4Move& lastMove)
     return Common::Result::ONGOING;
 }
 
-// Puts all the possible moves the given player can make in this scenario into 
-// the given moves array. It is the caller's responsibility to ensure that the moves
-// array is sufficiently large enough
-// Returns the number of moves found
-int Connect4State::GetLegalMoves(Common::Player player, Connect4Move moves[MAX_MOVES]) const
+Connect4Move Connect4State::GetRandomLegalMove(Common::Player player) const
+{
+    Connect4Move legalMoves[MAX_MOVES];
+    int nLegalMoves = GetLegalMoves(player, legalMoves);
+    return legalMoves[rand() % nLegalMoves];
+}
+
+int Connect4State::GetLegalMoves(Common::Player player, Connect4Move legalMoves[MAX_MOVES]) const
 {
     // For each column, find the lowest row
     int found = 0;
@@ -121,7 +124,7 @@ int Connect4State::GetLegalMoves(Common::Player player, Connect4Move moves[MAX_M
         for (int row = ROWS - 1; row >= 0; --row) {
             if (mPosition[row][col].player == Common::Player::NONE)
             {
-                moves[found++] = Connect4Move(player, row, col);
+                legalMoves[found++] = Connect4Move(player, row, col);
                 break;
             }
         }

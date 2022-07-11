@@ -9,10 +9,6 @@
 #include "pieces.h"
 #include "resource.h"
 
-#define X Common::Piece(Common::Player::PLAYER1)
-#define O Common::Piece(Common::Player::PLAYER2)
-#define E Common::Piece()
-
 namespace Main
 {
 

@@ -1,5 +1,6 @@
 add_subdirectory(breakthrough)
 add_subdirectory(connect4)
+add_subdirectory(othello)
 
 add_library(games INTERFACE)
 

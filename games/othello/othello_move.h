@@ -27,16 +27,17 @@ enum Direction {
 const int NUM_DIRECTIONS = 8;
 
 // Should cycle through all the directions clockwise from NW to W
-Step Directions[NUM_DIRECTIONS]{};
-
-Directions[Direction::NW] = {-1, -1};
-Directions[Direction::N] = {-1, 0};
-Directions[Direction::NE] = {-1, 1};
-Directions[Direction::E] = {0, 1};
-Directions[Direction::SE] = {1, 1};
-Directions[Direction::S] = {1, 0};
-Directions[Direction::SW] = {1, -1};
-Directions[Direction::W] = {0, -1};
+const Step Directions[NUM_DIRECTIONS] = 
+{
+    [Direction::NW] = {-1, 1},
+    [Direction::N] = {-1, 0},
+    [Direction::NE] = {-1, 1},
+    [Direction::E] = {0, 1},
+    [Direction::SE] = {1, 1},
+    [Direction::S] = {1, 0},
+    [Direction::SW] = {1, -1},
+    [Direction::W] = {0, -1}
+};
 
 struct OthelloMove
 {
@@ -52,7 +53,14 @@ struct OthelloMove
     , flankCol(flankCol)
     {}
 
-    friend bool operator==(const OthelloMove& )
+    friend bool operator==(const OthelloMove& lhs, const OthelloMove& rhs)
+    {
+        return lhs.player == rhs.player &&
+            lhs.row == rhs.row &&
+            lhs.col == rhs.col &&
+            lhs.flankRow == rhs.flankRow &&
+            lhs.flankCol == rhs.flankCol;
+    }
 
     Common::Player player;
     int row;

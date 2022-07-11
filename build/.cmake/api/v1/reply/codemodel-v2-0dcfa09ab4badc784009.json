@@ -10,11 +10,11 @@
 					[
 						1,
 						2,
-						5,
 						6,
-						10,
+						7,
 						11,
-						12
+						12,
+						13
 					],
 					"hasInstallRule" : true,
 					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
@@ -73,7 +73,8 @@
 					"childIndexes" : 
 					[
 						3,
-						4
+						4,
+						5
 					],
 					"jsonFile" : "directory-games-Release-9e8413e5a81dfbce0392.json",
 					"minimumCMakeVersion" : 
@@ -115,6 +116,21 @@
 					]
 				},
 				{
+					"build" : "games/othello",
+					"jsonFile" : "directory-games.othello-Release-67aea5a6908b464f2e7d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "games/othello",
+					"targetIndexes" : 
+					[
+						37
+					]
+				},
+				{
 					"build" : "mcts",
 					"jsonFile" : "directory-mcts-Release-0247e7e798f1e7309218.json",
 					"minimumCMakeVersion" : 
@@ -133,9 +149,9 @@
 					"build" : "models",
 					"childIndexes" : 
 					[
-						7,
 						8,
-						9
+						9,
+						10
 					],
 					"jsonFile" : "directory-models-Release-85536f1cc26d7ce72aeb.json",
 					"minimumCMakeVersion" : 
@@ -153,7 +169,7 @@
 					{
 						"string" : "3.14"
 					},
-					"parentIndex" : 6,
+					"parentIndex" : 7,
 					"projectIndex" : 0,
 					"source" : "models/standard"
 				},
@@ -164,7 +180,7 @@
 					{
 						"string" : "3.14"
 					},
-					"parentIndex" : 6,
+					"parentIndex" : 7,
 					"projectIndex" : 0,
 					"source" : "models/minimax"
 				},
@@ -175,7 +191,7 @@
 					{
 						"string" : "3.14"
 					},
-					"parentIndex" : 6,
+					"parentIndex" : 7,
 					"projectIndex" : 0,
 					"source" : "models/detector"
 				},
@@ -202,14 +218,14 @@
 					"source" : "strategy",
 					"targetIndexes" : 
 					[
-						37
+						38
 					]
 				},
 				{
 					"build" : "tests",
 					"childIndexes" : 
 					[
-						13
+						14
 					],
 					"hasInstallRule" : true,
 					"jsonFile" : "directory-tests-Release-b01f6abb0ab61427ef3b.json",
@@ -229,7 +245,7 @@
 					"build" : "_deps/googletest-build",
 					"childIndexes" : 
 					[
-						14
+						15
 					],
 					"hasInstallRule" : true,
 					"jsonFile" : "directory-_deps.googletest-build-Release-325181791364522dc3de.json",
@@ -237,7 +253,7 @@
 					{
 						"string" : "2.8.12"
 					},
-					"parentIndex" : 12,
+					"parentIndex" : 13,
 					"projectIndex" : 1,
 					"source" : "build/_deps/googletest-src"
 				},
@@ -245,7 +261,7 @@
 					"build" : "_deps/googletest-build/googlemock",
 					"childIndexes" : 
 					[
-						15
+						16
 					],
 					"hasInstallRule" : true,
 					"jsonFile" : "directory-_deps.googletest-build.googlemock-Release-15c798bcbad4c07be8d9.json",
@@ -253,7 +269,7 @@
 					{
 						"string" : "2.8.12"
 					},
-					"parentIndex" : 13,
+					"parentIndex" : 14,
 					"projectIndex" : 2,
 					"source" : "build/_deps/googletest-src/googlemock",
 					"targetIndexes" : 
@@ -270,7 +286,7 @@
 					{
 						"string" : "2.8.12"
 					},
-					"parentIndex" : 14,
+					"parentIndex" : 15,
 					"projectIndex" : 3,
 					"source" : "build/_deps/googletest-src/googletest",
 					"targetIndexes" : 
@@ -302,7 +318,8 @@
 						9,
 						10,
 						11,
-						12
+						12,
+						13
 					],
 					"name" : "MCTS_GGP_THESIS",
 					"targetIndexes" : 
@@ -340,7 +357,8 @@
 						30,
 						31,
 						36,
-						37
+						37,
+						38
 					]
 				},
 				{
@@ -350,7 +368,7 @@
 					],
 					"directoryIndexes" : 
 					[
-						13
+						14
 					],
 					"name" : "googletest-distribution",
 					"parentIndex" : 0
@@ -362,7 +380,7 @@
 					],
 					"directoryIndexes" : 
 					[
-						14
+						15
 					],
 					"name" : "gmock",
 					"parentIndex" : 1,
@@ -375,7 +393,7 @@
 				{
 					"directoryIndexes" : 
 					[
-						15
+						16
 					],
 					"name" : "gtest",
 					"parentIndex" : 2,
@@ -517,14 +535,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "MCTS_GGP_THESIS::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-MCTS_GGP_THESIS-Release-e8b97be1f339a61aeeb0.json",
+					"jsonFile" : "target-MCTS_GGP_THESIS-Release-4d60987551f1af6f5459.json",
 					"name" : "MCTS_GGP_THESIS",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 12,
+					"directoryIndex" : 13,
 					"id" : "MCTS_TESTS::@a44f0ac069e85531cdee",
-					"jsonFile" : "target-MCTS_TESTS-Release-6f3508573252367721a9.json",
+					"jsonFile" : "target-MCTS_TESTS-Release-90c0b3b83eb7503458b6.json",
 					"name" : "MCTS_TESTS",
 					"projectIndex" : 0
 				},
@@ -613,42 +631,49 @@
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 14,
+					"directoryIndex" : 15,
 					"id" : "gmock::@0f7bb11d64f3678238c7",
 					"jsonFile" : "target-gmock-Release-0bedf8ab38225ebdd4de.json",
 					"name" : "gmock",
 					"projectIndex" : 2
 				},
 				{
-					"directoryIndex" : 14,
+					"directoryIndex" : 15,
 					"id" : "gmock_main::@0f7bb11d64f3678238c7",
 					"jsonFile" : "target-gmock_main-Release-64975248bb41c5391a85.json",
 					"name" : "gmock_main",
 					"projectIndex" : 2
 				},
 				{
-					"directoryIndex" : 15,
+					"directoryIndex" : 16,
 					"id" : "gtest::@1ea2dfc0605fe3ab2a3f",
 					"jsonFile" : "target-gtest-Release-419dbf3ba9f51b2f249e.json",
 					"name" : "gtest",
 					"projectIndex" : 3
 				},
 				{
-					"directoryIndex" : 15,
+					"directoryIndex" : 16,
 					"id" : "gtest_main::@1ea2dfc0605fe3ab2a3f",
 					"jsonFile" : "target-gtest_main-Release-e7188249fa32c5c3f036.json",
 					"name" : "gtest_main",
 					"projectIndex" : 3
 				},
 				{
-					"directoryIndex" : 5,
+					"directoryIndex" : 6,
 					"id" : "mcts::@66056454a45d9adb555d",
 					"jsonFile" : "target-mcts-Release-e0c288358e533c42b89a.json",
 					"name" : "mcts",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 11,
+					"directoryIndex" : 5,
+					"id" : "othello::@a7dac983ce104e7bdc1d",
+					"jsonFile" : "target-othello-Release-7ce462384b5c0e697aaf.json",
+					"name" : "othello",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 12,
 					"id" : "strategy::@241ee8dc02c6c148167d",
 					"jsonFile" : "target-strategy-Release-cd2bb7f4b10c3aec7f2e.json",
 					"name" : "strategy",

@@ -68,6 +68,10 @@
 				},
 				{
 					"backtrace" : 2,
+					"path" : "/Users/james/Documents/Thesis_C++/games/othello"
+				},
+				{
+					"backtrace" : 2,
 					"path" : "/Users/james/Documents/Thesis_C++/strategy"
 				},
 				{
@@ -110,6 +114,10 @@
 		},
 		{
 			"backtrace" : 2,
+			"id" : "othello::@a7dac983ce104e7bdc1d"
+		},
+		{
+			"backtrace" : 2,
 			"id" : "mcts::@66056454a45d9adb555d"
 		},
 		{
@@ -138,6 +146,11 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "games/breakthrough/libbreakthrough.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "games/othello/libothello.a",
 				"role" : "libraries"
 			},
 			{

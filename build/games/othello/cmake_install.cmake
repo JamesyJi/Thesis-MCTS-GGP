@@ -1,4 +1,4 @@
-# Install script for directory: /Users/james/Documents/Thesis_C++/games
+# Install script for directory: /Users/james/Documents/Thesis_C++/games/othello
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,20 +35,5 @@ endif()
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/objdump")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/Users/james/Documents/Thesis_C++/build/games/breakthrough/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/Users/james/Documents/Thesis_C++/build/games/connect4/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/Users/james/Documents/Thesis_C++/build/games/othello/cmake_install.cmake")
 endif()
 

@@ -6,15 +6,16 @@
 #include "detector/terminal_detector.h"
 #include "connect4_state.h"
 #include "breakthrough_state.h"
+#include "othello_state.h"
 #include "strategy.h"
 
 int main(void)
 {
     srand(time(NULL));
     
-    using MoveT = Breakthrough::BreakthroughMove;
-    using StateT = Breakthrough::BreakthroughState;
-    using GameT = Models::Traits<Breakthrough::BreakthroughState, Breakthrough::BreakthroughMove>;
+    using MoveT = Othello::OthelloMove;
+    using StateT = Othello::OthelloState;
+    using GameT = Models::Traits<Othello::OthelloState, Othello::OthelloMove>;
     // using Model1T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth6>;
     // using Model2T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth5>;
     using Model1T = Models::Standard::Standard<GameT>;

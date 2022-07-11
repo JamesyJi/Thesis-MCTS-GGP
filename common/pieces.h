@@ -18,6 +18,16 @@ struct Piece
 
     ~Piece(){}
 
+    friend bool operator==(const Piece& lhs, const Piece& rhs)
+    {
+        return lhs.player == rhs.player;
+    }
+
+    friend bool operator!=(const Piece& lhs, const Piece& rhs)
+    {
+        return lhs.player != rhs.player;
+    }
+
     Player player;
 };
 

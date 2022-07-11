@@ -16,17 +16,25 @@ Common::Result OthelloState::EvaluateState(const OthelloMove& lastMove)
         }
     }
     
-    return CountWinner();
+    return DetermineWinner();
 }
+
+OthelloMove OthelloState::GetRandomLegalMove(Common::Player player) const
+{
+    OthelloMove legalMoves[MAX_MOVES];
+    int nLegalMoves = GetLegalMoves(player, legalMoves);
+    return legalMoves[rand() % nLegalMoves];
+}
+
 
 // NOTE: This is actually very slow since we do not optimise as we check every
 // single square. However, the paper (MCTS Minimax Hybrids) also had a very 
 // slow othello implementation so this should be fine
-int OthelloState::GetLegalMoves(Common::Player player, OthelloMove[MAX_MOVES] legalMoves) const
+int OthelloState::GetLegalMoves(Common::Player player, OthelloMove legalMoves[MAX_MOVES]) const
 {
     int found = 0;
     
-    Common::Player otherPlayer = Common::Player::GetOtherPlayer(player);
+    Common::Player otherPlayer = Common::GetOtherPlayer(player);
 
     for (int row = 0; row < ROWS; ++row)
     {
@@ -35,8 +43,9 @@ int OthelloState::GetLegalMoves(Common::Player player, OthelloMove[MAX_MOVES] le
             if (mPosition[row][col].player != Common::Player::NONE) continue;
 
             // Determine if this is adjacent to an opponent's piece
-            for (int dir = NW; dir != END; ++dir)
+            for (int d = NW; d != END; ++d)
             {
+                Direction dir = static_cast<Othello::Direction>(d);
                 int stepRow = row + Directions[dir].row;
                 int stepCol = col + Directions[dir].col;
                 
@@ -51,7 +60,7 @@ int OthelloState::GetLegalMoves(Common::Player player, OthelloMove[MAX_MOVES] le
                 stepCol += Directions[dir].col;
                 while (IsInBounds(stepRow, stepCol))
                 {
-                    if (mPosition[stepRow][stepCol] == Common::Player::NONE) break;
+                    if (mPosition[stepRow][stepCol].player == Common::Player::NONE) break;
 
                     if (mPosition[stepRow][stepCol].player == player)
                     {
@@ -64,23 +73,75 @@ int OthelloState::GetLegalMoves(Common::Player player, OthelloMove[MAX_MOVES] le
                     stepCol += Directions[dir].col;
                 }
             }
-
-            nextSquare:
+            
+            nextSquare:;
         }
+    }
+
+    // If no moves, we must pass (which is also considered a move)
+    if (found == 0)
+    {
+        legalMoves[found++] = OthelloMove();
     }
 
     return found;
 }
 
+// The assumption here is that our move is valid (flanks pieces)
 OthelloState OthelloState::MakeMove(const OthelloMove& move) const
 {
     OthelloState newState(*this);
 
-    newState.mPosition[move.row][move.col]
+    if (move.player == Common::Player::NONE)
+    {
+        newState.SkipTurn();
+        return newState;
+    }
+
+    newState.ResetSkippedTurns();
+
+    newState.mPosition[move.row][move.col].player = move.player;
+    
+    // Flip the pieces until we reach the flank piece
+    const Step& step = Directions[move.direction];
+    int stepRow = move.row + step.row;
+    int stepCol = move.col + step.col;
+    while (stepRow != move.flankRow && stepCol != move.flankCol)
+    {
+        newState.mPosition[step.row][step.col].player = move.player;
+
+        stepRow += step.row;
+        stepCol += step.col;
+    }
+
+    return newState;
 }
 
+void OthelloState::SimulateMove(const OthelloMove& move)
+{
+    if (move.player == Common::Player::NONE)
+    {
+        SkipTurn();
+        return;
+    }
 
-Common::Result CountWinner() const
+    ResetSkippedTurns();
+
+    mPosition[move.row][move.col].player = move.player;
+    
+    // Flip pieces until we reach flank piece
+    const Step& step = Directions[move.direction];
+    int stepRow = move.row + step.row;
+    int stepCol = move.col + step.col;
+    while (stepRow != move.flankRow && stepCol != move.flankCol)
+    {
+        mPosition[step.row][step.col].player = move.player;
+        stepRow += step.row;
+        stepCol += step.col;
+    }
+}
+
+Common::Result OthelloState::DetermineWinner() const
 {
     int player1Pieces = 0;
     int player2Pieces = 0;
@@ -90,12 +151,13 @@ Common::Result CountWinner() const
             switch (mPosition[row][col].player)
             {
             case Common::Player::PLAYER1:
-                ++player1Pieces
+                ++player1Pieces;
                 break;
             case Common::Player::PLAYER2:
                 ++player2Pieces;
                 break;
             default:
+                return Common::Result::ONGOING;
                 break;
             }
         }
@@ -104,5 +166,49 @@ Common::Result CountWinner() const
     else if (player1Pieces > player2Pieces) return Common::Result::PLAYER1_WIN;
     else return Common::Result::PLAYER2_WIN;    
 }
+
+bool operator==(const OthelloState& lhs, const OthelloState& rhs)
+{
+    if (lhs.mSkippedTurns != rhs.mSkippedTurns) return false;
+    
+    for (int i = 0; i < OthelloState::ROWS; ++i)
+    {
+        for (int j = 0; j < OthelloState::COLS; ++j)
+        {
+            if (lhs.mPosition[i][j] != rhs.mPosition[i][j]) return false;
+        }
+    }
+
+    return true;
+}
+
+
+std::ostream& operator<<(std::ostream& os, const OthelloState& state)
+{
+    for (int i = 0; i < OthelloState::ROWS; ++i)
+    {
+        for (int j = 0; j < OthelloState::COLS; ++j)
+        {
+            switch (state.mPosition[i][j].player)
+            {
+            case Common::Player::PLAYER1:
+                os << "\033[1;34mX\033[0m";
+                break;
+            case Common::Player::PLAYER2:
+                os << "\033[1;31mO\033[0m";
+                break;
+            case Common::Player::NONE:
+                os << " ";
+                break;
+            default:
+                break;
+            }
+            os << " | ";
+        }
+        os << "\n";
+    }
+return os;
+}
+
 
 }

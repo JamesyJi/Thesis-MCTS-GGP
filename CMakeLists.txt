@@ -26,6 +26,7 @@ target_link_libraries(${PROJECT_NAME}
     games
     connect4
     breakthrough
+    othello
     strategy
     models
     standard

@@ -72,17 +72,16 @@ public:
         int nLegalMoves;
         while (simulateState.EvaluateState(move) == Common::Result::ONGOING)
         {
-            // std::cout << simulateState;
-            // std::cout << "==============\n";
-            nLegalMoves = simulateState.GetLegalMoves(playerTurn, legalMoves);
-            move = legalMoves[rand() % nLegalMoves];
+            std::cout << simulateState;
+            std::cout << "==============\n";
+            move = simulateState.GetRandomLegalMove(playerTurn);
             simulateState.SimulateMove(move);
             playerTurn = Common::GetOtherPlayer(playerTurn);
         }
 
-        // std::cout << simulateState;            
-        // std::cout << "==============\n";
-
+        std::cout << simulateState;            
+        std::cout << "==============\n";
+        std::cout << "finished\n";
         return simulateState.EvaluateState(move);
     }
 };

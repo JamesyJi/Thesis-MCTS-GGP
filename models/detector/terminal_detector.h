@@ -93,12 +93,9 @@ public:
         auto playerTurn = node.GetPlayerTurn();
         MoveT move = node.GetLastMove();
         
-        MoveT legalMoves[StateT::MAX_MOVES];
-        int nLegalMoves;
         while (simulateState.EvaluateState(move) == Common::Result::ONGOING)
         {
-            nLegalMoves = simulateState.GetLegalMoves(playerTurn, legalMoves);
-            move = legalMoves[rand() % nLegalMoves];
+            move = simulateState.GetRandomLegalMove(playerTurn);
             simulateState.SimulateMove(move);
             playerTurn = Common::GetOtherPlayer(playerTurn);
         }

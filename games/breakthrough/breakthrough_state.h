@@ -46,8 +46,9 @@ public:
         mPlayer2RemainingPieces = other.mPlayer2RemainingPieces;
     }
 
-    Common::Result EvaluateState(const BreakthroughMove& lastMove);
-    int GetLegalMoves(Common::Player player, BreakthroughMove[MAX_MOVES]) const;
+    Common::Result EvaluateState(const BreakthroughMove& lastMove);    
+    BreakthroughMove GetRandomLegalMove(Common::Player player) const;
+    int GetLegalMoves(Common::Player player, BreakthroughMove moves[MAX_MOVES]) const;
     BreakthroughState MakeMove(const BreakthroughMove&) const;
     void SimulateMove(const BreakthroughMove&);
     void UndoMove(const BreakthroughMove&);
