@@ -535,14 +535,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "MCTS_GGP_THESIS::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-MCTS_GGP_THESIS-Release-4d60987551f1af6f5459.json",
+					"jsonFile" : "target-MCTS_GGP_THESIS-Release-58585640eb9df2d8ae43.json",
 					"name" : "MCTS_GGP_THESIS",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 13,
 					"id" : "MCTS_TESTS::@a44f0ac069e85531cdee",
-					"jsonFile" : "target-MCTS_TESTS-Release-90c0b3b83eb7503458b6.json",
+					"jsonFile" : "target-MCTS_TESTS-Release-6f3e6d2794717e7be2fe.json",
 					"name" : "MCTS_TESTS",
 					"projectIndex" : 0
 				},
