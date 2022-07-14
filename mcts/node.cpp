@@ -72,11 +72,8 @@ void Node<TState, TMove>::ExpandNode()
     for (int i = 0; i < mNumChildren; ++i) 
     {
         mChildren[i] = std::make_unique<Node<TState, TMove>>(TState(mState.MakeMove(legalMoves[i])), Common::GetOtherPlayer(mPlayerTurn), this, legalMoves[i]);
-        std::cout << "expanded\n";
-        std::cout << mChildren[i]->GetStateRef();
+        // std::cout << mChildren[i]->GetStateRef();
     }
-    int j;
-    std::cin >> j;
 }
 
 // Assumes that the parent exists and is not null

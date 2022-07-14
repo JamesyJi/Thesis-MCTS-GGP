@@ -52,6 +52,11 @@ public:
     friend bool operator==(const OthelloState& lhs, const OthelloState& rhs);
     friend std::ostream& operator<<(std::ostream& os, const OthelloState& state);
 
+    inline int GetSkippedTurns() const
+    {
+        return mSkippedTurns;
+    }
+
 private:
     Common::Piece mPosition[ROWS][COLS];
 
@@ -71,6 +76,7 @@ private:
         return row >= 0 && row < ROWS && col >= 0 && col < COLS;
     }
 
+    void FlipAllCapturedPieces(const OthelloMove& move);
 };
 
 }

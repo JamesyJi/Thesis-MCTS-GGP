@@ -65,6 +65,7 @@ public:
     Common::Result Simulate(NodeT& node)
     {
         StateT simulateState = node.GetStateCopy();
+
         auto playerTurn = node.GetPlayerTurn();
         MoveT move = node.GetLastMove();
         
@@ -72,16 +73,16 @@ public:
         int nLegalMoves;
         while (simulateState.EvaluateState(move) == Common::Result::ONGOING)
         {
-            std::cout << simulateState;
-            std::cout << "==============\n";
+            // std::cout << simulateState;
+            // std::cout << "==============\n";
             move = simulateState.GetRandomLegalMove(playerTurn);
             simulateState.SimulateMove(move);
             playerTurn = Common::GetOtherPlayer(playerTurn);
         }
 
-        std::cout << simulateState;            
-        std::cout << "==============\n";
-        std::cout << "finished\n";
+        // std::cout << simulateState;            
+        // std::cout << "==============\n";
+        // std::cout << "finished\n";
         return simulateState.EvaluateState(move);
     }
 };

@@ -13,10 +13,13 @@ Common::Result OthelloState::EvaluateState(const OthelloMove& lastMove)
         if (mSkippedTurns != 2)
         {
             return Common::Result::ONGOING;
+        } else
+        {
+            return DetermineWinner();
         }
     }
     
-    return DetermineWinner();
+    return Common::Result::ONGOING;
 }
 
 OthelloMove OthelloState::GetRandomLegalMove(Common::Player player) const
@@ -25,7 +28,6 @@ OthelloMove OthelloState::GetRandomLegalMove(Common::Player player) const
     int nLegalMoves = GetLegalMoves(player, legalMoves);
     return legalMoves[rand() % nLegalMoves];
 }
-
 
 // NOTE: This is actually very slow since we do not optimise as we check every
 // single square. However, the paper (MCTS Minimax Hybrids) also had a very 
@@ -43,7 +45,7 @@ int OthelloState::GetLegalMoves(Common::Player player, OthelloMove legalMoves[MA
             if (mPosition[row][col].player != Common::Player::NONE) continue;
 
             Direction dir;
-            if (!IsAdjacentToOtherPlayer(player, row, col, &dir)) continue;
+            if (!IsAdjacentToOtherPlayer(otherPlayer, row, col, &dir)) continue;
 
             OthelloMove move(player, row, col);
             if (!FindUpdateCaptureDirections(player, row, col, dir, move)) continue;
@@ -64,32 +66,9 @@ int OthelloState::GetLegalMoves(Common::Player player, OthelloMove legalMoves[MA
 // The assumption here is that our move is valid (flanks pieces)
 OthelloState OthelloState::MakeMove(const OthelloMove& move) const
 {
-    std::cout << "make move " << move.row << " " << move.col << " " << move.direction << " " << move.flankRow << " " << move.flankCol << "\n";
     OthelloState newState(*this);
 
-    if (move.player == Common::Player::NONE)
-    {
-        newState.SkipTurn();
-        return newState;
-    }
-
-    newState.ResetSkippedTurns();
-
-    newState.mPosition[move.row][move.col].player = move.player;
-    
-    // Flip the pieces until we reach the flank piece
-    const Step& step = Directions[move.direction];
-    int stepRow = move.row + step.row;
-    int stepCol = move.col + step.col;
-    std::cout << "step.row = " << step.row << " step.col = " << step.col << "\n"; 
-    while (stepRow != move.flankRow && stepCol != move.flankCol)
-    {
-        std::cout << "stepRow = " << stepRow << " stepCol = " << stepCol << "\n";
-        newState.mPosition[step.row][step.col].player = move.player;
-
-        stepRow += step.row;
-        stepCol += step.col;
-    }
+    newState.SimulateMove(move);
 
     return newState;
 }
@@ -105,17 +84,9 @@ void OthelloState::SimulateMove(const OthelloMove& move)
     ResetSkippedTurns();
 
     mPosition[move.row][move.col].player = move.player;
-    
-    // Flip pieces until we reach flank piece
-    const Step& step = Directions[move.direction];
-    int stepRow = move.row + step.row;
-    int stepCol = move.col + step.col;
-    while (stepRow != move.flankRow && stepCol != move.flankCol)
-    {
-        mPosition[step.row][step.col].player = move.player;
-        stepRow += step.row;
-        stepCol += step.col;
-    }
+
+    FlipAllCapturedPieces(move);
+    // std::cout << "finished simulate\n";
 }
 
 Common::Result OthelloState::DetermineWinner() const
@@ -134,7 +105,6 @@ Common::Result OthelloState::DetermineWinner() const
                 ++player2Pieces;
                 break;
             default:
-                return Common::Result::ONGOING;
                 break;
             }
         }
@@ -158,7 +128,6 @@ bool operator==(const OthelloState& lhs, const OthelloState& rhs)
 
     return true;
 }
-
 
 std::ostream& operator<<(std::ostream& os, const OthelloState& state)
 {
@@ -216,19 +185,20 @@ bool OthelloState::IsAdjacentToOtherPlayer(Common::Player otherPlayer, int row, 
 bool OthelloState::FindUpdateCaptureDirections(Common::Player player, int row, int col, Direction dir, OthelloMove &move) const
 {
     bool foundCapture = false;
+    Common::Player otherPlayer = Common::GetOtherPlayer(player);
 
     for (int d = dir; d != END; ++d)
     {
         dir = static_cast<Direction>(d);
         // Check if this would flank pieces.
-        Step& step = Directions[dir];
+        const Step& step = Directions[dir];
         
         // Adjacent should be opponent,
         int checkRow = row + step.row;
         int checkCol = col + step.col;
-        if (!IsInBounds(checkRow, checkCol) || mPosition[checkRow][checkCol] != Common::GetOtherPlayer(player))
+        if (!IsInBounds(checkRow, checkCol) || mPosition[checkRow][checkCol] != otherPlayer)
         {
-            return false;
+            continue;;
         }
 
         // We should have a piece in this direction afterwards
@@ -242,6 +212,9 @@ bool OthelloState::FindUpdateCaptureDirections(Common::Player player, int row, i
                 move.CaptureInDirection(dir);
                 foundCapture = true;
                 break;
+            } else if (mPosition[checkRow][checkCol].player == Common::Player::NONE)
+            {
+                break;
             }
             checkRow += step.row;
             checkCol += step.col;
@@ -251,7 +224,26 @@ bool OthelloState::FindUpdateCaptureDirections(Common::Player player, int row, i
     return foundCapture;
 }
 
+// For each direction the given move captured in, flip pieces
+// until a flanking piece is reached
+void OthelloState::FlipAllCapturedPieces(const OthelloMove& move)
+{
+    for (int i = NW; i != END; ++i)
+    {
+        Direction direction = static_cast<Direction>(i);
+        if (!move.directions[direction]) continue;
 
+        const Step& step = Directions[direction];
+        int stepRow = move.row + step.row;
+        int stepCol = move.col + step.col;
+        while (mPosition[stepRow][stepCol].player != move.player)
+        {
+            mPosition[stepRow][stepCol] = move.player;
+            stepRow += step.row;
+            stepCol += step.col;
+        }
+    }
+}
 
 
 }
