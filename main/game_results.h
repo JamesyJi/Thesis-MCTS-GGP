@@ -59,7 +59,7 @@ public:
     void Log(const std::string& fileName) 
     {
         
-        std::ofstream file("results/" + fileName, std::ofstream::trunc);
+        std::fstream file("results/" + fileName, std::fstream::trunc);
         
         file << "Player1 Win: " << mPlayer1Wins << "\n";
         file << "Player2 Win: " << mPlayer2Wins << "\n";
@@ -71,7 +71,7 @@ public:
 
     void LogTerminals(const std::string& fileName)
     {
-        std::ofstream file("stats/" + fileName, std::ofstream::trunc);
+        std::fstream file("stats/" + fileName, std::fstream::trunc);
         file << "TURN,1,2,3,4,5,6,7,8,9,10,11,12,\n";
         for (auto& it : mTerminals)
         {
