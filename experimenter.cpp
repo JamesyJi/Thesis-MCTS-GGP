@@ -25,8 +25,8 @@ int main(void)
 
     auto manager = Main::GameManager<Model1T, Model2T, StateT, MoveT>();
     // auto resource = Common::IterationResource(100000);
-    auto resource = Common::TimeResource(5);
-    manager.StartExperiment(resource, 1);
+    auto resource = Common::TimeResource(1);
+    manager.StartExperiment(resource, 500);
 
     return 0;
 }

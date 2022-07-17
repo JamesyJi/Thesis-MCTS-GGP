@@ -38,6 +38,16 @@ public:
         mTerminals[mTurn][depth]++;
     }
 
+    inline void RunningSimulation()
+    {
+        ++mSimulations[mTurn];
+    }
+
+    int *GetSimulations()
+    {
+        return mSimulations;
+    }
+
 
 private:
     int mTurn = 1;
@@ -46,6 +56,9 @@ private:
 
     // Terminal Logging mTerminal[4][8] = number of terminal results detected 8 moves on turn 4
     int mTerminals[200][13] = {};
+
+    // Simulation count logging mSimulations[4] = number of simulations on turn 4
+    int mSimulations[200] = {0};
 };
 
 }

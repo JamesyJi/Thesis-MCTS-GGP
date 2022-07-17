@@ -30,6 +30,7 @@ public:
         mTotalGames++;
     }
 
+    // Called after update result
     void Accumulate(Games::GameState& gameState)
     {
         std::cout << "accumulating\n";
@@ -41,24 +42,36 @@ public:
                 mTerminals[turn][depth] = terminals[turn][depth];
             }
         }
-        std::cout << "finished accumulating\n";
+
+        int *simulations = gameState.GetSimulations();
+        int totalSimulations = 0;
+        for (int turn = 1; turn < gameState.GetTurn(); ++turn)
+        {
+            std::cout << "simulation turn " << turn << " is " << simulations[turn] << "\n";
+            totalSimulations += simulations[turn];
+        }
+
+        mAvgSimulations = (mAvgSimulations * (mTotalGames - 1) + (totalSimulations / gameState.GetTurn())) / mTotalGames;
+
+        std::cout << "finished accumulating mAvgSimulations is " << mAvgSimulations << "\n";
     }
 
     void Log(const std::string& fileName) 
     {
         
-        std::ofstream file("results/" + fileName, std::ofstream::trunc);
+        std::ofstream file(fileName, std::ofstream::trunc);
         
         file << "Player1 Win: " << mPlayer1Wins << "\n";
         file << "Player2 Win: " << mPlayer2Wins << "\n";
         file << "Draws: " << mDraws << "\n";
         file << "Total: " << mTotalGames << "\n";
+        file << "AvgSimulations: " << mAvgSimulations << "\n";
         file.close();
     }
 
     void LogTerminals(const std::string& fileName)
     {
-        std::ofstream file("stats/" + fileName, std::ofstream::trunc);
+        std::ofstream file(fileName, std::ofstream::trunc);
         file << "TURN,1,2,3,4,5,6,7,8,9,10,11,12,\n";
         for (auto& it : mTerminals)
         {
@@ -72,6 +85,7 @@ public:
 
         file.close();
     }
+
 private:
     int mPlayer1Wins = 0;
     int mPlayer2Wins = 0;
@@ -80,6 +94,9 @@ private:
 
     // Number of terminal games turn : {depth : count }
     std::map<int, std::map<int, int>> mTerminals = {};
+    
+    // Average number of simulations per iteration
+    double mAvgSimulations = 0;
 };
 
 }
