@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include <fstream>
+// #include <fstream>
 #include <map>
 
 #include "game_types.h"
@@ -59,31 +59,31 @@ public:
     void Log(const std::string& fileName) 
     {
         
-        std::fstream file("results/" + fileName, std::fstream::trunc);
+        // std::fstream file("results/" + fileName, std::fstream::trunc);
         
-        file << "Player1 Win: " << mPlayer1Wins << "\n";
-        file << "Player2 Win: " << mPlayer2Wins << "\n";
-        file << "Draws: " << mDraws << "\n";
-        file << "Total: " << mTotalGames << "\n";
-        file << "AvgSimulations: " << mAvgSimulations << "\n";
-        file.close();
+        // file << "Player1 Win: " << mPlayer1Wins << "\n";
+        // file << "Player2 Win: " << mPlayer2Wins << "\n";
+        // file << "Draws: " << mDraws << "\n";
+        // file << "Total: " << mTotalGames << "\n";
+        // file << "AvgSimulations: " << mAvgSimulations << "\n";
+        // file.close();
     }
 
     void LogTerminals(const std::string& fileName)
     {
-        std::fstream file("stats/" + fileName, std::fstream::trunc);
-        file << "TURN,1,2,3,4,5,6,7,8,9,10,11,12,\n";
-        for (auto& it : mTerminals)
-        {
-            file << it.first << ",";
-            for (auto& it2 : it.second)
-            {
-                file << it2.second << ",";
-            }
-            file << "\n";
-        }
+        // std::fstream file("stats/" + fileName, std::fstream::trunc);
+        // file << "TURN,1,2,3,4,5,6,7,8,9,10,11,12,\n";
+        // for (auto& it : mTerminals)
+        // {
+        //     file << it.first << ",";
+        //     for (auto& it2 : it.second)
+        //     {
+        //         file << it2.second << ",";
+        //     }
+        //     file << "\n";
+        // }
 
-        file.close();
+        // file.close();
     }
 
 private:
