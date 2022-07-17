@@ -37,10 +37,10 @@ public:
         }
 
         std::cout << "DECIDED MOVE\n";
-        mRoot->LogChildStats();
+        // mRoot->LogChildStats();
 
-        int i;
-        std::cin >> i;
+        // int i;
+        // std::cin >> i;
         
         mRoot = mRoot->DecideOnBestChild();
         mRoot->NullParent();

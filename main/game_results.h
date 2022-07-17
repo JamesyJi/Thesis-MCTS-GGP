@@ -30,9 +30,10 @@ public:
         mTotalGames++;
     }
 
+    // Called after update result
     void Accumulate(Games::GameState& gameState)
     {
-        std::cout << "accumulating\n";
+        // std::cout << "accumulating\n";
         int (*terminals)[13] = gameState.GetTerminals();
         for (int turn = 1; turn < gameState.GetTurn(); ++turn)
         {
@@ -41,7 +42,18 @@ public:
                 mTerminals[turn][depth] = terminals[turn][depth];
             }
         }
-        std::cout << "finished accumulating\n";
+
+        int *simulations = gameState.GetSimulations();
+        int totalSimulations = 0;
+        for (int turn = 1; turn < gameState.GetTurn(); ++turn)
+        {
+            // std::cout << "simulation turn " << turn << " is " << simulations[turn] << "\n";
+            totalSimulations += simulations[turn];
+        }
+
+        mAvgSimulations = (mAvgSimulations * (mTotalGames - 1) + (totalSimulations / gameState.GetTurn())) / mTotalGames;
+
+        // std::cout << "finished accumulating mAvgSimulations is " << mAvgSimulations << "\n";
     }
 
     void Log(const std::string& fileName) 
@@ -53,6 +65,7 @@ public:
         file << "Player2 Win: " << mPlayer2Wins << "\n";
         file << "Draws: " << mDraws << "\n";
         file << "Total: " << mTotalGames << "\n";
+        file << "AvgSimulations: " << mAvgSimulations << "\n";
         file.close();
     }
 
@@ -72,6 +85,7 @@ public:
 
         file.close();
     }
+
 private:
     int mPlayer1Wins = 0;
     int mPlayer2Wins = 0;
@@ -80,6 +94,9 @@ private:
 
     // Number of terminal games turn : {depth : count }
     std::map<int, std::map<int, int>> mTerminals = {};
+    
+    // Average number of simulations per iteration
+    double mAvgSimulations = 0;
 };
 
 }

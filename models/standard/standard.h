@@ -39,7 +39,7 @@ public:
         // std::cout << *exploreNode.GetState();
 
         // std::cout << "simulation...\n";
-        auto evaluation = Simulate(exploreNode);
+        auto evaluation = this->Simulate(exploreNode);
     
         // std::cout << "explore node is after\n";
         // std::cout << *exploreNode.GetState();
@@ -64,6 +64,8 @@ public:
 
     Common::Result Simulate(NodeT& node)
     {
+        this->mGameState.RunningSimulation();
+
         StateT simulateState = node.GetStateCopy();
         auto playerTurn = node.GetPlayerTurn();
         MoveT move = node.GetLastMove();

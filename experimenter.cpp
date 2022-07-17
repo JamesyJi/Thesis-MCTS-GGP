@@ -12,9 +12,9 @@ int main(void)
 {
     srand(time(NULL));
     
-    using MoveT = Breakthrough::BreakthroughMove;
-    using StateT = Breakthrough::BreakthroughState;
-    using GameT = Models::Traits<Breakthrough::BreakthroughState, Breakthrough::BreakthroughMove>;
+    using MoveT = Connect4::Connect4Move;
+    using StateT = Connect4::Connect4State;
+    using GameT = Models::Traits<Connect4::Connect4State, Connect4::Connect4Move>;
     // using Model1T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth6>;
     // using Model2T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth5>;
     using Model1T = Models::Standard::Standard<GameT>;
@@ -24,8 +24,8 @@ int main(void)
 
     auto manager = Main::GameManager<Model1T, Model2T, StateT, MoveT>();
     // auto resource = Common::IterationResource(100000);
-    auto resource = Common::TimeResource(5);
-    manager.StartExperiment(resource, 1);
+    auto resource = Common::TimeResource(1);
+    manager.StartExperiment(resource, 1000);
 
     return 0;
 }
