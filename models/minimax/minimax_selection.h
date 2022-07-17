@@ -66,6 +66,8 @@ public:
 
     Common::Result Simulate(NodeT& node)
     {
+        this->mGameState.RunningSimulation();
+
         StateT simulateState = node.GetStateCopy();
         auto playerTurn = node.GetPlayerTurn();
         MoveT move = node.GetLastMove();

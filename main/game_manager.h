@@ -18,7 +18,9 @@ class GameManager
 public:
     using TraitsT = Models::Traits<TState, TMove>;
 
-    GameManager(){};
+    GameManager(std::string resultsFile)
+    : mResultsFile(resultsFile)
+    {};
 
     ~GameManager(){};
 
@@ -33,8 +35,8 @@ public:
             std::cout << result << "\n";
         }
 
-        mGameResults.Log("results.txt");
-        mGameResults.LogTerminals("terminals.csv");
+        mGameResults.Log(mResultsFile + ".txt");
+        // mGameResults.LogTerminals(mResultsFile + "terminals.csv");
     }
 
 
@@ -84,6 +86,8 @@ public:
 
 private:
     GameResults mGameResults;
+
+    std::string mResultsFile;
 };
 
 }

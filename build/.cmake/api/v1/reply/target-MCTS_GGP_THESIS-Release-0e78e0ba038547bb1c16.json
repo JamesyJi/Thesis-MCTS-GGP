@@ -106,6 +106,10 @@
 	[
 		{
 			"backtrace" : 2,
+			"id" : "breakthrough::@7fd22a7ef6e2253a3e31"
+		},
+		{
+			"backtrace" : 2,
 			"id" : "connect4::@3d302b91b8fbe374edb6"
 		},
 		{
@@ -119,10 +123,6 @@
 		{
 			"backtrace" : 2,
 			"id" : "strategy::@241ee8dc02c6c148167d"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "breakthrough::@7fd22a7ef6e2253a3e31"
 		}
 	],
 	"id" : "MCTS_GGP_THESIS::@6890427a1f51a3e7e1df",

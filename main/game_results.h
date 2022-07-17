@@ -44,16 +44,11 @@ public:
         }
 
         int *simulations = gameState.GetSimulations();
-        int totalSimulations = 0;
-        for (int turn = 1; turn < gameState.GetTurn(); ++turn)
-        {
-            std::cout << "simulation turn " << turn << " is " << simulations[turn] << "\n";
-            totalSimulations += simulations[turn];
-        }
 
-        mAvgSimulations = (mAvgSimulations * (mTotalGames - 1) + (totalSimulations / gameState.GetTurn())) / mTotalGames;
+        mAvgSimsP1 = (mAvgSimsP1 * (mTotalGames - 1) + simulations[1]) / mTotalGames;
+        mAvgSimsP2 = (mAvgSimsP2 * (mTotalGames - 1) + simulations[2]) / mTotalGames;
 
-        std::cout << "finished accumulating mAvgSimulations is " << mAvgSimulations << "\n";
+        std::cout << "finished accumulating mAvgSimsP1 and P2 are " << mAvgSimsP1 << " " << mAvgSimsP2 << "\n";
     }
 
     void Log(const std::string& fileName) 
@@ -65,7 +60,8 @@ public:
         file << "Player2 Win: " << mPlayer2Wins << "\n";
         file << "Draws: " << mDraws << "\n";
         file << "Total: " << mTotalGames << "\n";
-        file << "AvgSimulations: " << mAvgSimulations << "\n";
+        file << "AvgSimulationsPlayer1: " << mAvgSimsP1 << "\n";
+        file << "AvgSimulationsPlayer2: " << mAvgSimsP2 << "\n";
         file.close();
     }
 
@@ -95,8 +91,9 @@ private:
     // Number of terminal games turn : {depth : count }
     std::map<int, std::map<int, int>> mTerminals = {};
     
-    // Average number of simulations per iteration
-    double mAvgSimulations = 0;
+    // Average number of simulations for 1st move respectively
+    double mAvgSimsP1 = 0;
+    double mAvgSimsP2 = 0;
 };
 
 }

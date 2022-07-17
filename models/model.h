@@ -39,10 +39,7 @@ public:
         std::cout << "DECIDED MOVE\n";
         // mRoot->LogChildStats();
 
-<<<<<<< HEAD
         // std::cout << "enter a number to continue\n";
-=======
->>>>>>> master
         // int i;
         // std::cin >> i;
         
