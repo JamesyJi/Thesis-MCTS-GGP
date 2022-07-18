@@ -31,4 +31,31 @@ struct Piece
     Player player;
 };
 
+// Pieces in catch the lion
+enum class CTLPieceType
+{
+    NONE,
+    CHICK,
+    ELEPHANT,
+    GIRAFFE,
+    HEN,
+    LION
+};
+
+struct CTLPiece : public Piece
+{
+    CTLPiece()
+    : Piece()
+    {}
+
+    CTLPiece(
+        Player player
+        CTLPiece pieceType)
+    : Piece(player)
+    , pieceType(pieceType)
+    {}
+    
+    CTLPieceType pieceType;
+};
+
 }
