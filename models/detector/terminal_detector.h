@@ -47,7 +47,7 @@ public:
     }
 
     void DetectTerminalStates() {
-        // Log for depths 1 2 3 4 5 6 7 8 9 10 11 12
+        // Log for depths 1 2 3 4 5 6 7 8 9 10
         std::cout << "detecting terminal state\n";
         if (this->mRoot->GetStateRef().EvaluateState(this->mRoot->GetLastMove()) != Common::Result::ONGOING)
         {
@@ -61,7 +61,7 @@ public:
 
         for (int i = 0; i < this->mRoot->GetNumChildren(); ++i)
         {
-            for (int depth = 1; depth <= 12; ++depth) 
+            for (int depth = 1; depth <= 10; ++depth) 
             {
                 auto child = this->mRoot->GetChild(i);
                 auto result = this->MinimaxAB(child->GetStateRef(), child->GetLastMove(), depth, Common::Result::PLAYER2_WIN, Common::Result::PLAYER1_WIN, child->GetPlayerTurn());

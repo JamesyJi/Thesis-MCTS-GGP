@@ -27,11 +27,37 @@ public:
         mPosition[4][3] = Common::Piece(Common::Player::PLAYER2);
     }
 
+    OthelloState(Common::Piece position[ROWS][COLS])
+    {
+        for (int row = 0; row < ROWS; ++row)
+            for (int col = 0; col < COLS; ++col)
+                mPosition[row][col] = position[row][col];
+    }
+
     OthelloState(const Common::Piece position[ROWS][COLS])
     {
         for (int row = 0; row < ROWS; ++row)
             for (int col = 0; col < COLS; ++col)
                 mPosition[row][col] = position[row][col];
+    }
+
+    OthelloState(const OthelloState& other)
+    : OthelloState(other.mPosition)
+    {
+        mSkippedTurns = other.mSkippedTurns;
+    }
+
+    OthelloState& operator=(const OthelloState& other)
+    {
+        if (this != &other)
+        {
+            for (int row = 0; row < ROWS; ++row)
+                for (int col = 0; col < COLS; ++col)
+                    mPosition[row][col] = other.mPosition[row][col];
+
+            mSkippedTurns = other.mSkippedTurns;
+        }
+        return *this;
     }
 
     Common::Result EvaluateState(const OthelloMove& lastMove);

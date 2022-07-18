@@ -34,10 +34,10 @@ public:
     void Accumulate(Games::GameState& gameState)
     {
         std::cout << "accumulating\n";
-        int (*terminals)[13] = gameState.GetTerminals();
+        int (*terminals)[11] = gameState.GetTerminals();
         for (int turn = 1; turn < gameState.GetTurn(); ++turn)
         {
-            for (int depth = 1; depth <= 12; ++depth)
+            for (int depth = 1; depth <= 10; ++depth)
             {
                 mTerminals[turn][depth] = terminals[turn][depth];
             }

@@ -12,13 +12,16 @@
 int main(void)
 {
     srand(time(NULL));
+    // auto resource = Common::TimeResource(1);
     
     using MoveT = Connect4::Connect4Move;
     using StateT = Connect4::Connect4State;
     using GameT = Models::Traits<Connect4::Connect4State, Connect4::Connect4Move>;
-    // using Model1T = Models::Detector::TerminalDetector<GameT>;
-    // using Model2T = Models::Detector::TerminalDetector<GameT>;
-    auto resource = Common::TimeResource(1);
+    using Model1T = Models::Detector::TerminalDetector<GameT>;
+    using Model2T = Models::Detector::TerminalDetector<GameT>;
+    auto resource = Common::IterationResource(200000);
+    auto manager = Main::GameManager<Model1T, Model2T, StateT, MoveT>("connect4_terminal");
+    manager.StartExperiment(resource, 100);
 
     // using Model1T = Models::Standard::Standard<GameT>;
     // using Model2T = Models::Standard::Standard<GameT>;
@@ -26,17 +29,17 @@ int main(void)
     // resource = Common::TimeResource(1);
     // manager0.StartExperiment(resource, 100);
 
-    using Model3T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth6>;
-    using Model4T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth7>;
-    auto manager1 = Main::GameManager<Model3T, Model4T, StateT, MoveT>("connect4_6v7");
-    resource = Common::TimeResource(1);
-    manager1.StartExperiment(resource, 100);
+    // using Model3T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth6>;
+    // using Model4T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth7>;
+    // auto manager1 = Main::GameManager<Model3T, Model4T, StateT, MoveT>("connect4_6v7");
+    // resource = Common::TimeResource(1);
+    // manager1.StartExperiment(resource, 100);
 
-    using Model5T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth7>;
-    using Model6T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth6>;
-    auto manager2 = Main::GameManager<Model5T, Model6T, StateT, MoveT>("connect4_7v6");
-    resource = Common::TimeResource(1);
-    manager2.StartExperiment(resource, 100);
+    // using Model5T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth7>;
+    // using Model6T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth6>;
+    // auto manager2 = Main::GameManager<Model5T, Model6T, StateT, MoveT>("connect4_7v6");
+    // resource = Common::TimeResource(1);
+    // manager2.StartExperiment(resource, 100);
 
     // using Model7T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth4>;
     // using Model8T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth6>;

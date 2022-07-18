@@ -28,7 +28,7 @@ public:
         return mPlayerTurn;
     }
 
-    int (*(GetTerminals)())[13]
+    int (*(GetTerminals)())[11]
     {
         return mTerminals;
     }
@@ -55,7 +55,7 @@ private:
     Common::Player mPlayerTurn = Common::Player::PLAYER1;
 
     // Terminal Logging mTerminal[4][8] = number of terminal results detected 8 moves on turn 4
-    int mTerminals[200][13] = {};
+    int mTerminals[200][11] = {};
 
     // Simulation count logging mSimulations[4] = number of simulations on turn 4
     int mSimulations[200] = {0};

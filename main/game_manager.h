@@ -36,7 +36,7 @@ public:
         }
 
         mGameResults.Log(mResultsFile + ".txt");
-        // mGameResults.LogTerminals(mResultsFile + "terminals.csv");
+        mGameResults.LogTerminals(mResultsFile + "terminals.csv");
     }
 
 
