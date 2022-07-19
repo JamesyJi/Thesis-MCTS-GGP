@@ -83,8 +83,8 @@ int main(void)
     resource = Common::TimeResource(1);
     manager9.StartExperiment(resource, 100);
 
-    using Model21T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth6>;
-    using Model22T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth8>;
+    using Model21T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth8>;
+    using Model22T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth6>;
     auto manager10 = Main::GameManager<Model21T, Model22T, StateT, MoveT>("breakthrough_8v6");
     resource = Common::TimeResource(1);
     manager10.StartExperiment(resource, 100);
