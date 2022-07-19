@@ -32,14 +32,16 @@ struct Piece
 };
 
 // Pieces in catch the lion
+// Do not change order for the first 3 pieces. 
+// They are used for the player drops
 enum class CTLPieceType
 {
-    NONE,
     CHICK,
     ELEPHANT,
     GIRAFFE,
+    LION,
     HEN,
-    LION
+    NONE
 };
 
 struct CTLPiece : public Piece
@@ -49,8 +51,8 @@ struct CTLPiece : public Piece
     {}
 
     CTLPiece(
-        Player player
-        CTLPiece pieceType)
+        Player player,
+        CTLPieceType pieceType)
     : Piece(player)
     , pieceType(pieceType)
     {}

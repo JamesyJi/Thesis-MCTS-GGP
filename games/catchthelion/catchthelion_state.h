@@ -14,6 +14,7 @@ public:
     static const int ROWS = 4;
     static const int COLS = 3;
     static const int MAX_MOVES = 100;
+    static const int MAX_DROPS = 8;
 
     CatchTheLionState()
     {
@@ -42,6 +43,21 @@ public:
 
 private:
     Common::Piece mPosition[ROWS][COLS];
+
+    Common::Piece mPlayer1Drops[3] = {0};
+    Common::Piece mPlayer2Drops[3] = {0};
+private:
+    inline bool IsInBounds(int row, int col) const
+    {
+        return row >= 0 && row < ROWS && col >= 0 && col < COLS;
+    }
+
+    inline int AddChickLegalMoves(Common::Player player, int destRow, int row, int col) const;
+    inline int AddElephantLegalMoves(Common::Player player, int row, int col) const;
+    inline int AddGiraffeLegalMoves(Common::Player player, int row, int col) const;
+    inline int AddLionLegalMoves(Common::Player player, int row, int col) const;
+    inline int AddHenLegalMoves(Common::Player player, int row, int col) const;
+
 };
 
 }

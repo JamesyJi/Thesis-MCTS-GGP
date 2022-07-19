@@ -18,7 +18,7 @@ Common::Result BreakthroughState::BreakthroughState::EvaluateState(const Breakth
             }
             return Common::Result::ONGOING;
         case Common::Player::PLAYER2:
-            if (lastMove.row == 0 || mPlayer2RemainingPieces == 0)
+            if (lastMove.row == 0 || mPlayer1RemainingPieces == 0)
             {
                 return Common::Result::PLAYER2_WIN;
             }
@@ -30,6 +30,11 @@ BreakthroughMove BreakthroughState::GetRandomLegalMove(Common::Player player) co
 {
     BreakthroughMove legalMoves[MAX_MOVES];
     int nLegalMoves = GetLegalMoves(player, legalMoves);
+    // if (nLegalMoves == 0) {
+    //     std::cout << "0 legal moves...\n";
+    //     std::cout << *this;
+    //     assert (nLegalMoves != 0);
+    // }
     return legalMoves[rand() % nLegalMoves];
 }
 
@@ -48,6 +53,7 @@ int BreakthroughState::GetLegalMoves(Common::Player player, BreakthroughMove mov
             {
                 // Find what squares they can move into
                 int newRow = row + direction;
+
                 // Diagonal Left
                 int diagonalLeftCol = col - 1;
                 if (IsInBounds(newRow, diagonalLeftCol) && mPosition[newRow][diagonalLeftCol].player != player)
