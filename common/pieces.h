@@ -57,7 +57,7 @@ struct CTLPiece : public Piece
     , pieceType(pieceType)
     {}
     
-    CTLPieceType pieceType;
+    CTLPieceType pieceType = CTLPieceType::NONE;
 };
 
 }

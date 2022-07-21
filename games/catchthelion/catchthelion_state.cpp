@@ -46,7 +46,10 @@ Common::Result CatchTheLion::EvaluateState(const CTLMove &lastMove)
 
 CatchTheLionMove CatchTheLion::GetRandomLegalMove(Common::Player player) const
 {
+    CTLMove legalMoves[MAX_MOVES];
+    int nLegalMoves = GetLegalMoves(player, legalMoves);
 
+    return legalMoves[rand() % nLegalMoves];
 }
 
 int CatchTheLionState::GetLegalMoves(Common::Player player, CTLMove moves[MAX_MOVES]) const
@@ -101,6 +104,34 @@ int CatchTheLionState::GetLegalMoves(Common::Player player, CTLMove moves[MAX_MO
     }
 
     // Get all the DROPS
+}
+
+CatchTheLionState CatchTheLionState::MakeMove(const CatchTheLionMove&) const
+{
+    CatchTheLionState newState(*this);
+
+    newState.SimulateMove(move);
+
+    return newState;
+}
+
+void CatchTheLionState::SimulateMove(const CTLMove &move)
+{
+    mPosition[move.prevRow][move.prevCol] = CTLPiece(move.player, move.pieceType);
+    mPosition[move.row][move.col].player = CTLPiece();
+}
+
+void CatchTheLionState::UndoMove(const CatchTheLionMove& move)
+{
+    mPosition[move.prevRow][move.prevCol] = CTLPiece(move.player, move.pieceType);
+    
+    if (move.capturedPieceType == CTLPieceType::NONE)
+    {
+        mPosition[move.row][move.col] = CTLPiece();
+    } else
+    {
+        mPosition[move.row][move.col] = CTLPiece(Common::GetOtherPlayer(move.player), move.capturedPieceType);
+    }
 }
 
 // PRECONDITION: Player cannot be NONE

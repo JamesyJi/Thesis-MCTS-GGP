@@ -57,7 +57,6 @@ private:
     inline int AddGiraffeLegalMoves(Common::Player player, int row, int col) const;
     inline int AddLionLegalMoves(Common::Player player, int row, int col) const;
     inline int AddHenLegalMoves(Common::Player player, int row, int col) const;
-
 };
 
 }
