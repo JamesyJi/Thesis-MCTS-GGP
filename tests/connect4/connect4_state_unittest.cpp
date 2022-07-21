@@ -2,9 +2,17 @@
 #include "pieces.h"
 #include "connect4_state.h"
 
+#define P0 Common::Player::PLAYER0
+#define P1 Common::Player::PLAYER1
+#define P2 Common::Player::PLAYER2
+#define P1_WIN Common::Result::PLAYER1_WIN
+#define P2_WIN Common::Result::PLAYER2_WIN
+#define DRAW Common::Result::DRAW
+#define ONGOING Common::Result::ONGOING
+
 #define X Common::Piece(Common::Player::PLAYER1)
 #define O Common::Piece(Common::Player::PLAYER2)
-#define E Common::Piece()
+#define A Common::Piece()
 
 TEST(state_unittest, EvaluateRowWin) {
     const Common::Piece position[Connect4::Connect4State::ROWS][Connect4::Connect4State::COLS] =
