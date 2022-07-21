@@ -16,6 +16,8 @@ public:
     static const int MAX_MOVES = STARTING_PIECES * 3;
 
     BreakthroughState()
+    : mPlayer1RemainingPieces(STARTING_PIECES)
+    , mPlayer2RemainingPieces(STARTING_PIECES)
     {
         // PLAYER 1
         for (int row = 0; row < 2; ++row)
@@ -30,21 +32,28 @@ public:
         for (int row = ROWS - 2; row < ROWS; ++row)
             for (int col = 0; col < COLS; ++col)
                 mPosition[row][col] = Common::Piece(Common::Player::PLAYER2);
-        }
+    }
 
-    BreakthroughState(const Common::Piece position[ROWS][COLS])
+    BreakthroughState(
+        const Common::Piece position[ROWS][COLS],
+        int player1RemainingPieces,
+        int player2RemainingPieces
+    ) 
+    : mPlayer1RemainingPieces(player1RemainingPieces)
+    , mPlayer2RemainingPieces(player2RemainingPieces)
     {
         for (int row = 0; row < ROWS; ++row)
             for (int col = 0; col < COLS; ++col)
                 mPosition[row][col] = position[row][col];
     }
 
+    BreakthroughState(const Common::Piece position[ROWS][COLS])
+    : BreakthroughState(position, STARTING_PIECES, STARTING_PIECES)
+    {}
+
     BreakthroughState(const BreakthroughState& other)
-    : BreakthroughState(other.mPosition)
-    {
-        mPlayer1RemainingPieces = other.mPlayer1RemainingPieces;
-        mPlayer2RemainingPieces = other.mPlayer2RemainingPieces;
-    }
+    : BreakthroughState(other.mPosition, other.mPlayer1RemainingPieces, other.mPlayer2RemainingPieces)
+    {}
 
     Common::Result EvaluateState(const BreakthroughMove& lastMove);    
     BreakthroughMove GetRandomLegalMove(Common::Player player) const;
@@ -74,8 +83,8 @@ public:
 private:
     Common::Piece mPosition[ROWS][COLS];
 
-    int mPlayer1RemainingPieces = STARTING_PIECES;
-    int mPlayer2RemainingPieces = STARTING_PIECES;
+    int mPlayer1RemainingPieces;
+    int mPlayer2RemainingPieces;
 };
 
 }

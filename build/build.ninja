@@ -1713,21 +1713,14 @@ build strategy/install/strip: phony strategy/CMakeFiles/install/strip.util
 #############################################
 # Order-only phony target for MCTS_TESTS
 
-build cmake_object_order_depends_target_MCTS_TESTS: phony || cmake_object_order_depends_target_breakthrough cmake_object_order_depends_target_connect4 cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main cmake_object_order_depends_target_othello
+build cmake_object_order_depends_target_MCTS_TESTS: phony || cmake_object_order_depends_target_breakthrough cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main cmake_object_order_depends_target_mcts
 
-build tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o: CXX_COMPILER__MCTS_TESTS_Release /Users/james/Documents/Thesis_C++/tests/connect4/connect4_state_unittest.cpp || cmake_object_order_depends_target_MCTS_TESTS
-  DEP_FILE = tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o.d
+build tests/CMakeFiles/MCTS_TESTS.dir/breakthrough/breakthrough_minimax_ab_unittest.cpp.o: CXX_COMPILER__MCTS_TESTS_Release /Users/james/Documents/Thesis_C++/tests/breakthrough/breakthrough_minimax_ab_unittest.cpp || cmake_object_order_depends_target_MCTS_TESTS
+  DEP_FILE = tests/CMakeFiles/MCTS_TESTS.dir/breakthrough/breakthrough_minimax_ab_unittest.cpp.o.d
   FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/james/Documents/Thesis_C++/tests/connect4 -I/Users/james/Documents/Thesis_C++/tests/othello -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/breakthrough -I/Users/james/Documents/Thesis_C++/games/othello -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/tests/breakthrough -I/Users/james/Documents/Thesis_C++/games/breakthrough -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/models/. -I/Users/james/Documents/Thesis_C++/mcts -I/Users/james/Documents/Thesis_C++/games -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest
   OBJECT_DIR = tests/CMakeFiles/MCTS_TESTS.dir
-  OBJECT_FILE_DIR = tests/CMakeFiles/MCTS_TESTS.dir/connect4
-
-build tests/CMakeFiles/MCTS_TESTS.dir/othello/othello_state_unittest.cpp.o: CXX_COMPILER__MCTS_TESTS_Release /Users/james/Documents/Thesis_C++/tests/othello/othello_state_unittest.cpp || cmake_object_order_depends_target_MCTS_TESTS
-  DEP_FILE = tests/CMakeFiles/MCTS_TESTS.dir/othello/othello_state_unittest.cpp.o.d
-  FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/james/Documents/Thesis_C++/tests/connect4 -I/Users/james/Documents/Thesis_C++/tests/othello -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/breakthrough -I/Users/james/Documents/Thesis_C++/games/othello -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest
-  OBJECT_DIR = tests/CMakeFiles/MCTS_TESTS.dir
-  OBJECT_FILE_DIR = tests/CMakeFiles/MCTS_TESTS.dir/othello
+  OBJECT_FILE_DIR = tests/CMakeFiles/MCTS_TESTS.dir/breakthrough
 
 
 # =============================================================================
@@ -1737,9 +1730,9 @@ build tests/CMakeFiles/MCTS_TESTS.dir/othello/othello_state_unittest.cpp.o: CXX_
 #############################################
 # Link the executable tests/MCTS_TESTS
 
-build tests/MCTS_TESTS: CXX_EXECUTABLE_LINKER__MCTS_TESTS_Release tests/CMakeFiles/MCTS_TESTS.dir/connect4/connect4_state_unittest.cpp.o tests/CMakeFiles/MCTS_TESTS.dir/othello/othello_state_unittest.cpp.o | lib/libgtest_main.a games/connect4/libconnect4.a games/breakthrough/libbreakthrough.a games/othello/libothello.a lib/libgtest.a || games/breakthrough/libbreakthrough.a games/connect4/libconnect4.a games/othello/libothello.a lib/libgtest.a lib/libgtest_main.a
+build tests/MCTS_TESTS: CXX_EXECUTABLE_LINKER__MCTS_TESTS_Release tests/CMakeFiles/MCTS_TESTS.dir/breakthrough/breakthrough_minimax_ab_unittest.cpp.o | lib/libgtest_main.a games/breakthrough/libbreakthrough.a lib/libgtest.a mcts/libmcts.a || games/breakthrough/libbreakthrough.a lib/libgtest.a lib/libgtest_main.a mcts/libmcts.a
   FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
-  LINK_LIBRARIES = lib/libgtest_main.a  games/connect4/libconnect4.a  games/breakthrough/libbreakthrough.a  games/othello/libothello.a  lib/libgtest.a
+  LINK_LIBRARIES = lib/libgtest_main.a  games/breakthrough/libbreakthrough.a  lib/libgtest.a  mcts/libmcts.a
   OBJECT_DIR = tests/CMakeFiles/MCTS_TESTS.dir
   POST_BUILD = :
   PRE_LINK = :
