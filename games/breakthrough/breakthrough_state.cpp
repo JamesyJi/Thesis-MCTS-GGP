@@ -53,6 +53,7 @@ int BreakthroughState::GetLegalMoves(Common::Player player, BreakthroughMove mov
             {
                 // Find what squares they can move into
                 int newRow = row + direction;
+
                 // Diagonal Left
                 int diagonalLeftCol = col - 1;
                 if (IsInBounds(newRow, diagonalLeftCol) && mPosition[newRow][diagonalLeftCol].player != player)

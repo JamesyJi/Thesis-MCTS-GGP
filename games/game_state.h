@@ -18,12 +18,12 @@ public:
         mPlayerTurn = Common::GetOtherPlayer(mPlayerTurn);
     }
 
-    const int GetTurn() const
+    int GetTurn() const
     {
         return mTurn;
     }
 
-    const Common::Player GetPlayerTurn() const
+    Common::Player GetPlayerTurn() const
     {
         return mPlayerTurn;
     }
