@@ -137,6 +137,18 @@ void BreakthroughState::UndoMove(const BreakthroughMove& move)
 {
     if (move.capture) {
         mPosition[move.row][move.col].player = Common::GetOtherPlayer(move.player);
+        switch (move.player)
+        {
+        case Common::Player::PLAYER1:
+            mPlayer2RemainingPieces++;
+            break;
+        case Common::Player::PLAYER2:
+            mPlayer1RemainingPieces++;
+            break;
+        default:
+            throw "Should only be player 1 or player 2 in UndoMove";
+            break;
+        }
     } else {
         mPosition[move.row][move.col].player = Common::Player::NONE;
     }
