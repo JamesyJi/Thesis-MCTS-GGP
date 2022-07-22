@@ -37,11 +37,11 @@ public:
         }
 
         std::cout << "DECIDED MOVE\n";
-        mRoot->LogChildStats();
+        // mRoot->LogChildStats();
 
-        std::cout << "enter a number to continue\n";
-        int i;
-        std::cin >> i;
+        // std::cout << "enter a number to continue\n";
+        // int i;
+        // std::cin >> i;
         
         mRoot = mRoot->DecideOnBestChild();
         mRoot->NullParent();
