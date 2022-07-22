@@ -1,5 +1,7 @@
 #pragma once
 
+#include "game_types.h"
+
 #define P0 Common::Player::PLAYER0
 #define P1 Common::Player::PLAYER1
 #define P2 Common::Player::PLAYER2

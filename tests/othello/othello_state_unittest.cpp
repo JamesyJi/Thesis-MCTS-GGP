@@ -2,12 +2,9 @@
 #include "pieces.h"
 #include "othello_state.h"
 #include "othello_state_gen.h"
+#include "test_game_defines.h"
 
 #include <algorithm>
-
-#define X Common::Piece(Common::Player::PLAYER1)
-#define O Common::Piece(Common::Player::PLAYER2)
-#define A Common::Piece()
 
 namespace Othello
 {

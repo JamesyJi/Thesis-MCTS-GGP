@@ -1,51 +1,30 @@
 cmake_minimum_required(VERSION 3.14)
+project(tests CXX C)
 
+
+set(GCC_COMPILE_FLAGS -Wall -Werror -Wvla -O0 -Wno-unused-function -Wno-unused-variable)
+
+# Download Google Test
 include(FetchContent)
-
 FetchContent_Declare(
   googletest
   GIT_REPOSITORY https://github.com/google/googletest.git
   GIT_TAG        release-1.11.0
 )
 FetchContent_MakeAvailable(googletest)
-add_library(GTest::GTest INTERFACE IMPORTED)
-target_link_libraries(GTest::GTest INTERFACE gtest_main)
 
+function(add_google_test test_target target)
+    target_link_libraries(${test_target} ${target} test_utility gtest_main)
+    # Using the compile flags for the main executable from GCC_COMPILE_FLAGS
+    # and appending test-specific flags from GCC_COMPILE_FLAGS_TEST
+    target_compile_options(${test_target} PRIVATE ${GCC_COMPILE_FLAGS} ${GCC_COMPILE_FLAGS_TEST})
+    add_test(${test_target} ${test_target})
+endfunction(add_google_test)
 
-set(This MCTS_TESTS)
-
-set(Sources
-  breakthrough/breakthrough_minimax_ab_unittest.cpp
-  # breakthrough/breakthrough_state_evaluate_state_unittest.cpp
-  # breakthrough/breakthrough_state_legal_moves_unittest.cpp
-  # connect4/connect4_state_unittest.cpp
-  # othello/othello_state_unittest.cpp
-)
-
-add_executable(${This} ${Sources})
-
-add_test(
-  NAME ${This}
-  COMMAND ${This}
-)
-
-target_include_directories(
-  ${This}
-  PUBLIC
-  ${CMAKE_CURRENT_SOURCE_DIR}/breakthrough
-  # ${CMAKE_CURRENT_SOURCE_DIR}/connect4
-  # ${CMAKE_CURRENT_SOURCE_DIR}/othello
-)
-
-
-target_link_libraries(${This} PUBLIC
-    gtest_main
-    # connect4
-    breakthrough
-    # othello
-    models
-)
-
+add_subdirectory(breakthrough)
+add_subdirectory(connect4)
+add_subdirectory(othello)
+add_subdirectory(test_utility)
 
 
 
