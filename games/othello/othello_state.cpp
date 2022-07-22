@@ -10,9 +10,11 @@ Common::Result OthelloState::EvaluateState(const OthelloMove& lastMove)
 {
     if (lastMove.player == Common::Player::NONE)
     {
-        if (mSkippedTurns != 2)
+        if (mSkippedTurns < 2)
         {
             return Common::Result::ONGOING;
+        } else if (mSkippedTurns > 2) {
+            throw "mSkippedTurns should never be 2 in Othello Evaluate State";
         } else
         {
             return DetermineWinner();
@@ -87,6 +89,39 @@ void OthelloState::SimulateMove(const OthelloMove& move)
 
     FlipAllCapturedPieces(move);
     // std::cout << "finished simulate\n";
+}
+
+void OthelloState::UndoMove(const OthelloMove& move)
+{
+    if (move.player == Common::Player::NONE)
+    {
+        // Unskip the turn
+        UnskipTurn();
+        return;
+    }
+
+    auto otherPlayer = Common::GetOtherPlayer(move.player);
+
+    // Unmake the move and unflip the captured pieces
+    mPosition[move.row][move.col].player = Common::Player::NONE;
+    for (int i = Direction::NW; i != Direction::END; ++i) 
+    {
+        if (move.numCaptures[i] == 0) continue;
+
+        // Unflip all the captured pieces (in between the flank moves)
+        Direction dir = static_cast<Direction>(i);
+        const Step& step = Directions[dir];
+
+        int checkRow = move.row + step.row;
+        int checkCol = move.col + step.col;
+        int unflipped = 0;
+        while (unflipped++ < move.numCaptures[i])
+        {
+            mPosition[checkRow][checkCol].player = otherPlayer;
+            checkRow += step.row;
+            checkRow += step.col;
+        }
+    }
 }
 
 Common::Result OthelloState::DetermineWinner() const
@@ -181,7 +216,7 @@ bool OthelloState::IsAdjacentToOtherPlayer(Common::Player otherPlayer, int row, 
 // Returns true if this would result in a capture
 // It will update the move with all the captures in all directions
 // NOTE: We can pass in a starting direction for optimisation as we know the
-// prior directions have not been checked
+// prior directions have been checked
 bool OthelloState::FindUpdateCaptureDirections(Common::Player player, int row, int col, Direction dir, OthelloMove &move) const
 {
     bool foundCapture = false;
@@ -196,9 +231,9 @@ bool OthelloState::FindUpdateCaptureDirections(Common::Player player, int row, i
         // Adjacent should be opponent,
         int checkRow = row + step.row;
         int checkCol = col + step.col;
-        if (!IsInBounds(checkRow, checkCol) || mPosition[checkRow][checkCol] != otherPlayer)
+        if (!IsInBounds(checkRow, checkCol) || mPosition[checkRow][checkCol].player != otherPlayer)
         {
-            continue;;
+            continue;
         }
 
         // We should have a piece in this direction afterwards

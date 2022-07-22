@@ -70,6 +70,12 @@ public:
     {
         ++mSkippedTurns;
     }
+
+    inline void UnskipTurn()
+    {
+        --mSkippedTurns;
+    }
+
     inline void ResetSkippedTurns()
     {
         mSkippedTurns = 0;
