@@ -1,0 +1,25 @@
+# ninja log v5
+12	5418	1658898730144992226	mcts/CMakeFiles/mcts.dir/node.cpp.o	958a8bdc441a8951
+14	5495	1658898730192695531	strategy/CMakeFiles/strategy.dir/connect4_strategy.cpp.o	d438bfa7365dd1af
+5423	5551	1658898730293679000	mcts/libmcts.a	5e4fa67d301043bf
+8	6173	1658898730898504713	games/breakthrough/CMakeFiles/breakthrough.dir/breakthrough_state.cpp.o	b5ddcb99d9c7c1e3
+6173	6304	1658898731045694000	games/breakthrough/libbreakthrough.a	1c52e5c36172d597
+9	6621	1658898731342760308	games/connect4/CMakeFiles/connect4.dir/connect4_state.cpp.o	f51f79d2b8d0918c
+6621	6753	1658898731494648000	games/connect4/libconnect4.a	b84fb3b5c7f3c2b3
+6753	6901	1658898731643385000	strategy/libstrategy.a	786c4da6da122d1c
+11	7442	1658898732166990134	games/othello/CMakeFiles/othello.dir/othello_state.cpp.o	13d021f2a646dfaa
+7443	7569	1658898732311552000	games/othello/libothello.a	12abd235c2ec737f
+6	15064	1658898739775488051	CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o	191f1020fe5b7de5
+15065	15231	1658898739968540125	MCTS_GGP_THESIS	28e8aabb95cba9cd
+5496	16679	1658898741400739055	tests/CMakeFiles/MCTS_TESTS.dir/breakthrough/breakthrough_minimax_ab_unittest.cpp.o	2739d870c40bc1c
+7569	19931	1658898744654221836	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o	c47f3931049d1251
+6304	20958	1658898745675110084	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o	b438c2fe3548ad16
+5551	42336	1658898767030684946	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o	c9086abf2386cf7
+6901	62316	1658898787010239396	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o	6954378c33317a43
+62318	62428	1658898787171019000	lib/libgtest.a	5010140b5748c6f0
+62429	62525	1658898787266910000	lib/libgtest_main.a	a1ed8a2a27a773af
+62428	62527	1658898787268416000	lib/libgmock.a	980041a71d634aaf
+62527	62662	1658898787403882000	lib/libgmock_main.a	5844fef8178e0602
+62525	62743	1658898787470185788	tests/MCTS_TESTS	752c452b5db50f3
+17	4448	1658898832146486965	CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o	191f1020fe5b7de5
+4451	4722	1658898832437707984	MCTS_GGP_THESIS	28e8aabb95cba9cd
