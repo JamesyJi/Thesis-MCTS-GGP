@@ -32,7 +32,6 @@ namespace Othello
 //     )
 // );
 
-
 // TEST(othello_state_unittest, EvaluateOngoing) {
 //     const Common::Piece position[OthelloState::ROWS][Othello::OthelloState::COLS] =
 //     {

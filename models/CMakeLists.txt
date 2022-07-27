@@ -1,6 +1,5 @@
 add_subdirectory(standard)
 add_subdirectory(minimax)
-add_subdirectory(detector)
 
 add_library(models INTERFACE)
 

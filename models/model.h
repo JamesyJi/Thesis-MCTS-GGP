@@ -27,7 +27,7 @@ public:
     using StateT = typename TTraits::StateT;
     using MoveT = typename TTraits::MoveT;
     using NodeT = MCTS::Node<StateT, MoveT>;
-    
+
     MoveT DecideMove(Common::Resource& resource)
     {
         std::cout << "deciding move...\n";
@@ -76,6 +76,8 @@ public:
     void BackPropagateProven(NodeT& node, Common::Result result);
 
     static Common::Result MinimaxAB(StateT& state, const MoveT& lastMove, int depth, Common::Result alpha, Common::Result beta, Common::Player player);
+
+    void DetectTerminalStates();
 
     Model(Common::Player player, const StateT& state, Games::GameState& gameState)
     : mPlayer(player)
@@ -212,5 +214,45 @@ Common::Result Model<M, TTraits>::MinimaxAB(StateT& state, const MoveT& lastMove
             throw "player's turn cannot be none in minimax";
     }
 }
+
+template<typename M, typename TTraits>
+void Model<M, TTraits>::DetectTerminalStates() {
+    std::cout << "Detecting Terminal States...\n";
+    auto &rootState = mRoot->GetStateRef();
+    auto &lastMove = mRoot->GetLastMove();
+    auto curPlayer = mRoot->GetPlayerTurn();
+
+    if (rootState.EvaluateState(lastMove) != Common::Result::ONGOING) 
+    {
+        return;
+    }
+
+    MoveT legalMoves[StateT::MAX_MOVES];
+    int nLegalMoves = rootState.GetLegalMoves(curPlayer, legalMoves);
+    if (nLegalMoves == 0) 
+    {
+        return;
+    }
+
+    // For each move, get the next state and then check if any terminals can be detected
+    for (int i = 0; i < nLegalMoves; ++i) 
+    {
+        auto &legalMove = legalMoves[i];
+        auto childState = rootState.MakeMove(legalMove);
+
+        for (int depth = 1; depth <= 10; ++depth)
+        {
+            auto result = MinimaxAB(childState, legalMove, depth, Common::Result::PLAYER2_WIN, Common::Result::PLAYER1_WIN, Common::GetOtherPlayer(curPlayer));
+            if (result != Common::Result::ONGOING)
+            {
+                this->mGameState.FoundTerminal(depth);
+            }
+        }
+    }
+
+    std::cout << "Finished Detecting Terminal States\n";
+}
+
+
 
 }

@@ -28,12 +28,22 @@ public:
         }
 
         mTotalGames++;
+
     }
+
 
     // Called after update result
     void Accumulate(Games::GameState& gameState)
     {
         std::cout << "accumulating\n";
+
+        // Update the GameLengths
+        for (int turn = 1; turn < gameState.GetTurn(); ++turn)
+        {
+            mGameLengths[turn]++;
+        }
+
+        // Updating Terminals
         int (*terminals)[11] = gameState.GetTerminals();
         for (int turn = 1; turn < gameState.GetTurn(); ++turn)
         {
@@ -47,8 +57,6 @@ public:
 
         mAvgSimsP1 = (mAvgSimsP1 * (mTotalGames - 1) + simulations[1]) / mTotalGames;
         mAvgSimsP2 = (mAvgSimsP2 * (mTotalGames - 1) + simulations[2]) / mTotalGames;
-
-        std::cout << "finished accumulating mAvgSimsP1 and P2 are " << mAvgSimsP1 << " " << mAvgSimsP2 << "\n";
     }
 
     void Log(const std::string& fileName) 
@@ -65,10 +73,10 @@ public:
         file.close();
     }
 
-    void LogTerminals(const std::string& fileName)
+    void LogTerminals(const std::string& fileName) const
     {
         std::ofstream file(fileName, std::ofstream::trunc);
-        file << "TURN,1,2,3,4,5,6,7,8,9,10,11,12,\n";
+        file << "TURN,1,2,3,4,5,6,7,8,9,10,\n";
         for (auto& it : mTerminals)
         {
             file << it.first << ",";
@@ -82,13 +90,27 @@ public:
         file.close();
     }
 
+    void LogGameLengths(const std::string& fileName) const
+    {
+        std::ofstream file(fileName, std::ofstream::trunc);
+        for (auto& it : mGameLengths)
+        {
+            file << it.first << " : " << it.second << "\n";
+        }
+
+        file.close();
+    }
+
 private:
     int mPlayer1Wins = 0;
     int mPlayer2Wins = 0;
     int mDraws = 0;
     int mTotalGames = 0;
 
-    // Number of terminal games turn : {depth : count }
+    // Game lengths {turn : games ended at this turn}
+    std::map<int, int> mGameLengths = {};
+
+    // Number of terminal games {turn : {depth : count}}
     std::map<int, std::map<int, int>> mTerminals = {};
     
     // Average number of simulations for 1st move respectively

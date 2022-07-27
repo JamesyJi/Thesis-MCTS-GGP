@@ -13,9 +13,9 @@ class Node
 public:
     Node(const TState& state, Common::Player player, Node* parent, const TMove& lastMove)
     : mState(state)
-    , mPlayerTurn(player)
     , mParent(parent)
     , mLastMove(lastMove)
+    , mPlayerTurn(player)
     {}
 
     Node& GetRandomChild() const;

@@ -51,11 +51,10 @@ public:
 
 private:
     int mTurn = 1;
-    Common::Result mResult;
     Common::Player mPlayerTurn = Common::Player::PLAYER1;
 
     // Terminal Logging mTerminal[4][8] = number of terminal results detected 8 moves on turn 4
-    int mTerminals[200][11] = {};
+    int mTerminals[300][11] = {};
 
     // Simulation count logging mSimulations[4] = number of simulations on turn 4
     int mSimulations[200] = {0};
