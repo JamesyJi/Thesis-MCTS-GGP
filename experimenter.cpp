@@ -19,8 +19,8 @@ int main(void)
     auto resource = Common::TimeResource(1);
     using Model1T = Models::Standard::Standard<GameT>;
     using Model2T = Models::Standard::Standard<GameT>;
-    auto manager = Main::GameManager<Model1T, Model2T, StateT, MoveT>("breakthrough_terminal");
-    manager.StartExperiment(resource, 10);
+    auto manager = Main::GameManager<Model1T, Model2T, StateT, MoveT>("connect4_terminal");
+    manager.StartExperiment(resource, 200);
 
     // using ModelT = Models::Standard::Standard<GameT>;
     // using Model0T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth4>;

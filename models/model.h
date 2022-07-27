@@ -253,6 +253,4 @@ void Model<M, TTraits>::DetectTerminalStates() {
     std::cout << "Finished Detecting Terminal States\n";
 }
 
-
-
 }

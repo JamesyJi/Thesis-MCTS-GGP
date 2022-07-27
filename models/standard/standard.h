@@ -72,7 +72,6 @@ public:
         MoveT move = node.GetLastMove();
         
         MoveT legalMoves[StateT::MAX_MOVES];
-        int nLegalMoves;
         while (simulateState.EvaluateState(move) == Common::Result::ONGOING)
         {
             // std::cout << simulateState;
