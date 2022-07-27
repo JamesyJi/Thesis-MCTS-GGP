@@ -12,39 +12,46 @@ add_library(GTest::GTest INTERFACE IMPORTED)
 target_link_libraries(GTest::GTest INTERFACE gtest_main)
 
 
-set(This MCTS_TESTS)
+# set(This MCTS_TESTS)
 
-set(Sources
-  breakthrough/breakthrough_minimax_ab_unittest.cpp
-  # breakthrough/breakthrough_state_evaluate_state_unittest.cpp
-  # breakthrough/breakthrough_state_legal_moves_unittest.cpp
-  # connect4/connect4_state_unittest.cpp
-  # othello/othello_state_unittest.cpp
-)
+# set(Sources
+#   breakthrough/breakthrough_minimax_ab_unittest.cpp
+#   # breakthrough/breakthrough_state_evaluate_state_unittest.cpp
+#   # breakthrough/breakthrough_state_legal_moves_unittest.cpp
+#   # connect4/connect4_state_unittest.cpp
+#   # othello/othello_state_unittest.cpp
+# )
 
-add_executable(${This} ${Sources})
+# add_executable(${This} ${Sources})
 
-add_test(
-  NAME ${This}
-  COMMAND ${This}
-)
+function(add_google_test test_target target)
+    target_link_libraries(${test_target} ${target} gtest_main lib_test_helpers)
+    # Using the compile flags for the main executable from GCC_COMPILE_FLAGS
+    # and appending test-specific flags from GCC_COMPILE_FLAGS_TEST
+    target_compile_options(${test_target} PRIVATE ${GCC_COMPILE_FLAGS} ${GCC_COMPILE_FLAGS_TEST})
+    add_test(${test_target} ${test_target})
+endfunction(add_google_test)
 
-target_include_directories(
-  ${This}
-  PUBLIC
-  ${CMAKE_CURRENT_SOURCE_DIR}/breakthrough
+# target_include_directories(
+  # ${This}
+  # PUBLIC
+  # ${CMAKE_CURRENT_SOURCE_DIR}/breakthrough
   # ${CMAKE_CURRENT_SOURCE_DIR}/connect4
   # ${CMAKE_CURRENT_SOURCE_DIR}/othello
-)
+# )
 
+add_subdirectory(breakthrough)
+# add_subdirectory(connect4)
+# add_subdirectory(othello)
+add_subdirectory(test_helpers)
 
-target_link_libraries(${This} PUBLIC
-    gtest_main
+# target_link_libraries(${This} PUBLIC
+    # gtest_main
     # connect4
-    breakthrough
+    # breakthrough
     # othello
-    models
-)
+    # models
+# )
 
 
 

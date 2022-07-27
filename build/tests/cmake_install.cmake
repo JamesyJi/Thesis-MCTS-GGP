@@ -42,3 +42,13 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/Users/james/Documents/Thesis_C++/build/_deps/googletest-build/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/Users/james/Documents/Thesis_C++/build/tests/breakthrough/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/Users/james/Documents/Thesis_C++/build/tests/test_helpers/cmake_install.cmake")
+endif()
+

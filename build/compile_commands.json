@@ -31,11 +31,6 @@
 },
 {
   "directory": "/Users/james/Documents/Thesis_C++/build",
-  "command": "/usr/bin/clang++ -I/Users/james/Documents/Thesis_C++/tests/breakthrough -I/Users/james/Documents/Thesis_C++/games/breakthrough -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/models/. -I/Users/james/Documents/Thesis_C++/mcts -I/Users/james/Documents/Thesis_C++/games -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o tests/CMakeFiles/MCTS_TESTS.dir/breakthrough/breakthrough_minimax_ab_unittest.cpp.o -c /Users/james/Documents/Thesis_C++/tests/breakthrough/breakthrough_minimax_ab_unittest.cpp",
-  "file": "/Users/james/Documents/Thesis_C++/tests/breakthrough/breakthrough_minimax_ab_unittest.cpp"
-},
-{
-  "directory": "/Users/james/Documents/Thesis_C++/build",
   "command": "/usr/bin/clang++ -I/Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googlemock/include -I/Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googlemock -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -std=c++17 -o _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googlemock/src/gmock-all.cc",
   "file": "/Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googlemock/src/gmock-all.cc"
 },
@@ -53,5 +48,10 @@
   "directory": "/Users/james/Documents/Thesis_C++/build",
   "command": "/usr/bin/clang++ -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -std=c++17 -o _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/src/gtest_main.cc",
   "file": "/Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/src/gtest_main.cc"
+},
+{
+  "directory": "/Users/james/Documents/Thesis_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/james/Documents/Thesis_C++/games/breakthrough -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/tests/test_helpers -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o tests/breakthrough/CMakeFiles/test_breakthrough_evaluate_state.dir/breakthrough_state_evaluate_state_unittest.cpp.o -c /Users/james/Documents/Thesis_C++/tests/breakthrough/breakthrough_state_evaluate_state_unittest.cpp",
+  "file": "/Users/james/Documents/Thesis_C++/tests/breakthrough/breakthrough_state_evaluate_state_unittest.cpp"
 }
 ]
