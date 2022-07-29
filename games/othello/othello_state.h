@@ -13,9 +13,13 @@ class OthelloState
 public:
     static const int ROWS = 8;
     static const int COLS = 8;
-    static const int MAX_MOVES = ROWS * COLS;
+    static const int MAX_PIECES = ROWS * COLS;
+    static const int MAX_MOVES = CaptureInfo::MAX_CAPTURES;
     
     OthelloState()
+    : mSkippedTurns(0)
+    , mNumPlayer1Pieces(2)
+    , mNumPlayer2Pieces(2)
     {
         for (int row = 0; row < ROWS; ++row)
             for (int col = 0; col < COLS; ++col)
@@ -27,25 +31,37 @@ public:
         mPosition[4][3] = Common::Piece(Common::Player::PLAYER2);
     }
 
-    OthelloState(Common::Piece position[ROWS][COLS])
+    OthelloState(Common::Piece position[ROWS][COLS], int skippedTurns, int numPlayer1Pieces, int numPlayer2Pieces)
+    : mSkippedTurns(skippedTurns)
+    , mNumPlayer1Pieces(numPlayer1Pieces)
+    , mNumPlayer2Pieces(numPlayer2Pieces)
     {
         for (int row = 0; row < ROWS; ++row)
             for (int col = 0; col < COLS; ++col)
                 mPosition[row][col] = position[row][col];
     }
 
-    OthelloState(const Common::Piece position[ROWS][COLS])
+    OthelloState(const Common::Piece position[ROWS][COLS], int skippedTurns, int numPlayer1Pieces, int numPlayer2Pieces)
+    : mSkippedTurns(skippedTurns)
+    , mNumPlayer1Pieces(numPlayer1Pieces)
+    , mNumPlayer2Pieces(numPlayer2Pieces)
     {
         for (int row = 0; row < ROWS; ++row)
             for (int col = 0; col < COLS; ++col)
                 mPosition[row][col] = position[row][col];
     }
+
+    // OthelloState(Common::Piece position[ROWS][COLS])
+    // : OthelloState(position)
+    // {}
+
+    // OthelloState(const Common::Piece position[ROWS][COLS])
+    // : OthelloState(position, 0, 4)
+    // {}
 
     OthelloState(const OthelloState& other)
-    : OthelloState(other.mPosition)
-    {
-        mSkippedTurns = other.mSkippedTurns;
-    }
+    : OthelloState(other.mPosition, other.mSkippedTurns, other.mNumPlayer1Pieces, other.mNumPlayer2Pieces)
+    {}
 
     OthelloState& operator=(const OthelloState& other)
     {
@@ -56,6 +72,8 @@ public:
                     mPosition[row][col] = other.mPosition[row][col];
 
             mSkippedTurns = other.mSkippedTurns;
+            mNumPlayer1Pieces = other.mNumPlayer1Pieces;
+            mNumPlayer2Pieces = other.mNumPlayer2Pieces;
         }
         return *this;
     }
@@ -88,7 +106,9 @@ private:
 
     // Increment each time a player skips a turn
     // 2 ==> both players have skipped turns. Determine the winner
-    int mSkippedTurns = 0;
+    int mSkippedTurns;
+    int mNumPlayer1Pieces;
+    int mNumPlayer2Pieces;
 
 private:
     inline Common::Result DetermineWinner() const;

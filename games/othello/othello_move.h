@@ -42,6 +42,27 @@ const Step Directions[NUM_DIRECTIONS] =
     [Direction::W] = {0, -1}
 };
 
+struct CaptureInfo
+{
+    Direction direction;
+    int flankRow;
+    int flankCol;
+ 
+    static const int MAX_CAPTURES = 34;  // https://puzzling.stackexchange.com/questions/31896/othello-most-number-of-legal-moves-in-a-given-turn
+
+    friend bool operator==(const CaptureInfo lhs, const CaptureInfo rhs)
+    {
+        return lhs.direction == rhs.direction &&
+            lhs.flankRow == rhs.flankRow &&
+            lhs.flankCol == rhs.flankCol;
+    }
+
+    friend bool operator!=(const CaptureInfo lhs, const CaptureInfo rhs)
+    {
+        return !(lhs == rhs);
+    }
+};
+
 struct OthelloMove
 {
     OthelloMove()
@@ -55,42 +76,53 @@ struct OthelloMove
     {}
 
     // Used for ease of testing
-    OthelloMove(Common::Player player, int row, int col, std::vector<Direction> captures)
+    OthelloMove(Common::Player player, int row, int col, std::vector<CaptureInfo> captures)
     : OthelloMove(player, row, col)
     {
-        for (auto& dir : captures) directions[dir] = true;
+        for (auto& capture : captures)
+        {
+            captureInfos[numCaptures++] = capture;
+        }
     }
 
     friend bool operator==(const OthelloMove& lhs, const OthelloMove& rhs)
-    {
-        for (int dir = 0; dir != END; ++dir)
+    {   
+        if (lhs.player != rhs.player ||
+            lhs.row != rhs.row ||
+            lhs.col != rhs.col) 
         {
-            if (lhs.directions[dir] != rhs.directions[dir]) return false;
+            return false;
         }
 
-        return lhs.player == rhs.player &&
-            lhs.row == rhs.row &&
-            lhs.col == rhs.col;
+        if (lhs.numCaptures != rhs.numCaptures) return false;
+
+        for (int i = 0; i < lhs.numCaptures; ++i)
+        {
+            if (lhs.captureInfos[i] != rhs.captureInfos[i]) return false;
+        }
+
+        return true;
     }
 
     friend std::ostream& operator<<(std::ostream& os, const OthelloMove& state) {
-        os << "OthelloMove " << state.player << " " << state.row << " " << state.col << " ";
-        for (int i = 0; i < NUM_DIRECTIONS; ++i) {
-            state.directions[i] ? os << "1" : os << "0";
+        os << "OthelloMove " << state.player << " " << state.row << " " << state.col << " " << state.numCaptures << "\n";
+        for (int i = 0; i < state.numCaptures; ++i) {
+            auto &info = state.captureInfos[i];
+            os << "Capture: " << info.direction << " " << info.flankRow << " " << info.flankCol << "\n";
         }
-        os << "\n";
         return os;
     }
 
-    inline void CaptureInDirection(Direction dir)
+    inline void CaptureInDirection(Direction dir, int flankRow, int flankCol)
     {
-        directions[dir] = true;
+        captureInfos[numCaptures++] = CaptureInfo{dir, flankRow, flankCol};
     }
 
     Common::Player player;
     int row = 0;
     int col = 0;
-    bool directions[NUM_DIRECTIONS]{}; // True if we captured in that direction
+    CaptureInfo captureInfos[CaptureInfo::MAX_CAPTURES]; // Stores info about directions we captured in
+    int numCaptures = 0;
 };
 
 }

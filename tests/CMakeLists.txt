@@ -32,26 +32,11 @@ function(add_google_test test_target target)
     add_test(${test_target} ${test_target})
 endfunction(add_google_test)
 
-# target_include_directories(
-  # ${This}
-  # PUBLIC
-  # ${CMAKE_CURRENT_SOURCE_DIR}/breakthrough
-  # ${CMAKE_CURRENT_SOURCE_DIR}/connect4
-  # ${CMAKE_CURRENT_SOURCE_DIR}/othello
-# )
-
 add_subdirectory(breakthrough)
 # add_subdirectory(connect4)
-# add_subdirectory(othello)
+add_subdirectory(othello)
 add_subdirectory(test_helpers)
 
-# target_link_libraries(${This} PUBLIC
-    # gtest_main
-    # connect4
-    # breakthrough
-    # othello
-    # models
-# )
 
 
 
