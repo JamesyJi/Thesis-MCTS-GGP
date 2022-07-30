@@ -27,6 +27,22 @@ enum Direction {
     END // Helps us terminate loops
 };
 
+static std::ostream& operator<<(std::ostream& os, Direction direction)
+{
+    switch(direction)
+    {
+        case NW: return os << "NW";
+        case N: return os << "N";
+        case NE: return os << "NE";
+        case E: return os << "E";
+        case SE: return os << "SE";
+        case S: return os << "S";
+        case SW: return os << "SW";
+        case W: return os << "W";
+        case END: return os << "END";
+    }
+}
+
 const int NUM_DIRECTIONS = 8;
 
 // Should cycle through all the directions clockwise from NW to W

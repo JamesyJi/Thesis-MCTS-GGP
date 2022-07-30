@@ -19,7 +19,7 @@ TEST(othello_evaluate_state_unittest, StartingPosition_IsOngoing)
         {A, A, A, A, A, A, A, A},
         {A, A, A, A, A, A, A, A},
     };
-    auto s = OthelloState(position, 0);
+    auto s = OthelloState(position, 0, 2, 2);
     
     auto noMove = OthelloMove();
     ASSERT_EQ(s.EvaluateState(noMove), ONGOING);
@@ -38,7 +38,7 @@ TEST(othello_evaluate_state_unittest, UnfinishedGame_IsOngoing)
         {A, A, X, O, O, O, A, A},
         {A, A, A, A, O, A, A, A},
     };
-    auto s = OthelloState(position, 0);
+    auto s = OthelloState(position, 0, 11, 12);
 
     auto lastMove = OthelloMove(P1, 6, 2, {{NW, 4, 4}});
     ASSERT_EQ(s.EvaluateState(lastMove), ONGOING);
@@ -54,7 +54,7 @@ TEST(othello_evaluate_state_unittest, UnfinishedGame_IsOngoing)
         {X, X, X, X, X, X, X, X},
         {O, O, O, O, O, O, O, A},
     };
-    auto s1 = OthelloState(position, 0);
+    auto s1 = OthelloState(position, 0, 56, 7);
 
     std::vector<CaptureInfo> captureInfos = {{{W, 7, 0}}};
     auto lastMove1 = OthelloMove(P2, 7, 6, captureInfos);
@@ -92,7 +92,7 @@ TEST(othello_evaluate_state_unittest, DoubleSkippedTurn_CountWinner)
         {A, A, X, O, O, O, A, A},
         {A, A, A, A, O, A, A, A},
     };
-    auto s = OthelloState(position, 2);
+    auto s = OthelloState(position, 2, 10, 16);
     auto noMove = OthelloMove();
     ASSERT_EQ(s.EvaluateState(noMove), P2_WIN);
 }
@@ -110,7 +110,7 @@ TEST(othello_evaluate_state_unittest, FinishedGame_CountWinner_Draw)
         {O, O, X, O, O, O, X, X},
         {X, X, X, X, X, X, X, X},
     };
-    auto s = OthelloState(position, 0, 34, 34);
+    auto s = OthelloState(position, 0, 32, 32);
     std::vector<CaptureInfo> captureInfos = {{{W, 7, 0}, {NW, 5, 5}, {N, 5, 7}}};
     auto lastMove = OthelloMove(P1, 7, 7, captureInfos);
     ASSERT_EQ(s.EvaluateState(lastMove), DRAW);
