@@ -170,7 +170,6 @@ void Model<M, TTraits>::BackPropagateProven(NodeT& node, Common::Result result)
 template<typename M, typename TTraits>
 Common::Result Model<M, TTraits>::MinimaxAB(StateT& state, const MoveT& lastMove, int depth, Common::Result alpha, Common::Result beta, Common::Player player)
 {
-
     if (depth == 0 || state.EvaluateState(lastMove) != Common::Result::ONGOING) return state.EvaluateState(lastMove);
 
     MoveT legalMoves[StateT::MAX_MOVES];
@@ -186,7 +185,8 @@ Common::Result Model<M, TTraits>::MinimaxAB(StateT& state, const MoveT& lastMove
             {
                 state.SimulateMove(legalMoves[i]);
                 Common::Result evaluation = MinimaxAB(state, legalMoves[i], depth - 1, alpha, beta, Common::GetOtherPlayer(player));
-                state.UndoMove(legalMoves[i]);    
+                state.UndoMove(legalMoves[i]);
+
                 if (evaluation > maxEval) maxEval = evaluation;
                 if (maxEval > alpha) alpha = maxEval;
                 if (beta <= alpha) break;
@@ -244,7 +244,7 @@ void Model<M, TTraits>::DetectTerminalStates() {
         {
             auto result = MinimaxAB(childState, legalMove, depth, Common::Result::PLAYER2_WIN, Common::Result::PLAYER1_WIN, Common::GetOtherPlayer(curPlayer));
             if (result != Common::Result::ONGOING)
-            {
+            {   
                 this->mGameState.FoundTerminal(depth);
             }
         }

@@ -88,21 +88,37 @@ void OthelloState::SimulateMove(const OthelloMove& move)
     ResetSkippedTurns();
 
     mPosition[move.row][move.col].player = move.player;
-    switch (move.player)
-    {
-        case Common::Player::PLAYER1:
-            ++mNumPlayer1Pieces;
-            break;
-        case Common::Player::PLAYER2:
-            ++mNumPlayer2Pieces;
-            break;
-        default:
-            break;
-    }
+    IncrementPieces(move.player, 1);
 
-    FlipAllCapturedPieces(move);
+    for (int i = 0; i < move.numCaptures; ++i)
+    {
+        int numFlipped = FlipCapturedPieces(move.player, move.row, move.col, move.captureInfos[i]);
+        IncrementPieces(move.player, numFlipped);
+        DecrementPieces(Common::GetOtherPlayer(move.player), numFlipped);
+    }
     // std::cout << "finished simulate\n";
 }
+
+void OthelloState::UndoMove(const OthelloMove& move)
+{
+    if (move.player == Common::Player::NONE)
+    {
+        UnSkipTurn();
+        return;
+    }
+
+    mPosition[move.row][move.col].player = Common::Player::NONE;
+    DecrementPieces(move.player, 1);
+
+    // Unflip all the pieces the move captured
+    for (int i = 0; i < move.numCaptures; ++i)
+    {
+        int numUnflipped = UnFlipCapturedPieces(move.player, move.row, move.col, move.captureInfos[i]);
+        DecrementPieces(move.player, numUnflipped);
+        IncrementPieces(Common::GetOtherPlayer(move.player), numUnflipped);
+    }
+}
+
 
 Common::Result OthelloState::DetermineWinner() const
 {
@@ -130,6 +146,7 @@ bool operator==(const OthelloState& lhs, const OthelloState& rhs)
 
 std::ostream& operator<<(std::ostream& os, const OthelloState& state)
 {
+    std::cout << "Player1: " << state.mNumPlayer1Pieces << " Player2: " << state.mNumPlayer2Pieces << " Skipped: " << state.mSkippedTurns << "\n"; 
     for (int i = 0; i < OthelloState::ROWS; ++i)
     {
         for (int j = 0; j < OthelloState::COLS; ++j)
@@ -223,27 +240,43 @@ bool OthelloState::FindUpdateCaptureDirections(Common::Player player, int row, i
     return foundCapture;
 }
 
-// For each direction the given move captured in, flip pieces
-// until a flanking piece is reached
-void OthelloState::FlipAllCapturedPieces(const OthelloMove& move)
+// Flip the captured pieces in this direction
+int OthelloState::FlipCapturedPieces(Common::Player player, int row, int col, const CaptureInfo& captureInfo)
 {
-    for (int i = 0; i < move.numCaptures; ++i)
-    {
-        // Get the step for this capture direction
-        const CaptureInfo& captureInfo = move.captureInfos[i];
-        const Step& step = Directions[captureInfo.direction];
-        
-        int stepRow = move.row + step.row;
-        int stepCol = move.col + step.col;
+    int numFlipped = 0;
+    const Step& step = Directions[captureInfo.direction];
+    row += step.row;
+    col += step.col;
 
-        while (stepRow != captureInfo.flankRow && stepCol != captureInfo.flankCol)
-        {
-            mPosition[stepRow][stepCol] = move.player;
-            stepRow += step.row;
-            stepCol += step.col;
-        }
+    while (row != captureInfo.flankRow || col != captureInfo.flankCol)
+    {
+        mPosition[row][col] = player;
+        ++numFlipped;
+        row += step.row;
+        col += step.col;
     }
+
+    return numFlipped;
 }
 
+// Unflip the captured pieces in this direction
+int OthelloState::UnFlipCapturedPieces(Common::Player player, int row, int col, const CaptureInfo& captureInfo)
+{
+    int numUnflipped = 0;
+    auto otherPlayer = Common::GetOtherPlayer(player);
+    const Step& step = Directions[captureInfo.direction];
+    row += step.row;
+    col += step.col;
+
+    while (row != captureInfo.flankRow || col != captureInfo.flankCol)
+    {
+        mPosition[row][col] = otherPlayer;
+        ++numUnflipped;
+        row += step.row;
+        col += step.col;
+    }
+
+    return numUnflipped;
+}
 
 }

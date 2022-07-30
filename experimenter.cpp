@@ -13,14 +13,14 @@ int main(void)
     srand(time(NULL));
     // auto resource = Common::TimeResource(1);
     
-    using MoveT = Connect4::Connect4Move;
-    using StateT = Connect4::Connect4State;
-    using GameT = Models::Traits<Connect4::Connect4State, Connect4::Connect4Move>;
+    using MoveT = Othello::OthelloMove;
+    using StateT = Othello::OthelloState;
+    using GameT = Models::Traits<Othello::OthelloState, Othello::OthelloMove>;
     auto resource = Common::TimeResource(1);
     using Model1T = Models::Standard::Standard<GameT>;
     using Model2T = Models::Standard::Standard<GameT>;
-    auto manager = Main::GameManager<Model1T, Model2T, StateT, MoveT>("connect4_terminal");
-    manager.StartExperiment(resource, 200);
+    auto manager = Main::GameManager<Model1T, Model2T, StateT, MoveT>("othello");
+    manager.StartExperiment(resource, 10);
 
     // using ModelT = Models::Standard::Standard<GameT>;
     // using Model0T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth4>;

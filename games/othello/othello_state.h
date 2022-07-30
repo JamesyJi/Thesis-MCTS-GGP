@@ -84,18 +84,25 @@ public:
     OthelloState MakeMove(const OthelloMove&) const;
     void SimulateMove(const OthelloMove&);
     void UndoMove(const OthelloMove&);
-    inline void SkipTurn()
-    {
-        ++mSkippedTurns;
-    }
-    inline void ResetSkippedTurns()
-    {
-        mSkippedTurns = 0;
-    }
 
     friend bool operator==(const OthelloState& lhs, const OthelloState& rhs);
     friend std::ostream& operator<<(std::ostream& os, const OthelloState& state);
 
+    inline void SkipTurn()
+    {
+        ++mSkippedTurns;
+    }
+
+    inline void UnSkipTurn()
+    {
+        --mSkippedTurns;
+    }
+    
+    inline void ResetSkippedTurns()
+    {
+        mSkippedTurns = 0;
+    }
+    
     inline int GetSkippedTurns() const
     {
         return mSkippedTurns;
@@ -113,16 +120,48 @@ private:
 private:
     inline Common::Result DetermineWinner() const;
 
-    bool IsAdjacentToOtherPlayer(Common::Player otherPlayer, int row, int col, Direction *opponentDirection) const;
+    inline bool IsAdjacentToOtherPlayer(Common::Player otherPlayer, int row, int col, Direction *opponentDirection) const;
 
-    bool FindUpdateCaptureDirections(Common::Player player, int row, int col, Direction dir, OthelloMove& move) const;
+    inline bool FindUpdateCaptureDirections(Common::Player player, int row, int col, Direction dir, OthelloMove& move) const;
 
-    bool IsInBounds(int row, int col) const
+    inline bool IsInBounds(int row, int col) const
     {
         return row >= 0 && row < ROWS && col >= 0 && col < COLS;
     }
 
-    void FlipAllCapturedPieces(const OthelloMove& move);
+    inline int FlipCapturedPieces(Common::Player player, int row, int col, const CaptureInfo& captureInfo);
+
+    inline int UnFlipCapturedPieces(Common::Player player, int row, int col, const CaptureInfo& captureInfo);
+
+    inline void IncrementPieces(Common::Player player, int numPieces)
+    {
+        switch (player)
+        {
+            case Common::Player::PLAYER1:
+                mNumPlayer1Pieces += numPieces;
+                break;
+            case Common::Player::PLAYER2:
+                mNumPlayer2Pieces += numPieces;
+                break;
+            default:
+                throw "Incrementing Pieces for player that is not player 1 or 2";
+        }
+    }
+
+    inline void DecrementPieces(Common::Player player, int numPieces)
+    {
+        switch (player)
+        {
+            case Common::Player::PLAYER1:
+                mNumPlayer1Pieces -= numPieces;
+                break;
+            case Common::Player::PLAYER2:
+                mNumPlayer2Pieces -= numPieces;
+                break;
+            default:
+                throw "Decrementing Pieces for player that is not player 1 or 2";
+        }
+    }
 };
 
 }
