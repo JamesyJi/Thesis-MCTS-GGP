@@ -45,7 +45,7 @@ void Model<M, TTraits>::BackPropagateProven(NodeT& node, Common::Result result)
     auto curPlayer = node.GetPlayerTurn();
     auto otherPlayer = Common::GetOtherPlayer(curPlayer);
 
-    NodeT* curNode = nullptr;
+    NodeT* curNode;
 
     if (result == Common::PlayerToResult(curPlayer))
     {
