@@ -1,4 +1,5 @@
 add_subdirectory(breakthrough)
+add_subdirectory(catchthelion)
 add_subdirectory(connect4)
 add_subdirectory(othello)
 

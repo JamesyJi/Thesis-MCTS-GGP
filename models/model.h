@@ -37,6 +37,7 @@ public:
         }
 
         std::cout << "DECIDED MOVE\n";
+        std::cout << mRoot->GetLastMove() << "\n";
         // mRoot->LogChildStats();
 
         // std::cout << "enter a number to continue\n";

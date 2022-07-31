@@ -56,6 +56,14 @@
 /Users/james/Documents/Thesis_C++/build/games/breakthrough/CMakeFiles/install.dir
 /Users/james/Documents/Thesis_C++/build/games/breakthrough/CMakeFiles/install/local.dir
 /Users/james/Documents/Thesis_C++/build/games/breakthrough/CMakeFiles/install/strip.dir
+/Users/james/Documents/Thesis_C++/build/games/catchthelion/CMakeFiles/catchthelion.dir
+/Users/james/Documents/Thesis_C++/build/games/catchthelion/CMakeFiles/test.dir
+/Users/james/Documents/Thesis_C++/build/games/catchthelion/CMakeFiles/edit_cache.dir
+/Users/james/Documents/Thesis_C++/build/games/catchthelion/CMakeFiles/rebuild_cache.dir
+/Users/james/Documents/Thesis_C++/build/games/catchthelion/CMakeFiles/list_install_components.dir
+/Users/james/Documents/Thesis_C++/build/games/catchthelion/CMakeFiles/install.dir
+/Users/james/Documents/Thesis_C++/build/games/catchthelion/CMakeFiles/install/local.dir
+/Users/james/Documents/Thesis_C++/build/games/catchthelion/CMakeFiles/install/strip.dir
 /Users/james/Documents/Thesis_C++/build/games/connect4/CMakeFiles/connect4.dir
 /Users/james/Documents/Thesis_C++/build/games/connect4/CMakeFiles/test.dir
 /Users/james/Documents/Thesis_C++/build/games/connect4/CMakeFiles/edit_cache.dir

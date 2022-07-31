@@ -1,13 +1,18 @@
 [
 {
   "directory": "/Users/james/Documents/Thesis_C++/build",
-  "command": "/usr/bin/clang++ -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/games/breakthrough -I/Users/james/Documents/Thesis_C++/games/othello -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/models/. -I/Users/james/Documents/Thesis_C++/mcts -I/Users/james/Documents/Thesis_C++/main -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o -c /Users/james/Documents/Thesis_C++/experimenter.cpp",
+  "command": "/usr/bin/clang++ -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/games/breakthrough -I/Users/james/Documents/Thesis_C++/games/catchthelion -I/Users/james/Documents/Thesis_C++/games/othello -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/models/. -I/Users/james/Documents/Thesis_C++/mcts -I/Users/james/Documents/Thesis_C++/main -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o -c /Users/james/Documents/Thesis_C++/experimenter.cpp",
   "file": "/Users/james/Documents/Thesis_C++/experimenter.cpp"
 },
 {
   "directory": "/Users/james/Documents/Thesis_C++/build",
   "command": "/usr/bin/clang++ -I/Users/james/Documents/Thesis_C++/games/breakthrough -I/Users/james/Documents/Thesis_C++/common -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o games/breakthrough/CMakeFiles/breakthrough.dir/breakthrough_state.cpp.o -c /Users/james/Documents/Thesis_C++/games/breakthrough/breakthrough_state.cpp",
   "file": "/Users/james/Documents/Thesis_C++/games/breakthrough/breakthrough_state.cpp"
+},
+{
+  "directory": "/Users/james/Documents/Thesis_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/james/Documents/Thesis_C++/games/catchthelion -I/Users/james/Documents/Thesis_C++/common -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o games/catchthelion/CMakeFiles/catchthelion.dir/catchthelion_state.cpp.o -c /Users/james/Documents/Thesis_C++/games/catchthelion/catchthelion_state.cpp",
+  "file": "/Users/james/Documents/Thesis_C++/games/catchthelion/catchthelion_state.cpp"
 },
 {
   "directory": "/Users/james/Documents/Thesis_C++/build",

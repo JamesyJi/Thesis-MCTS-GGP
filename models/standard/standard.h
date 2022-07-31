@@ -32,6 +32,7 @@ public:
             // std::cout << "expansion...\n";
             promisingNode.ExpandNode();
         }
+        // std::cout << "finished expansion...\n";
 
         // Simulation
         NodeT& exploreNode = promisingNode.HasChildren() ? promisingNode.GetRandomChild() : promisingNode;
@@ -77,6 +78,7 @@ public:
             // std::cout << simulateState;
             // std::cout << "==============\n";
             move = simulateState.GetRandomLegalMove(playerTurn);
+            // std::cout << "Selected random move " << move << "\n";
             simulateState.SimulateMove(move);
             playerTurn = Common::GetOtherPlayer(playerTurn);
         }

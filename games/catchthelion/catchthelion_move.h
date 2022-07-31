@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 namespace CatchTheLion
 {
 
@@ -14,8 +16,8 @@ const Step ElephantDirections[NUM_ELEPHANT_DIRECTIONS] =
 {
     {-1, -1},
     {-1, 1},
-    {1, 1}
-    {1, -1},
+    {1, 1},
+    {1, -1}
 };
 
 const int NUM_GIRAFFE_DIRECTIONS = 4;
@@ -70,33 +72,56 @@ enum class MoveType
     DROP
 };
 
-struct CTLMove
+static std::ostream& operator<<(std::ostream& os, MoveType move)
 {
-    // MOVE
-    CTLMove(
+    switch (move)
+    {
+        case MoveType::MOVE: return os << "MOVE";
+        case MoveType::DROP: return os << "DROP";
+    }
+}
+
+struct CatchTheLionMove
+{
+    CatchTheLionMove()
+    {}
+
+    // MOVE CAPTURE
+    CatchTheLionMove(
         Common::Player player,
-        CTLPieceType pieceType,
+        Common::CatchTheLionPieceType pieceType,
         int prevRow,
         int prevCol,
         int row,
         int col,
-        CTLPieceType capturedPieceType
+        Common::CatchTheLionPieceType capturedPieceType
     ) : player(player)
-    , piece(pieceType)
+    , pieceType(pieceType)
     , moveType(MoveType::MOVE)
     , prevRow(prevRow)
     , prevCol(prevCol)
     , row(row)
     , col(col)
-    , capturedPiece(capturedPieceType)
+    , capturedPieceType(capturedPieceType)
+    {}
+
+    // MOVE NO CAPTURE
+    CatchTheLionMove(
+        Common::Player player,
+        Common::CatchTheLionPieceType pieceType,
+        int prevRow,
+        int prevCol,
+        int row,
+        int col
+    ) : CatchTheLionMove(player, pieceType, prevRow, prevCol, row, col, Common::CatchTheLionPieceType::NONE)
     {}
 
     // DROP
-    CTLMove(
+    CatchTheLionMove(
         Common::Player player,
-        CTLPieceType pieceType,
+        Common::CatchTheLionPieceType pieceType,
         int row,
-        int col,
+        int col
     ) : player(player)
     , pieceType(pieceType)
     , moveType(MoveType::DROP)
@@ -104,10 +129,11 @@ struct CTLMove
     , prevCol(-1)
     , row(row)
     , col(col)
+    , capturedPieceType(Common::CatchTheLionPieceType::NONE)
     {}
 
-    Common::Player player;
-    CTLPieceType pieceType;
+    Common::Player player = Common::Player::NONE;
+    Common::CatchTheLionPieceType pieceType;
     MoveType moveType;
     int prevRow;
     int prevCol;
@@ -115,7 +141,38 @@ struct CTLMove
     int col;
 
     // NONE if no capture
-    CTLPieceType capturedPieceType = CTLPieceType::NONE;
+    Common::CatchTheLionPieceType capturedPieceType;
+
+    friend bool operator==(const CatchTheLionMove& lhs, const CatchTheLionMove& rhs)
+    {
+        return lhs.player == rhs.player &&
+            lhs.pieceType && rhs.pieceType &&
+            lhs.moveType == rhs.moveType &&
+            lhs.row == rhs.row &&
+            lhs.col == rhs.col &&
+            lhs.prevRow == rhs.prevRow &&
+            lhs.prevCol == rhs.prevCol &&
+            lhs.capturedPieceType == rhs.capturedPieceType;
+    }
+
+    friend std::ostream& operator<<(std::ostream& os, const CatchTheLionMove& move)
+    {
+        if (move.player == Common::Player::NONE)
+        {
+            os << "NONE";
+            return os;
+        }
+
+        os << move.player << " ";
+        os << move.pieceType << " ";
+        os << move.moveType << " ";
+        os << move.prevRow << " ";
+        os << move.prevCol << " ";
+        os << move.row << " ";
+        os << move.col;
+        
+        return os;
+    }
 };
 
 }

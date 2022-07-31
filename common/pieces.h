@@ -34,7 +34,7 @@ struct Piece
 // Pieces in catch the lion
 // Do not change order for the first 3 pieces. 
 // They are used for the player drops
-enum class CTLPieceType
+enum CatchTheLionPieceType
 {
     CHICK,
     ELEPHANT,
@@ -44,20 +44,60 @@ enum class CTLPieceType
     NONE
 };
 
-struct CTLPiece : public Piece
+static std::ostream& operator<<(std::ostream& os, const CatchTheLionPieceType& pieceType)
 {
-    CTLPiece()
+    switch (pieceType)
+    {
+        case CatchTheLionPieceType::CHICK: return os << "C";
+        case CatchTheLionPieceType::ELEPHANT: return os << "E";
+        case CatchTheLionPieceType::GIRAFFE: return os << "G";
+        case CatchTheLionPieceType::LION: return os << "L";
+        case CatchTheLionPieceType::HEN: return os << "H";
+        case CatchTheLionPieceType::NONE: return os << "N";
+    }
+}
+
+struct CatchTheLionPiece : public Piece
+{
+    CatchTheLionPiece()
     : Piece()
     {}
 
-    CTLPiece(
+    CatchTheLionPiece(
         Player player,
-        CTLPieceType pieceType)
+        CatchTheLionPieceType pieceType)
     : Piece(player)
     , pieceType(pieceType)
     {}
     
-    CTLPieceType pieceType = CTLPieceType::NONE;
+    CatchTheLionPieceType pieceType = CatchTheLionPieceType::NONE;
+
+    friend std::ostream& operator<<(std::ostream &os, const CatchTheLionPiece& piece)
+    {
+        switch(piece.pieceType)
+        {
+            case CatchTheLionPieceType::CHICK:
+                os << "C";
+                break;
+            case CatchTheLionPieceType::ELEPHANT:
+                os << "E";
+                break;
+            case CatchTheLionPieceType::GIRAFFE:
+                os << "G";
+                break;
+            case CatchTheLionPieceType::LION:
+                os << "L";
+                break;
+            case CatchTheLionPieceType::HEN:
+                os << "H";
+                break;
+            case CatchTheLionPieceType::NONE:
+                os << "N";
+                break;
+        }
+
+        return os;
+    }
 };
 
 }

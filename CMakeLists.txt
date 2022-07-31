@@ -33,6 +33,7 @@ target_link_libraries(${PROJECT_NAME}
     games
     connect4
     breakthrough
+    catchthelion
     othello
     strategy
     models
