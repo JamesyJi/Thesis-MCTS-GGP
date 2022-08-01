@@ -22,31 +22,31 @@ public:
     void ExecuteStrategy()
     {
         // Selection
-        // std::cout << "selection...\n";
+        std::cout << "selection...\n";
         NodeT& promisingNode = SelectBestChild();
         StateT& promisingState = promisingNode.GetStateRef();
 
         // Expansion
         if (promisingState.EvaluateState(promisingNode.GetLastMove()) == Common::Result::ONGOING)
         {
-            // std::cout << "expansion...\n";
+            std::cout << "expansion...\n";
             promisingNode.ExpandNode();
         }
-        // std::cout << "finished expansion...\n";
+        std::cout << "finished expansion...\n";
 
         // Simulation
         NodeT& exploreNode = promisingNode.HasChildren() ? promisingNode.GetRandomChild() : promisingNode;
         // std::cout << "explore node is before\n";
         // std::cout << *exploreNode.GetState();
 
-        // std::cout << "simulation...\n";
+        std::cout << "simulation...\n";
         auto evaluation = this->Simulate(exploreNode);
     
         // std::cout << "explore node is after\n";
         // std::cout << *exploreNode.GetState();
 
         // Back Propagation
-        // std::cout << "backpropagation...\n";
+        std::cout << "backpropagation...\n";
         this->BackPropagate(exploreNode, evaluation);
     }
 

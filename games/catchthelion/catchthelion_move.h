@@ -155,6 +155,11 @@ struct CatchTheLionMove
             lhs.capturedPieceType == rhs.capturedPieceType;
     }
 
+    friend bool operator!=(const CatchTheLionMove& lhs, const CatchTheLionMove& rhs)
+    {
+        return !(lhs == rhs);
+    }
+
     friend std::ostream& operator<<(std::ostream& os, const CatchTheLionMove& move)
     {
         if (move.player == Common::Player::NONE)

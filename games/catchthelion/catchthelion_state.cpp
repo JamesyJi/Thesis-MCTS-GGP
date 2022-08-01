@@ -49,6 +49,11 @@ Common::Result CatchTheLionState::EvaluateState(const CatchTheLionMove &lastMove
     }
 
     // TODO: Determine if draw due to repetition
+    if (DrawByRepetition())
+    {
+        std::cout << Common::Result::DRAW << "\n";
+        return Common::Result::DRAW;
+    }
 
     // std::cout << Common::Result::ONGOING << "\n";
     return Common::Result::ONGOING;  
@@ -58,6 +63,10 @@ CatchTheLionMove CatchTheLionState::GetRandomLegalMove(Common::Player player) co
 {
     CatchTheLionMove legalMoves[MAX_MOVES];
     int nLegalMoves = GetLegalMoves(player, legalMoves);
+    if (nLegalMoves == 0) {
+        std::cout << "NO LEGAL MOVES FOUND\n";
+        std::cout << *this;
+    }
 
     return legalMoves[rand() % nLegalMoves];
 }
@@ -140,6 +149,8 @@ CatchTheLionState CatchTheLionState::MakeMove(const CatchTheLionMove& move) cons
 void CatchTheLionState::SimulateMove(const CatchTheLionMove& move)
 {
     // std::cout << "SimulateMove " << move << "\n";
+    mMoveHistory.push_back(move);
+
     switch (move.moveType)
     {
     case MoveType::DROP:
@@ -147,15 +158,13 @@ void CatchTheLionState::SimulateMove(const CatchTheLionMove& move)
         DecrDrop(move.player, move.pieceType);
         break;
     case MoveType::MOVE:
+        mPosition[move.prevRow][move.prevCol] = Common::CatchTheLionPiece();
+
         // Captured a piece
         // Do not increment move for capturing a lion
-        if (move.capturedPieceType != Common::CatchTheLionPieceType::NONE)
+        if (move.capturedPieceType != Common::CatchTheLionPieceType::NONE && move.capturedPieceType != Common::CatchTheLionPieceType::LION)
         {
-            mPosition[move.prevRow][move.prevCol] = Common::CatchTheLionPiece();
-            if (move.capturedPieceType != Common::CatchTheLionPieceType::LION)
-            {
-                IncrDrop(move.player, move.capturedPieceType);
-            }
+            IncrDrop(move.player, move.capturedPieceType);
         }
         
         if (move.pieceType == Common::CatchTheLionPieceType::CHICK)
@@ -168,11 +177,13 @@ void CatchTheLionState::SimulateMove(const CatchTheLionMove& move)
                 {
                     mPosition[move.row][move.col] = Common::CatchTheLionPiece(move.player, Common::CatchTheLionPieceType::HEN);
                 }
+                break;
             case Common::Player::PLAYER2:
                 if (move.row == 0)
                 {
                     mPosition[move.row][move.col] = Common::CatchTheLionPiece(move.player, Common::CatchTheLionPieceType::HEN);
                 }
+                break;
             default:
                 throw std::runtime_error("Move should be player 1 or player 2 in SimulateMove");
             }
@@ -187,6 +198,8 @@ void CatchTheLionState::SimulateMove(const CatchTheLionMove& move)
 
 void CatchTheLionState::UndoMove(const CatchTheLionMove& move)
 {
+    mMoveHistory.pop_back();
+
     switch (move.moveType)
     {
         case MoveType::DROP:
@@ -213,27 +226,19 @@ void CatchTheLionState::UndoMove(const CatchTheLionMove& move)
 int CatchTheLionState::AddChickLegalMoves(Common::Player player, int destRow, int row, int col, int found, CatchTheLionMove moves[MAX_MOVES]) const
 {
     // Cannot move if it is on the final row
-    if (player == Common::Player::PLAYER1)
+    switch (player)
     {
-        if (destRow == ROWS - 1) return found;
-    } else if (player == Common::Player::PLAYER2)
-    {
-        if (destRow == 0) return found;
+        case Common::Player::PLAYER1:
+            if (destRow == ROWS - 1) return found;
+            break;
+        case Common::Player::PLAYER2:
+            if (destRow == 0) return found;
+            break;
+        default:
+            throw std::runtime_error("AddLegalChickMoves for NONE player");
     }
 
-    auto &destPiece = mPosition[destRow][col];
-
-    // Cannot move into itself
-    if (destPiece.player == player) return found;
-
-    if (destPiece.player == Common::Player::NONE)
-    {
-        moves[found++] = CatchTheLionMove(player, Common::CatchTheLionPieceType::CHICK, row, col, destRow, col);
-        return found;
-    } else {
-        moves[found++] = CatchTheLionMove(player, Common::CatchTheLionPieceType::CHICK, row, col, destRow, col, destPiece.pieceType);
-        return found;
-    }
+    return AddLegalMoveForPiece(player, Common::CatchTheLionPieceType::CHICK, row, col, destRow, col, found, moves);
 }
 
 int CatchTheLionState::AddElephantLegalMoves(Common::Player player, int row, int col, int found, CatchTheLionMove moves[MAX_MOVES]) const
@@ -242,23 +247,11 @@ int CatchTheLionState::AddElephantLegalMoves(Common::Player player, int row, int
     for (int i = 0; i < NUM_ELEPHANT_DIRECTIONS; ++i)
     {
         auto& step = ElephantDirections[i];
-        int newRow = step.row + row;
-        int newCol = step.col + col;
-        if (IsInBounds(newRow, newCol))
+        int destRow = step.row + row;
+        int destCol = step.col + col;
+        if (IsInBounds(destRow, destCol))
         {
-            auto &destPiece = mPosition[newRow][newCol];
-            if (destPiece.player == player)
-            {
-                continue;
-            }
-            
-            if (destPiece.player == Common::Player::NONE)
-            {
-                moves[found++] = CatchTheLionMove(player, Common::CatchTheLionPieceType::ELEPHANT, row, col, newRow, newCol);
-            } else
-            {
-                moves[found++] = CatchTheLionMove(player, Common::CatchTheLionPieceType::ELEPHANT, row, col, newRow, newCol, destPiece.pieceType);
-            }
+            found = AddLegalMoveForPiece(player, Common::CatchTheLionPieceType::ELEPHANT, row, col, destRow, destCol, found, moves);
         }
     }
 
@@ -271,23 +264,11 @@ int CatchTheLionState::AddGiraffeLegalMoves(Common::Player player, int row, int 
     for (int i = 0; i < NUM_GIRAFFE_DIRECTIONS; ++i)
     {
         auto& step = GiraffeDirections[i];
-        int newRow = step.row + row;
-        int newCol = step.col + col;
-        if (IsInBounds(newRow, newCol))
+        int destRow = step.row + row;
+        int destCol = step.col + col;
+        if (IsInBounds(destRow, destCol))
         {
-            auto &destPiece = mPosition[newRow][newCol];
-            if (destPiece.player == player)
-            {
-                continue;
-            }
-            
-            if (destPiece.player == Common::Player::NONE)
-            {
-                moves[found++] = CatchTheLionMove(player, Common::CatchTheLionPieceType::GIRAFFE, row, col, newRow, newCol);
-            } else
-            {
-                moves[found++] = CatchTheLionMove(player, Common::CatchTheLionPieceType::GIRAFFE, row, col, newRow, newCol, destPiece.pieceType);
-            }
+            found = AddLegalMoveForPiece(player, Common::CatchTheLionPieceType::GIRAFFE, row, col, destRow, destCol, found, moves);
         }
     }
 
@@ -300,23 +281,11 @@ int CatchTheLionState::AddLionLegalMoves(Common::Player player, int row, int col
     for (int i = 0; i < NUM_LION_DIRECTIONS; ++i)
     {
         auto& step = LionDirections[i];
-        int newRow = step.row + row;
-        int newCol = step.col + col;
-        if (IsInBounds(newRow, newCol))
+        int destRow = step.row + row;
+        int destCol = step.col + col;
+        if (IsInBounds(destRow, destCol))
         {
-            auto &destPiece = mPosition[newRow][newCol];
-            if (destPiece.player == player)
-            {
-                continue;
-            }
-            
-            if (destPiece.player == Common::Player::NONE)
-            {
-                moves[found++] = CatchTheLionMove(player, Common::CatchTheLionPieceType::LION, row, col, newRow, newCol);
-            } else
-            {
-                moves[found++] = CatchTheLionMove(player, Common::CatchTheLionPieceType::LION, row, col, newRow, newCol, destPiece.pieceType);
-            }
+            found = AddLegalMoveForPiece(player, Common::CatchTheLionPieceType::LION, row, col, destRow, destCol, found, moves);
         }
     }
 
@@ -331,24 +300,32 @@ int CatchTheLionState::AddHenLegalMoves(Common::Player player, int row, int col,
     for (int i = 0; i < NUM_HEN_DIRECTIONS; ++i)
     {
         auto& step = henDirections[i];
-        int newRow = step.row + row;
-        int newCol = step.col + col;
-        if (IsInBounds(newRow, newCol))
+        int destRow = step.row + row;
+        int destCol = step.col + col;
+        if (IsInBounds(destRow, destCol))
         {
-            auto &destPiece = mPosition[newRow][newCol];
-            if (destPiece.player == player)
-            {
-                continue;
-            }
-            
-            if (destPiece.player == Common::Player::NONE)
-            {
-                moves[found++] = CatchTheLionMove(player, Common::CatchTheLionPieceType::HEN, row, col, newRow, newCol);
-            } else
-            {
-                moves[found++] = CatchTheLionMove(player, Common::CatchTheLionPieceType::HEN, row, col, newRow, newCol, destPiece.pieceType);
-            }
+            found = AddLegalMoveForPiece(player, Common::CatchTheLionPieceType::HEN, row, col, destRow, destCol, found, moves);
         }
+    }
+
+    return found;
+}
+
+int CatchTheLionState::AddLegalMoveForPiece(Common::Player player, Common::CatchTheLionPieceType pieceType, int row, int col, int destRow, int destCol, int found, CatchTheLionMove legalMoves[MAX_MOVES]) const
+{
+    auto &destPiece = mPosition[destRow][destCol];
+
+    // Cannot move into friendly piece
+    if (destPiece.player == player) return found;
+
+    if (destPiece.player == Common::Player::NONE)
+    {
+        // Non-capturing move
+        legalMoves[found++] = CatchTheLionMove(player, pieceType, row, col, destRow, destCol);
+    } else
+    {
+        // Capturing move
+        legalMoves[found++] = CatchTheLionMove(player, pieceType, row, col, destRow, destCol, destPiece.pieceType);
     }
 
     return found;

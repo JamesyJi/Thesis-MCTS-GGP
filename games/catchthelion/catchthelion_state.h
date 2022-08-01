@@ -4,6 +4,8 @@
 
 #include "catchthelion_move.h"
 
+#include <vector>
+
 namespace CatchTheLion
 {
 
@@ -49,6 +51,12 @@ private:
 
     int mPlayer1Drops[3] = {0};
     int mPlayer2Drops[3] = {0};
+
+    // NOTE: Tracking the history of all moves is inefficient but I see no way
+    // around it as we need to be able to UndoMoves whilst retaining the correct
+    // game history.
+    std::vector<CatchTheLionMove> mMoveHistory;
+
 private:
     inline bool IsInBounds(int row, int col) const
     {
@@ -84,13 +92,28 @@ private:
             throw std::runtime_error("Cannot DecrDrop with no player");
         }
     }
+    inline bool DrawByRepetition() const
+    {
+        if (mMoveHistory.size() < 6) return false;
+
+        // Compare player A's last 3 moves
+        int const& size = mMoveHistory.size();
+        if (mMoveHistory[size - 1] != mMoveHistory[size - 3] || mMoveHistory[size - 3] != mMoveHistory[size - 5]) return false;
+
+        // Compare player B's last 3 moves
+        if (mMoveHistory[size - 2] != mMoveHistory[size - 4] || mMoveHistory[size - 4] != mMoveHistory[size - 6]) return false;
+
+        return true;
+    }
 
     inline int AddChickLegalMoves(Common::Player player, int destRow, int row, int col, int found, CatchTheLionMove moves[MAX_MOVES]) const;
     inline int AddElephantLegalMoves(Common::Player player, int row, int col, int found, CatchTheLionMove moves[MAX_MOVES]) const;
     inline int AddGiraffeLegalMoves(Common::Player player, int row, int col, int found, CatchTheLionMove moves[MAX_MOVES]) const;
     inline int AddLionLegalMoves(Common::Player player, int row, int col, int found, CatchTheLionMove moves[MAX_MOVES]) const;
     inline int AddHenLegalMoves(Common::Player player, int row, int col, int found, CatchTheLionMove moves[MAX_MOVES]) const;
+    inline int CatchTheLionState::AddLegalMoveForPiece(Common::Player player, Common::CatchTheLionPieceType pieceType, int row, int col, int destRow, int destCol, int found, CatchTheLionMove legalMoves[MAX_MOVES]) const;
     inline int AddLegalDrops(Common::Player player, int const (&drops)[3], int row, int col, int found, CatchTheLionMove legalMoves[MAX_MOVES]) const;
+
 };
 
 }
