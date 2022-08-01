@@ -158,9 +158,9 @@ void CatchTheLionState::SimulateMove(const CatchTheLionMove& move)
             }
         }
         
-        // Promoting a CHICK
         if (move.pieceType == Common::CatchTheLionPieceType::CHICK)
         {
+            // Promotion move
             switch (move.player)
             {
             case Common::Player::PLAYER1:
@@ -178,6 +178,7 @@ void CatchTheLionState::SimulateMove(const CatchTheLionMove& move)
             }
         } else
         {
+            // Not a promotion, just a normal move
             mPosition[move.row][move.col] = Common::CatchTheLionPiece(move.player, move.pieceType);
         }
         break;
