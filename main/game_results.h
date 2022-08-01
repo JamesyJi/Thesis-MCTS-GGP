@@ -49,7 +49,7 @@ public:
         {
             for (int depth = 1; depth <= 10; ++depth)
             {
-                mTerminals[turn][depth] = terminals[turn][depth];
+                mTerminals[turn][depth] += terminals[turn][depth];
             }
         }
 
