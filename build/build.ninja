@@ -2320,6 +2320,122 @@ build tests/breakthrough/install/strip: phony tests/breakthrough/CMakeFiles/inst
 # =============================================================================
 
 # =============================================================================
+# Object build statements for EXECUTABLE target test_catchthelion
+
+
+#############################################
+# Order-only phony target for test_catchthelion
+
+build cmake_object_order_depends_target_test_catchthelion: phony || cmake_object_order_depends_target_catchthelion cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
+
+build tests/catchthelion/CMakeFiles/test_catchthelion.dir/catchthelion_state_legal_moves_unittest.cpp.o: CXX_COMPILER__test_catchthelion_Release /Users/james/Documents/Thesis_C++/tests/catchthelion/catchthelion_state_legal_moves_unittest.cpp || cmake_object_order_depends_target_test_catchthelion
+  DEP_FILE = tests/catchthelion/CMakeFiles/test_catchthelion.dir/catchthelion_state_legal_moves_unittest.cpp.o.d
+  FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/games/catchthelion -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/tests/test_helpers -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest
+  OBJECT_DIR = tests/catchthelion/CMakeFiles/test_catchthelion.dir
+  OBJECT_FILE_DIR = tests/catchthelion/CMakeFiles/test_catchthelion.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_catchthelion
+
+
+#############################################
+# Link the executable tests/catchthelion/test_catchthelion
+
+build tests/catchthelion/test_catchthelion: CXX_EXECUTABLE_LINKER__test_catchthelion_Release tests/catchthelion/CMakeFiles/test_catchthelion.dir/catchthelion_state_legal_moves_unittest.cpp.o | games/catchthelion/libcatchthelion.a lib/libgtest_main.a lib/libgtest.a || games/catchthelion/libcatchthelion.a lib/libgtest.a lib/libgtest_main.a
+  FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
+  LINK_LIBRARIES = games/catchthelion/libcatchthelion.a  lib/libgtest_main.a  lib/libgtest.a
+  OBJECT_DIR = tests/catchthelion/CMakeFiles/test_catchthelion.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = tests/catchthelion/test_catchthelion
+  TARGET_PDB = test_catchthelion.dbg
+
+
+#############################################
+# Utility command for test
+
+build tests/catchthelion/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/tests/catchthelion && /Applications/CMake.app/Contents/bin/ctest --force-new-ctest-process
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build tests/catchthelion/test: phony tests/catchthelion/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build tests/catchthelion/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/tests/catchthelion && /Applications/CMake.app/Contents/bin/ccmake -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build tests/catchthelion/edit_cache: phony tests/catchthelion/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build tests/catchthelion/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/tests/catchthelion && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/james/Documents/Thesis_C++ -B/Users/james/Documents/Thesis_C++/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build tests/catchthelion/rebuild_cache: phony tests/catchthelion/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build tests/catchthelion/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build tests/catchthelion/CMakeFiles/install.util: CUSTOM_COMMAND tests/catchthelion/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/tests/catchthelion && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build tests/catchthelion/install: phony tests/catchthelion/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build tests/catchthelion/CMakeFiles/install/local.util: CUSTOM_COMMAND tests/catchthelion/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/tests/catchthelion && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build tests/catchthelion/install/local: phony tests/catchthelion/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build tests/catchthelion/CMakeFiles/install/strip.util: CUSTOM_COMMAND tests/catchthelion/all
+  COMMAND = cd /Users/james/Documents/Thesis_C++/build/tests/catchthelion && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build tests/catchthelion/install/strip: phony tests/catchthelion/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/james/Documents/Thesis_C++/tests/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
 # Object build statements for EXECUTABLE target test_othello
 
 
@@ -2565,6 +2681,8 @@ build strategy: phony strategy/libstrategy.a
 
 build test_breakthrough_evaluate_state: phony tests/breakthrough/test_breakthrough_evaluate_state
 
+build test_catchthelion: phony tests/catchthelion/test_catchthelion
+
 build test_othello: phony tests/othello/test_othello
 
 # =============================================================================
@@ -2687,7 +2805,7 @@ build strategy/all: phony strategy/libstrategy.a
 #############################################
 # Folder: /Users/james/Documents/Thesis_C++/build/tests
 
-build tests/all: phony _deps/googletest-build/all tests/breakthrough/all tests/othello/all tests/test_helpers/all
+build tests/all: phony _deps/googletest-build/all tests/breakthrough/all tests/catchthelion/all tests/othello/all tests/test_helpers/all
 
 # =============================================================================
 
@@ -2695,6 +2813,13 @@ build tests/all: phony _deps/googletest-build/all tests/breakthrough/all tests/o
 # Folder: /Users/james/Documents/Thesis_C++/build/tests/breakthrough
 
 build tests/breakthrough/all: phony tests/breakthrough/test_breakthrough_evaluate_state
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/james/Documents/Thesis_C++/build/tests/catchthelion
+
+build tests/catchthelion/all: phony tests/catchthelion/test_catchthelion
 
 # =============================================================================
 
@@ -2717,14 +2842,14 @@ build tests/test_helpers/all: phony
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../common/CMakeLists.txt ../games/CMakeLists.txt ../games/breakthrough/CMakeLists.txt ../games/catchthelion/CMakeLists.txt ../games/connect4/CMakeLists.txt ../games/othello/CMakeLists.txt ../main/CMakeLists.txt ../mcts/CMakeLists.txt ../models/CMakeLists.txt ../models/minimax/CMakeLists.txt ../models/standard/CMakeLists.txt ../strategy/CMakeLists.txt ../tests/CMakeLists.txt ../tests/breakthrough/CMakeLists.txt ../tests/othello/CMakeLists.txt ../tests/test_helpers/CMakeLists.txt /Applications/CMake.app/Contents/share/cmake-3.23/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeDependentOption.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTest.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTestTargets.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTestUseLaunchers.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckIncludeFile.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckLibraryExists.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/DartConfiguration.tcl.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FetchContent.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FetchContent/CMakeLists.cmake.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindGit.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPython.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPython/Support.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindThreads.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/GNUInstallDirs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.23.1/CMakeCCompiler.cmake CMakeFiles/3.23.1/CMakeCXXCompiler.cmake CMakeFiles/3.23.1/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../common/CMakeLists.txt ../games/CMakeLists.txt ../games/breakthrough/CMakeLists.txt ../games/catchthelion/CMakeLists.txt ../games/connect4/CMakeLists.txt ../games/othello/CMakeLists.txt ../main/CMakeLists.txt ../mcts/CMakeLists.txt ../models/CMakeLists.txt ../models/minimax/CMakeLists.txt ../models/standard/CMakeLists.txt ../strategy/CMakeLists.txt ../tests/CMakeLists.txt ../tests/breakthrough/CMakeLists.txt ../tests/catchthelion/CMakeLists.txt ../tests/othello/CMakeLists.txt ../tests/test_helpers/CMakeLists.txt /Applications/CMake.app/Contents/share/cmake-3.23/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeDependentOption.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTest.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTestTargets.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTestUseLaunchers.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckIncludeFile.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckLibraryExists.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/DartConfiguration.tcl.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FetchContent.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FetchContent/CMakeLists.cmake.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindGit.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPython.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPython/Support.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindThreads.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/GNUInstallDirs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.23.1/CMakeCCompiler.cmake CMakeFiles/3.23.1/CMakeCXXCompiler.cmake CMakeFiles/3.23.1/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt ../common/CMakeLists.txt ../games/CMakeLists.txt ../games/breakthrough/CMakeLists.txt ../games/catchthelion/CMakeLists.txt ../games/connect4/CMakeLists.txt ../games/othello/CMakeLists.txt ../main/CMakeLists.txt ../mcts/CMakeLists.txt ../models/CMakeLists.txt ../models/minimax/CMakeLists.txt ../models/standard/CMakeLists.txt ../strategy/CMakeLists.txt ../tests/CMakeLists.txt ../tests/breakthrough/CMakeLists.txt ../tests/othello/CMakeLists.txt ../tests/test_helpers/CMakeLists.txt /Applications/CMake.app/Contents/share/cmake-3.23/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeDependentOption.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTest.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTestTargets.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTestUseLaunchers.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckIncludeFile.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckLibraryExists.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/DartConfiguration.tcl.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FetchContent.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FetchContent/CMakeLists.cmake.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindGit.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPython.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPython/Support.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindThreads.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/GNUInstallDirs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.23.1/CMakeCCompiler.cmake CMakeFiles/3.23.1/CMakeCXXCompiler.cmake CMakeFiles/3.23.1/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake: phony
+build ../CMakeLists.txt ../common/CMakeLists.txt ../games/CMakeLists.txt ../games/breakthrough/CMakeLists.txt ../games/catchthelion/CMakeLists.txt ../games/connect4/CMakeLists.txt ../games/othello/CMakeLists.txt ../main/CMakeLists.txt ../mcts/CMakeLists.txt ../models/CMakeLists.txt ../models/minimax/CMakeLists.txt ../models/standard/CMakeLists.txt ../strategy/CMakeLists.txt ../tests/CMakeLists.txt ../tests/breakthrough/CMakeLists.txt ../tests/catchthelion/CMakeLists.txt ../tests/othello/CMakeLists.txt ../tests/test_helpers/CMakeLists.txt /Applications/CMake.app/Contents/share/cmake-3.23/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeDependentOption.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTest.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTestTargets.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CTestUseLaunchers.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckIncludeFile.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckLibraryExists.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/DartConfiguration.tcl.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FetchContent.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FetchContent/CMakeLists.cmake.in /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindGit.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPython.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPython/Support.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindThreads.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/GNUInstallDirs.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /Applications/CMake.app/Contents/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.23.1/CMakeCCompiler.cmake CMakeFiles/3.23.1/CMakeCXXCompiler.cmake CMakeFiles/3.23.1/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake: phony
 
 
 #############################################

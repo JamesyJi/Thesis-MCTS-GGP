@@ -33,7 +33,7 @@ function(add_google_test test_target target)
 endfunction(add_google_test)
 
 add_subdirectory(breakthrough)
-# add_subdirectory(connect4)
+add_subdirectory(catchthelion)
 add_subdirectory(othello)
 add_subdirectory(test_helpers)
 

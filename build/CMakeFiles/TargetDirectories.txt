@@ -164,6 +164,14 @@
 /Users/james/Documents/Thesis_C++/build/tests/breakthrough/CMakeFiles/install.dir
 /Users/james/Documents/Thesis_C++/build/tests/breakthrough/CMakeFiles/install/local.dir
 /Users/james/Documents/Thesis_C++/build/tests/breakthrough/CMakeFiles/install/strip.dir
+/Users/james/Documents/Thesis_C++/build/tests/catchthelion/CMakeFiles/test_catchthelion.dir
+/Users/james/Documents/Thesis_C++/build/tests/catchthelion/CMakeFiles/test.dir
+/Users/james/Documents/Thesis_C++/build/tests/catchthelion/CMakeFiles/edit_cache.dir
+/Users/james/Documents/Thesis_C++/build/tests/catchthelion/CMakeFiles/rebuild_cache.dir
+/Users/james/Documents/Thesis_C++/build/tests/catchthelion/CMakeFiles/list_install_components.dir
+/Users/james/Documents/Thesis_C++/build/tests/catchthelion/CMakeFiles/install.dir
+/Users/james/Documents/Thesis_C++/build/tests/catchthelion/CMakeFiles/install/local.dir
+/Users/james/Documents/Thesis_C++/build/tests/catchthelion/CMakeFiles/install/strip.dir
 /Users/james/Documents/Thesis_C++/build/tests/othello/CMakeFiles/test_othello.dir
 /Users/james/Documents/Thesis_C++/build/tests/othello/CMakeFiles/test.dir
 /Users/james/Documents/Thesis_C++/build/tests/othello/CMakeFiles/edit_cache.dir

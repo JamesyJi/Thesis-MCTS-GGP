@@ -36,6 +36,34 @@ public:
         mPosition[2][1] = Common::CatchTheLionPiece(Common::Player::PLAYER2, Common::CatchTheLionPieceType::CHICK);
     }
 
+    CatchTheLionState(const Common::CatchTheLionPiece position[ROWS][COLS])
+    {
+        for (int row = 0; row < ROWS; ++row)
+            for (int col = 0; col < COLS; ++col)
+                mPosition[row][col] = position[row][col];
+    }
+
+    CatchTheLionState(
+        const Common::CatchTheLionPiece position[ROWS][COLS], 
+        std::vector<CatchTheLionMove>& moveHistory
+    ) : mMoveHistory(moveHistory)
+    {
+        for (int row = 0; row < ROWS; ++row)
+            for (int col = 0; col < COLS; ++col)
+                mPosition[row][col] = position[row][col];
+    }
+
+    CatchTheLionState(
+        const Common::CatchTheLionPiece position[ROWS][COLS],
+        std::initializer_list<int> player1Drops,
+        std::initializer_list<int> player2Drops,
+        std::vector<CatchTheLionMove>& moveHistory
+    ) : CatchTheLionState(position, moveHistory)
+    {
+        std::copy(player1Drops.begin(), player1Drops.end(), mPlayer1Drops);
+        std::copy(player2Drops.begin(), player2Drops.end(), mPlayer2Drops);
+    }
+
     Common::Result EvaluateState(const CatchTheLionMove& lastMove) const;
     CatchTheLionMove GetRandomLegalMove(Common::Player player) const;
     int GetLegalMoves(Common::Player player, CatchTheLionMove legalMoves[MAX_MOVES]) const;
@@ -106,12 +134,12 @@ private:
         return true;
     }
 
-    inline int AddChickLegalMoves(Common::Player player, int destRow, int row, int col, int found, CatchTheLionMove moves[MAX_MOVES]) const;
+    inline int AddChickLegalMoves(Common::Player player, int endRow, int row, int col, int forwardStep, int found, CatchTheLionMove moves[MAX_MOVES]) const;
     inline int AddElephantLegalMoves(Common::Player player, int row, int col, int found, CatchTheLionMove moves[MAX_MOVES]) const;
     inline int AddGiraffeLegalMoves(Common::Player player, int row, int col, int found, CatchTheLionMove moves[MAX_MOVES]) const;
     inline int AddLionLegalMoves(Common::Player player, int row, int col, int found, CatchTheLionMove moves[MAX_MOVES]) const;
     inline int AddHenLegalMoves(Common::Player player, int row, int col, int found, CatchTheLionMove moves[MAX_MOVES]) const;
-    inline int CatchTheLionState::AddLegalMoveForPiece(Common::Player player, Common::CatchTheLionPieceType pieceType, int row, int col, int destRow, int destCol, int found, CatchTheLionMove legalMoves[MAX_MOVES]) const;
+    inline int AddLegalMoveForPiece(Common::Player player, Common::CatchTheLionPieceType pieceType, int row, int col, int destRow, int destCol, int found, CatchTheLionMove legalMoves[MAX_MOVES]) const;
     inline int AddLegalDrops(Common::Player player, int const (&drops)[3], int row, int col, int found, CatchTheLionMove legalMoves[MAX_MOVES]) const;
 
 };

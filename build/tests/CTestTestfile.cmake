@@ -6,5 +6,6 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("../_deps/googletest-build")
 subdirs("breakthrough")
+subdirs("catchthelion")
 subdirs("othello")
 subdirs("test_helpers")

@@ -76,15 +76,18 @@ int CatchTheLionState::GetLegalMoves(Common::Player player, CatchTheLionMove mov
     int found = 0;
 
     // Determine if we are moving up or down
-    int destRow;
+    int endRow;
+    int forwardStep;
     int const (&drops)[3] = std::invoke([&]()->int const(&)[3] {
         switch(player)
         {
         case Common::Player::PLAYER1:
-            destRow = ROWS - 1;
+            endRow = ROWS - 1;
+            forwardStep = -1;
             return mPlayer1Drops;
         case Common::Player::PLAYER2:
-            destRow = 0;
+            endRow = 0;
+            forwardStep = 1;
             return mPlayer2Drops;
         default:
             throw std::runtime_error("Should only be player 1 or player 2 in GetLegalMoves");
@@ -103,7 +106,7 @@ int CatchTheLionState::GetLegalMoves(Common::Player player, CatchTheLionMove mov
                 switch (piece.pieceType)
                 {
                 case Common::CatchTheLionPieceType::CHICK:
-                    found = AddChickLegalMoves(player, destRow, row, col, found, moves);
+                    found = AddChickLegalMoves(player, endRow, row, col, forwardStep, found, moves);
                     break;
                 case Common::CatchTheLionPieceType::ELEPHANT:
                     found = AddElephantLegalMoves(player, row, col, found, moves);
@@ -223,22 +226,13 @@ void CatchTheLionState::UndoMove(const CatchTheLionMove& move)
 
 // PRECONDITION: Player cannot be NONE
 // Given row and col position of a Chick, add all legal moves and return the new found
-int CatchTheLionState::AddChickLegalMoves(Common::Player player, int destRow, int row, int col, int found, CatchTheLionMove moves[MAX_MOVES]) const
+int CatchTheLionState::AddChickLegalMoves(Common::Player player, int endRow, int row, int col, int forwardStep, int found, CatchTheLionMove moves[MAX_MOVES]) const
 {
-    // Cannot move if it is on the final row
-    switch (player)
-    {
-        case Common::Player::PLAYER1:
-            if (destRow == ROWS - 1) return found;
-            break;
-        case Common::Player::PLAYER2:
-            if (destRow == 0) return found;
-            break;
-        default:
-            throw std::runtime_error("AddLegalChickMoves for NONE player");
-    }
+    // std::cout << "Add Chick legal Moves\n";
+    // std::cout << player << " " << destRow << " " << row << " " << col << "\n";
+    if (row == endRow) return found;
 
-    return AddLegalMoveForPiece(player, Common::CatchTheLionPieceType::CHICK, row, col, destRow, col, found, moves);
+    return AddLegalMoveForPiece(player, Common::CatchTheLionPieceType::CHICK, row, col, row + forwardStep, col, found, moves);
 }
 
 int CatchTheLionState::AddElephantLegalMoves(Common::Player player, int row, int col, int found, CatchTheLionMove moves[MAX_MOVES]) const
@@ -313,6 +307,8 @@ int CatchTheLionState::AddHenLegalMoves(Common::Player player, int row, int col,
 
 int CatchTheLionState::AddLegalMoveForPiece(Common::Player player, Common::CatchTheLionPieceType pieceType, int row, int col, int destRow, int destCol, int found, CatchTheLionMove legalMoves[MAX_MOVES]) const
 {
+    // std::cout << "Adding move for " << player << " " << pieceType;
+    // std::cout << " " << row << " " << col << " " << destRow << " " << destCol << "\n";
     auto &destPiece = mPosition[destRow][destCol];
 
     // Cannot move into friendly piece
@@ -328,6 +324,7 @@ int CatchTheLionState::AddLegalMoveForPiece(Common::Player player, Common::Catch
         legalMoves[found++] = CatchTheLionMove(player, pieceType, row, col, destRow, destCol, destPiece.pieceType);
     }
 
+    // std::cout << "found = " << found << "\n";
     return found;
 }
 
