@@ -54,7 +54,7 @@ TEST(breakthrough_state_legal_moves_unittest, GetLegalMoves_StartingPosition) {
 
     for (auto& move : expectedMovesP1)
     {
-        ASSERT_TRUE(std::find(legalMovesP1, legalMovesP1 + 16, move));
+        ASSERT_TRUE(std::find(legalMovesP1, legalMovesP1 + 16, move) != legalMovesP1 + 16);
     }
 
     // Check player 2 legal moves
@@ -84,7 +84,7 @@ TEST(breakthrough_state_legal_moves_unittest, GetLegalMoves_StartingPosition) {
 
     for (auto& move : expectedMovesP2)
     {
-        ASSERT_TRUE(std::find(legalMovesP2, legalMovesP2 + 16, move));
+        ASSERT_TRUE(std::find(legalMovesP2, legalMovesP2 + 16, move) != legalMovesP2 + 16);
     }
 }
 
@@ -123,7 +123,7 @@ TEST(breakthrough_state_legal_moves_unittest, GetLegalMoves_WithCaptures) {
 
     for (auto& move : expectedMovesP1)
     {
-        ASSERT_TRUE(std::find(legalMovesP1, legalMovesP1 + 12, move));
+        ASSERT_TRUE(std::find(legalMovesP1, legalMovesP1 + 12, move) != legalMovesP1 + 12);
     }
 
     // Check player 2's legal moves
@@ -150,7 +150,7 @@ TEST(breakthrough_state_legal_moves_unittest, GetLegalMoves_WithCaptures) {
 
     for (auto& move : expectedMovesP2)
     {
-        ASSERT_TRUE(std::find(legalMovesP2, legalMovesP2 + 13, move));
+        ASSERT_TRUE(std::find(legalMovesP2, legalMovesP2 + 13, move) != legalMovesP2 + 13);
     }
 }
 

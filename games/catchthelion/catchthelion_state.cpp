@@ -81,16 +81,17 @@ int CatchTheLionState::GetLegalMoves(Common::Player player, CatchTheLionMove mov
         {
         case Common::Player::PLAYER1:
             endRow = ROWS - 1;
-            forwardStep = -1;
+            forwardStep = 1;
             return mPlayer1Drops;
         case Common::Player::PLAYER2:
             endRow = 0;
-            forwardStep = 1;
+            forwardStep = -1;
             return mPlayer2Drops;
         default:
             throw std::runtime_error("Should only be player 1 or player 2 in GetLegalMoves");
         }
     });
+    std::cout << "Forward Step is " << forwardStep << " for " << player << "\n";
 
     // Get all the MOVES
     for (int row = 0; row < ROWS; ++row)
@@ -129,11 +130,11 @@ int CatchTheLionState::GetLegalMoves(Common::Player player, CatchTheLionMove mov
         }
     }
 
-    // std::cout << "Found " << found << " moves\n";
-    // for (int i = 0; i < found; ++i)
-    // {
-    //     std::cout << moves[i] << "\n";
-    // }
+    std::cout << "Found " << found << " moves\n";
+    for (int i = 0; i < found; ++i)
+    {
+        std::cout << moves[i] << "\n";
+    }
 
     return found;
 }

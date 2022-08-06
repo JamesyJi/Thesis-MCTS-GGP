@@ -235,7 +235,7 @@ TEST(othello_legal_moves_unittest, MultipleCaptures1)
     ASSERT_EQ(expectedMovesP1.size(), numLegalMovesP1);
     for (auto& move : expectedMovesP1)
     {
-        ASSERT_TRUE(std::find(legalMovesP1, legalMovesP1 + numLegalMovesP1, move));
+        ASSERT_TRUE(std::find(legalMovesP1, legalMovesP1 + numLegalMovesP1, move) != legalMovesP1 + numLegalMovesP1);
     }
 
     OthelloMove legalMovesP2[OthelloState::MAX_MOVES];
@@ -267,7 +267,7 @@ TEST(othello_legal_moves_unittest, MultipleCaptures1)
     ASSERT_EQ(expectedMovesP2.size(), numLegalMovesP2);
     for (auto& move : expectedMovesP2)
     {
-        ASSERT_TRUE(std::find(legalMovesP2, legalMovesP2 + numLegalMovesP2, move));
+        ASSERT_TRUE(std::find(legalMovesP2, legalMovesP2 + numLegalMovesP2, move) != legalMovesP2 + numLegalMovesP2);
     }
 }
 
