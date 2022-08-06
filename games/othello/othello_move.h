@@ -103,18 +103,22 @@ struct OthelloMove
 
     friend bool operator==(const OthelloMove& lhs, const OthelloMove& rhs)
     {   
+        std::cout << lhs << "\n";
+        std::cout << rhs << "\n";
+
         if (lhs.player != rhs.player ||
             lhs.row != rhs.row ||
-            lhs.col != rhs.col) 
+            lhs.col != rhs.col ||
+            lhs.numCaptures != rhs.numCaptures) 
         {
             return false;
         }
 
-        if (lhs.numCaptures != rhs.numCaptures) return false;
-
         for (int i = 0; i < lhs.numCaptures; ++i)
         {
-            if (lhs.captureInfos[i] != rhs.captureInfos[i]) return false;
+            if (lhs.captureInfos[i] != rhs.captureInfos[i]) {
+                return false;
+            }
         }
 
         return true;
@@ -137,7 +141,11 @@ struct OthelloMove
     Common::Player player;
     int row = 0;
     int col = 0;
-    CaptureInfo captureInfos[CaptureInfo::MAX_CAPTURES]; // Stores info about directions we captured in
+
+    // Stores info about directions we captured in
+    // Stored clockwise from NW (this assumption is very important as its how
+    // we can do efficient comparisons!!!)
+    CaptureInfo captureInfos[CaptureInfo::MAX_CAPTURES];
     int numCaptures = 0;
 };
 

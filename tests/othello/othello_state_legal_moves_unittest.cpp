@@ -240,30 +240,31 @@ TEST(othello_legal_moves_unittest, MultipleCaptures1)
 
     OthelloMove legalMovesP2[OthelloState::MAX_MOVES];
     int numLegalMovesP2 = s.GetLegalMoves(P2, legalMovesP2);
-    // std::for_each(legalMovesP2, legalMovesP2 + 19, [](auto& move){ std::cout << move; });
     ASSERT_EQ(numLegalMovesP2, 19);
+
     std::vector<OthelloMove> expectedMovesP2 =
     {
         OthelloMove(P2, 0, 2, {{S, 4, 2}}),
         OthelloMove(P2, 0, 3, {{SW, 2, 1}}),
         OthelloMove(P2, 0, 4, {{S, 2, 4}}),
-        OthelloMove(P2, 0, 5, {{SW, 1, 4}, {S, 3, 5}}),
+        OthelloMove(P2, 0, 5, {{S, 3, 5}, {SW, 4, 1}}),
         OthelloMove(P2, 0, 6, {{SW, 2, 4}}),
         OthelloMove(P2, 1, 1, {{E, 1, 3}, {SE, 3, 3}}),
-        OthelloMove(P2, 1, 6, {{W, 1, 3}, {SW, 4, 3}}),
+        OthelloMove(P2, 1, 6, {{SW, 4, 3}, {W, 1, 3}}),
         OthelloMove(P2, 2, 6, {{W, 2, 4}}),
         OthelloMove(P2, 3, 0, {{S, 6, 0}}),
         OthelloMove(P2, 3, 6, {{SW, 5, 4}}),
         OthelloMove(P2, 4, 6, {{W, 4, 3}}),
         OthelloMove(P2, 4, 7, {{SW, 7, 4}}),
         OthelloMove(P2, 5, 7, {{W, 5, 5}}),
-        OthelloMove(P2, 6, 2, {{N, 4, 2}, {E, 6, 4}}),
+        OthelloMove(P2, 6, 2, {{N, 4, 2}, {NE, 3, 5}, {E, 6, 4}}),
         OthelloMove(P2, 6, 7, {{W, 6, 4}}),
         OthelloMove(P2, 7, 2, {{NE, 5, 4}}),
         OthelloMove(P2, 7, 3, {{N, 4, 3}}),
         OthelloMove(P2, 7, 5, {{N, 5, 5}}),
         OthelloMove(P2, 7, 7, {{NW, 5, 5}})
     };
+
     ASSERT_EQ(expectedMovesP2.size(), numLegalMovesP2);
     for (auto& move : expectedMovesP2)
     {
