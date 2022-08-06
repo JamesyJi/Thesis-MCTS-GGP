@@ -57,7 +57,7 @@ private:
     int mTerminals[300][11] = {0};
 
     // Simulation count logging mSimulations[4] = number of simulations on turn 4
-    int mSimulations[200] = {0};
+    int mSimulations[300] = {0};
 };
 
 }
