@@ -36,7 +36,7 @@ public:
         }
 
         mGameResults.Log(mResultsFile + ".txt");
-        mGameResults.LogTerminals(mResultsFile + "_terminals.csv");
+        // mGameResults.LogTerminals(mResultsFile + "_terminals.csv");
         mGameResults.LogGameLengths(mResultsFile + "_gamelengths.csv");
     }
 
@@ -54,17 +54,17 @@ public:
         while (state.EvaluateState(move) == Common::Result::ONGOING)
         {
             // Run a check on the game's terminals
-            switch (gameState.GetPlayerTurn())
-            {
-                case Common::Player::PLAYER1:
-                    model1.DetectTerminalStates();
-                    break;
-                case Common::Player::PLAYER2:
-                    model2.DetectTerminalStates();
-                    break;
-                default:
-                    throw std::runtime_error("No player's turn");
-            }
+            // switch (gameState.GetPlayerTurn())
+            // {
+            //     case Common::Player::PLAYER1:
+            //         model1.DetectTerminalStates();
+            //         break;
+            //     case Common::Player::PLAYER2:
+            //         model2.DetectTerminalStates();
+            //         break;
+            //     default:
+            //         throw std::runtime_error("No player's turn");
+            // }
 
             resource.ResetAndStart();
             switch (gameState.GetPlayerTurn())
