@@ -56,6 +56,16 @@ public:
     CatchTheLionState(
         const Common::CatchTheLionPiece position[ROWS][COLS],
         std::initializer_list<int> player1Drops,
+        std::initializer_list<int> player2Drops
+    ) : CatchTheLionState(position)
+    {
+        std::copy(player1Drops.begin(), player1Drops.end(), mPlayer1Drops);
+        std::copy(player2Drops.begin(), player2Drops.end(), mPlayer2Drops);
+    }
+
+    CatchTheLionState(
+        const Common::CatchTheLionPiece position[ROWS][COLS],
+        std::initializer_list<int> player1Drops,
         std::initializer_list<int> player2Drops,
         std::vector<CatchTheLionMove>& moveHistory
     ) : CatchTheLionState(position, moveHistory)

@@ -26,7 +26,7 @@ const Step GiraffeDirections[NUM_GIRAFFE_DIRECTIONS] =
     {-1, 0},
     {0, 1},
     {1, 0},
-    {-1, 0}
+    {0, -1}
 };
 
 const int NUM_LION_DIRECTIONS = 8;
