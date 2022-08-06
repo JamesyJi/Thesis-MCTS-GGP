@@ -102,22 +102,46 @@ private:
     }
     inline void IncrDrop(Common::Player player, Common::CatchTheLionPieceType pieceType)
     {
-        if (pieceType == Common::CatchTheLionPieceType::HEN) pieceType = Common::CatchTheLionPieceType::CHICK;
+        switch (pieceType)
+        {
+            case Common::CatchTheLionPieceType::LION:
+                return;
+            case Common::CatchTheLionPieceType::HEN:
+                pieceType = Common::CatchTheLionPieceType::CHICK;
+                break;
+            case Common::CatchTheLionPieceType::NONE:
+                return;
+            default:
+                break;
+        }
+
         switch (player)
         {
-        case Common::Player::PLAYER1:
-            ++mPlayer1Drops[pieceType];
-            return;
-        case Common::Player::PLAYER2:
-            ++mPlayer2Drops[pieceType];
-            return;
-        default:
-            throw std::runtime_error("Cannot IncrDrop with no player");
+            case Common::Player::PLAYER1:
+                ++mPlayer1Drops[pieceType];
+                return;
+            case Common::Player::PLAYER2:
+                ++mPlayer2Drops[pieceType];
+                return;
+            default:
+                throw std::runtime_error("Cannot IncrDrop with no player");
         }
     }
     inline void DecrDrop(Common::Player player, Common::CatchTheLionPieceType pieceType)
     {
-        if (pieceType == Common::CatchTheLionPieceType::HEN) pieceType = Common::CatchTheLionPieceType::CHICK;
+        switch (pieceType)
+        {
+            case Common::CatchTheLionPieceType::LION:
+                return;
+            case Common::CatchTheLionPieceType::HEN:
+                pieceType = Common::CatchTheLionPieceType::CHICK;
+                break;
+            case Common::CatchTheLionPieceType::NONE:
+                return;
+            default:
+                break;
+        }
+
         switch (player)
         {
         case Common::Player::PLAYER1:
@@ -132,16 +156,18 @@ private:
     }
     inline bool DrawByRepetition() const
     {
-        if (mMoveHistory.size() < 6) return false;
+        if (mMoveHistory.size() < 12) return false;
 
-        // Compare player A's last 3 moves
+        // The moves must have been:
+        // A B C D A B C D A B C D
+        // where A and C were made one player and B and D were made by another player
+
         int const& size = mMoveHistory.size();
-        if (mMoveHistory[size - 1] != mMoveHistory[size - 3] || mMoveHistory[size - 3] != mMoveHistory[size - 5]) return false;
-
-        // Compare player B's last 3 moves
-        if (mMoveHistory[size - 2] != mMoveHistory[size - 4] || mMoveHistory[size - 4] != mMoveHistory[size - 6]) return false;
-
-        return true;
+        
+        return mMoveHistory[size - 1] == mMoveHistory[size - 5] && mMoveHistory[size - 5] == mMoveHistory[size - 9] && // Compare D
+            mMoveHistory[size - 2] == mMoveHistory[size - 6] && mMoveHistory[size - 6] == mMoveHistory[size - 10] && // Compare C
+            mMoveHistory[size - 3] == mMoveHistory[size - 7] && mMoveHistory[size - 7] == mMoveHistory[size - 11] && // Compare B
+            mMoveHistory[size - 4] == mMoveHistory[size - 8] && mMoveHistory[size - 8] == mMoveHistory[size - 12]; // Compare A
     }
 
     inline int AddChickLegalMoves(Common::Player player, int endRow, int row, int col, int forwardStep, int found, CatchTheLionMove moves[MAX_MOVES]) const;

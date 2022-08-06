@@ -48,10 +48,8 @@ Common::Result CatchTheLionState::EvaluateState(const CatchTheLionMove &lastMove
         }
     }
 
-    // TODO: Determine if draw due to repetition
     if (DrawByRepetition())
     {
-        std::cout << Common::Result::DRAW << "\n";
         return Common::Result::DRAW;
     }
 
@@ -163,39 +161,27 @@ void CatchTheLionState::SimulateMove(const CatchTheLionMove& move)
     case MoveType::MOVE:
         mPosition[move.prevRow][move.prevCol] = Common::CatchTheLionPiece();
 
-        // Captured a piece
-        // Do not increment move for capturing a lion
-        if (move.capturedPieceType != Common::CatchTheLionPieceType::NONE && move.capturedPieceType != Common::CatchTheLionPieceType::LION)
-        {
-            IncrDrop(move.player, move.capturedPieceType);
-        }
-        
+        // Increment if we captured a piece
+        IncrDrop(move.player, move.capturedPieceType);
+
+        // Move the piece
+        mPosition[move.row][move.col] = Common::CatchTheLionPiece(move.player, move.pieceType);
+
+        // Promote if it was a chick
         if (move.pieceType == Common::CatchTheLionPieceType::CHICK)
         {
-            // Promotion move
-            switch (move.player)
+            switch(move.player)
             {
-            case Common::Player::PLAYER1:
-                if (move.row == ROWS - 1)
-                {
-                    mPosition[move.row][move.col] = Common::CatchTheLionPiece(move.player, Common::CatchTheLionPieceType::HEN);
-                }
-                break;
-            case Common::Player::PLAYER2:
-                if (move.row == 0)
-                {
-                    mPosition[move.row][move.col] = Common::CatchTheLionPiece(move.player, Common::CatchTheLionPieceType::HEN);
-                }
-                break;
-            default:
-                throw std::runtime_error("Move should be player 1 or player 2 in SimulateMove");
+                case Common::Player::PLAYER1:
+                    if (move.row == ROWS - 1) mPosition[move.row][move.col].pieceType = Common::CatchTheLionPieceType::HEN;
+                    break;
+                case Common::Player::PLAYER2:
+                    if (move.row == 0) mPosition[move.row][move.col].pieceType = Common::CatchTheLionPieceType::HEN;
+                    break;
+                default:
+                    throw std::runtime_error("Move should be player 1 or player 2 in SimulateMove");
             }
-        } else
-        {
-            // Not a promotion, just a normal move
-            mPosition[move.row][move.col] = Common::CatchTheLionPiece(move.player, move.pieceType);
         }
-        break;
     }
 }
 
@@ -349,6 +335,22 @@ int CatchTheLionState::AddLegalDrops(Common::Player player, int const (&drops)[3
     return found;
 }
 
+bool operator==(const CatchTheLionState& lhs, const CatchTheLionState& rhs)
+{
+    for (int row = 0; row < CatchTheLionState::ROWS; ++row)
+        for (int col = 0; col < CatchTheLionState::COLS; ++col)
+            if (lhs.mPosition[row][col] != rhs.mPosition[row][col])
+                return false;
+
+    for (int i = 0; i < 3; ++i)
+    {
+        if (lhs.mPlayer1Drops[i] != rhs.mPlayer1Drops[i]) return false;
+        if (lhs.mPlayer2Drops[i] != rhs.mPlayer2Drops[i]) return false;
+    }
+    
+    return lhs.mMoveHistory == rhs.mMoveHistory;
+}
+
 std::ostream& operator<<(std::ostream& os, const CatchTheLionState& state)
 {
     // Print player 1 drops
@@ -393,6 +395,9 @@ std::ostream& operator<<(std::ostream& os, const CatchTheLionState& state)
     os << state.mPlayer2Drops[Common::CatchTheLionPieceType::ELEPHANT] << ", ";
     os << Common::CatchTheLionPieceType::GIRAFFE << ": ";
     os << state.mPlayer2Drops[Common::CatchTheLionPieceType::GIRAFFE] << "\n";
+
+    // Print move history
+    for (auto& move : state.mMoveHistory) os << move << "\n";
 
     return os;
 }

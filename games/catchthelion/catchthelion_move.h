@@ -146,13 +146,13 @@ struct CatchTheLionMove
     friend bool operator==(const CatchTheLionMove& lhs, const CatchTheLionMove& rhs)
     {
         return lhs.player == rhs.player &&
-            lhs.pieceType && rhs.pieceType &&
+            lhs.pieceType == rhs.pieceType &&
             lhs.moveType == rhs.moveType &&
             lhs.row == rhs.row &&
             lhs.col == rhs.col &&
             lhs.prevRow == rhs.prevRow &&
             lhs.prevCol == rhs.prevCol &&
-            lhs.capturedPieceType == rhs.capturedPieceType;
+            lhs.capturedPieceType == rhs.capturedPieceType;        
     }
 
     friend bool operator!=(const CatchTheLionMove& lhs, const CatchTheLionMove& rhs)
@@ -168,13 +168,23 @@ struct CatchTheLionMove
             return os;
         }
 
+        // if (move.moveType == MoveType::DROP)
+        // {
+        //     os << move.player << " ";
+        //     os << move.pieceType << " ";
+        //     os << move.moveType << " ";
+        //     os << move.row << " ";
+        //     os << move.col << " ";
+        // }
+
         os << move.player << " ";
         os << move.pieceType << " ";
         os << move.moveType << " ";
         os << move.prevRow << " ";
         os << move.prevCol << " ";
         os << move.row << " ";
-        os << move.col;
+        os << move.col << " ";
+        os << move.capturedPieceType;
         
         return os;
     }
