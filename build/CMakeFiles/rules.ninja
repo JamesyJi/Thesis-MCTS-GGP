@@ -231,7 +231,7 @@ rule CXX_STATIC_LIBRARY_LINKER__gtest_main_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__test_breakthrough_evaluate_state_Release
+rule CXX_COMPILER__test_breakthrough_Release
   depfile = $DEP_FILE
   deps = gcc
   command = /usr/bin/clang++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -241,7 +241,7 @@ rule CXX_COMPILER__test_breakthrough_evaluate_state_Release
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__test_breakthrough_evaluate_state_Release
+rule CXX_EXECUTABLE_LINKER__test_breakthrough_Release
   command = $PRE_LINK && /usr/bin/clang++ $FLAGS -Wl,-search_paths_first -Wl,-headerpad_max_install_names $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT

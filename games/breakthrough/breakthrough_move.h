@@ -33,6 +33,18 @@ struct BreakthroughMove
             && lhs.capture == rhs.capture;
     }
 
+    friend std::ostream& operator<<(std::ostream& os, const BreakthroughMove& move)
+    {
+        os << move.player << " ";
+        os << move.prevRow << " ";
+        os << move.prevCol << " ";
+        os << move.row << " ";
+        os << move.col << " ";
+        os << move.capture;
+
+        return os;
+    }
+
     Common::Player player;
     int prevRow;
     int prevCol;

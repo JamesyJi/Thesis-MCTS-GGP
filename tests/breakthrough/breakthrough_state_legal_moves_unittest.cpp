@@ -144,7 +144,7 @@ TEST(breakthrough_state_legal_moves_unittest, GetLegalMoves_WithCaptures) {
         BreakthroughMove(P2, 2, 2, 1, 2, false),
         BreakthroughMove(P2, 2, 2, 1, 3, true),
         BreakthroughMove(P2, 2, 4, 1, 3, true),
-        BreakthroughMove(P2, 2, 4, 1, 5, true),
+        BreakthroughMove(P2, 2, 4, 1, 5, false),
     };
     ASSERT_EQ(expectedMovesP2.size(), 13);
 

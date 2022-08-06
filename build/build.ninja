@@ -2204,37 +2204,44 @@ build _deps/googletest-build/googletest/install/strip: phony _deps/googletest-bu
 # =============================================================================
 
 # =============================================================================
-# Object build statements for EXECUTABLE target test_breakthrough_evaluate_state
+# Object build statements for EXECUTABLE target test_breakthrough
 
 
 #############################################
-# Order-only phony target for test_breakthrough_evaluate_state
+# Order-only phony target for test_breakthrough
 
-build cmake_object_order_depends_target_test_breakthrough_evaluate_state: phony || cmake_object_order_depends_target_breakthrough cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
+build cmake_object_order_depends_target_test_breakthrough: phony || cmake_object_order_depends_target_breakthrough cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
 
-build tests/breakthrough/CMakeFiles/test_breakthrough_evaluate_state.dir/breakthrough_state_evaluate_state_unittest.cpp.o: CXX_COMPILER__test_breakthrough_evaluate_state_Release /Users/james/Documents/Thesis_C++/tests/breakthrough/breakthrough_state_evaluate_state_unittest.cpp || cmake_object_order_depends_target_test_breakthrough_evaluate_state
-  DEP_FILE = tests/breakthrough/CMakeFiles/test_breakthrough_evaluate_state.dir/breakthrough_state_evaluate_state_unittest.cpp.o.d
+build tests/breakthrough/CMakeFiles/test_breakthrough.dir/breakthrough_state_evaluate_state_unittest.cpp.o: CXX_COMPILER__test_breakthrough_Release /Users/james/Documents/Thesis_C++/tests/breakthrough/breakthrough_state_evaluate_state_unittest.cpp || cmake_object_order_depends_target_test_breakthrough
+  DEP_FILE = tests/breakthrough/CMakeFiles/test_breakthrough.dir/breakthrough_state_evaluate_state_unittest.cpp.o.d
   FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
   INCLUDES = -I/Users/james/Documents/Thesis_C++/games/breakthrough -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/tests/test_helpers -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest
-  OBJECT_DIR = tests/breakthrough/CMakeFiles/test_breakthrough_evaluate_state.dir
-  OBJECT_FILE_DIR = tests/breakthrough/CMakeFiles/test_breakthrough_evaluate_state.dir
+  OBJECT_DIR = tests/breakthrough/CMakeFiles/test_breakthrough.dir
+  OBJECT_FILE_DIR = tests/breakthrough/CMakeFiles/test_breakthrough.dir
+
+build tests/breakthrough/CMakeFiles/test_breakthrough.dir/breakthrough_state_legal_moves_unittest.cpp.o: CXX_COMPILER__test_breakthrough_Release /Users/james/Documents/Thesis_C++/tests/breakthrough/breakthrough_state_legal_moves_unittest.cpp || cmake_object_order_depends_target_test_breakthrough
+  DEP_FILE = tests/breakthrough/CMakeFiles/test_breakthrough.dir/breakthrough_state_legal_moves_unittest.cpp.o.d
+  FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/games/breakthrough -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/tests/test_helpers -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest
+  OBJECT_DIR = tests/breakthrough/CMakeFiles/test_breakthrough.dir
+  OBJECT_FILE_DIR = tests/breakthrough/CMakeFiles/test_breakthrough.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target test_breakthrough_evaluate_state
+# Link build statements for EXECUTABLE target test_breakthrough
 
 
 #############################################
-# Link the executable tests/breakthrough/test_breakthrough_evaluate_state
+# Link the executable tests/breakthrough/test_breakthrough
 
-build tests/breakthrough/test_breakthrough_evaluate_state: CXX_EXECUTABLE_LINKER__test_breakthrough_evaluate_state_Release tests/breakthrough/CMakeFiles/test_breakthrough_evaluate_state.dir/breakthrough_state_evaluate_state_unittest.cpp.o | games/breakthrough/libbreakthrough.a lib/libgtest_main.a lib/libgtest.a || games/breakthrough/libbreakthrough.a lib/libgtest.a lib/libgtest_main.a
+build tests/breakthrough/test_breakthrough: CXX_EXECUTABLE_LINKER__test_breakthrough_Release tests/breakthrough/CMakeFiles/test_breakthrough.dir/breakthrough_state_evaluate_state_unittest.cpp.o tests/breakthrough/CMakeFiles/test_breakthrough.dir/breakthrough_state_legal_moves_unittest.cpp.o | games/breakthrough/libbreakthrough.a lib/libgtest_main.a lib/libgtest.a || games/breakthrough/libbreakthrough.a lib/libgtest.a lib/libgtest_main.a
   FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
   LINK_LIBRARIES = games/breakthrough/libbreakthrough.a  lib/libgtest_main.a  lib/libgtest.a
-  OBJECT_DIR = tests/breakthrough/CMakeFiles/test_breakthrough_evaluate_state.dir
+  OBJECT_DIR = tests/breakthrough/CMakeFiles/test_breakthrough.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = tests/breakthrough/test_breakthrough_evaluate_state
-  TARGET_PDB = test_breakthrough_evaluate_state.dbg
+  TARGET_FILE = tests/breakthrough/test_breakthrough
+  TARGET_PDB = test_breakthrough.dbg
 
 
 #############################################
@@ -2693,7 +2700,7 @@ build othello: phony games/othello/libothello.a
 
 build strategy: phony strategy/libstrategy.a
 
-build test_breakthrough_evaluate_state: phony tests/breakthrough/test_breakthrough_evaluate_state
+build test_breakthrough: phony tests/breakthrough/test_breakthrough
 
 build test_catchthelion: phony tests/catchthelion/test_catchthelion
 
@@ -2826,7 +2833,7 @@ build tests/all: phony _deps/googletest-build/all tests/breakthrough/all tests/c
 #############################################
 # Folder: /Users/james/Documents/Thesis_C++/build/tests/breakthrough
 
-build tests/breakthrough/all: phony tests/breakthrough/test_breakthrough_evaluate_state
+build tests/breakthrough/all: phony tests/breakthrough/test_breakthrough
 
 # =============================================================================
 
