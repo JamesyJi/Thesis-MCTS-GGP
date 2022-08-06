@@ -22,7 +22,7 @@ int main(void)
     using Model2T = Models::Standard::Standard<GameT>;
     auto manager0 = Main::GameManager<Model1T, Model2T, StateT, MoveT>("catchthelion_SvS");
     resource = Common::TimeResource(1);
-    manager0.StartExperiment(resource, 100);
+    manager0.StartExperiment(resource, 200);
 
     // using Model3T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth1>;
     // using Model4T = Models::Standard::Standard<GameT>;
