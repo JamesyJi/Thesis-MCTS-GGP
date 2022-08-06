@@ -54,10 +54,11 @@ public:
             bestChild = &bestChild->GetHighestScoreChild();
 
             // Perform minimax in selection phase after a certain number of visits
-            if (bestChild->GetVisits() == N_VISITS)
+            if (!bestChild->AlreadyMinimaxed() && bestChild->GetVisits() >= N_VISITS)
             {
                 auto evaluation = this->MinimaxAB(bestChild->GetStateRef(), bestChild->GetLastMove(), DepthFunc(this->mGameState), Common::Result::PLAYER2_WIN, Common::Result::PLAYER1_WIN, bestChild->GetPlayerTurn());
                 this->BackPropagateProven(*bestChild, evaluation);
+                bestChild->FlagAsAlreadyMinimaxed();
             }
         }
 

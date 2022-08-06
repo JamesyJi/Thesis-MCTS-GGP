@@ -65,6 +65,16 @@ public:
         ++mVisits;
     }
 
+    inline bool AlreadyMinimaxed() const
+    {
+        return mAlreadyMinimaxed;
+    }
+    
+    inline void FlagAsAlreadyMinimaxed()
+    {
+        mAlreadyMinimaxed = true;
+    }
+
     Node* GetParent() const
     {
         return mParent;
@@ -133,6 +143,9 @@ private:
     Common::Proven mProven = Common::Proven::NONE;
     double mValue = 0;
     int mVisits = 0;
+
+    // True if we have already minimaxed at this node
+    bool mAlreadyMinimaxed = false;
 
     const TMove mLastMove;
     Common::Player mPlayerTurn;
