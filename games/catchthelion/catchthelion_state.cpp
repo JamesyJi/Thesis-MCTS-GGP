@@ -61,10 +61,10 @@ CatchTheLionMove CatchTheLionState::GetRandomLegalMove(Common::Player player) co
 {
     CatchTheLionMove legalMoves[MAX_MOVES];
     int nLegalMoves = GetLegalMoves(player, legalMoves);
-    if (nLegalMoves == 0) {
-        std::cout << "NO LEGAL MOVES FOUND\n";
-        std::cout << *this;
-    }
+    // if (nLegalMoves == 0) {
+    //     std::cout << "NO LEGAL MOVES FOUND\n";
+    //     std::cout << *this;
+    // }
 
     return legalMoves[rand() % nLegalMoves];
 }
@@ -91,7 +91,7 @@ int CatchTheLionState::GetLegalMoves(Common::Player player, CatchTheLionMove mov
             throw std::runtime_error("Should only be player 1 or player 2 in GetLegalMoves");
         }
     });
-    std::cout << "Forward Step is " << forwardStep << " for " << player << "\n";
+    // std::cout << "Forward Step is " << forwardStep << " for " << player << "\n";
 
     // Get all the MOVES
     for (int row = 0; row < ROWS; ++row)
@@ -130,11 +130,11 @@ int CatchTheLionState::GetLegalMoves(Common::Player player, CatchTheLionMove mov
         }
     }
 
-    std::cout << "Found " << found << " moves\n";
-    for (int i = 0; i < found; ++i)
-    {
-        std::cout << moves[i] << "\n";
-    }
+    // std::cout << "Found " << found << " moves\n";
+    // for (int i = 0; i < found; ++i)
+    // {
+    //     std::cout << moves[i] << "\n";
+    // }
 
     return found;
 }
@@ -398,7 +398,7 @@ std::ostream& operator<<(std::ostream& os, const CatchTheLionState& state)
     os << state.mPlayer2Drops[Common::CatchTheLionPieceType::GIRAFFE] << "\n";
 
     // Print move history
-    for (auto& move : state.mMoveHistory) os << move << "\n";
+    // for (auto& move : state.mMoveHistory) os << move << "\n";
 
     return os;
 }
