@@ -11,6 +11,10 @@ template<typename TState, typename TMove>
 Node<TState, TMove>& Node<TState, TMove>::GetRandomChild() const
 {
     // TODO: Can use faster random
+    if (mNumChildren == 0) {
+        std::cout << "NO CHILDREN FOR NODE\n";
+        std::cout << mState;
+    }
     return *mChildren[rand() % mNumChildren].get();
 }
 

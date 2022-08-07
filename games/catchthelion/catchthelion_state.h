@@ -20,6 +20,23 @@ public:
 
     CatchTheLionState()
     {
+        // mPosition[0][0] = Common::CatchTheLionPiece(Common::Player::PLAYER1, Common::CatchTheLionPieceType::LION);
+        // mPosition[0][1] = Common::CatchTheLionPiece(Common::Player::PLAYER1, Common::CatchTheLionPieceType::ELEPHANT);
+        // mPosition[0][2] = Common::CatchTheLionPiece(Common::Player::PLAYER1, Common::CatchTheLionPieceType::CHICK);
+        
+        // mPosition[1][0] = Common::CatchTheLionPiece();
+        // mPosition[1][1] = Common::CatchTheLionPiece(Common::Player::PLAYER1, Common::CatchTheLionPieceType::CHICK);
+        // mPosition[1][2] = Common::CatchTheLionPiece();
+
+        // mPosition[2][0] = Common::CatchTheLionPiece();
+        // mPosition[2][1] = Common::CatchTheLionPiece(Common::Player::PLAYER2, Common::CatchTheLionPieceType::ELEPHANT);
+        // mPosition[2][2] = Common::CatchTheLionPiece(Common::Player::PLAYER2, Common::CatchTheLionPieceType::LION);
+
+        // mPosition[3][0] = Common::CatchTheLionPiece();
+        // mPosition[3][1] = Common::CatchTheLionPiece();
+        // mPosition[3][2] = Common::CatchTheLionPiece();
+        
+        // mPlayer2Drops[2] = 2;
         mPosition[0][0] = Common::CatchTheLionPiece(Common::Player::PLAYER1, Common::CatchTheLionPieceType::GIRAFFE);
         mPosition[0][1] = Common::CatchTheLionPiece(Common::Player::PLAYER1, Common::CatchTheLionPieceType::LION);
         mPosition[0][2] = Common::CatchTheLionPiece(Common::Player::PLAYER1, Common::CatchTheLionPieceType::ELEPHANT);

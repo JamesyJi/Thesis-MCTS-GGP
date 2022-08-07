@@ -61,10 +61,10 @@ CatchTheLionMove CatchTheLionState::GetRandomLegalMove(Common::Player player) co
 {
     CatchTheLionMove legalMoves[MAX_MOVES];
     int nLegalMoves = GetLegalMoves(player, legalMoves);
-    // if (nLegalMoves == 0) {
-    //     std::cout << "NO LEGAL MOVES FOUND\n";
-    //     std::cout << *this;
-    // }
+    if (nLegalMoves == 0) {
+        std::cout << "NO LEGAL MOVES FOUND\n";
+        std::cout << *this;
+    }
 
     return legalMoves[rand() % nLegalMoves];
 }
