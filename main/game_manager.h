@@ -53,6 +53,7 @@ public:
 
         while (state.EvaluateState(move) == Common::Result::ONGOING)
         {
+            std::cout << "Turn " << gameState.GetTurn() << "\n";
             // Run a check on the game's terminals
             // switch (gameState.GetPlayerTurn())
             // {
