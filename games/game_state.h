@@ -48,6 +48,11 @@ public:
         return mSimulations;
     }
 
+    bool MaxTurns() const
+    {
+        return mTurn == 299;
+    }
+
 
 private:
     int mTurn = 1;

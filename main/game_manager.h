@@ -88,6 +88,12 @@ public:
             std::cout << "===============\n";
 
             gameState.NextTurn();
+            if (gameState.MaxTurns()) {
+                std::cout << "GAME END DUE TO TOO MANY TURNS\n";
+                mGameResults.UpdateResult(Common::Result::DRAW);
+                mGameResults.Accumulate(gameState);
+                return Common::Result::DRAW;
+            }
         }
 
         std::cout << "GAME END\n";
