@@ -4,6 +4,7 @@
 #include "pieces.h"
 #include "catchthelion_state.h"
 #include "test_defines.h"
+#include "catchthelion_defines.h"
 
 namespace CatchTheLion
 {
@@ -24,9 +25,9 @@ TEST(catchthelion_unittest, ChickLegalMovesNoDrops)
     
     std::vector<CatchTheLionMove> expectedMovesP1 =
     {
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::CHICK, 0, 2, 1, 2),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::CHICK, 1, 1, 2, 1),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::CHICK, 2, 0, 3, 0, Common::CatchTheLionPieceType::CHICK),
+        CatchTheLionMove(P1, CHICK, 0, 2, 1, 2),
+        CatchTheLionMove(P1, CHICK, 1, 1, 2, 1),
+        CatchTheLionMove(P1, CHICK, 2, 0, 3, 0, CHICK),
     };
     ASSERT_EQ(expectedMovesP1.size(), numLegalMovesP1);
     for (auto const& move : expectedMovesP1)
@@ -40,9 +41,9 @@ TEST(catchthelion_unittest, ChickLegalMovesNoDrops)
 
     std::vector<CatchTheLionMove> expectedMovesP2 =
     {
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::CHICK, 1, 0, 0, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::CHICK, 2, 2, 1, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::CHICK, 3, 0, 2, 0, Common::CatchTheLionPieceType::CHICK)
+        CatchTheLionMove(P2, CHICK, 1, 0, 0, 0),
+        CatchTheLionMove(P2, CHICK, 2, 2, 1, 2),
+        CatchTheLionMove(P2, CHICK, 3, 0, 2, 0, CHICK)
     };
     ASSERT_EQ(expectedMovesP2.size(), numLegalMovesP2);
     for (auto const& move : expectedMovesP2)
@@ -67,12 +68,12 @@ TEST(catchthelion_unittest, ElephantLegalMovesNoDrops)
     
     std::vector<CatchTheLionMove> expectedMovesP1 =
     {
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::ELEPHANT, 1, 1, 0, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::ELEPHANT, 1, 1, 2, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::ELEPHANT, 1, 1, 2, 2, Common::CatchTheLionPieceType::ELEPHANT),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::ELEPHANT, 2, 1, 1, 0, Common::CatchTheLionPieceType::ELEPHANT),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::ELEPHANT, 2, 1, 1, 2),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::ELEPHANT, 2, 1, 3, 0, Common::CatchTheLionPieceType::ELEPHANT)
+        CatchTheLionMove(P1, ELEPHANT, 1, 1, 0, 0),
+        CatchTheLionMove(P1, ELEPHANT, 1, 1, 2, 0),
+        CatchTheLionMove(P1, ELEPHANT, 1, 1, 2, 2, ELEPHANT),
+        CatchTheLionMove(P1, ELEPHANT, 2, 1, 1, 0, ELEPHANT),
+        CatchTheLionMove(P1, ELEPHANT, 2, 1, 1, 2),
+        CatchTheLionMove(P1, ELEPHANT, 2, 1, 3, 0, ELEPHANT)
     };
     ASSERT_EQ(expectedMovesP1.size(), numLegalMovesP1);
     for (auto const& move : expectedMovesP1)
@@ -86,11 +87,11 @@ TEST(catchthelion_unittest, ElephantLegalMovesNoDrops)
 
     std::vector<CatchTheLionMove> expectedMovesP2 =
     {
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 0, 1, 1, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 1, 0, 2, 1, Common::CatchTheLionPieceType::ELEPHANT),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 2, 2, 1, 1, Common::CatchTheLionPieceType::ELEPHANT),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 2, 2, 3, 1),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 3, 0, 2, 1, Common::CatchTheLionPieceType::ELEPHANT),
+        CatchTheLionMove(P2, ELEPHANT, 0, 1, 1, 2),
+        CatchTheLionMove(P2, ELEPHANT, 1, 0, 2, 1, ELEPHANT),
+        CatchTheLionMove(P2, ELEPHANT, 2, 2, 1, 1, ELEPHANT),
+        CatchTheLionMove(P2, ELEPHANT, 2, 2, 3, 1),
+        CatchTheLionMove(P2, ELEPHANT, 3, 0, 2, 1, ELEPHANT),
     };
     ASSERT_EQ(expectedMovesP2.size(), numLegalMovesP2);
     for (auto const& move : expectedMovesP2)
@@ -115,15 +116,15 @@ TEST(catchthelion_unittest, GiraffeLegalMovesNoDrops)
     
     std::vector<CatchTheLionMove> expectedMovesP1 =
     {
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 0, 1, 0, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 0, 1, 0, 2),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 0, 1, 1, 1, Common::CatchTheLionPieceType::GIRAFFE),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 2, 0, 1, 0, Common::CatchTheLionPieceType::GIRAFFE),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 2, 0, 2, 1, Common::CatchTheLionPieceType::GIRAFFE),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 2, 0, 3, 0, Common::CatchTheLionPieceType::GIRAFFE),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 2, 2, 1, 2),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 2, 2, 2, 1, Common::CatchTheLionPieceType::GIRAFFE),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 3, 2, 3, 1)
+        CatchTheLionMove(P1, GIRAFFE, 0, 1, 0, 0),
+        CatchTheLionMove(P1, GIRAFFE, 0, 1, 0, 2),
+        CatchTheLionMove(P1, GIRAFFE, 0, 1, 1, 1, GIRAFFE),
+        CatchTheLionMove(P1, GIRAFFE, 2, 0, 1, 0, GIRAFFE),
+        CatchTheLionMove(P1, GIRAFFE, 2, 0, 2, 1, GIRAFFE),
+        CatchTheLionMove(P1, GIRAFFE, 2, 0, 3, 0, GIRAFFE),
+        CatchTheLionMove(P1, GIRAFFE, 2, 2, 1, 2),
+        CatchTheLionMove(P1, GIRAFFE, 2, 2, 2, 1, GIRAFFE),
+        CatchTheLionMove(P1, GIRAFFE, 3, 2, 3, 1)
     };
     ASSERT_EQ(expectedMovesP1.size(), numLegalMovesP1);
     for (auto const& move : expectedMovesP1)
@@ -137,15 +138,15 @@ TEST(catchthelion_unittest, GiraffeLegalMovesNoDrops)
 
     std::vector<CatchTheLionMove> expectedMovesP2 =
     {
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::GIRAFFE, 1, 0, 0, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::GIRAFFE, 1, 0, 2, 0, Common::CatchTheLionPieceType::GIRAFFE),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::GIRAFFE, 1, 1, 0, 1, Common::CatchTheLionPieceType::GIRAFFE),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::GIRAFFE, 1, 1, 1, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::GIRAFFE, 2, 1, 2, 0, Common::CatchTheLionPieceType::GIRAFFE),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::GIRAFFE, 2, 1, 2, 2, Common::CatchTheLionPieceType::GIRAFFE),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::GIRAFFE, 2, 1, 3, 1),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::GIRAFFE, 3, 0, 2, 0, Common::CatchTheLionPieceType::GIRAFFE),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::GIRAFFE, 3, 0, 3, 1)
+        CatchTheLionMove(P2, GIRAFFE, 1, 0, 0, 0),
+        CatchTheLionMove(P2, GIRAFFE, 1, 0, 2, 0, GIRAFFE),
+        CatchTheLionMove(P2, GIRAFFE, 1, 1, 0, 1, GIRAFFE),
+        CatchTheLionMove(P2, GIRAFFE, 1, 1, 1, 2),
+        CatchTheLionMove(P2, GIRAFFE, 2, 1, 2, 0, GIRAFFE),
+        CatchTheLionMove(P2, GIRAFFE, 2, 1, 2, 2, GIRAFFE),
+        CatchTheLionMove(P2, GIRAFFE, 2, 1, 3, 1),
+        CatchTheLionMove(P2, GIRAFFE, 3, 0, 2, 0, GIRAFFE),
+        CatchTheLionMove(P2, GIRAFFE, 3, 0, 3, 1)
     };
     ASSERT_EQ(expectedMovesP2.size(), numLegalMovesP2);
     for (auto const& move : expectedMovesP2)
@@ -170,19 +171,19 @@ TEST(catchthelion_unittest, LionLegalMovesNoDrops)
     
     std::vector<CatchTheLionMove> expectedMovesP1 =
     {
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 0, 1, 0, 0, Common::CatchTheLionPieceType::LION),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 0, 1, 0, 2),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 0, 1, 1, 2),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 0, 1, 1, 1, Common::CatchTheLionPieceType::LION),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 0, 1, 1, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 2, 0, 1, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 2, 0, 1, 1, Common::CatchTheLionPieceType::LION),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 2, 0, 2, 1, Common::CatchTheLionPieceType::LION),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 2, 0, 3, 1),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 2, 0, 3, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 3, 2, 2, 1, Common::CatchTheLionPieceType::LION),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 3, 2, 2, 2),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 3, 2, 3, 1)
+        CatchTheLionMove(P1, LION, 0, 1, 0, 0, LION),
+        CatchTheLionMove(P1, LION, 0, 1, 0, 2),
+        CatchTheLionMove(P1, LION, 0, 1, 1, 2),
+        CatchTheLionMove(P1, LION, 0, 1, 1, 1, LION),
+        CatchTheLionMove(P1, LION, 0, 1, 1, 0),
+        CatchTheLionMove(P1, LION, 2, 0, 1, 0),
+        CatchTheLionMove(P1, LION, 2, 0, 1, 1, LION),
+        CatchTheLionMove(P1, LION, 2, 0, 2, 1, LION),
+        CatchTheLionMove(P1, LION, 2, 0, 3, 1),
+        CatchTheLionMove(P1, LION, 2, 0, 3, 0),
+        CatchTheLionMove(P1, LION, 3, 2, 2, 1, LION),
+        CatchTheLionMove(P1, LION, 3, 2, 2, 2),
+        CatchTheLionMove(P1, LION, 3, 2, 3, 1)
     };
     ASSERT_EQ(expectedMovesP1.size(), numLegalMovesP1);
     for (auto const& move : expectedMovesP1)
@@ -196,21 +197,21 @@ TEST(catchthelion_unittest, LionLegalMovesNoDrops)
 
     std::vector<CatchTheLionMove> expectedMovesP2 =
     {
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 0, 0, 0, 1, Common::CatchTheLionPieceType::LION),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 0, 0, 1, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 1, 1, 0, 1, Common::CatchTheLionPieceType::LION),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 1, 1, 0, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 1, 1, 1, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 1, 1, 2, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 1, 1, 2, 0, Common::CatchTheLionPieceType::LION),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 1, 1, 1, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 2, 1, 1, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 2, 1, 1, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 2, 1, 2, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 2, 1, 3, 2, Common::CatchTheLionPieceType::LION),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 2, 1, 3, 1),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 2, 1, 3, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 2, 1, 2, 0, Common::CatchTheLionPieceType::LION),
+        CatchTheLionMove(P2, LION, 0, 0, 0, 1, LION),
+        CatchTheLionMove(P2, LION, 0, 0, 1, 0),
+        CatchTheLionMove(P2, LION, 1, 1, 0, 1, LION),
+        CatchTheLionMove(P2, LION, 1, 1, 0, 2),
+        CatchTheLionMove(P2, LION, 1, 1, 1, 2),
+        CatchTheLionMove(P2, LION, 1, 1, 2, 2),
+        CatchTheLionMove(P2, LION, 1, 1, 2, 0, LION),
+        CatchTheLionMove(P2, LION, 1, 1, 1, 0),
+        CatchTheLionMove(P2, LION, 2, 1, 1, 0),
+        CatchTheLionMove(P2, LION, 2, 1, 1, 2),
+        CatchTheLionMove(P2, LION, 2, 1, 2, 2),
+        CatchTheLionMove(P2, LION, 2, 1, 3, 2, LION),
+        CatchTheLionMove(P2, LION, 2, 1, 3, 1),
+        CatchTheLionMove(P2, LION, 2, 1, 3, 0),
+        CatchTheLionMove(P2, LION, 2, 1, 2, 0, LION),
     };
     ASSERT_EQ(expectedMovesP2.size(), numLegalMovesP2);
     for (auto const& move : expectedMovesP2)
@@ -235,16 +236,16 @@ TEST(catchthelion_unittest, HenLegalMovesNoDrops)
     
     std::vector<CatchTheLionMove> expectedMovesP1 =
     {
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::HEN, 0, 1, 0, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::HEN, 0, 1, 0, 2, Common::CatchTheLionPieceType::HEN),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::HEN, 0, 1, 1, 2),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::HEN, 0, 1, 1, 1),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::HEN, 1, 0, 0, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::HEN, 1, 0, 1, 1),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::HEN, 1, 0, 2, 1, Common::CatchTheLionPieceType::HEN),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::HEN, 1, 0, 2, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::HEN, 3, 2, 2, 2, Common::CatchTheLionPieceType::HEN),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::HEN, 3, 2, 3, 1)
+        CatchTheLionMove(P1, HEN, 0, 1, 0, 0),
+        CatchTheLionMove(P1, HEN, 0, 1, 0, 2, HEN),
+        CatchTheLionMove(P1, HEN, 0, 1, 1, 2),
+        CatchTheLionMove(P1, HEN, 0, 1, 1, 1),
+        CatchTheLionMove(P1, HEN, 1, 0, 0, 0),
+        CatchTheLionMove(P1, HEN, 1, 0, 1, 1),
+        CatchTheLionMove(P1, HEN, 1, 0, 2, 1, HEN),
+        CatchTheLionMove(P1, HEN, 1, 0, 2, 0),
+        CatchTheLionMove(P1, HEN, 3, 2, 2, 2, HEN),
+        CatchTheLionMove(P1, HEN, 3, 2, 3, 1)
     };
     ASSERT_EQ(expectedMovesP1.size(), numLegalMovesP1);
     for (auto const& move : expectedMovesP1)
@@ -258,18 +259,18 @@ TEST(catchthelion_unittest, HenLegalMovesNoDrops)
 
     std::vector<CatchTheLionMove> expectedMovesP2 =
     {
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::HEN, 0, 2, 0, 1, Common::CatchTheLionPieceType::HEN),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::HEN, 0, 2, 1, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::HEN, 2, 1, 1, 0, Common::CatchTheLionPieceType::HEN),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::HEN, 2, 1, 1, 1),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::HEN, 2, 1, 1, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::HEN, 2, 1, 3, 1),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::HEN, 2, 1, 2, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::HEN, 2, 2, 1, 1),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::HEN, 2, 2, 1, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::HEN, 2, 2, 3, 2, Common::CatchTheLionPieceType::HEN),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::HEN, 3, 0, 2, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::HEN, 3, 0, 3, 1)
+        CatchTheLionMove(P2, HEN, 0, 2, 0, 1, HEN),
+        CatchTheLionMove(P2, HEN, 0, 2, 1, 2),
+        CatchTheLionMove(P2, HEN, 2, 1, 1, 0, HEN),
+        CatchTheLionMove(P2, HEN, 2, 1, 1, 1),
+        CatchTheLionMove(P2, HEN, 2, 1, 1, 2),
+        CatchTheLionMove(P2, HEN, 2, 1, 3, 1),
+        CatchTheLionMove(P2, HEN, 2, 1, 2, 0),
+        CatchTheLionMove(P2, HEN, 2, 2, 1, 1),
+        CatchTheLionMove(P2, HEN, 2, 2, 1, 2),
+        CatchTheLionMove(P2, HEN, 2, 2, 3, 2, HEN),
+        CatchTheLionMove(P2, HEN, 3, 0, 2, 0),
+        CatchTheLionMove(P2, HEN, 3, 0, 3, 1)
     };
     ASSERT_EQ(expectedMovesP2.size(), numLegalMovesP2);
     for (auto const& move : expectedMovesP2)
@@ -304,24 +305,24 @@ TEST(catchthelion_unittest, LegalMovesDrops)
     
     std::vector<CatchTheLionMove> expectedDropsP1 =
     {
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::CHICK, 0, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::CHICK, 1, 1),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::CHICK, 2, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::CHICK, 2, 2),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::CHICK, 3, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::CHICK, 3, 1),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::ELEPHANT, 0, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::ELEPHANT, 1, 1),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::ELEPHANT, 2, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::ELEPHANT, 2, 2),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::ELEPHANT, 3, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::ELEPHANT, 3, 1),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 0, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 1, 1),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 2, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 2, 2),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 3, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 3, 1)
+        CatchTheLionMove(P1, CHICK, 0, 0),
+        CatchTheLionMove(P1, CHICK, 1, 1),
+        CatchTheLionMove(P1, CHICK, 2, 0),
+        CatchTheLionMove(P1, CHICK, 2, 2),
+        CatchTheLionMove(P1, CHICK, 3, 0),
+        CatchTheLionMove(P1, CHICK, 3, 1),
+        CatchTheLionMove(P1, ELEPHANT, 0, 0),
+        CatchTheLionMove(P1, ELEPHANT, 1, 1),
+        CatchTheLionMove(P1, ELEPHANT, 2, 0),
+        CatchTheLionMove(P1, ELEPHANT, 2, 2),
+        CatchTheLionMove(P1, ELEPHANT, 3, 0),
+        CatchTheLionMove(P1, ELEPHANT, 3, 1),
+        CatchTheLionMove(P1, GIRAFFE, 0, 0),
+        CatchTheLionMove(P1, GIRAFFE, 1, 1),
+        CatchTheLionMove(P1, GIRAFFE, 2, 0),
+        CatchTheLionMove(P1, GIRAFFE, 2, 2),
+        CatchTheLionMove(P1, GIRAFFE, 3, 0),
+        CatchTheLionMove(P1, GIRAFFE, 3, 1)
     };
     ASSERT_EQ(expectedDropsP1.size(), numLegalDropsP1);
     for (auto const& move : expectedDropsP1)
@@ -346,24 +347,24 @@ TEST(catchthelion_unittest, LegalMovesDrops)
     
     std::vector<CatchTheLionMove> expectedDropsP2 =
     {
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::CHICK, 0, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::CHICK, 1, 1),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::CHICK, 2, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::CHICK, 2, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::CHICK, 3, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::CHICK, 3, 1),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 0, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 1, 1),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 2, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 2, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 3, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 3, 1),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::GIRAFFE, 0, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::GIRAFFE, 1, 1),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::GIRAFFE, 2, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::GIRAFFE, 2, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::GIRAFFE, 3, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::GIRAFFE, 3, 1)
+        CatchTheLionMove(P2, CHICK, 0, 0),
+        CatchTheLionMove(P2, CHICK, 1, 1),
+        CatchTheLionMove(P2, CHICK, 2, 0),
+        CatchTheLionMove(P2, CHICK, 2, 2),
+        CatchTheLionMove(P2, CHICK, 3, 0),
+        CatchTheLionMove(P2, CHICK, 3, 1),
+        CatchTheLionMove(P2, ELEPHANT, 0, 0),
+        CatchTheLionMove(P2, ELEPHANT, 1, 1),
+        CatchTheLionMove(P2, ELEPHANT, 2, 0),
+        CatchTheLionMove(P2, ELEPHANT, 2, 2),
+        CatchTheLionMove(P2, ELEPHANT, 3, 0),
+        CatchTheLionMove(P2, ELEPHANT, 3, 1),
+        CatchTheLionMove(P2, GIRAFFE, 0, 0),
+        CatchTheLionMove(P2, GIRAFFE, 1, 1),
+        CatchTheLionMove(P2, GIRAFFE, 2, 0),
+        CatchTheLionMove(P2, GIRAFFE, 2, 2),
+        CatchTheLionMove(P2, GIRAFFE, 3, 0),
+        CatchTheLionMove(P2, GIRAFFE, 3, 1)
     };
     ASSERT_EQ(expectedDropsP2.size(), numLegalDropsP2);
     for (auto const& move : expectedDropsP2)
@@ -388,19 +389,19 @@ TEST(catchthelion_unittest, ManyLegalMovesAndDrops)
     
     std::vector<CatchTheLionMove> expectedMovesP1 =
     {
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 0, 1, 0, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 0, 1, 0, 2),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 0, 1, 1, 1),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::CHICK, 1, 0, 2, 0, Common::CatchTheLionPieceType::GIRAFFE),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 1, 2, 0, 2),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 1, 2, 1, 1),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::GIRAFFE, 1, 2, 2, 2),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::CHICK, 0, 0),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::CHICK, 0, 2),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::CHICK, 1, 1),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::CHICK, 2, 2),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::CHICK, 3, 1),
-        CatchTheLionMove(P1, Common::CatchTheLionPieceType::CHICK, 3, 2)
+        CatchTheLionMove(P1, LION, 0, 1, 0, 0),
+        CatchTheLionMove(P1, LION, 0, 1, 0, 2),
+        CatchTheLionMove(P1, LION, 0, 1, 1, 1),
+        CatchTheLionMove(P1, CHICK, 1, 0, 2, 0, GIRAFFE),
+        CatchTheLionMove(P1, GIRAFFE, 1, 2, 0, 2),
+        CatchTheLionMove(P1, GIRAFFE, 1, 2, 1, 1),
+        CatchTheLionMove(P1, GIRAFFE, 1, 2, 2, 2),
+        CatchTheLionMove(P1, CHICK, 0, 0),
+        CatchTheLionMove(P1, CHICK, 0, 2),
+        CatchTheLionMove(P1, CHICK, 1, 1),
+        CatchTheLionMove(P1, CHICK, 2, 2),
+        CatchTheLionMove(P1, CHICK, 3, 1),
+        CatchTheLionMove(P1, CHICK, 3, 2)
     };
     ASSERT_EQ(expectedMovesP1.size(), numLegalMovesP1);
     for (auto const& move : expectedMovesP1)
@@ -415,17 +416,17 @@ TEST(catchthelion_unittest, ManyLegalMovesAndDrops)
     
     std::vector<CatchTheLionMove> expectedMovesP2 =
     {
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::GIRAFFE, 2, 0, 1, 0, Common::CatchTheLionPieceType::CHICK),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 2, 1, 1, 0, Common::CatchTheLionPieceType::CHICK),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 2, 1, 1, 2, Common::CatchTheLionPieceType::GIRAFFE),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 2, 1, 3, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 3, 0, 3, 1),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 0, 0),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 0, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 1, 1),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 2, 2),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 3, 1),
-        CatchTheLionMove(P2, Common::CatchTheLionPieceType::ELEPHANT, 3, 2)
+        CatchTheLionMove(P2, GIRAFFE, 2, 0, 1, 0, CHICK),
+        CatchTheLionMove(P2, ELEPHANT, 2, 1, 1, 0, CHICK),
+        CatchTheLionMove(P2, ELEPHANT, 2, 1, 1, 2, GIRAFFE),
+        CatchTheLionMove(P2, ELEPHANT, 2, 1, 3, 2),
+        CatchTheLionMove(P2, LION, 3, 0, 3, 1),
+        CatchTheLionMove(P2, ELEPHANT, 0, 0),
+        CatchTheLionMove(P2, ELEPHANT, 0, 2),
+        CatchTheLionMove(P2, ELEPHANT, 1, 1),
+        CatchTheLionMove(P2, ELEPHANT, 2, 2),
+        CatchTheLionMove(P2, ELEPHANT, 3, 1),
+        CatchTheLionMove(P2, ELEPHANT, 3, 2)
     };
     ASSERT_EQ(expectedMovesP2.size(), numLegalMovesP2);
     for (auto const& move : expectedMovesP2)

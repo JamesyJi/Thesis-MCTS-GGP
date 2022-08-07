@@ -38,10 +38,28 @@ Common::Result CatchTheLionState::EvaluateState(const CatchTheLionMove &lastMove
         switch (lastMove.player)
         {
             case Common::Player::PLAYER1:
-                if (lastMove.row == ROWS - 1 && !HasMoveToSquare(Common::GetOtherPlayer(lastMove.player), lastMove.row, lastMove.col)) return Common::Result::PLAYER1_WIN;
-                break;
+                if (lastMove.row == ROWS - 1) 
+                {
+                    if (HasMoveToSquare(Common::GetOtherPlayer(lastMove.player), lastMove.row, lastMove.col))
+                    {
+                        return Common::Result::PLAYER2_WIN;
+                    } else
+                    {
+                        return Common::Result::PLAYER1_WIN;
+                    }
+                }
+                break;                
             case Common::Player::PLAYER2:
-                if (lastMove.row == 0 && !HasMoveToSquare(Common::GetOtherPlayer(lastMove.player), lastMove.row, lastMove.col)) return Common::Result::PLAYER2_WIN;
+                if (lastMove.row == 0)
+                {
+                    if (HasMoveToSquare(Common::GetOtherPlayer(lastMove.player), lastMove.row, lastMove.col))
+                    {
+                        return Common::Result::PLAYER1_WIN;
+                    } else
+                    {
+                        return Common::Result::PLAYER2_WIN;
+                    }
+                }
                 break;
             default:
                 std::runtime_error("Lion move cannot have player of NONE");
@@ -61,10 +79,10 @@ CatchTheLionMove CatchTheLionState::GetRandomLegalMove(Common::Player player) co
 {
     CatchTheLionMove legalMoves[MAX_MOVES];
     int nLegalMoves = GetLegalMoves(player, legalMoves);
-    if (nLegalMoves == 0) {
-        std::cout << "NO LEGAL MOVES FOUND\n";
-        std::cout << *this;
-    }
+    // if (nLegalMoves == 0) {
+    //     std::cout << "NO LEGAL MOVES FOUND\n";
+    //     std::cout << *this;
+    // }
 
     return legalMoves[rand() % nLegalMoves];
 }
