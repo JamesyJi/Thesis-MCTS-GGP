@@ -38,10 +38,10 @@ Common::Result CatchTheLionState::EvaluateState(const CatchTheLionMove &lastMove
         switch (lastMove.player)
         {
             case Common::Player::PLAYER1:
-                if (lastMove.row == 3) return Common::Result::PLAYER1_WIN;
+                if (lastMove.row == ROWS - 1 && !HasMoveToSquare(Common::GetOtherPlayer(lastMove.player), lastMove.row, lastMove.col)) return Common::Result::PLAYER1_WIN;
                 break;
             case Common::Player::PLAYER2:
-                if (lastMove.row == 0) return Common::Result::PLAYER2_WIN;
+                if (lastMove.row == 0 && !HasMoveToSquare(Common::GetOtherPlayer(lastMove.player), lastMove.row, lastMove.col)) return Common::Result::PLAYER2_WIN;
                 break;
             default:
                 std::runtime_error("Lion move cannot have player of NONE");
@@ -335,6 +335,76 @@ int CatchTheLionState::AddLegalDrops(Common::Player player, int const (&drops)[3
 
     return found;
 }
+
+// Returns True if the given player has a piece that can move to the specified row/col
+bool CatchTheLionState::HasMoveToSquare(Common::Player player, int row, int col) const
+{
+    // Search in a 1 square radius around the given square
+    for (int i = row - 1; i <= row + 1; ++i)
+    {
+        for (int j = col - 1; j <= col + 1; ++j)
+        {
+            if (
+                (i == row && j == col) || 
+                !IsInBounds(i, j) || 
+                mPosition[i][j].player != player
+            ) 
+                continue;
+
+            switch(mPosition[i][j].pieceType)
+            {
+                case Common::CatchTheLionPieceType::CHICK:
+                {
+                    int forwardMove = player == Common::Player::PLAYER1 ? 1 : -1;
+                    if (i + forwardMove == row && j == col) return true;
+                    break;
+                }
+                case Common::CatchTheLionPieceType::GIRAFFE:
+                    // Moving straight means one direction is 0 change and the other is +-1
+                    // We know 0, 0 is out of the question so simply checking
+                    // they are both non-zero ==> false is fine
+                    if (i - row != 0 && j - col != 0) break;
+                    return true;
+                case Common::CatchTheLionPieceType::ELEPHANT:
+                    // Moving diagonal means both directions must be non-zero
+                    if (i - row != 0 && j - col != 0) return true;
+                    break;
+                case Common::CatchTheLionPieceType::LION:
+                    // A lion can always capture anything within 1 radius
+                    return true;
+                case Common::CatchTheLionPieceType::HEN:
+                    switch (player)
+                    {
+                        case Common::Player::PLAYER1:
+                            // Piece cannot be NW or NE of the Hen
+                            if (
+                                i - 1 == row ||
+                                (j + 1 == col || j - 1 == col)
+                            ) 
+                                continue;
+                            return true;
+                        case Common::Player::PLAYER2:
+                            // Piece cannot be SW or SE of the Hen
+                            if (
+                                i + 1 == row ||
+                                (j + 1 == col || j - 1 == col)
+                            )
+                                continue;
+                            return true;
+                        default:
+                            throw std::runtime_error("Must be Player 1 or 2 in HasMoveToSquare");
+                    }
+
+                case Common::CatchTheLionPieceType::NONE:
+                    break;                    
+            }
+
+        }
+    }
+
+    return false;
+}
+
 
 bool operator==(const CatchTheLionState& lhs, const CatchTheLionState& rhs)
 {

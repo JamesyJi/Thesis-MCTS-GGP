@@ -39,6 +39,48 @@ TEST(catchthelion_unittest, CaptureLion_IsPlayer2Win)
     ASSERT_EQ(s.EvaluateState(move), P2_WIN);
 }
 
+// Lion to backrank in Check is Not a win
+TEST(catchthelion_unittest, BackRankLion_InCheck_IsOngoing)
+{
+    const Common::CatchTheLionPiece position[CatchTheLionState::ROWS][CatchTheLionState::COLS] =
+    {
+        {G_X, N_A, E_X},
+        {N_A, L_O, N_A},
+        {N_A, E_O, L_X},
+        {N_A, N_A, N_A}
+    };
+    auto s = CatchTheLionState(position);
+
+    auto move = CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 2, 2, 3, 2);
+    s.SimulateMove(move);
+    ASSERT_EQ(s.EvaluateState(move), ONGOING);
+
+    auto move1 = CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 1, 1, 0, 1);
+    s.SimulateMove(move1);
+    ASSERT_EQ(s.EvaluateState(move1), ONGOING);
+}
+
+// Lion to backrank not in check is a win
+TEST(catchthelion_unittest, BackRankLion_NotInCheck_IsWon)
+{
+    const Common::CatchTheLionPiece position[CatchTheLionState::ROWS][CatchTheLionState::COLS] =
+    {
+        {E_X, N_A, C_X},
+        {N_A, L_O, N_A},
+        {N_A, H_O, L_X},
+        {N_A, N_A, N_A}
+    };
+    auto s = CatchTheLionState(position);
+
+    auto move = CatchTheLionMove(P1, Common::CatchTheLionPieceType::LION, 2, 2, 3, 2);
+    s.SimulateMove(move);
+    ASSERT_EQ(s.EvaluateState(move), P1_WIN);
+
+    auto move1 = CatchTheLionMove(P2, Common::CatchTheLionPieceType::LION, 1, 1, 0, 1);
+    s.SimulateMove(move1);
+    ASSERT_EQ(s.EvaluateState(move1), P2_WIN);
+}
+
 TEST(catchthelion_unittest, NormalMove_IsOngoing)
 {
     const Common::CatchTheLionPiece position[CatchTheLionState::ROWS][CatchTheLionState::COLS] =
@@ -192,6 +234,7 @@ TEST(catchthelion_unittest, RepeatedMoves_IsDraw)
     s.SimulateMove(move);
     ASSERT_EQ(s.EvaluateState(move), DRAW);
 }
+
 
 
 
