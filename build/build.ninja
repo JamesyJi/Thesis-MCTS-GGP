@@ -2356,6 +2356,13 @@ build tests/catchthelion/CMakeFiles/test_catchthelion.dir/catchthelion_state_eva
   OBJECT_DIR = tests/catchthelion/CMakeFiles/test_catchthelion.dir
   OBJECT_FILE_DIR = tests/catchthelion/CMakeFiles/test_catchthelion.dir
 
+build tests/catchthelion/CMakeFiles/test_catchthelion.dir/catchthelion_state_real_scenarios_test.cpp.o: CXX_COMPILER__test_catchthelion_Release /Users/james/Documents/Thesis_C++/tests/catchthelion/catchthelion_state_real_scenarios_test.cpp || cmake_object_order_depends_target_test_catchthelion
+  DEP_FILE = tests/catchthelion/CMakeFiles/test_catchthelion.dir/catchthelion_state_real_scenarios_test.cpp.o.d
+  FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/games/catchthelion -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/tests/test_helpers -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest
+  OBJECT_DIR = tests/catchthelion/CMakeFiles/test_catchthelion.dir
+  OBJECT_FILE_DIR = tests/catchthelion/CMakeFiles/test_catchthelion.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target test_catchthelion
@@ -2364,7 +2371,7 @@ build tests/catchthelion/CMakeFiles/test_catchthelion.dir/catchthelion_state_eva
 #############################################
 # Link the executable tests/catchthelion/test_catchthelion
 
-build tests/catchthelion/test_catchthelion: CXX_EXECUTABLE_LINKER__test_catchthelion_Release tests/catchthelion/CMakeFiles/test_catchthelion.dir/catchthelion_state_legal_moves_unittest.cpp.o tests/catchthelion/CMakeFiles/test_catchthelion.dir/catchthelion_state_moves_unittest.cpp.o tests/catchthelion/CMakeFiles/test_catchthelion.dir/catchthelion_state_evaluate_state_unittest.cpp.o | games/catchthelion/libcatchthelion.a lib/libgtest_main.a lib/libgtest.a || games/catchthelion/libcatchthelion.a lib/libgtest.a lib/libgtest_main.a
+build tests/catchthelion/test_catchthelion: CXX_EXECUTABLE_LINKER__test_catchthelion_Release tests/catchthelion/CMakeFiles/test_catchthelion.dir/catchthelion_state_legal_moves_unittest.cpp.o tests/catchthelion/CMakeFiles/test_catchthelion.dir/catchthelion_state_moves_unittest.cpp.o tests/catchthelion/CMakeFiles/test_catchthelion.dir/catchthelion_state_evaluate_state_unittest.cpp.o tests/catchthelion/CMakeFiles/test_catchthelion.dir/catchthelion_state_real_scenarios_test.cpp.o | games/catchthelion/libcatchthelion.a lib/libgtest_main.a lib/libgtest.a || games/catchthelion/libcatchthelion.a lib/libgtest.a lib/libgtest_main.a
   FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
   LINK_LIBRARIES = games/catchthelion/libcatchthelion.a  lib/libgtest_main.a  lib/libgtest.a
   OBJECT_DIR = tests/catchthelion/CMakeFiles/test_catchthelion.dir

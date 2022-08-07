@@ -432,7 +432,6 @@ TEST(catchthelion_unittest, ManyLegalMovesAndDrops)
     {
         ASSERT_TRUE(std::find(legalMovesP2, legalMovesP2 + numLegalMovesP2, move) != legalMovesP2 + numLegalMovesP2);
     }
-
 }
 
 }
