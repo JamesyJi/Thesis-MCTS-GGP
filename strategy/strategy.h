@@ -2,6 +2,7 @@
 
 #include "game_state.h"
 #include "connect4_state.h"
+#include "breakthrough_state.h"
 
 namespace Strategy
 {
@@ -23,6 +24,9 @@ int DepthFromTurn(const Games::GameState& gameState) = delete;
 // Connect4
 template <>
 int DepthFromTurn<Connect4::Connect4State>(const Games::GameState& gameState);
+
+template <>
+int DepthFromTurn<Breakthrough::BreakthroughState>(const Games::GameState& gameState);
 
 
 }

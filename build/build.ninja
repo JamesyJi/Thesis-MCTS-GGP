@@ -1630,12 +1630,19 @@ build main/install/strip: phony main/CMakeFiles/install/strip.util
 #############################################
 # Order-only phony target for strategy
 
-build cmake_object_order_depends_target_strategy: phony || cmake_object_order_depends_target_connect4
+build cmake_object_order_depends_target_strategy: phony || cmake_object_order_depends_target_breakthrough cmake_object_order_depends_target_connect4
 
 build strategy/CMakeFiles/strategy.dir/connect4_strategy.cpp.o: CXX_COMPILER__strategy_Release /Users/james/Documents/Thesis_C++/strategy/connect4_strategy.cpp || cmake_object_order_depends_target_strategy
   DEP_FILE = strategy/CMakeFiles/strategy.dir/connect4_strategy.cpp.o.d
   FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/common
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/breakthrough
+  OBJECT_DIR = strategy/CMakeFiles/strategy.dir
+  OBJECT_FILE_DIR = strategy/CMakeFiles/strategy.dir
+
+build strategy/CMakeFiles/strategy.dir/breakthrough_strategy.cpp.o: CXX_COMPILER__strategy_Release /Users/james/Documents/Thesis_C++/strategy/breakthrough_strategy.cpp || cmake_object_order_depends_target_strategy
+  DEP_FILE = strategy/CMakeFiles/strategy.dir/breakthrough_strategy.cpp.o.d
+  FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/breakthrough
   OBJECT_DIR = strategy/CMakeFiles/strategy.dir
   OBJECT_FILE_DIR = strategy/CMakeFiles/strategy.dir
 
@@ -1647,7 +1654,7 @@ build strategy/CMakeFiles/strategy.dir/connect4_strategy.cpp.o: CXX_COMPILER__st
 #############################################
 # Link the static library strategy/libstrategy.a
 
-build strategy/libstrategy.a: CXX_STATIC_LIBRARY_LINKER__strategy_Release strategy/CMakeFiles/strategy.dir/connect4_strategy.cpp.o || games/connect4/libconnect4.a
+build strategy/libstrategy.a: CXX_STATIC_LIBRARY_LINKER__strategy_Release strategy/CMakeFiles/strategy.dir/connect4_strategy.cpp.o strategy/CMakeFiles/strategy.dir/breakthrough_strategy.cpp.o || games/breakthrough/libbreakthrough.a games/connect4/libconnect4.a
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
   LANGUAGE_COMPILE_FLAGS = -Wall -Wextra -O3
   OBJECT_DIR = strategy/CMakeFiles/strategy.dir
