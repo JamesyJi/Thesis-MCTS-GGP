@@ -31,12 +31,17 @@
 },
 {
   "directory": "/Users/james/Documents/Thesis_C++/build",
-  "command": "/usr/bin/clang++ -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/breakthrough -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o strategy/CMakeFiles/strategy.dir/connect4_strategy.cpp.o -c /Users/james/Documents/Thesis_C++/strategy/connect4_strategy.cpp",
+  "command": "/usr/bin/clang++ -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/catchthelion -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/games/breakthrough -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o strategy/CMakeFiles/strategy.dir/catchthelion_strategy.cpp.o -c /Users/james/Documents/Thesis_C++/strategy/catchthelion_strategy.cpp",
+  "file": "/Users/james/Documents/Thesis_C++/strategy/catchthelion_strategy.cpp"
+},
+{
+  "directory": "/Users/james/Documents/Thesis_C++/build",
+  "command": "/usr/bin/clang++ -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/catchthelion -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/games/breakthrough -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o strategy/CMakeFiles/strategy.dir/connect4_strategy.cpp.o -c /Users/james/Documents/Thesis_C++/strategy/connect4_strategy.cpp",
   "file": "/Users/james/Documents/Thesis_C++/strategy/connect4_strategy.cpp"
 },
 {
   "directory": "/Users/james/Documents/Thesis_C++/build",
-  "command": "/usr/bin/clang++ -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/breakthrough -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o strategy/CMakeFiles/strategy.dir/breakthrough_strategy.cpp.o -c /Users/james/Documents/Thesis_C++/strategy/breakthrough_strategy.cpp",
+  "command": "/usr/bin/clang++ -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/catchthelion -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/games/breakthrough -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17 -o strategy/CMakeFiles/strategy.dir/breakthrough_strategy.cpp.o -c /Users/james/Documents/Thesis_C++/strategy/breakthrough_strategy.cpp",
   "file": "/Users/james/Documents/Thesis_C++/strategy/breakthrough_strategy.cpp"
 },
 {

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "game_state.h"
+#include "catchthelion_state.h"
 #include "connect4_state.h"
 #include "breakthrough_state.h"
 
@@ -21,12 +22,14 @@ inline int FixedDepth10(const Games::GameState& gameState) { return 10; }
 template <typename TState>
 int DepthFromTurn(const Games::GameState& gameState) = delete;
 
-// Connect4
 template <>
 int DepthFromTurn<Connect4::Connect4State>(const Games::GameState& gameState);
 
 template <>
 int DepthFromTurn<Breakthrough::BreakthroughState>(const Games::GameState& gameState);
+
+template <>
+int DepthFromTurn<CatchTheLion::CatchTheLionState>(const Games::GameState& gameState);
 
 
 }

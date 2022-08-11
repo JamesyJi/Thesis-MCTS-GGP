@@ -1,5 +1,6 @@
 add_library(strategy
     strategy.h
+    catchthelion_strategy.cpp
     connect4_strategy.cpp
     breakthrough_strategy.cpp
 )
@@ -10,6 +11,7 @@ target_include_directories(strategy PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(strategy
     games
+    catchthelion
     connect4
     breakthrough
 )

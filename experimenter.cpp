@@ -13,34 +13,36 @@ int main(void)
     srand(time(NULL));
     // auto resource = Common::TimeResource(1);
     
-    using MoveT = Breakthrough::BreakthroughMove;
-    using StateT = Breakthrough::BreakthroughState;
-    using GameT = Models::Traits<Breakthrough::BreakthroughState, Breakthrough::BreakthroughMove>;
+    using MoveT = CatchTheLion::CatchTheLionMove;
+    using StateT = CatchTheLion::CatchTheLionState;
+    using GameT = Models::Traits<CatchTheLion::CatchTheLionState, CatchTheLion::CatchTheLionMove>;
     auto resource = Common::TimeResource(1);
 
     using Model1T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn<StateT>>;
     using Model2T = Models::Standard::Standard<GameT>;
-    auto manager0 = Main::GameManager<Model1T, Model2T, StateT, MoveT>("breakthrough_DvS");
+    auto manager0 = Main::GameManager<Model1T, Model2T, StateT, MoveT>("catchthelion_DvS");
     resource = Common::TimeResource(1);
     manager0.StartExperiment(resource, 30);
 
     using Model3T = Models::Standard::Standard<GameT>;
     using Model4T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn<StateT>>;
-    auto manager1 = Main::GameManager<Model3T, Model4T, StateT, MoveT>("breakthrough_SvD");
+    auto manager1 = Main::GameManager<Model3T, Model4T, StateT, MoveT>("catchthelion_SvD");
     resource = Common::TimeResource(1);
     manager1.StartExperiment(resource, 30);
 
     using Model5T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn<StateT>>;
-    using Model6T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth2>;
-    auto manager2 = Main::GameManager<Model5T, Model6T, StateT, MoveT>("breakthrough_Dv2");
+    using Model6T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
+    auto manager2 = Main::GameManager<Model5T, Model6T, StateT, MoveT>("catchthelion_Dv3");
     resource = Common::TimeResource(1);
     manager2.StartExperiment(resource, 30);
 
-    using Model7T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth2>;
+    using Model7T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
     using Model8T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn<StateT>>;
-    auto manager3 = Main::GameManager<Model7T, Model8T, StateT, MoveT>("breakthrough_2vD");
+    auto manager3 = Main::GameManager<Model7T, Model8T, StateT, MoveT>("catchthelion_3vD");
     resource = Common::TimeResource(1);
     manager3.StartExperiment(resource, 30);
+
+
 
     // using Model9T = Models::Standard::Standard<GameT>;
     // using Model10T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth2>;
