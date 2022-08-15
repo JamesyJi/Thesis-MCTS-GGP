@@ -1,9 +1,10 @@
 #pragma once
 
 #include "game_state.h"
+#include "breakthrough_state.h"
 #include "catchthelion_state.h"
 #include "connect4_state.h"
-#include "breakthrough_state.h"
+#include "othello_state.h"
 
 namespace Strategy
 {
@@ -31,5 +32,7 @@ int DepthFromTurn<Breakthrough::BreakthroughState>(const Games::GameState& gameS
 template <>
 int DepthFromTurn<CatchTheLion::CatchTheLionState>(const Games::GameState& gameState);
 
+template <>
+int DepthFromTurn<Othello::OthelloState>(const Games::GameState& gameState);
 
 }

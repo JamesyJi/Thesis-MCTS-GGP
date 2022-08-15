@@ -103,8 +103,8 @@ struct OthelloMove
 
     friend bool operator==(const OthelloMove& lhs, const OthelloMove& rhs)
     {   
-        std::cout << lhs << "\n";
-        std::cout << rhs << "\n";
+        // std::cout << lhs << "\n";
+        // std::cout << rhs << "\n";
 
         if (lhs.player != rhs.player ||
             lhs.row != rhs.row ||

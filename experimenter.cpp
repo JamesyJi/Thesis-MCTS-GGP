@@ -3,9 +3,10 @@
 #include "resource.h"
 #include "standard/standard.h"
 #include "minimax/minimax_selection.h"
+#include "breakthrough_state.h"
 #include "catchthelion_state.h"
 #include "connect4_state.h"
-#include "breakthrough_state.h"
+#include "othello_state.h"
 #include "strategy.h"
 
 int main(void)
@@ -13,34 +14,34 @@ int main(void)
     srand(time(NULL));
     // auto resource = Common::TimeResource(1);
     
-    using MoveT = CatchTheLion::CatchTheLionMove;
-    using StateT = CatchTheLion::CatchTheLionState;
-    using GameT = Models::Traits<CatchTheLion::CatchTheLionState, CatchTheLion::CatchTheLionMove>;
+    using MoveT = Othello::OthelloMove;
+    using StateT = Othello::OthelloState;
+    using GameT = Models::Traits<Othello::OthelloState, Othello::OthelloMove>;
     auto resource = Common::TimeResource(1);
 
     using Model1T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn<StateT>>;
     using Model2T = Models::Standard::Standard<GameT>;
-    auto manager0 = Main::GameManager<Model1T, Model2T, StateT, MoveT>("catchthelion_DvS");
+    auto manager0 = Main::GameManager<Model1T, Model2T, StateT, MoveT>("othello_DvS");
     resource = Common::TimeResource(1);
-    manager0.StartExperiment(resource, 30);
+    manager0.StartExperiment(resource, 100);
 
     using Model3T = Models::Standard::Standard<GameT>;
     using Model4T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn<StateT>>;
-    auto manager1 = Main::GameManager<Model3T, Model4T, StateT, MoveT>("catchthelion_SvD");
+    auto manager1 = Main::GameManager<Model3T, Model4T, StateT, MoveT>("othello_SvD");
     resource = Common::TimeResource(1);
-    manager1.StartExperiment(resource, 30);
+    manager1.StartExperiment(resource, 100);
 
     using Model5T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn<StateT>>;
-    using Model6T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    auto manager2 = Main::GameManager<Model5T, Model6T, StateT, MoveT>("catchthelion_Dv3");
+    using Model6T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth1>;
+    auto manager2 = Main::GameManager<Model5T, Model6T, StateT, MoveT>("othello_Dv1");
     resource = Common::TimeResource(1);
-    manager2.StartExperiment(resource, 30);
+    manager2.StartExperiment(resource, 100);
 
-    using Model7T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
+    using Model7T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth1>;
     using Model8T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn<StateT>>;
-    auto manager3 = Main::GameManager<Model7T, Model8T, StateT, MoveT>("catchthelion_3vD");
+    auto manager3 = Main::GameManager<Model7T, Model8T, StateT, MoveT>("othello_1vD");
     resource = Common::TimeResource(1);
-    manager3.StartExperiment(resource, 30);
+    manager3.StartExperiment(resource, 100);
 
 
 

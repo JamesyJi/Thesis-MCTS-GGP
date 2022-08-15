@@ -229,9 +229,9 @@ build CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o: CXX_COMPILER__MCTS_GGP_
 #############################################
 # Link the executable MCTS_GGP_THESIS
 
-build MCTS_GGP_THESIS: CXX_EXECUTABLE_LINKER__MCTS_GGP_THESIS_Release CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o | games/connect4/libconnect4.a games/breakthrough/libbreakthrough.a games/catchthelion/libcatchthelion.a games/othello/libothello.a strategy/libstrategy.a mcts/libmcts.a games/catchthelion/libcatchthelion.a games/connect4/libconnect4.a games/breakthrough/libbreakthrough.a mcts/libmcts.a || games/breakthrough/libbreakthrough.a games/catchthelion/libcatchthelion.a games/connect4/libconnect4.a games/othello/libothello.a mcts/libmcts.a strategy/libstrategy.a
+build MCTS_GGP_THESIS: CXX_EXECUTABLE_LINKER__MCTS_GGP_THESIS_Release CMakeFiles/MCTS_GGP_THESIS.dir/experimenter.cpp.o | games/connect4/libconnect4.a games/breakthrough/libbreakthrough.a games/catchthelion/libcatchthelion.a games/othello/libothello.a strategy/libstrategy.a mcts/libmcts.a games/catchthelion/libcatchthelion.a games/othello/libothello.a games/connect4/libconnect4.a games/breakthrough/libbreakthrough.a mcts/libmcts.a || games/breakthrough/libbreakthrough.a games/catchthelion/libcatchthelion.a games/connect4/libconnect4.a games/othello/libothello.a mcts/libmcts.a strategy/libstrategy.a
   FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
-  LINK_LIBRARIES = games/connect4/libconnect4.a  games/breakthrough/libbreakthrough.a  games/catchthelion/libcatchthelion.a  games/othello/libothello.a  strategy/libstrategy.a  mcts/libmcts.a  games/catchthelion/libcatchthelion.a  games/connect4/libconnect4.a  games/breakthrough/libbreakthrough.a  mcts/libmcts.a
+  LINK_LIBRARIES = games/connect4/libconnect4.a  games/breakthrough/libbreakthrough.a  games/catchthelion/libcatchthelion.a  games/othello/libothello.a  strategy/libstrategy.a  mcts/libmcts.a  games/catchthelion/libcatchthelion.a  games/othello/libothello.a  games/connect4/libconnect4.a  games/breakthrough/libbreakthrough.a  mcts/libmcts.a
   OBJECT_DIR = CMakeFiles/MCTS_GGP_THESIS.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -1630,26 +1630,33 @@ build main/install/strip: phony main/CMakeFiles/install/strip.util
 #############################################
 # Order-only phony target for strategy
 
-build cmake_object_order_depends_target_strategy: phony || cmake_object_order_depends_target_breakthrough cmake_object_order_depends_target_catchthelion cmake_object_order_depends_target_connect4
+build cmake_object_order_depends_target_strategy: phony || cmake_object_order_depends_target_breakthrough cmake_object_order_depends_target_catchthelion cmake_object_order_depends_target_connect4 cmake_object_order_depends_target_othello
+
+build strategy/CMakeFiles/strategy.dir/breakthrough_strategy.cpp.o: CXX_COMPILER__strategy_Release /Users/james/Documents/Thesis_C++/strategy/breakthrough_strategy.cpp || cmake_object_order_depends_target_strategy
+  DEP_FILE = strategy/CMakeFiles/strategy.dir/breakthrough_strategy.cpp.o.d
+  FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/catchthelion -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/games/breakthrough -I/Users/james/Documents/Thesis_C++/games/othello
+  OBJECT_DIR = strategy/CMakeFiles/strategy.dir
+  OBJECT_FILE_DIR = strategy/CMakeFiles/strategy.dir
 
 build strategy/CMakeFiles/strategy.dir/catchthelion_strategy.cpp.o: CXX_COMPILER__strategy_Release /Users/james/Documents/Thesis_C++/strategy/catchthelion_strategy.cpp || cmake_object_order_depends_target_strategy
   DEP_FILE = strategy/CMakeFiles/strategy.dir/catchthelion_strategy.cpp.o.d
   FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/catchthelion -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/games/breakthrough
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/catchthelion -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/games/breakthrough -I/Users/james/Documents/Thesis_C++/games/othello
   OBJECT_DIR = strategy/CMakeFiles/strategy.dir
   OBJECT_FILE_DIR = strategy/CMakeFiles/strategy.dir
 
 build strategy/CMakeFiles/strategy.dir/connect4_strategy.cpp.o: CXX_COMPILER__strategy_Release /Users/james/Documents/Thesis_C++/strategy/connect4_strategy.cpp || cmake_object_order_depends_target_strategy
   DEP_FILE = strategy/CMakeFiles/strategy.dir/connect4_strategy.cpp.o.d
   FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/catchthelion -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/games/breakthrough
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/catchthelion -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/games/breakthrough -I/Users/james/Documents/Thesis_C++/games/othello
   OBJECT_DIR = strategy/CMakeFiles/strategy.dir
   OBJECT_FILE_DIR = strategy/CMakeFiles/strategy.dir
 
-build strategy/CMakeFiles/strategy.dir/breakthrough_strategy.cpp.o: CXX_COMPILER__strategy_Release /Users/james/Documents/Thesis_C++/strategy/breakthrough_strategy.cpp || cmake_object_order_depends_target_strategy
-  DEP_FILE = strategy/CMakeFiles/strategy.dir/breakthrough_strategy.cpp.o.d
+build strategy/CMakeFiles/strategy.dir/othello_strategy.cpp.o: CXX_COMPILER__strategy_Release /Users/james/Documents/Thesis_C++/strategy/othello_strategy.cpp || cmake_object_order_depends_target_strategy
+  DEP_FILE = strategy/CMakeFiles/strategy.dir/othello_strategy.cpp.o.d
   FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/catchthelion -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/games/breakthrough
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/games/catchthelion -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/games/breakthrough -I/Users/james/Documents/Thesis_C++/games/othello
   OBJECT_DIR = strategy/CMakeFiles/strategy.dir
   OBJECT_FILE_DIR = strategy/CMakeFiles/strategy.dir
 
@@ -1661,7 +1668,7 @@ build strategy/CMakeFiles/strategy.dir/breakthrough_strategy.cpp.o: CXX_COMPILER
 #############################################
 # Link the static library strategy/libstrategy.a
 
-build strategy/libstrategy.a: CXX_STATIC_LIBRARY_LINKER__strategy_Release strategy/CMakeFiles/strategy.dir/catchthelion_strategy.cpp.o strategy/CMakeFiles/strategy.dir/connect4_strategy.cpp.o strategy/CMakeFiles/strategy.dir/breakthrough_strategy.cpp.o || games/breakthrough/libbreakthrough.a games/catchthelion/libcatchthelion.a games/connect4/libconnect4.a
+build strategy/libstrategy.a: CXX_STATIC_LIBRARY_LINKER__strategy_Release strategy/CMakeFiles/strategy.dir/breakthrough_strategy.cpp.o strategy/CMakeFiles/strategy.dir/catchthelion_strategy.cpp.o strategy/CMakeFiles/strategy.dir/connect4_strategy.cpp.o strategy/CMakeFiles/strategy.dir/othello_strategy.cpp.o || games/breakthrough/libbreakthrough.a games/catchthelion/libcatchthelion.a games/connect4/libconnect4.a games/othello/libothello.a
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
   LANGUAGE_COMPILE_FLAGS = -Wall -Wextra -O3
   OBJECT_DIR = strategy/CMakeFiles/strategy.dir
