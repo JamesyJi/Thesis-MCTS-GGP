@@ -69,6 +69,7 @@ public:
 
     Common::Result Simulate(NodeT& node)
     {
+        mGameState.RunningSimulation();
         return static_cast<M*>(this)->Simulate(node);
     }
 

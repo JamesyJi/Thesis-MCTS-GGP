@@ -38,7 +38,7 @@ public:
         NodeT& exploreNode = promisingNode.HasChildren() ? promisingNode.GetRandomChild() : promisingNode;
 
         // std::cout << "Simulation\n";
-        auto evaluation = this->Simulate(exploreNode);
+        auto evaluation = Model<MinimaxSelection<TTraits, DepthFunc>, TTraits>::Simulate(exploreNode);
 
         // Back Propagation
         this->BackPropagate(exploreNode, evaluation);
@@ -67,8 +67,6 @@ public:
 
     Common::Result Simulate(NodeT& node)
     {
-        this->mGameState.RunningSimulation();
-
         StateT simulateState = node.GetStateCopy();
         auto playerTurn = node.GetPlayerTurn();
         MoveT move = node.GetLastMove();
