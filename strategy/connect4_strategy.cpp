@@ -3,7 +3,7 @@
 namespace Strategy
 {
 
-const int MAX_TURNS = 42; // Maximum number of turns we will account for in our calculations
+// const int MAX_TURNS = 42; // Maximum number of turns we will account for in our calculations
 
 // Map depth of minimax to the turn number
 const int TURN_DEPTH[] = {

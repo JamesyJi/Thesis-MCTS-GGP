@@ -36,8 +36,6 @@ public:
 
         // Simulation
         NodeT& exploreNode = promisingNode.HasChildren() ? promisingNode.GetRandomChild() : promisingNode;
-
-        // std::cout << "Simulation\n";
         auto evaluation = Model<MinimaxSelection<TTraits, DepthFunc>, TTraits>::Simulate(exploreNode);
 
         // Back Propagation

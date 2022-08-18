@@ -4,6 +4,8 @@
 
 #include "model.h"
 #include "standard/standard.h"
+#include "minimax/minimax_selection.h"
+#include "minimax/minimax_rollout.h"
 #include "game_results.h"
 #include "game_types.h"
 #include "pieces.h"

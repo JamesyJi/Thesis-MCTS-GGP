@@ -3,6 +3,7 @@
 #include "resource.h"
 #include "standard/standard.h"
 #include "minimax/minimax_selection.h"
+#include "minimax/minimax_rollout.h"
 #include "catchthelion_state.h"
 #include "connect4_state.h"
 #include "catchthelion_state.h"

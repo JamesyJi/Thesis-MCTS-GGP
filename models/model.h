@@ -93,8 +93,7 @@ public:
 
     void DetectTerminalStates();
 
-    Model(Common::Player player, const StateT& state, Games::GameState& gameState)
-    : mPlayer(player)
+    Model(const StateT& state, Games::GameState& gameState)
     , mRoot(std::make_unique<NodeT>(state, Common::Player::PLAYER1, nullptr, MoveT()))
     , mGameState(gameState)
     {};
@@ -142,7 +141,6 @@ void Model<M, TTraits>::BackPropagateProven(NodeT& node, Common::Result result)
     }
 
     auto curPlayer = node.GetPlayerTurn();
-    auto otherPlayer = Common::GetOtherPlayer(curPlayer);
 
     NodeT* curNode;
 
@@ -151,7 +149,7 @@ void Model<M, TTraits>::BackPropagateProven(NodeT& node, Common::Result result)
         // The player who moved into this turn lost
         node.template ProveResult<Common::Proven::LOSS>();
         curNode = node.GetParent();
-    } else if (result == Common::PlayerToResult(otherPlayer))
+    } else
     {
         // The player who moved into this turn won
         node.template ProveResult<Common::Proven::WIN>();

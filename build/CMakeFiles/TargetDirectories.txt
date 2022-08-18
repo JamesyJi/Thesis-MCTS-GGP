@@ -180,6 +180,14 @@
 /Users/james/Documents/Thesis_C++/build/tests/othello/CMakeFiles/install.dir
 /Users/james/Documents/Thesis_C++/build/tests/othello/CMakeFiles/install/local.dir
 /Users/james/Documents/Thesis_C++/build/tests/othello/CMakeFiles/install/strip.dir
+/Users/james/Documents/Thesis_C++/build/tests/models/CMakeFiles/test_models.dir
+/Users/james/Documents/Thesis_C++/build/tests/models/CMakeFiles/test.dir
+/Users/james/Documents/Thesis_C++/build/tests/models/CMakeFiles/edit_cache.dir
+/Users/james/Documents/Thesis_C++/build/tests/models/CMakeFiles/rebuild_cache.dir
+/Users/james/Documents/Thesis_C++/build/tests/models/CMakeFiles/list_install_components.dir
+/Users/james/Documents/Thesis_C++/build/tests/models/CMakeFiles/install.dir
+/Users/james/Documents/Thesis_C++/build/tests/models/CMakeFiles/install/local.dir
+/Users/james/Documents/Thesis_C++/build/tests/models/CMakeFiles/install/strip.dir
 /Users/james/Documents/Thesis_C++/build/tests/test_helpers/CMakeFiles/test.dir
 /Users/james/Documents/Thesis_C++/build/tests/test_helpers/CMakeFiles/edit_cache.dir
 /Users/james/Documents/Thesis_C++/build/tests/test_helpers/CMakeFiles/rebuild_cache.dir

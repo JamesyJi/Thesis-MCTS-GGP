@@ -11,6 +11,7 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 include(CTest)
+include(GoogleTest)
 enable_testing()
 
 add_subdirectory(common)
