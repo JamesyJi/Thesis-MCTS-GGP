@@ -38,9 +38,14 @@ public:
         mTerminals[mTurn][depth]++;
     }
 
-    inline void RunningSimulation()
+    inline void LogSimulation()
     {
         ++mSimulations[mTurn];
+    }
+
+    inline void LogAverageRolloutLength()
+    {
+
     }
 
     int *GetSimulations()
@@ -63,6 +68,14 @@ private:
 
     // Simulation count logging mSimulations[4] = number of simulations on turn 4
     int mSimulations[300] = {0};
+
+    // Long rollout length means lots of random moves... and info is useless...
+    // We should switch to minimax for rollouts... (BUT ONLY IF IT DETECTS USEFUL INFO)
+    // Determine if this leads to shorter game lengths...
+
+    // If the minimaxes are not detecting valuable information, switch them off
+    // Track percentage of minimax detecting valuable information
+    // Turn off if below certain threshhold???
 };
 
 }

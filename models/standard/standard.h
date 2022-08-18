@@ -63,28 +63,10 @@ public:
         return *bestChild;
     }
 
-    Common::Result Simulate(NodeT& node)
+    MoveT SimulationPolicy(StateT& simulateState, Common::Player playerTurn)
     {
-        StateT simulateState = node.GetStateCopy();
-
-        auto playerTurn = node.GetPlayerTurn();
-        MoveT move = node.GetLastMove();
-        
-        MoveT legalMoves[StateT::MAX_MOVES];
-        while (simulateState.EvaluateState(move) == Common::Result::ONGOING)
-        {
-            // std::cout << simulateState;
-            // std::cout << "==============\n";
-            move = simulateState.GetRandomLegalMove(playerTurn);
-            // std::cout << "Selected random move " << move << "\n";
-            simulateState.SimulateMove(move);
-            playerTurn = Common::GetOtherPlayer(playerTurn);
-        }
-
-        // std::cout << simulateState;            
-        // std::cout << "==============\n";
-        // std::cout << "finished\n";
-        return simulateState.EvaluateState(move);
+        // Select a random move
+        return simulateState.GetRandomLegalMove(playerTurn);
     }
 };
 
