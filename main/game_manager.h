@@ -47,8 +47,8 @@ public:
     {
         Games::GameState gameState;
 
-        auto model1 = Models::Model<Model1, TraitsT>(Common::Player::PLAYER1, TState(), gameState);
-        auto model2 = Models::Model<Model2, TraitsT>(Common::Player::PLAYER2, TState(), gameState);
+        auto model1 = Models::Model<Model1, TraitsT>(TState(), gameState);
+        auto model2 = Models::Model<Model2, TraitsT>(TState(), gameState);
 
         TState state{};
         TMove move{};

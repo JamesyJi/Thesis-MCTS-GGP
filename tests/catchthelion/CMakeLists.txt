@@ -5,4 +5,8 @@ add_executable(test_catchthelion
     catchthelion_state_real_scenarios_test.cpp
     )
 
-add_google_test(test_catchthelion catchthelion)
+target_link_libraries(test_catchthelion
+    catchthelion
+    )
+
+add_google_test(test_catchthelion)

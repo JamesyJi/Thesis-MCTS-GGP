@@ -24,8 +24,8 @@ target_link_libraries(GTest::GTest INTERFACE gtest_main)
 
 # add_executable(${This} ${Sources})
 
-function(add_google_test test_target target)
-    target_link_libraries(${test_target} ${target} gtest gmock gtest_main lib_test_helpers)
+function(add_google_test test_target)
+    target_link_libraries(${test_target} gtest gmock gtest_main lib_test_helpers)
     # Using the compile flags for the main executable from GCC_COMPILE_FLAGS
     # and appending test-specific flags from GCC_COMPILE_FLAGS_TEST
     target_compile_options(${test_target} PRIVATE ${GCC_COMPILE_FLAGS} ${GCC_COMPILE_FLAGS_TEST})

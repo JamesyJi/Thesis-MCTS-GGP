@@ -28,6 +28,12 @@ struct Connect4Move
         return lhs.player == rhs.player && lhs.row == rhs.row && lhs.col == rhs.col;
     }
 
+    friend std::ostream& operator<<(std::ostream& os, const Connect4Move& move)
+    {
+        os << "Connect4Move " << move.player << " " << move.row << " " << move.col;
+        return os;
+    }
+
     Common::Player player;
     int row;
     int col;

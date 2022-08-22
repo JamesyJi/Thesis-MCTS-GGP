@@ -15,8 +15,8 @@ public:
     using MoveT = typename TTraits::MoveT;
     using NodeT = MCTS::Node<StateT, MoveT>;
 
-    MinimaxSelection(Common::Player player, const StateT& state, Games::GameState& gameState)
-    : Model<MinimaxSelection<TTraits, DepthFunc>, TTraits>(player, state, gameState)
+    MinimaxSelection(const StateT& state, Games::GameState& gameState)
+    : Model<MinimaxSelection<TTraits, DepthFunc>, TTraits>(state, gameState)
     {}
 
     ~MinimaxSelection(){}
@@ -63,7 +63,7 @@ public:
         return *bestChild;
     }
 
-    MoveT SimulationPolicy(StateT& simulateState, Common::Player playerTurn)
+    MoveT SimulationPolicy(StateT& simulateState, const Common::Player playerTurn)
     {
         // Select a random move
         return simulateState.GetRandomLegalMove(playerTurn);

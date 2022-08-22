@@ -94,12 +94,11 @@ public:
     void DetectTerminalStates();
 
     Model(const StateT& state, Games::GameState& gameState)
-    , mRoot(std::make_unique<NodeT>(state, Common::Player::PLAYER1, nullptr, MoveT()))
+    : mRoot(std::make_unique<NodeT>(state, Common::Player::PLAYER1, nullptr, MoveT()))
     , mGameState(gameState)
     {};
 
 protected:
-    const Common::Player mPlayer;
     std::unique_ptr<NodeT> mRoot;
     Games::GameState& mGameState;
 };

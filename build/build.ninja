@@ -2593,12 +2593,12 @@ build tests/othello/install/strip: phony tests/othello/CMakeFiles/install/strip.
 #############################################
 # Order-only phony target for test_models
 
-build cmake_object_order_depends_target_test_models: phony || cmake_object_order_depends_target_gmock cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main cmake_object_order_depends_target_mcts
+build cmake_object_order_depends_target_test_models: phony || cmake_object_order_depends_target_connect4 cmake_object_order_depends_target_gmock cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main cmake_object_order_depends_target_mcts cmake_object_order_depends_target_strategy
 
 build tests/models/CMakeFiles/test_models.dir/minimax_rollout_simulation_policy_unittest.cpp.o: CXX_COMPILER__test_models_Release /Users/james/Documents/Thesis_C++/tests/models/minimax_rollout_simulation_policy_unittest.cpp || cmake_object_order_depends_target_test_models
   DEP_FILE = tests/models/CMakeFiles/test_models.dir/minimax_rollout_simulation_policy_unittest.cpp.o.d
   FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/james/Documents/Thesis_C++/models/. -I/Users/james/Documents/Thesis_C++/mcts -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/tests/test_helpers -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googlemock/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googlemock
+  INCLUDES = -I/Users/james/Documents/Thesis_C++/common -I/Users/james/Documents/Thesis_C++/games/connect4 -I/Users/james/Documents/Thesis_C++/models/. -I/Users/james/Documents/Thesis_C++/mcts -I/Users/james/Documents/Thesis_C++/games -I/Users/james/Documents/Thesis_C++/strategy -I/Users/james/Documents/Thesis_C++/tests/test_helpers -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googletest -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googlemock/include -isystem /Users/james/Documents/Thesis_C++/build/_deps/googletest-src/googlemock
   OBJECT_DIR = tests/models/CMakeFiles/test_models.dir
   OBJECT_FILE_DIR = tests/models/CMakeFiles/test_models.dir
 
@@ -2610,9 +2610,9 @@ build tests/models/CMakeFiles/test_models.dir/minimax_rollout_simulation_policy_
 #############################################
 # Link the executable tests/models/test_models
 
-build tests/models/test_models: CXX_EXECUTABLE_LINKER__test_models_Release tests/models/CMakeFiles/test_models.dir/minimax_rollout_simulation_policy_unittest.cpp.o | lib/libgtest.a lib/libgmock.a lib/libgtest_main.a mcts/libmcts.a lib/libgtest.a || lib/libgmock.a lib/libgtest.a lib/libgtest_main.a mcts/libmcts.a
+build tests/models/test_models: CXX_EXECUTABLE_LINKER__test_models_Release tests/models/CMakeFiles/test_models.dir/minimax_rollout_simulation_policy_unittest.cpp.o | games/connect4/libconnect4.a strategy/libstrategy.a lib/libgtest.a lib/libgmock.a lib/libgtest_main.a mcts/libmcts.a games/connect4/libconnect4.a lib/libgtest.a || games/connect4/libconnect4.a lib/libgmock.a lib/libgtest.a lib/libgtest_main.a mcts/libmcts.a strategy/libstrategy.a
   FLAGS = -Wall -Wextra -O3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
-  LINK_LIBRARIES = lib/libgtest.a  lib/libgmock.a  lib/libgtest_main.a  mcts/libmcts.a  lib/libgtest.a
+  LINK_LIBRARIES = games/connect4/libconnect4.a  strategy/libstrategy.a  lib/libgtest.a  lib/libgmock.a  lib/libgtest_main.a  mcts/libmcts.a  games/connect4/libconnect4.a  lib/libgtest.a
   OBJECT_DIR = tests/models/CMakeFiles/test_models.dir
   POST_BUILD = :
   PRE_LINK = :

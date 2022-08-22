@@ -13,8 +13,8 @@ public:
     using MoveT = typename TTraits::MoveT;
     using NodeT = MCTS::Node<StateT, MoveT>;
 
-    MinimaxRollout(Common::Player player, const StateT& state, Games::GameState& gameState)
-    : Model<MinimaxRollout<TTraits, DepthFunc>, TTraits>(player, state, gameState)
+    MinimaxRollout(const StateT& state, Games::GameState& gameState)
+    : Model<MinimaxRollout<TTraits, DepthFunc>, TTraits>(state, gameState)
     {}
 
     ~MinimaxRollout(){}
@@ -82,9 +82,9 @@ public:
             }
         }
 
-        switch (bestEval)
+        switch (bestMove)
         {
-            case Common::Result::ONGOING:
+            case -1:
                 return legalMoves[rand() % nLegalMoves];
             default:
                 return legalMoves[bestMove];

@@ -3,4 +3,8 @@ add_executable(test_breakthrough
     breakthrough_state_legal_moves_unittest.cpp
     )
 
-add_google_test(test_breakthrough breakthrough)
+target_link_libraries(test_breakthrough
+    breakthrough
+)
+
+add_google_test(test_breakthrough)

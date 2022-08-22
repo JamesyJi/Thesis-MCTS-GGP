@@ -3,4 +3,8 @@ add_executable(test_othello
     othello_state_legal_moves_unittest.cpp
     )
 
-add_google_test(test_othello othello)
+target_link_libraries(test_othello
+    othello
+)
+
+add_google_test(test_othello)
