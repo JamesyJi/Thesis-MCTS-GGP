@@ -38,14 +38,21 @@ public:
         mTerminals[mTurn][depth]++;
     }
 
-    inline void LogSimulation()
+    inline void LogSimulationStatistics(int length)
+    {
+        IncrementSimulation();
+        UpdateAvgRolloutLength(length);
+    }
+
+    inline void IncrementSimulation()
     {
         ++mSimulations[mTurn];
     }
 
-    inline void LogAverageRolloutLength()
+    // To be called after simulation count is updated
+    inline void UpdateAvgRolloutLength(int length)
     {
-
+        mAvgRolloutLengths[mTurn] = (mAvgRolloutLengths[mTurn] * (mSimulations[mTurn] - 1) + length) / mSimulations[mTurn];
     }
 
     int *GetSimulations()
@@ -56,6 +63,11 @@ public:
     bool MaxTurns() const
     {
         return mTurn == 299;
+    }
+
+    double GetAvgRolloutLengthAtTurn(int turn)
+    {
+        return mAvgRolloutLengths[turn];
     }
 
 
@@ -72,10 +84,11 @@ private:
     // Long rollout length means lots of random moves... and info is useless...
     // We should switch to minimax for rollouts... (BUT ONLY IF IT DETECTS USEFUL INFO)
     // Determine if this leads to shorter game lengths...
+    double mAvgRolloutLengths[300] = {0};
 
     // If the minimaxes are not detecting valuable information, switch them off
     // Track percentage of minimax detecting valuable information
-    // Turn off if below certain threshhold???
+    // Turn off if below certain threshhold?
 };
 
 }

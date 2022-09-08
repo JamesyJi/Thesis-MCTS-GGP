@@ -69,18 +69,20 @@ public:
 
     Common::Result Simulate(NodeT& node)
     {
-        mGameState.LogSimulation();
-
         StateT simulateState = node.GetStateCopy();
         auto playerTurn = node.GetPlayerTurn();
         MoveT move = node.GetLastMove();
 
+        int length = 0;
         while (simulateState.EvaluateState(move) == Common::Result::ONGOING)
         {
             move = static_cast<M*>(this)->SimulationPolicy(simulateState, playerTurn);
             simulateState.SimulateMove(move);
             playerTurn = Common::GetOtherPlayer(playerTurn);
+            ++length;
         }
+
+        mGameState.LogSimulationStatistics(length);
 
         return simulateState.EvaluateState(move);
     }
