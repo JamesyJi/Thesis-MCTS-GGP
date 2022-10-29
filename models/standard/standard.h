@@ -30,7 +30,7 @@ public:
         if (promisingState.EvaluateState(promisingNode.GetLastMove()) == Common::Result::ONGOING)
         {
             // std::cout << "expansion...\n";
-            promisingNode.ExpandNode();
+            this->mGameState.UpdateAvgBranchingFactor(promisingNode.ExpandNode());
         }
         // std::cout << "finished expansion...\n";
 

@@ -28,6 +28,7 @@ public:
         if (promisingState.EvaluateState(promisingNode.GetLastMove()) == Common::Result::ONGOING)
         {
             promisingNode.ExpandNode();
+            this->mGameState.UpdateAvgBranchingFactor(promisingNode.ExpandNode());
         }
 
         // Simulation

@@ -70,6 +70,12 @@ public:
             mAvgRolloutLengths[turn] = Round2dp((mAvgRolloutLengths[turn] * (mTotalGames - 1) + gameState.GetAvgRolloutLengthAtTurn(turn))/ mTotalGames);
         }
 
+        // Updating Avg Branching Factors
+        for (int turn = 1; turn < gameState.GetTurn(); ++turn)
+        {
+            mAvgBranchingFactors[turn] = Round2dp((mAvgBranchingFactors[turn] * (mTotalGames - 1) + gameState.GetAvgBranchingFactorAtTurn(turn))/ mTotalGames);
+        }
+
         UpdateTerminalsVsRolloutLengths(gameState);
     }
 
@@ -142,6 +148,16 @@ public:
         file.close();
     }
 
+    void LogAvgBranchingFactors(const std::string& fileName) const
+    {
+        std::ofstream file(fileName, std::ofstream::trunc);
+        for (auto& it :mAvgRolloutLengths)
+        {
+            file << it.first << " : " << it.second << "\n";
+        }
+        file.close();
+    }
+
     void LogTerminalsVsRolloutLengths(const std::string& fileName) const
     {
         std::ofstream file(fileName, std::ofstream::trunc);
@@ -178,6 +194,8 @@ private:
     // Average rollout lengths by turn (turn : mAvgRolloutLengths)
     std::map<int, double> mAvgRolloutLengths = {};
 
+    // Average branching factors by turn (turn : mAvgBranchingFactors)
+    std::map<int, double> mAvgBranchingFactors = {};
 
     // To find a correlation between rollout lengths and number of terminals
     // RolloutLengths v Depths 1, 2, 3, 4, 5, 6, 7, 8

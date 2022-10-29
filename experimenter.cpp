@@ -24,7 +24,7 @@ int main(void)
     using Model2T = Models::Standard::Standard<GameT>;
     auto manager0 = Main::GameManager<Model1T, Model2T, StateT, MoveT>("connect4_SvS");
     resource = Common::TimeResource(1);
-    manager0.StartExperiment(resource, 300);
+    manager0.StartExperiment(resource, 100);
 
     // using BreakthroughMoveT = Breakthrough::BreakthroughMove;
     // using BreakthroughStateT = Breakthrough::BreakthroughState;

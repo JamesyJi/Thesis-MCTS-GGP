@@ -41,7 +41,8 @@ public:
         mGameResults.LogTerminals(mResultsFile + "_terminals.csv");
         mGameResults.LogGameLengths(mResultsFile + "_gamelengths.csv");
         mGameResults.LogAvgRolloutLengths(mResultsFile + "_rolloutlengths.csv");
-        mGameResults.LogTerminalsVsRolloutLengths(mResultsFile + "_terminalVsRollout.csv");
+        mGameResults.LogAvgBranchingFactors(mResultsFile + "_branchingfactors.csv");
+        // mGameResults.LogTerminalsVsRolloutLengths(mResultsFile + "_terminalVsRollout.csv");
     }
 
 

@@ -55,6 +55,12 @@ public:
         mAvgRolloutLengths[mTurn] = (mAvgRolloutLengths[mTurn] * (mSimulations[mTurn] - 1) + length) / mSimulations[mTurn];
     }
 
+    // This is called by the models during Expansion (before simulation count is updated)
+    inline void UpdateAvgBranchingFactor(int branchingFactor)
+    {
+        mAvgBranchingFactors[mTurn] = (mAvgBranchingFactors[mTurn] * (mSimulations[mTurn] - 1) + branchingFactor) / mSimulations[mTurn];
+    }
+
     int *GetSimulations()
     {
         return mSimulations;
@@ -68,6 +74,11 @@ public:
     double GetAvgRolloutLengthAtTurn(int turn)
     {
         return mAvgRolloutLengths[turn];
+    }
+
+    double GetAvgBranchingFactorAtTurn(int turn)
+    {
+        return mAvgBranchingFactors[turn];
     }
 
 
@@ -85,6 +96,8 @@ private:
     // We should switch to minimax for rollouts... (BUT ONLY IF IT DETECTS USEFUL INFO)
     // Determine if this leads to shorter game lengths...
     double mAvgRolloutLengths[300] = {0};
+
+    double mAvgBranchingFactors[300] = {0};
 
     // If the minimaxes are not detecting valuable information, switch them off
     // Track percentage of minimax detecting valuable information

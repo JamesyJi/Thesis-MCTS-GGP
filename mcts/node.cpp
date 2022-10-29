@@ -68,7 +68,7 @@ Node<TState, TMove>& Node<TState, TMove>::GetHighestScoreChild() const
 
 // Expands the node, adding all legal possible nodes as children
 template<typename TState, typename TMove>
-void Node<TState, TMove>::ExpandNode()
+int Node<TState, TMove>::ExpandNode()
 {
     TMove legalMoves[TState::MAX_MOVES];
     mNumChildren = mState.GetLegalMoves(mPlayerTurn, legalMoves);
@@ -76,8 +76,9 @@ void Node<TState, TMove>::ExpandNode()
     for (int i = 0; i < mNumChildren; ++i) 
     {
         mChildren[i] = std::make_unique<Node<TState, TMove>>(TState(mState.MakeMove(legalMoves[i])), Common::GetOtherPlayer(mPlayerTurn), this, legalMoves[i]);
-        // std::cout << mChildren[i]->GetStateRef();
     }
+
+    return mNumChildren;
 }
 
 // Assumes that the parent exists and is not null

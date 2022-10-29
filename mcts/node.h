@@ -21,7 +21,7 @@ public:
     Node& GetRandomChild() const;
     std::unique_ptr<Node> DecideOnBestChild();
     Node& GetHighestScoreChild() const;
-    void ExpandNode();
+    int ExpandNode();
     double GetNodeScore() const;
     std::unique_ptr<Node> GetChild(TMove& opponentMove);
     bool HasChildren() const;
