@@ -26,35 +26,35 @@ int main(void)
     resource = Common::TimeResource(1);
     manager0.StartExperiment(resource, 100);
 
-    // using BreakthroughMoveT = Breakthrough::BreakthroughMove;
-    // using BreakthroughStateT = Breakthrough::BreakthroughState;
-    // using BreakthroughGameT = Models::Traits<Breakthrough::BreakthroughState, Breakthrough::BreakthroughMove>;
+    using BreakthroughMoveT = Breakthrough::BreakthroughMove;
+    using BreakthroughStateT = Breakthrough::BreakthroughState;
+    using BreakthroughGameT = Models::Traits<Breakthrough::BreakthroughState, Breakthrough::BreakthroughMove>;
 
-    // using Model3T = Models::Standard::Standard<BreakthroughGameT>;
-    // using Model4T = Models::Standard::Standard<BreakthroughGameT>;
-    // auto manager1 = Main::GameManager<Model3T, Model4T, BreakthroughStateT, BreakthroughMoveT>("breakthrough_SvS");
-    // resource = Common::TimeResource(1);
-    // manager1.StartExperiment(resource, 5);
+    using Model3T = Models::Standard::Standard<BreakthroughGameT>;
+    using Model4T = Models::Standard::Standard<BreakthroughGameT>;
+    auto manager1 = Main::GameManager<Model3T, Model4T, BreakthroughStateT, BreakthroughMoveT>("breakthrough_SvS");
+    resource = Common::TimeResource(1);
+    manager1.StartExperiment(resource, 100);
 
-    // using OthelloMoveT = Othello::OthelloMove;
-    // using OthelloStateT = Othello::OthelloState;
-    // using OthelloGameT = Models::Traits<Othello::OthelloState, Othello::OthelloMove>;
+    using OthelloMoveT = Othello::OthelloMove;
+    using OthelloStateT = Othello::OthelloState;
+    using OthelloGameT = Models::Traits<Othello::OthelloState, Othello::OthelloMove>;
 
-    // using Model5T = Models::Standard::Standard<OthelloGameT>;
-    // using Model6T = Models::Standard::Standard<OthelloGameT>;
-    // auto manager2 = Main::GameManager<Model5T, Model6T, OthelloStateT, OthelloMoveT>("othello_SvS");
-    // resource = Common::TimeResource(1);
-    // manager2.StartExperiment(resource, 5);
+    using Model5T = Models::Standard::Standard<OthelloGameT>;
+    using Model6T = Models::Standard::Standard<OthelloGameT>;
+    auto manager2 = Main::GameManager<Model5T, Model6T, OthelloStateT, OthelloMoveT>("othello_SvS");
+    resource = Common::TimeResource(1);
+    manager2.StartExperiment(resource, 100);
 
-    // using CatchTheLionMoveT = CatchTheLion::CatchTheLionMove;
-    // using CatchTheLionStateT = CatchTheLion::CatchTheLionState;
-    // using CatchTheLionGameT = Models::Traits<CatchTheLion::CatchTheLionState, CatchTheLion::CatchTheLionMove>;
+    using CatchTheLionMoveT = CatchTheLion::CatchTheLionMove;
+    using CatchTheLionStateT = CatchTheLion::CatchTheLionState;
+    using CatchTheLionGameT = Models::Traits<CatchTheLion::CatchTheLionState, CatchTheLion::CatchTheLionMove>;
 
-    // using Model7T = Models::Standard::Standard<CatchTheLionGameT>;
-    // using Model8T = Models::Standard::Standard<CatchTheLionGameT>;
-    // auto manager3 = Main::GameManager<Model7T, Model8T, CatchTheLionStateT, CatchTheLionMoveT>("catchthelion_SvS");
-    // resource = Common::TimeResource(1);
-    // manager3.StartExperiment(resource, 5);
+    using Model7T = Models::Standard::Standard<CatchTheLionGameT>;
+    using Model8T = Models::Standard::Standard<CatchTheLionGameT>;
+    auto manager3 = Main::GameManager<Model7T, Model8T, CatchTheLionStateT, CatchTheLionMoveT>("catchthelion_SvS");
+    resource = Common::TimeResource(1);
+    manager3.StartExperiment(resource, 100);
 
 
     // using Model5T = Models::Standard::Standard<GameT>;

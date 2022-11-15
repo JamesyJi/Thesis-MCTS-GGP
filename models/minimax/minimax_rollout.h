@@ -5,57 +5,59 @@
 namespace Models::Minimax
 {
 
-template<typename TTraits, auto DepthFunc>
-class MinimaxRollout : public Model<MinimaxRollout<TTraits, DepthFunc>, TTraits>
-{
-public:
-    using StateT = typename TTraits::StateT;
-    using MoveT = typename TTraits::MoveT;
-    using NodeT = MCTS::Node<StateT, MoveT>;
-
-    MinimaxRollout(const StateT& state, Games::GameState& gameState)
-    : Model<MinimaxRollout<TTraits, DepthFunc>, TTraits>(state, gameState)
-    {}
-
-    ~MinimaxRollout(){}
-
-    void ExecuteStrategy()
+    template <typename TTraits, auto DepthFunc>
+    class MinimaxRollout : public Model<MinimaxRollout<TTraits, DepthFunc>, TTraits>
     {
-        // Selection
-        NodeT& promisingNode = SelectBestChild();
-        StateT& promisingState = promisingNode.GetStateRef();
+    public:
+        using StateT = typename TTraits::StateT;
+        using MoveT = typename TTraits::MoveT;
+        using NodeT = MCTS::Node<StateT, MoveT>;
 
-        if (promisingState.EvaluateState(promisingNode.GetLastMove()) == Common::Result::ONGOING)
+        MinimaxRollout(const StateT &state, Games::GameState &gameState)
+            : Model<MinimaxRollout<TTraits, DepthFunc>, TTraits>(state, gameState)
         {
-            promisingNode.ExpandNode();
-            this->mGameState.UpdateAvgBranchingFactor(promisingNode.ExpandNode());
         }
 
-        // Simulation
-        NodeT& exploreNode = promisingNode.HasChildren() ? promisingNode.GetRandomChild() : promisingNode;
-        auto evaluation = Model<MinimaxRollout<TTraits, DepthFunc>, TTraits>::Simulate(exploreNode);
- 
-        // Back Propagation
-        this->BackPropagate(exploreNode, evaluation);
-    }
+        ~MinimaxRollout() {}
 
-    NodeT& SelectBestChild()
-    {
-        NodeT* bestChild = this->mRoot.get();
-        while (bestChild->HasChildren())
+        void ExecuteStrategy()
         {
-            bestChild = &bestChild->GetHighestScoreChild();
+            // Selection
+            NodeT &promisingNode = SelectBestChild();
+            StateT &promisingState = promisingNode.GetStateRef();
+
+            if (promisingState.EvaluateState(promisingNode.GetLastMove()) == Common::Result::ONGOING)
+            {
+                promisingNode.ExpandNode();
+                this->mGameState.UpdateAvgBranchingFactor(promisingNode.ExpandNode());
+            }
+
+            // Simulation
+            NodeT &exploreNode = promisingNode.HasChildren() ? promisingNode.GetRandomChild() : promisingNode;
+            auto evaluation = Model<MinimaxRollout<TTraits, DepthFunc>, TTraits>::Simulate(exploreNode);
+
+            // Back Propagation
+            this->BackPropagate(exploreNode, evaluation);
         }
 
-        return *bestChild;
-    }
+        NodeT &SelectBestChild()
+        {
+            NodeT *bestChild = this->mRoot.get();
+            while (bestChild->HasChildren())
+            {
+                bestChild = &bestChild->GetHighestScoreChild();
+            }
 
-    MoveT SimulationPolicy(StateT& simulateState, const Common::Player playerTurn)
-    {
-        int bestMove = -1;
-        Common::Result bestEval = Common::PlayerToResult(Common::GetOtherPlayer(playerTurn));
+            return *bestChild;
+        }
 
-        const auto& compareBetterEval = std::invoke([&]()->std::function<bool(Common::Result, Common::Result)> {
+        MoveT SimulationPolicy(StateT &simulateState, const Common::Player playerTurn)
+        {
+            int bestMove = -1;
+            Common::Result bestEval = Common::PlayerToResult(Common::GetOtherPlayer(playerTurn));
+
+            const auto &compareBetterEval = std::invoke([&]() -> std::function<bool(Common::Result, Common::Result)>
+                                                        {
             switch (playerTurn)
             {
                 case Common::Player::PLAYER1:
@@ -64,33 +66,32 @@ public:
                     return Common::operator<;
                 default:
                     throw std::runtime_error("Should only be player 1 or 2 in MinimaxRollout Simulation Policy");
-            }
-        });
+            } });
 
-        // Minimax options to determine an optimal move
-        MoveT legalMoves[StateT::MAX_MOVES];
-        int nLegalMoves = simulateState.GetLegalMoves(playerTurn, legalMoves);
-        for (int i = 0; i < nLegalMoves; ++i)
-        {
-            simulateState.SimulateMove(legalMoves[i]);
-            auto evaluation = this->MinimaxAB(simulateState, legalMoves[i], DepthFunc(this->mGameState), Common::Result::PLAYER2_WIN, Common::Result::PLAYER1_WIN, Common::GetOtherPlayer(playerTurn));
-            simulateState.UndoMove(legalMoves[i]);
-
-            if (compareBetterEval(evaluation, bestEval))
+            // Minimax options to determine an optimal move
+            MoveT legalMoves[StateT::MAX_MOVES];
+            int nLegalMoves = simulateState.GetLegalMoves(playerTurn, legalMoves);
+            for (int i = 0; i < nLegalMoves; ++i)
             {
-                bestEval = evaluation;
-                bestMove = i;
-            }
-        }
+                simulateState.SimulateMove(legalMoves[i]);
+                auto evaluation = this->MinimaxAB(simulateState, legalMoves[i], DepthFunc(this->mGameState), Common::Result::PLAYER2_WIN, Common::Result::PLAYER1_WIN, Common::GetOtherPlayer(playerTurn));
+                simulateState.UndoMove(legalMoves[i]);
 
-        switch (bestMove)
-        {
+                if (compareBetterEval(evaluation, bestEval))
+                {
+                    bestEval = evaluation;
+                    bestMove = i;
+                }
+            }
+
+            switch (bestMove)
+            {
             case -1:
                 return legalMoves[rand() % nLegalMoves];
             default:
                 return legalMoves[bestMove];
+            }
         }
-    }
-};
+    };
 
 }
