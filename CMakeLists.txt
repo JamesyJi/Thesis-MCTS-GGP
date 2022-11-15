@@ -15,6 +15,7 @@ include(GoogleTest)
 enable_testing()
 
 add_subdirectory(common)
+add_subdirectory(constants)
 add_subdirectory(games)
 add_subdirectory(mcts)
 add_subdirectory(models)
@@ -22,24 +23,23 @@ add_subdirectory(main)
 add_subdirectory(strategy)
 add_subdirectory(tests)
 
-
 file(GLOB SOURCES
-    experimenter.cpp
+  experimenter.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 target_link_libraries(${PROJECT_NAME}
-    common
-    games
-    connect4
-    breakthrough
-    catchthelion
-    othello
-    strategy
-    models
-    standard
-    mcts
-    main
+  common
+  constants
+  games
+  connect4
+  breakthrough
+  catchthelion
+  othello
+  strategy
+  models
+  standard
+  mcts
+  main
 )
-

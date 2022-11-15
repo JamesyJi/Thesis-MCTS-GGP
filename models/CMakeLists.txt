@@ -7,4 +7,5 @@ target_include_directories(models INTERFACE .)
 target_link_libraries(models INTERFACE
     mcts
     games
+    constants
 )

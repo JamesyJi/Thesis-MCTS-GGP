@@ -1,107 +1,107 @@
 #pragma once
 
 #include "game_types.h"
+#include "game_constants.h"
 
 namespace Games
 {
 
-class GameState
-{
-public:
-    GameState(){};
-
-    ~GameState(){};
-
-    void NextTurn()
+    class GameState
     {
-        ++mTurn;
-        mPlayerTurn = Common::GetOtherPlayer(mPlayerTurn);
-    }
+    public:
+        GameState(){};
 
-    int GetTurn() const
-    {
-        return mTurn;
-    }
+        ~GameState(){};
 
-    Common::Player GetPlayerTurn() const
-    {
-        return mPlayerTurn;
-    }
+        void NextTurn()
+        {
+            ++mTurn;
+            mPlayerTurn = Common::GetOtherPlayer(mPlayerTurn);
+        }
 
-    int (*(GetTerminals)())[11]
-    {
-        return mTerminals;
-    }
+        int GetTurn() const
+        {
+            return mTurn;
+        }
 
-    void FoundTerminal(int depth)
-    {
-        mTerminals[mTurn][depth]++;
-    }
+        Common::Player GetPlayerTurn() const
+        {
+            return mPlayerTurn;
+        }
 
-    inline void LogSimulationStatistics(int length)
-    {
-        IncrementSimulation();
-        UpdateAvgRolloutLength(length);
-    }
+        int (*(GetTerminals)())[MAX_DEPTH + 1]
+        {
+            return mTerminals;
+        }
 
-    inline void IncrementSimulation()
-    {
-        ++mSimulations[mTurn];
-    }
+        void FoundTerminal(int depth)
+        {
+            mTerminals[mTurn][depth]++;
+        }
 
-    // To be called after simulation count is updated
-    inline void UpdateAvgRolloutLength(int length)
-    {
-        mAvgRolloutLengths[mTurn] = (mAvgRolloutLengths[mTurn] * (mSimulations[mTurn] - 1) + length) / mSimulations[mTurn];
-    }
+        inline void LogSimulationStatistics(int length)
+        {
+            IncrementSimulation();
+            UpdateAvgRolloutLength(length);
+        }
 
-    // This is called by the models during Expansion (before simulation count is updated)
-    inline void UpdateAvgBranchingFactor(int branchingFactor)
-    {
-        mAvgBranchingFactors[mTurn] = (mAvgBranchingFactors[mTurn] * (mSimulations[mTurn] - 1) + branchingFactor) / mSimulations[mTurn];
-    }
+        inline void IncrementSimulation()
+        {
+            ++mSimulations[mTurn];
+        }
 
-    int *GetSimulations()
-    {
-        return mSimulations;
-    }
+        // To be called after simulation count is updated
+        inline void UpdateAvgRolloutLength(int length)
+        {
+            mAvgRolloutLengths[mTurn] = (mAvgRolloutLengths[mTurn] * (mSimulations[mTurn] - 1) + length) / mSimulations[mTurn];
+        }
 
-    bool MaxTurns() const
-    {
-        return mTurn == 299;
-    }
+        // This is called by the models during Expansion (before simulation count is updated)
+        inline void UpdateAvgBranchingFactor(int branchingFactor)
+        {
+            mAvgBranchingFactors[mTurn] = (mAvgBranchingFactors[mTurn] * (mSimulations[mTurn] - 1) + branchingFactor) / mSimulations[mTurn];
+        }
 
-    double GetAvgRolloutLengthAtTurn(int turn)
-    {
-        return mAvgRolloutLengths[turn];
-    }
+        int *GetSimulations()
+        {
+            return mSimulations;
+        }
 
-    double GetAvgBranchingFactorAtTurn(int turn)
-    {
-        return mAvgBranchingFactors[turn];
-    }
+        bool MaxTurns() const
+        {
+            return mTurn == MAX_TURN;
+        }
 
+        double GetAvgRolloutLengthAtTurn(int turn)
+        {
+            return mAvgRolloutLengths[turn];
+        }
 
-private:
-    int mTurn = 1;
-    Common::Player mPlayerTurn = Common::Player::PLAYER1;
+        double GetAvgBranchingFactorAtTurn(int turn)
+        {
+            return mAvgBranchingFactors[turn];
+        }
 
-    // Terminal Logging mTerminal[4][8] = number of terminal results detected 8 moves on turn 4
-    int mTerminals[300][11] = {0};
+    private:
+        int mTurn = 1;
+        Common::Player mPlayerTurn = Common::Player::PLAYER1;
 
-    // Simulation count logging mSimulations[4] = number of simulations on turn 4
-    int mSimulations[300] = {0};
+        // Terminal Logging mTerminal[4][8] = number of terminal results detected 8 moves on turn 4
+        int mTerminals[MAX_TURN + 1][MAX_DEPTH + 1] = {{0}};
 
-    // Long rollout length means lots of random moves... and info is useless...
-    // We should switch to minimax for rollouts... (BUT ONLY IF IT DETECTS USEFUL INFO)
-    // Determine if this leads to shorter game lengths...
-    double mAvgRolloutLengths[300] = {0};
+        // Simulation count logging mSimulations[4] = number of simulations on turn 4
+        int mSimulations[MAX_TURN + 1] = {0};
 
-    double mAvgBranchingFactors[300] = {0};
+        // Long rollout length means lots of random moves... and info is useless...
+        // We should switch to minimax for rollouts... (BUT ONLY IF IT DETECTS USEFUL INFO)
+        // Determine if this leads to shorter game lengths...
+        double mAvgRolloutLengths[MAX_TURN + 1] = {0};
 
-    // If the minimaxes are not detecting valuable information, switch them off
-    // Track percentage of minimax detecting valuable information
-    // Turn off if below certain threshhold?
-};
+        double mAvgBranchingFactors[MAX_TURN + 1] = {0};
+
+        // If the minimaxes are not detecting valuable information, switch them off
+        // Track percentage of minimax detecting valuable information
+        // Turn off if below certain threshhold?
+    };
 
 }

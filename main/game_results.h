@@ -7,6 +7,7 @@
 
 #include "game_types.h"
 #include "game_state.h"
+#include "game_constants.h"
 
 namespace Main
 {
@@ -58,10 +59,10 @@ namespace Main
             }
 
             // Updating Terminals
-            int(*terminals)[11] = gameState.GetTerminals();
+            int(*terminals)[MAX_DEPTH + 1] = gameState.GetTerminals();
             for (int turn = 1; turn < gameState.GetTurn(); ++turn)
             {
-                for (int depth = 1; depth <= 10; ++depth)
+                for (int depth = 1; depth <= MAX_DEPTH; ++depth)
                 {
                     mTerminals[turn][depth] += terminals[turn][depth];
                 }
@@ -78,12 +79,12 @@ namespace Main
 
         void UpdateTerminalsVsRolloutLengths(Games::GameState &gameState)
         {
-            int(*terminals)[11] = gameState.GetTerminals();
+            int(*terminals)[MAX_DEPTH + 1] = gameState.GetTerminals();
 
             for (int turn = 1; turn < gameState.GetTurn(); ++turn)
             {
                 double length = Round2dp(gameState.GetAvgRolloutLengthAtTurn(turn));
-                for (int depth = 1; depth <= 10; ++depth)
+                for (int depth = 1; depth <= MAX_DEPTH; ++depth)
                 {
                     int nTerminals = terminals[turn][depth];
                     auto &terminalVsCount = mTerminalsVsRolloutLengths[length][depth];
@@ -110,7 +111,13 @@ namespace Main
         void LogTerminals(const std::string &fileName) const
         {
             std::ofstream file(fileName, std::ofstream::trunc);
-            file << "TURN,1,2,3,4,5,6,7,8,9,10,\n";
+            file << "TURN";
+            for (int turn = 1; turn <= MAX_DEPTH; ++turn)
+            {
+                file << "," << turn;
+            }
+            file << "\n";
+
             for (auto &it : mTerminals)
             {
                 file << it.first << ",";
