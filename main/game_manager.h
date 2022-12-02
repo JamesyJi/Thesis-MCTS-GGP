@@ -95,8 +95,7 @@ namespace Main
                 if (gameState.MaxTurns())
                 {
                     std::cout << "GAME END DUE TO TOO MANY TURNS\n";
-                    mGameResults.UpdateResult(Common::Result::DRAW);
-                    mGameResults.Accumulate(gameState);
+                    mGameResults.UpdateResult(Common::Result::DRAW, gameState);
                     return Common::Result::DRAW;
                 }
             }
@@ -104,8 +103,7 @@ namespace Main
             std::cout << "GAME END\n";
 
             auto result = state.EvaluateState(move);
-            mGameResults.UpdateResult(result);
-            mGameResults.Accumulate(gameState);
+            mGameResults.UpdateResult(result, gameState);
             return result;
         }
 

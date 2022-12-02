@@ -4,6 +4,8 @@
 #include <fstream>
 #include <map>
 #include <cmath>
+#include <vector>
+#include <array>
 
 #include "game_types.h"
 #include "game_state.h"
@@ -12,9 +14,16 @@
 namespace Main
 {
 
-    static double Round2dp(double x)
+    template <int N>
+    static double RoundDP(double x)
     {
-        return ceil(x * 100.0) / 100.0;
+        return ceil(x * 10.0 * N) / (10.0 * N);
+    }
+
+    // The count is the current count before the new value has been added in
+    static double ComputeNewAvg(double original, int count, double newValue)
+    {
+        return (original * count + newValue) / (count + 1);
     }
 
     class GameResults
@@ -24,22 +33,26 @@ namespace Main
 
         ~GameResults(){};
 
-        void UpdateResult(Common::Result result)
+        void UpdateResult(Common::Result result, Games::GameState &gameState)
         {
-            if (result == Common::Result::DRAW)
+            mTotalGames++;
+
+            switch (result)
             {
+            case Common::Result::DRAW:
                 mDraws++;
-            }
-            else if (result == Common::Result::PLAYER1_WIN)
-            {
+                break;
+            case Common::Result::PLAYER1_WIN:
                 mPlayer1Wins++;
-            }
-            else if (result == Common::Result::PLAYER2_WIN)
-            {
+                break;
+            case Common::Result::PLAYER2_WIN:
                 mPlayer2Wins++;
+                break;
+            default:
+                break;
             }
 
-            mTotalGames++;
+            Accumulate(gameState);
         }
 
         // Called after update result
@@ -47,51 +60,51 @@ namespace Main
         {
             std::cout << "accumulating\n";
 
-            for (int turn = 1; turn < gameState.GetTurn(); ++turn)
-            {
-                mGameLengths[turn]++;
-
-                double rolloutLength = gameState.GetAvgRolloutLengthAtTurn(turn);
-                double branchingFactor = gameState.GetAvgBranchingFactorAtTurn(turn);
-
-                mAvgRolloutLengths[turn] = Round2dp((mAvgRolloutLengths[turn] * (mTotalGames - 1) + rolloutLength) / mTotalGames);
-                mAvgBranchingFactors[turn] = Round2dp((mAvgBranchingFactors[turn] * (mTotalGames - 1) + branchingFactor) / mTotalGames);
-            }
-
-            // Updating Terminals
             int(*terminals)[MAX_DEPTH + 1] = gameState.GetTerminals();
+
             for (int turn = 1; turn < gameState.GetTurn(); ++turn)
             {
                 for (int depth = 1; depth <= MAX_DEPTH; ++depth)
                 {
                     mTerminals[turn][depth] += terminals[turn][depth];
                 }
+
+                mGameLengths[turn]++;
+
+                double rolloutLength = gameState.GetAvgRolloutLengthAtTurn(turn);
+                double branchingFactor = gameState.GetAvgBranchingFactorAtTurn(turn);
+                mAvgRolloutLengths[turn] = RoundDP<2>(ComputeNewAvg(mAvgRolloutLengths[turn], mTotalGames - 1, rolloutLength));
+                mAvgBranchingFactors[turn] = RoundDP<2>(ComputeNewAvg(mAvgBranchingFactors[turn], mTotalGames - 1, branchingFactor));
             }
 
             // Updating Avg Simulations of first turn
             int *simulations = gameState.GetSimulations();
+            mAvgSimsP1 = ComputeNewAvg(mAvgSimsP1, mTotalGames - 1, simulations[1]);
+            mAvgSimsP2 = ComputeNewAvg(mAvgSimsP2, mTotalGames - 1, simulations[2]);
 
-            mAvgSimsP1 = (mAvgSimsP1 * (mTotalGames - 1) + simulations[1]) / mTotalGames;
-            mAvgSimsP2 = (mAvgSimsP2 * (mTotalGames - 1) + simulations[2]) / mTotalGames;
-
-            UpdateTerminalsVsRolloutLengths(gameState);
+            UpdateTerminalCorrelations(gameState);
         }
 
-        void UpdateTerminalsVsRolloutLengths(Games::GameState &gameState)
+        void UpdateTerminalCorrelations(Games::GameState &gameState)
         {
             int(*terminals)[MAX_DEPTH + 1] = gameState.GetTerminals();
+            auto &mRvT = mAvgRolloutLengthsVAvgTerminals;
+            auto &mBvT = mAvgBranchingFactorsVAvgTerminals;
 
             for (int turn = 1; turn < gameState.GetTurn(); ++turn)
             {
-                double length = Round2dp(gameState.GetAvgRolloutLengthAtTurn(turn));
+                double rolloutLength = RoundDP<2>(gameState.GetAvgRolloutLengthAtTurn(turn));
+                double branchingFactor = RoundDP<2>(gameState.GetAvgBranchingFactorAtTurn(turn));
+
+                std::array<int, MAX_DEPTH + 1> td;
                 for (int depth = 1; depth <= MAX_DEPTH; ++depth)
                 {
-                    int nTerminals = terminals[turn][depth];
-                    auto &terminalVsCount = mTerminalsVsRolloutLengths[length][depth];
-                    int newCount = ++terminalVsCount.second;
-                    int curTerminals = terminalVsCount.first;
-                    terminalVsCount.first = (curTerminals * (newCount - 1) + nTerminals) / newCount;
+                    mRvT[rolloutLength][depth].first = RoundDP<2>(ComputeNewAvg(mRvT[rolloutLength][depth].first, mRvT[rolloutLength][depth].second++, terminals[turn][depth]));
+                    mBvT[branchingFactor][depth].first = RoundDP<2>(ComputeNewAvg(mBvT[branchingFactor][depth].first, mBvT[branchingFactor][depth].second++, terminals[turn][depth]));
+                    td[depth] = terminals[turn][depth];
                 }
+
+                mRBvTD.push_back(std::make_pair(std::make_pair(rolloutLength, branchingFactor), td));
             }
         }
 
@@ -112,9 +125,9 @@ namespace Main
         {
             std::ofstream file(fileName, std::ofstream::trunc);
             file << "TURN";
-            for (int turn = 1; turn <= MAX_DEPTH; ++turn)
+            for (int depth = 1; depth <= MAX_DEPTH; ++depth)
             {
-                file << "," << turn;
+                file << "," << depth;
             }
             file << "\n";
 
@@ -143,26 +156,49 @@ namespace Main
             file.close();
         }
 
-        void LogTerminalsVsRolloutLengths(const std::string &fileName) const
+        void LogTerminalCorrelations(const std::string &fileName, const std::string &title, std::map<double, std::map<int, std::pair<double, int>>> iterable) const
         {
             std::ofstream file(fileName, std::ofstream::trunc);
-            file << "RvD,1,2,3,4,5,6,7,8,9,10,\n";
-            for (auto &it : mTerminalsVsRolloutLengths)
+            file << title;
+            for (int depth = 1; depth <= MAX_DEPTH; ++depth)
             {
-                file << it.first << ",";
+                file << "," << depth;
+            }
+            file << "\n";
+
+            for (auto &it : iterable)
+            {
+                file << it.first;
                 for (auto &it2 : it.second)
                 {
-                    file << it2.second.first << ",";
+                    file << "," << it2.second.first;
                 }
                 file << "\n";
             }
-
             file.close();
         }
 
+        void LogRBvTD(const std::string &fileName)
+        {
+            std::ofstream file(fileName, std::ofstream::trunc);
+
+            for (auto &[rb, td] : mRBvTD)
+            {
+                file << "(" << rb.first << "," << rb.second << "):";
+
+                for (int depth = 1; depth <= MAX_DEPTH; ++depth)
+                {
+                    file << td[depth] << ",";
+                }
+                file << "\n";
+            }
+        }
+
         std::map<int, int> const &GetGameLengths() const { return mGameLengths; }
-        std::map<int, int> const &GetAvgRolloutLengths() const { return mAvgRolloutLengths; }
-        std::map<int, int> const &GetAvgBranchingFactors() const { return mAvgBranchingFactors; }
+        std::map<int, double> const &GetAvgRolloutLengths() const { return mAvgRolloutLengths; }
+        std::map<int, double> const &GetAvgBranchingFactors() const { return mAvgBranchingFactors; }
+        std::map<double, std::map<int, std::pair<double, int>>> const &GetAvgRolloutLengthsVAvgTerminals() { return mAvgRolloutLengthsVAvgTerminals; }
+        std::map<double, std::map<int, std::pair<double, int>>> const &GetAvgBranchingFactorsVAvgTerminals() { return mAvgBranchingFactorsVAvgTerminals; }
 
     private:
         int mPlayer1Wins = 0;
@@ -183,15 +219,11 @@ namespace Main
 
         // Average rollout lengths by turn (turn : mAvgRolloutLengths)
         // We start at turn 1
-        std::map<int, int> mAvgRolloutLengths{};
+        std::map<int, double> mAvgRolloutLengths{};
 
         // Average branching factors by turn (turn : mAvgBranchingFactors)
         // We start at turn 1
-        std::map<int, int> mAvgBranchingFactors{};
-
-        // Rollout lengths, Branching Factors, Terminals, Depth
-        // ((RL, BF), {Terminals@D1, Terminals@D2, Terminals@D3...})
-        // std::array<std::pair<std::pair<double, double>, std::array<int, 11>>, 300> mRBvTD{};
+        std::map<int, double> mAvgBranchingFactors{};
 
         // To find a correlation between rollout lengths and number of terminals
         // RolloutLengths v Depths 1, 2, 3, 4, 5, 6, 7, 8
@@ -199,8 +231,16 @@ namespace Main
         //      6.7
         //      8.8
         //      ...
-        // {rollouts : { depth : <terminals, count>}}
-        std::map<double, std::map<int, std::pair<int, int>>> mTerminalsVsRolloutLengths = {};
-    };
+        // {rollouts : { depth : { terminals : count }}}
+        // The count is to help us compute the average
+        std::map<double, std::map<int, std::pair<double, int>>> mAvgRolloutLengthsVAvgTerminals;
 
+        // Same as above
+        // { branchingFactors : { depth : { terminals : count }}}
+        std::map<double, std::map<int, std::pair<double, int>>> mAvgBranchingFactorsVAvgTerminals;
+
+        // Rollout lengths, Branching Factors, Terminals, Depth
+        // ((RL, BF), {Terminals@D1, Terminals@D2, Terminals@D3...})
+        std::vector<std::pair<std::pair<double, double>, std::array<int, MAX_DEPTH + 1>>> mRBvTD;
+    };
 }
