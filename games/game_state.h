@@ -56,10 +56,12 @@ namespace Games
             mAvgRolloutLengths[mTurn] = (mAvgRolloutLengths[mTurn] * (mSimulations[mTurn] - 1) + length) / mSimulations[mTurn];
         }
 
-        // This is called by the models during Expansion (before simulation count is updated)
         inline void UpdateAvgBranchingFactor(int branchingFactor)
         {
-            mAvgBranchingFactors[mTurn] = (mAvgBranchingFactors[mTurn] * (mSimulations[mTurn] - 1) + branchingFactor) / mSimulations[mTurn];
+            double &factor = mAvgBranchingFactors[mTurn].first;
+            int &total = mAvgBranchingFactors[mTurn].second;
+            factor = ((factor * total) + branchingFactor) / (total + 1);
+            ++total;
         }
 
         int *GetSimulations()
@@ -79,7 +81,7 @@ namespace Games
 
         double GetAvgBranchingFactorAtTurn(int turn)
         {
-            return mAvgBranchingFactors[turn];
+            return mAvgBranchingFactors[turn].first;
         }
 
     private:
@@ -97,7 +99,8 @@ namespace Games
         // Determine if this leads to shorter game lengths...
         double mAvgRolloutLengths[MAX_TURN + 1] = {0};
 
-        double mAvgBranchingFactors[MAX_TURN + 1] = {0};
+        // {avgBranchingFactor, totalCount}
+        std::pair<double, int> mAvgBranchingFactors[MAX_TURN + 1] = {{0, 0}};
 
         // If the minimaxes are not detecting valuable information, switch them off
         // Track percentage of minimax detecting valuable information
