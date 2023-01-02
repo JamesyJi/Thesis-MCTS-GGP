@@ -182,6 +182,13 @@ namespace Main
         {
             std::ofstream file(fileName, std::ofstream::trunc);
 
+            file << "RBvTD";
+            for (int depth = 1; depth <= MAX_DEPTH; ++depth)
+            {
+                file << "," << depth;
+            }
+            file << "\n";
+
             for (auto &[rb, td] : mRBvTD)
             {
                 file << "(" << rb.first << "," << rb.second << "):";
