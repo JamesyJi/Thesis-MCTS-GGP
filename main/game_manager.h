@@ -41,9 +41,9 @@ namespace Main
             mGameResults.LogIterablePair(mResultsFile + "_gamelengths.csv", mGameResults.GetGameLengths());
             mGameResults.LogIterablePair(mResultsFile + "_rolloutlengths.csv", mGameResults.GetAvgRolloutLengths());
             mGameResults.LogIterablePair(mResultsFile + "_branchingfactors.csv", mGameResults.GetAvgBranchingFactors());
-            mGameResults.LogTerminalCorrelations(mResultsFile + "_RvT.csv", "RvT", mGameResults.GetAvgRolloutLengthsVAvgTerminals());
-            mGameResults.LogTerminalCorrelations(mResultsFile + "_BvT.csv", "BvT", mGameResults.GetAvgBranchingFactorsVAvgTerminals());
-            mGameResults.LogRBvTD(mResultsFile + "_RBvTD.csv");
+            // mGameResults.LogTerminalCorrelations(mResultsFile + "_RvT.csv", "RvT", mGameResults.GetAvgRolloutLengthsVAvgTerminals());
+            // mGameResults.LogTerminalCorrelations(mResultsFile + "_BvT.csv", "BvT", mGameResults.GetAvgBranchingFactorsVAvgTerminals());
+            // mGameResults.LogRBvTD(mResultsFile + "_RBvTD.csv");
         }
 
         Common::Result StartNewGame(Common::Resource &resource)

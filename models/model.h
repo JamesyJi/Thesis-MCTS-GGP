@@ -80,7 +80,9 @@ namespace Models
                 move = static_cast<M *>(this)->SimulationPolicy(simulateState, playerTurn);
                 simulateState.SimulateMove(move);
                 playerTurn = Common::GetOtherPlayer(playerTurn);
-                ++length;
+
+                if (++length == MAX_TURN)
+                    break;
             }
 
             mGameState.LogSimulationStatistics(length);

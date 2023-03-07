@@ -248,6 +248,7 @@ namespace Main
 
         // Rollout lengths, Branching Factors, Terminals, Depth
         // ((RL, BF), {Terminals@D1, Terminals@D2, Terminals@D3...})
+        // There could easily be duplicate (RL, BF) and the terminals they map to are the terminals found for one game at that point.
         std::vector<std::pair<std::pair<double, double>, std::array<int, MAX_DEPTH + 1>>> mRBvTD;
     };
 }
