@@ -20,51 +20,51 @@ int main(void)
     using GameT = Models::Traits<Connect4::Connect4State, Connect4::Connect4Move>;
     // auto resource = Common::TimeResource(1);
 
-    using Model1T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn4<StateT>>;
+    using Model1T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn8<StateT>>;
     using Model2T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    auto manager0 = Main::GameManager<Model1T, Model2T, StateT, MoveT>("connect4_Dv3_4");
+    auto manager0 = Main::GameManager<Model1T, Model2T, StateT, MoveT>("connect4_Dv3_8");
     resource = Common::TimeResource(1);
     manager0.StartExperiment(resource, 100);
 
     using Model3T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    using Model4T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn4<StateT>>;
-    auto manager1 = Main::GameManager<Model3T, Model4T, StateT, MoveT>("connect4_3vD_4");
+    using Model4T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn8<StateT>>;
+    auto manager1 = Main::GameManager<Model3T, Model4T, StateT, MoveT>("connect4_3vD_8");
     resource = Common::TimeResource(1);
     manager1.StartExperiment(resource, 100);
 
-    using Model5T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn5<StateT>>;
+    using Model5T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn9<StateT>>;
     using Model6T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    auto manager2 = Main::GameManager<Model5T, Model6T, StateT, MoveT>("connect4_Dv3_5");
+    auto manager2 = Main::GameManager<Model5T, Model6T, StateT, MoveT>("connect4_Dv3_9");
     resource = Common::TimeResource(1);
     manager2.StartExperiment(resource, 100);
 
     using Model7T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    using Model8T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn5<StateT>>;
-    auto manager3 = Main::GameManager<Model7T, Model8T, StateT, MoveT>("connect4_3vD_5");
+    using Model8T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn9<StateT>>;
+    auto manager3 = Main::GameManager<Model7T, Model8T, StateT, MoveT>("connect4_3vD_9");
     resource = Common::TimeResource(1);
     manager3.StartExperiment(resource, 100);
 
-    using Model9T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn6<StateT>>;
+    using Model9T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn10<StateT>>;
     using Model10T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    auto manager4 = Main::GameManager<Model9T, Model10T, StateT, MoveT>("connect4_Dv3_6");
+    auto manager4 = Main::GameManager<Model9T, Model10T, StateT, MoveT>("connect4_Dv3_10");
     resource = Common::TimeResource(1);
     manager4.StartExperiment(resource, 100);
 
     using Model11T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    using Model12T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn6<StateT>>;
-    auto manager5 = Main::GameManager<Model11T, Model12T, StateT, MoveT>("connect4_3vD_6");
+    using Model12T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn10<StateT>>;
+    auto manager5 = Main::GameManager<Model11T, Model12T, StateT, MoveT>("connect4_3vD_10");
     resource = Common::TimeResource(1);
     manager5.StartExperiment(resource, 100);
 
-    using Model13T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn7<StateT>>;
+    using Model13T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn11<StateT>>;
     using Model14T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    auto manager6 = Main::GameManager<Model13T, Model14T, StateT, MoveT>("connect4_Dv3_7");
+    auto manager6 = Main::GameManager<Model13T, Model14T, StateT, MoveT>("connect4_Dv3_11");
     resource = Common::TimeResource(1);
     manager6.StartExperiment(resource, 100);
 
     using Model15T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    using Model16T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn7<StateT>>;
-    auto manager7 = Main::GameManager<Model15T, Model16T, StateT, MoveT>("connect4_3vD_7");
+    using Model16T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurn11<StateT>>;
+    auto manager7 = Main::GameManager<Model15T, Model16T, StateT, MoveT>("connect4_3vD_11");
     resource = Common::TimeResource(1);
     manager7.StartExperiment(resource, 100);
 
