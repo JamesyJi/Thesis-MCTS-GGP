@@ -1,0 +1,6 @@
+Player1 Win: 32
+Player2 Win: 61
+Draws: 7
+Total: 100
+AvgSimulationsPlayer1: 136817
+AvgSimulationsPlayer2: 158778
