@@ -18,6 +18,13 @@ Node<TState, TMove>& Node<TState, TMove>::GetRandomChild() const
     return *mChildren[rand() % mNumChildren].get();
 }
 
+// A function we use only for logging statistics... This is called before ExpandNode
+template<typename TState, typename TMove>
+int Node<TState, TMove>::GetNumChildren() const
+{
+    return mState.GetNumLegalMoves(mPlayerTurn);
+}
+
 // PRECONDITION: Node has children
 // Returns the child node which will lead to the best outcome for the player of the current node
 // 1. Looks for any nodes which are proven wins

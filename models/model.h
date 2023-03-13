@@ -85,7 +85,7 @@ namespace Models
                     break;
             }
 
-            mGameState.LogSimulationStatistics(length);
+            mGameState.LogSimulationStatistics();
 
             return simulateState.EvaluateState(move);
         }
@@ -97,6 +97,10 @@ namespace Models
         static Common::Result MinimaxAB(StateT &state, const MoveT &lastMove, int depth, Common::Result alpha, Common::Result beta, Common::Player player);
 
         void DetectTerminalStates();
+
+        void DetectRolloutLengths(int numSimulations);
+
+        void DetectBranchingFactor();
 
         Model(const StateT &state, Games::GameState &gameState)
             : mRoot(std::make_unique<NodeT>(state, Common::Player::PLAYER1, nullptr, MoveT())), mGameState(gameState){};
@@ -279,4 +283,39 @@ namespace Models
         std::cout << "Finished Detecting Terminal States\n";
     }
 
+    template <typename M, typename TTraits>
+    void Model<M, TTraits>::DetectBranchingFactor()
+    {
+        std::cout << "Detecting Branching Factor...\n";
+
+        this->mGameState.UpdateAvgBranchingFactor(mRoot->GetNumChildren());
+    }
+
+    template <typename M, typename TTraits>
+    void Model<M, TTraits>::DetectRolloutLengths(int numSimulations)
+    {
+        std::cout << "Detecting Rollout Lengths...\n";
+
+        for (int i = 0; i < numSimulations; ++i) {
+            // Basically Simulate() but if we didn't care about the result
+            // When have time, can refactor Simulate to take in a template
+            NodeT &node = *this->mRoot.get();
+            StateT simulateState = node.GetStateCopy();
+            auto playerTurn = node.GetPlayerTurn();
+            MoveT move = node.GetLastMove();
+
+            int length = 0;
+            while (simulateState.EvaluateState(move) == Common::Result::ONGOING)
+            {
+                move = static_cast<M *>(this)->SimulationPolicy(simulateState, playerTurn);
+                simulateState.SimulateMove(move);
+                playerTurn = Common::GetOtherPlayer(playerTurn);
+
+                if (++length == MAX_TURN)
+                    break;
+            }
+
+            this->mGameState.UpdateAvgRolloutLength(length);
+        }
+    }
 }

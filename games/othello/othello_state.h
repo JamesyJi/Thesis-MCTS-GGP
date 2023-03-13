@@ -80,6 +80,7 @@ public:
 
     Common::Result EvaluateState(const OthelloMove& lastMove);
     OthelloMove GetRandomLegalMove(Common::Player player) const;
+    int GetNumLegalMoves(Common::Player player) const;
     int GetLegalMoves(Common::Player player, OthelloMove legalMoves[MAX_MOVES]) const;
     OthelloState MakeMove(const OthelloMove&) const;
     void SimulateMove(const OthelloMove&);

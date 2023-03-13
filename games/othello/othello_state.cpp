@@ -33,6 +33,13 @@ OthelloMove OthelloState::GetRandomLegalMove(Common::Player player) const
     return legalMoves[rand() % nLegalMoves];
 }
 
+int OthelloState::GetNumLegalMoves(Common::Player player) const
+{
+    OthelloMove legalMoves[MAX_MOVES];
+    return GetLegalMoves(player, legalMoves);
+}
+
+
 // NOTE: This is actually very slow since we do not optimise as we check every
 // single square. However, the paper (MCTS Minimax Hybrids) also had a very 
 // slow othello implementation so this should be fine

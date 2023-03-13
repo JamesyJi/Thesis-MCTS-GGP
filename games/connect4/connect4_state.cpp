@@ -114,6 +114,14 @@ Connect4Move Connect4State::GetRandomLegalMove(Common::Player player) const
     return legalMoves[rand() % nLegalMoves];
 }
 
+
+int Connect4State::GetNumLegalMoves(Common::Player player) const
+{
+    Connect4Move legalMoves[MAX_MOVES];
+    return GetLegalMoves(player, legalMoves);
+}
+
+
 int Connect4State::GetLegalMoves(Common::Player player, Connect4Move legalMoves[MAX_MOVES]) const
 {
     // For each column, find the lowest row

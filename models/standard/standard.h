@@ -30,7 +30,7 @@ public:
         if (promisingState.EvaluateState(promisingNode.GetLastMove()) == Common::Result::ONGOING)
         {
             // std::cout << "expansion...\n";
-            this->mGameState.UpdateAvgBranchingFactor(promisingNode.ExpandNode());
+            promisingNode.ExpandNode();
         }
         // std::cout << "finished expansion...\n";
 
@@ -63,7 +63,7 @@ public:
         return *bestChild;
     }
 
-    MoveT SimulationPolicy(StateT& simulateState, Common::Player playerTurn)
+    MoveT SimulationPolicy(StateT& simulateState, Common::Player playerTurn) const
     {
         // Select a random move
         return simulateState.GetRandomLegalMove(playerTurn);

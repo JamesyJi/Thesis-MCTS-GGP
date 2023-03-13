@@ -15,9 +15,50 @@ int main(void)
     srand(time(NULL));
     auto resource = Common::TimeResource(1);
 
-    using MoveT = Connect4::Connect4Move;
-    using StateT = Connect4::Connect4State;
-    using GameT = Models::Traits<Connect4::Connect4State, Connect4::Connect4Move>;
+    using Connect4MoveT = Connect4::Connect4Move;
+    using Connect4StateT = Connect4::Connect4State;
+    using Connect4GameT = Models::Traits<Connect4::Connect4State, Connect4::Connect4Move>;
+
+    using Model1T = Models::Standard::Standard<Connect4GameT>;
+    using Model2T = Models::Standard::Standard<Connect4GameT>;
+    auto manager0 = Main::GameManager<Model1T, Model2T, Connect4StateT, Connect4MoveT>("connect4_SvS");
+    resource = Common::TimeResource(1);
+    manager0.StartExperiment(resource, 200);
+
+    using BreakthroughMoveT = Breakthrough::BreakthroughMove;
+    using BreakthroughStateT = Breakthrough::BreakthroughState;
+    using BreakthroughGameT = Models::Traits<Breakthrough::BreakthroughState, Breakthrough::BreakthroughMove>;
+
+    using Model3T = Models::Standard::Standard<BreakthroughGameT>;
+    using Model4T = Models::Standard::Standard<BreakthroughGameT>;
+    auto manager1 = Main::GameManager<Model3T, Model4T, BreakthroughStateT, BreakthroughMoveT>("breakthrough_SvS");
+    resource = Common::TimeResource(1);
+    manager1.StartExperiment(resource, 200);
+
+    using OthelloMoveT = Othello::OthelloMove;
+    using OthelloStateT = Othello::OthelloState;
+    using OthelloGameT = Models::Traits<Othello::OthelloState, Othello::OthelloMove>;
+
+    using Model5T = Models::Standard::Standard<OthelloGameT>;
+    using Model6T = Models::Standard::Standard<OthelloGameT>;
+    auto manager2 = Main::GameManager<Model5T, Model6T, OthelloStateT, OthelloMoveT>("othello_SvS");
+    resource = Common::TimeResource(1);
+    manager2.StartExperiment(resource, 200);
+
+    using CatchTheLionMoveT = CatchTheLion::CatchTheLionMove;
+    using CatchTheLionStateT = CatchTheLion::CatchTheLionState;
+    using CatchTheLionGameT = Models::Traits<CatchTheLion::CatchTheLionState, CatchTheLion::CatchTheLionMove>;
+
+    using Model7T = Models::Standard::Standard<CatchTheLionGameT>;
+    using Model8T = Models::Standard::Standard<CatchTheLionGameT>;
+    auto manager3 = Main::GameManager<Model7T, Model8T, CatchTheLionStateT, CatchTheLionMoveT>("catchthelion_SvS");
+    resource = Common::TimeResource(1);
+    manager3.StartExperiment(resource, 200);
+
+
+    // using MoveT = Connect4::Connect4Move;
+    // using StateT = Connect4::Connect4State;
+    // using GameT = Models::Traits<Connect4::Connect4State, Connect4::Connect4Move>;
     // auto resource = Common::TimeResource(1);
 
     // using Model1T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnE<StateT>>;
@@ -68,17 +109,17 @@ int main(void)
     // resource = Common::TimeResource(1);
     // manager7.StartExperiment(resource, 100);
 
-    using Model17T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnI2<StateT>>;
-    using Model18T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    auto manager8 = Main::GameManager<Model17T, Model18T, StateT, MoveT>("connect4_Dv3_I2");
-    resource = Common::TimeResource(1);
-    manager8.StartExperiment(resource, 100);
+    // using Model17T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnI2<StateT>>;
+    // using Model18T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
+    // auto manager8 = Main::GameManager<Model17T, Model18T, StateT, MoveT>("connect4_Dv3_I2");
+    // resource = Common::TimeResource(1);
+    // manager8.StartExperiment(resource, 100);
 
-    using Model19T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    using Model20T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnI2<StateT>>;
-    auto manager9 = Main::GameManager<Model19T, Model20T, StateT, MoveT>("connect4_3vD_I2");
-    resource = Common::TimeResource(1);
-    manager9.StartExperiment(resource, 100);
+    // using Model19T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
+    // using Model20T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnI2<StateT>>;
+    // auto manager9 = Main::GameManager<Model19T, Model20T, StateT, MoveT>("connect4_3vD_I2");
+    // resource = Common::TimeResource(1);
+    // manager9.StartExperiment(resource, 100);
 
     return 0;
 }

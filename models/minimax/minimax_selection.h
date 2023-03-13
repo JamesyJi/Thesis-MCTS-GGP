@@ -33,7 +33,6 @@ namespace Models::Minimax
             if (promisingState.EvaluateState(promisingNode.GetLastMove()) == Common::Result::ONGOING)
             {
                 promisingNode.ExpandNode();
-                this->mGameState.UpdateAvgBranchingFactor(promisingNode.ExpandNode());
             }
 
             // Simulation
@@ -65,7 +64,7 @@ namespace Models::Minimax
             return *bestChild;
         }
 
-        MoveT SimulationPolicy(StateT &simulateState, const Common::Player playerTurn)
+        MoveT SimulationPolicy(StateT &simulateState, const Common::Player playerTurn) const
         {
             // Select a random move
             return simulateState.GetRandomLegalMove(playerTurn);

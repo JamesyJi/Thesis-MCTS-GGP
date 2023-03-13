@@ -19,6 +19,7 @@ public:
     {}
 
     Node& GetRandomChild() const;
+    int GetNumChildren() const;
     std::unique_ptr<Node> DecideOnBestChild();
     Node& GetHighestScoreChild() const;
     int ExpandNode();
@@ -115,11 +116,6 @@ public:
         return mPlayerTurn;
     }
 
-    int GetNumChildren() const
-    {
-        return mNumChildren;
-    }
-
     Node* GetChild(int index) const
     {
         return mChildren[index].get();
@@ -138,7 +134,7 @@ private:
     TState mState;
     Node* mParent = nullptr;
     std::unique_ptr<Node> mChildren[TState::MAX_MOVES];
-    int mNumChildren = 0;
+    int mNumChildren = 0; // This is set by expand node...
 
     Common::Proven mProven = Common::Proven::NONE;
     double mValue = 0;

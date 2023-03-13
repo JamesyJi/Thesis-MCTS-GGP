@@ -34,15 +34,14 @@ namespace Games
             return mTerminals;
         }
 
-        void FoundTerminal(int depth)
-        {
-            mTerminals[mTurn][depth]++;
-        }
-
-        inline void LogSimulationStatistics(int length)
+        inline void LogSimulationStatistics()
         {
             IncrementSimulation();
-            UpdateAvgRolloutLength(length);
+        }
+
+        inline void ResetSimulationStatistics()
+        {
+            mSimulations[mTurn] = 0;
         }
 
         inline void IncrementSimulation()
@@ -50,12 +49,19 @@ namespace Games
             ++mSimulations[mTurn];
         }
 
-        // To be called after simulation count is updated
-        inline void UpdateAvgRolloutLength(int length)
+        // Called before LogSimulationStatistics
+        inline void FoundTerminal(int depth)
         {
-            mAvgRolloutLengths[mTurn] = (mAvgRolloutLengths[mTurn] * (mSimulations[mTurn] - 1) + length) / mSimulations[mTurn];
+            mTerminals[mTurn][depth]++;
         }
 
+        // Called before LogSimulationStatistics
+        inline void UpdateAvgRolloutLength(int length)
+        {
+            mAvgRolloutLengths[mTurn] = (mAvgRolloutLengths[mTurn] * mSimulations[mTurn] + length) / (mSimulations[mTurn] + 1);
+        }
+
+        // Called before LogSimulationStatistics
         inline void UpdateAvgBranchingFactor(int branchingFactor)
         {
             double &factor = mAvgBranchingFactors[mTurn].first;

@@ -87,6 +87,12 @@ CatchTheLionMove CatchTheLionState::GetRandomLegalMove(Common::Player player) co
     return legalMoves[rand() % nLegalMoves];
 }
 
+int CatchTheLionState::GetNumLegalMoves(Common::Player player) const
+{
+    CatchTheLionMove moves[MAX_MOVES];
+    return GetLegalMoves(player, moves);
+}
+
 int CatchTheLionState::GetLegalMoves(Common::Player player, CatchTheLionMove moves[MAX_MOVES]) const
 {
     int found = 0;

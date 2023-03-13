@@ -38,6 +38,12 @@ BreakthroughMove BreakthroughState::GetRandomLegalMove(Common::Player player) co
     return legalMoves[rand() % nLegalMoves];
 }
 
+int BreakthroughState::GetNumLegalMoves(Common::Player player) const
+{
+    BreakthroughMove legalMoves[MAX_MOVES];
+    return GetLegalMoves(player, legalMoves);
+}
+
 int BreakthroughState::GetLegalMoves(Common::Player player, BreakthroughMove moves[MAX_MOVES]) const
 {
     int found = 0;

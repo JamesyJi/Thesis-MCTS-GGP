@@ -76,6 +76,7 @@ public:
 
     Common::Result EvaluateState(const CatchTheLionMove& lastMove) const;
     CatchTheLionMove GetRandomLegalMove(Common::Player player) const;
+    int GetNumLegalMoves(Common::Player player) const;
     int GetLegalMoves(Common::Player player, CatchTheLionMove legalMoves[MAX_MOVES]) const;
     CatchTheLionState MakeMove(const CatchTheLionMove&) const;
     void SimulateMove(const CatchTheLionMove&);

@@ -29,12 +29,12 @@ namespace Models::Minimax
             if (promisingState.EvaluateState(promisingNode.GetLastMove()) == Common::Result::ONGOING)
             {
                 promisingNode.ExpandNode();
-                this->mGameState.UpdateAvgBranchingFactor(promisingNode.ExpandNode());
             }
 
             // Simulation
             NodeT &exploreNode = promisingNode.HasChildren() ? promisingNode.GetRandomChild() : promisingNode;
             auto evaluation = Model<MinimaxRollout<TTraits, DepthFunc>, TTraits>::Simulate(exploreNode);
+
 
             // Back Propagation
             this->BackPropagate(exploreNode, evaluation);
@@ -51,7 +51,7 @@ namespace Models::Minimax
             return *bestChild;
         }
 
-        MoveT SimulationPolicy(StateT &simulateState, const Common::Player playerTurn)
+        MoveT SimulationPolicy(StateT &simulateState, const Common::Player playerTurn) const
         {
             int bestMove = -1;
             Common::Result bestEval = Common::PlayerToResult(Common::GetOtherPlayer(playerTurn));

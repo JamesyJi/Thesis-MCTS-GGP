@@ -57,6 +57,7 @@ public:
 
     Common::Result EvaluateState(const BreakthroughMove& lastMove);    
     BreakthroughMove GetRandomLegalMove(Common::Player player) const;
+    int GetNumLegalMoves(Common::Player player) const;
     int GetLegalMoves(Common::Player player, BreakthroughMove moves[MAX_MOVES]) const;
     BreakthroughState MakeMove(const BreakthroughMove&) const;
     void SimulateMove(const BreakthroughMove&);
