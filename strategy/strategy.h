@@ -43,8 +43,8 @@ namespace Strategy
     int DepthFromTurnH<Connect4::Connect4State>(const Games::GameState &gameState);
 
     template <typename TState>
-    int DepthFromTurnI(const Games::GameState &gameState) = delete;
+    int DepthFromTurnI2(const Games::GameState &gameState) = delete;
 
     template <>
-    int DepthFromTurnI<Connect4::Connect4State>(const Games::GameState &gameState);
+    int DepthFromTurnI2<Connect4::Connect4State>(const Games::GameState &gameState);
 }

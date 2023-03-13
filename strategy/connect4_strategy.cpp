@@ -208,39 +208,39 @@ namespace Strategy
     };
 
 
-    const int TURN_DEPTH_I[] = {
+    const int TURN_DEPTH_I2[] = {
             -1,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            5,
-            5,
-            5,
-            5,
-            5,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
             10,
             9,
             9,
@@ -254,9 +254,9 @@ namespace Strategy
             5};
 
     template <>
-    int DepthFromTurnI<Connect4::Connect4State>(const Games::GameState &gameState)
+    int DepthFromTurnI2<Connect4::Connect4State>(const Games::GameState &gameState)
     {
-        return TURN_DEPTH_I[gameState.GetTurn()];
+        return TURN_DEPTH_I2[gameState.GetTurn()];
     };
 
 }
