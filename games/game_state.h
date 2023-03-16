@@ -56,9 +56,12 @@ namespace Games
         }
 
         // Called before LogSimulationStatistics
-        inline void UpdateAvgRolloutLength(int length)
+        inline void UpdateAvgRolloutLength(int rolloutLength)
         {
-            mAvgRolloutLengths[mTurn] = (mAvgRolloutLengths[mTurn] * mSimulations[mTurn] + length) / (mSimulations[mTurn] + 1);
+            double &length = mAvgRolloutLengths[mTurn].first;
+            int &total = mAvgRolloutLengths[mTurn].second;
+            length = ((length * total) + rolloutLength) / (total + 1);
+            ++total;
         }
 
         // Called before LogSimulationStatistics
@@ -82,7 +85,7 @@ namespace Games
 
         double GetAvgRolloutLengthAtTurn(int turn)
         {
-            return mAvgRolloutLengths[turn];
+            return mAvgRolloutLengths[turn].first;
         }
 
         double GetAvgBranchingFactorAtTurn(int turn)
@@ -103,7 +106,8 @@ namespace Games
         // Long rollout length means lots of random moves... and info is useless...
         // We should switch to minimax for rollouts... (BUT ONLY IF IT DETECTS USEFUL INFO)
         // Determine if this leads to shorter game lengths...
-        double mAvgRolloutLengths[MAX_TURN + 1] = {0};
+        // double mAvgRolloutLengths[MAX_TURN + 1] = {0};
+        std::pair<double, int> mAvgRolloutLengths[MAX_TURN + 1] = {{0, 0}};
 
         // {avgBranchingFactor, totalCount}
         std::pair<double, int> mAvgBranchingFactors[MAX_TURN + 1] = {{0, 0}};
