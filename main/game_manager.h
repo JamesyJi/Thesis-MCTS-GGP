@@ -41,9 +41,9 @@ namespace Main
             mGameResults.LogIterablePair(mResultsFile + "_gamelengths.csv", mGameResults.GetGameLengths());
             mGameResults.LogIterablePair(mResultsFile + "_rolloutlengths.csv", mGameResults.GetAvgRolloutLengths());
             mGameResults.LogIterablePair(mResultsFile + "_branchingfactors.csv", mGameResults.GetAvgBranchingFactors());
-            mGameResults.LogTerminalCorrelations(mResultsFile + "_RvT.csv", "RvT", mGameResults.GetAvgRolloutLengthsVAvgTerminals());
-            mGameResults.LogTerminalCorrelations(mResultsFile + "_BvT.csv", "BvT", mGameResults.GetAvgBranchingFactorsVAvgTerminals());
-            mGameResults.LogRBvTD(mResultsFile + "_RBvTD.csv");
+            // mGameResults.LogTerminalCorrelations(mResultsFile + "_RvT.csv", "RvT", mGameResults.GetAvgRolloutLengthsVAvgTerminals());
+            // mGameResults.LogTerminalCorrelations(mResultsFile + "_BvT.csv", "BvT", mGameResults.GetAvgBranchingFactorsVAvgTerminals());
+            // mGameResults.LogRBvTD(mResultsFile + "_RBvTD.csv");
         }
 
         Common::Result StartNewGame(Common::Resource &resource)
@@ -60,21 +60,21 @@ namespace Main
             {
                 std::cout << "Turn " << gameState.GetTurn() << "\n";
                 // Run a check on the game's terminals
-                switch (gameState.GetPlayerTurn())
-                {
-                case Common::Player::PLAYER1:
-                    model1.DetectTerminalStates();
-                    model1.DetectBranchingFactor();
-                    model1.DetectRolloutLengths(5000);
-                    break;
-                case Common::Player::PLAYER2:
-                    model2.DetectTerminalStates();
-                    model2.DetectBranchingFactor();
-                    model2.DetectRolloutLengths(5000);
-                    break;
-                default:
-                    throw std::runtime_error("No player's turn");
-                }
+                // switch (gameState.GetPlayerTurn())
+                // {
+                // case Common::Player::PLAYER1:
+                //     model1.DetectTerminalStates();
+                //     model1.DetectBranchingFactor();
+                //     model1.DetectRolloutLengths(5000);
+                //     break;
+                // case Common::Player::PLAYER2:
+                //     model2.DetectTerminalStates();
+                //     model2.DetectBranchingFactor();
+                //     model2.DetectRolloutLengths(5000);
+                //     break;
+                // default:
+                //     throw std::runtime_error("No player's turn");
+                // }
 
                 resource.ResetAndStart();
                 switch (gameState.GetPlayerTurn())
