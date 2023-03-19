@@ -2,6 +2,7 @@
 
 #include "game_state.h"
 #include "connect4_state.h"
+#include "breakthrough_state.h"
 
 namespace Strategy
 {
@@ -18,11 +19,46 @@ namespace Strategy
     inline int FixedDepth10(const Games::GameState &) { return 10; }
 
     template <typename TState>
+    int DepthFromTurnA(const Games::GameState &gameState) = delete;
+
+    template <>
+    int DepthFromTurnA<Breakthrough::BreakthroughState>(const Games::GameState &gameState);
+
+    template <typename TState>
+    int DepthFromTurnB(const Games::GameState &gameState) = delete;
+
+    template <>
+    int DepthFromTurnB<Connect4::Connect4State>(const Games::GameState &gameState);
+
+    template <>
+    int DepthFromTurnB<Breakthrough::BreakthroughState>(const Games::GameState &gameState);
+
+    template <typename TState>
+    int DepthFromTurnC(const Games::GameState &gameState) = delete;
+
+    template <>
+    int DepthFromTurnC<Connect4::Connect4State>(const Games::GameState &gameState);
+
+    template <>
+    int DepthFromTurnC<Breakthrough::BreakthroughState>(const Games::GameState &gameState);
+
+    template <typename TState>
+    int DepthFromTurnD(const Games::GameState &gameState) = delete;
+
+    template <>
+    int DepthFromTurnD<Connect4::Connect4State>(const Games::GameState &gameState);
+
+    template <>
+    int DepthFromTurnD<Breakthrough::BreakthroughState>(const Games::GameState &gameState);
+
+    template <typename TState>
     int DepthFromTurnE(const Games::GameState &gameState) = delete;
 
-    // Connect4
     template <>
     int DepthFromTurnE<Connect4::Connect4State>(const Games::GameState &gameState);
+
+    template <>
+    int DepthFromTurnE<Breakthrough::BreakthroughState>(const Games::GameState &gameState);
 
     template <typename TState>
     int DepthFromTurnF(const Games::GameState &gameState) = delete;
@@ -30,11 +66,17 @@ namespace Strategy
     template <>
     int DepthFromTurnF<Connect4::Connect4State>(const Games::GameState &gameState);
 
+    template <>
+    int DepthFromTurnF<Breakthrough::BreakthroughState>(const Games::GameState &gameState);
+
     template <typename TState>
     int DepthFromTurnG(const Games::GameState &gameState) = delete;
 
     template <>
     int DepthFromTurnG<Connect4::Connect4State>(const Games::GameState &gameState);
+
+    template <>
+    int DepthFromTurnG<Breakthrough::BreakthroughState>(const Games::GameState &gameState);
 
     template <typename TState>
     int DepthFromTurnH(const Games::GameState &gameState) = delete;
@@ -42,9 +84,7 @@ namespace Strategy
     template <>
     int DepthFromTurnH<Connect4::Connect4State>(const Games::GameState &gameState);
 
-    template <typename TState>
-    int DepthFromTurnI2(const Games::GameState &gameState) = delete;
-
     template <>
-    int DepthFromTurnI2<Connect4::Connect4State>(const Games::GameState &gameState);
+    int DepthFromTurnH<Breakthrough::BreakthroughState>(const Games::GameState &gameState);
+
 }
