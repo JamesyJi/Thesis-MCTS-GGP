@@ -72,7 +72,7 @@ int main(void)
     using Model18T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth4>;
     auto manager8 = Main::GameManager<Model17T, Model18T, StateT, MoveT>("breakthrough_Dv3_E");
     resource = Common::TimeResource(1);
-    manager8.StartExperiment(resource, 200);
+    manager8.StartExperiment(resource, 400);
 
     using Model19T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth4>;
     using Model20T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnE<StateT>>;
