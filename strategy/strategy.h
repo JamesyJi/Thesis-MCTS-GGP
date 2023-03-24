@@ -3,6 +3,7 @@
 #include "game_state.h"
 #include "connect4_state.h"
 #include "breakthrough_state.h"
+#include "othello_state.h"
 
 namespace Strategy
 {
@@ -24,6 +25,9 @@ namespace Strategy
     template <>
     int DepthFromTurnA<Breakthrough::BreakthroughState>(const Games::GameState &gameState);
 
+    template <>
+    int DepthFromTurnA<Othello::OthelloState>(const Games::GameState &gameState);
+
     template <typename TState>
     int DepthFromTurnB(const Games::GameState &gameState) = delete;
 
@@ -32,6 +36,9 @@ namespace Strategy
 
     template <>
     int DepthFromTurnB<Breakthrough::BreakthroughState>(const Games::GameState &gameState);
+
+    template <>
+    int DepthFromTurnB<Othello::OthelloState>(const Games::GameState &gameState);
 
     template <typename TState>
     int DepthFromTurnC(const Games::GameState &gameState) = delete;
@@ -42,6 +49,9 @@ namespace Strategy
     template <>
     int DepthFromTurnC<Breakthrough::BreakthroughState>(const Games::GameState &gameState);
 
+    template <>
+    int DepthFromTurnC<Othello::OthelloState>(const Games::GameState &gameState);
+
     template <typename TState>
     int DepthFromTurnD(const Games::GameState &gameState) = delete;
 
@@ -50,6 +60,9 @@ namespace Strategy
 
     template <>
     int DepthFromTurnD<Breakthrough::BreakthroughState>(const Games::GameState &gameState);
+
+    template <>
+    int DepthFromTurnD<Othello::OthelloState>(const Games::GameState &gameState);
 
     template <typename TState>
     int DepthFromTurnE(const Games::GameState &gameState) = delete;
@@ -60,6 +73,9 @@ namespace Strategy
     template <>
     int DepthFromTurnE<Breakthrough::BreakthroughState>(const Games::GameState &gameState);
 
+    template <>
+    int DepthFromTurnE<Othello::OthelloState>(const Games::GameState &gameState);
+
     template <typename TState>
     int DepthFromTurnF(const Games::GameState &gameState) = delete;
 
@@ -68,6 +84,9 @@ namespace Strategy
 
     template <>
     int DepthFromTurnF<Breakthrough::BreakthroughState>(const Games::GameState &gameState);
+
+    template <>
+    int DepthFromTurnF<Othello::OthelloState>(const Games::GameState &gameState);
 
     template <typename TState>
     int DepthFromTurnG(const Games::GameState &gameState) = delete;
@@ -78,6 +97,9 @@ namespace Strategy
     template <>
     int DepthFromTurnG<Breakthrough::BreakthroughState>(const Games::GameState &gameState);
 
+    template <>
+    int DepthFromTurnG<Othello::OthelloState>(const Games::GameState &gameState);
+
     template <typename TState>
     int DepthFromTurnH(const Games::GameState &gameState) = delete;
 
@@ -86,5 +108,20 @@ namespace Strategy
 
     template <>
     int DepthFromTurnH<Breakthrough::BreakthroughState>(const Games::GameState &gameState);
+
+    template <>
+    int DepthFromTurnH<Othello::OthelloState>(const Games::GameState &gameState);
+
+    template <typename TState>
+    int DepthFromTurnI(const Games::GameState &gameState) = delete;
+
+    template <>
+    int DepthFromTurnI<Othello::OthelloState>(const Games::GameState &gameState);
+
+    template <typename TState>
+    int DepthFromTurnJ(const Games::GameState &gameState) = delete;
+
+    template <>
+    int DepthFromTurnJ<Othello::OthelloState>(const Games::GameState &gameState);
 
 }
