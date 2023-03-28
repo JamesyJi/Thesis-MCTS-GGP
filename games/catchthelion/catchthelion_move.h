@@ -12,7 +12,7 @@ struct Step
 };
 
 const int NUM_ELEPHANT_DIRECTIONS = 4;
-const Step ElephantDirections[NUM_ELEPHANT_DIRECTIONS] = 
+const Step ElephantDirections[NUM_ELEPHANT_DIRECTIONS] =
 {
     {-1, -1},
     {-1, 1},
@@ -76,8 +76,8 @@ static std::ostream& operator<<(std::ostream& os, MoveType move)
 {
     switch (move)
     {
-        case MoveType::MOVE: return os << "MOVE";
-        case MoveType::DROP: return os << "DROP";
+    case MoveType::MOVE: return os << "MOVE";
+    case MoveType::DROP: return os << "DROP";
     }
 }
 
@@ -95,14 +95,14 @@ struct CatchTheLionMove
         int row,
         int col,
         Common::CatchTheLionPieceType capturedPieceType
-    ) : player(player)
-    , pieceType(pieceType)
-    , moveType(MoveType::MOVE)
-    , prevRow(prevRow)
-    , prevCol(prevCol)
-    , row(row)
-    , col(col)
-    , capturedPieceType(capturedPieceType)
+    ): player(player)
+        , pieceType(pieceType)
+        , moveType(MoveType::MOVE)
+        , prevRow(prevRow)
+        , prevCol(prevCol)
+        , row(row)
+        , col(col)
+        , capturedPieceType(capturedPieceType)
     {}
 
     // MOVE NO CAPTURE
@@ -113,7 +113,7 @@ struct CatchTheLionMove
         int prevCol,
         int row,
         int col
-    ) : CatchTheLionMove(player, pieceType, prevRow, prevCol, row, col, Common::CatchTheLionPieceType::NONE)
+    ): CatchTheLionMove(player, pieceType, prevRow, prevCol, row, col, Common::CatchTheLionPieceType::NONE)
     {}
 
     // DROP
@@ -122,14 +122,14 @@ struct CatchTheLionMove
         Common::CatchTheLionPieceType pieceType,
         int row,
         int col
-    ) : player(player)
-    , pieceType(pieceType)
-    , moveType(MoveType::DROP)
-    , prevRow(-1)
-    , prevCol(-1)
-    , row(row)
-    , col(col)
-    , capturedPieceType(Common::CatchTheLionPieceType::NONE)
+    ): player(player)
+        , pieceType(pieceType)
+        , moveType(MoveType::DROP)
+        , prevRow(-1)
+        , prevCol(-1)
+        , row(row)
+        , col(col)
+        , capturedPieceType(Common::CatchTheLionPieceType::NONE)
     {}
 
     Common::Player player = Common::Player::NONE;
@@ -152,7 +152,7 @@ struct CatchTheLionMove
             lhs.col == rhs.col &&
             lhs.prevRow == rhs.prevRow &&
             lhs.prevCol == rhs.prevCol &&
-            lhs.capturedPieceType == rhs.capturedPieceType;        
+            lhs.capturedPieceType == rhs.capturedPieceType;
     }
 
     friend bool operator!=(const CatchTheLionMove& lhs, const CatchTheLionMove& rhs)
@@ -185,7 +185,7 @@ struct CatchTheLionMove
         os << move.row << " ";
         os << move.col << " ";
         os << move.capturedPieceType;
-        
+
         return os;
     }
 };

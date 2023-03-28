@@ -1,31 +1,30 @@
 #pragma once
 
-// Player 1 starts at top of board (0)
-// Player 2 starts at bottom of board (ROW - 1)
-// 0, 0 is top left
-// ROW - 1, COL - 1 is bottom right
+/**
+ * 0, 0 is top left
+ * ROW - 1, COL - 1 is bottom right
+ * PLAYER 1 starts first
+ * PLAYER 1 is on the sides, PLAYER 2 is on the top/bottom
+ */
 
-namespace Breakthrough
+namespace LinesOfAction
 {
 
-struct BreakthroughMove
+struct LinesOfActionMove
 {
-    BreakthroughMove()
+    LinesOfActionMove()
         : player(Common::Player::NONE)
-    {
-    }
+    {}
 
-    BreakthroughMove(Common::Player player, int prevRow, int prevCol, int row, int col, bool capture)
+    LinesOfActionMove(Common::Player player, int prevRow, int prevCol, int row, int col, bool capture)
         : player(player), prevRow(prevRow), prevCol(prevCol), row(row), col(col), capture(capture)
-    {
-    }
+    {}
 
-    friend bool operator==(const BreakthroughMove& lhs, const BreakthroughMove& rhs)
-    {
+    friend bool operator==(const LinesOfActionMove& lhs, const LinesOfActionMove& rhs) {
         return lhs.player == rhs.player && lhs.prevRow == rhs.prevRow && lhs.prevCol == rhs.prevCol && lhs.row == rhs.row && lhs.col == rhs.col && lhs.capture == rhs.capture;
     }
 
-    friend std::ostream& operator<<(std::ostream& os, const BreakthroughMove& move)
+    friend std::ostream& operator<<(std::ostream& os, const LinesOfActionMove& move)
     {
         os << move.player << " ";
         os << move.prevRow << " ";
@@ -44,5 +43,4 @@ struct BreakthroughMove
     int col;
     bool capture;
 };
-
-}
+};

@@ -4,7 +4,7 @@
 #include "pieces.h"
 #include "connect4_move.h"
 
-namespace Connect4 
+namespace Connect4
 {
 
 class Connect4State
@@ -20,7 +20,7 @@ public:
     {
         for (int row = 0; row < ROWS; ++row)
             for (int col = 0; col < COLS; ++col)
-                mPosition[row][col] = Common::Piece();        
+                mPosition[row][col] = Common::Piece();
     }
 
     Connect4State(const Common::Piece position[ROWS][COLS])
@@ -31,10 +31,10 @@ public:
     }
 
     Connect4State(const Connect4State& other)
-    : Connect4State(other.mPosition)
+        : Connect4State(other.mPosition)
     {}
-    
-    ~Connect4State(){}
+
+    ~Connect4State() {}
 
     Common::Result EvaluateState(const Connect4Move& lastMove) const;
     Connect4Move GetRandomLegalMove(Common::Player player) const;

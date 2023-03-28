@@ -78,6 +78,8 @@
         "set": "cpp",
         "stack": "cpp",
         "unordered_set": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "pair": "cpp",
+        "__memory": "cpp",
     },
 }

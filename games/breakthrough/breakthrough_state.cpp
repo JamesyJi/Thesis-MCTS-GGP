@@ -5,24 +5,24 @@ namespace Breakthrough
 
 // A win is determined when a player reaches the row farthest from them or
 // when they have captured all the opponent's pieces.
-Common::Result BreakthroughState::BreakthroughState::EvaluateState(const BreakthroughMove& lastMove)
+Common::Result BreakthroughState::EvaluateState(const BreakthroughMove& lastMove)
 {
     switch (lastMove.player)
     {
-        case Common::Player::NONE:
-            return Common::Result::ONGOING;                  
-        case Common::Player::PLAYER1:
-            if (lastMove.row == ROWS - 1 || mPlayer2RemainingPieces == 0) 
-            {
-                return Common::Result::PLAYER1_WIN;
-            }
-            return Common::Result::ONGOING;
-        case Common::Player::PLAYER2:
-            if (lastMove.row == 0 || mPlayer1RemainingPieces == 0)
-            {
-                return Common::Result::PLAYER2_WIN;
-            }
-            return Common::Result::ONGOING;
+    case Common::Player::NONE:
+        return Common::Result::ONGOING;
+    case Common::Player::PLAYER1:
+        if (lastMove.row == ROWS - 1 || mPlayer2RemainingPieces == 0)
+        {
+            return Common::Result::PLAYER1_WIN;
+        }
+        return Common::Result::ONGOING;
+    case Common::Player::PLAYER2:
+        if (lastMove.row == 0 || mPlayer1RemainingPieces == 0)
+        {
+            return Common::Result::PLAYER2_WIN;
+        }
+        return Common::Result::ONGOING;
     }
 }
 
@@ -48,14 +48,14 @@ int BreakthroughState::GetLegalMoves(Common::Player player, BreakthroughMove mov
 {
     int found = 0;
 
-    int direction = player == Common::Player::PLAYER1 ? 1 : -1; 
+    int direction = player == Common::Player::PLAYER1 ? 1 : -1;
 
     // TODO: Inefficient implementation. Should track position of pieces on the board instead
     for (int row = 0; row < ROWS; ++row)
     {
         for (int col = 0; col < COLS; ++col)
         {
-            if (mPosition[row][col].player == player) 
+            if (mPosition[row][col].player == player)
             {
                 // Find what squares they can move into
                 int newRow = row + direction;
@@ -98,7 +98,8 @@ BreakthroughState BreakthroughState::MakeMove(const BreakthroughMove& move) cons
 
     newState.mPosition[move.prevRow][move.prevCol].player = Common::Player::NONE;
     newState.mPosition[move.row][move.col].player = move.player;
-    if (move.capture) {
+    if (move.capture)
+    {
         switch (move.player)
         {
         case Common::Player::PLAYER1:
@@ -121,7 +122,8 @@ void BreakthroughState::SimulateMove(const BreakthroughMove& move)
 {
     mPosition[move.prevRow][move.prevCol].player = Common::Player::NONE;
     mPosition[move.row][move.col].player = move.player;
-    if (move.capture) {
+    if (move.capture)
+    {
         switch (move.player)
         {
         case Common::Player::PLAYER1:
@@ -135,14 +137,14 @@ void BreakthroughState::SimulateMove(const BreakthroughMove& move)
             break;
         }
     }
-
 }
 
 // Given a move, undoes it
 // Assumes the given move is valid
 void BreakthroughState::UndoMove(const BreakthroughMove& move)
 {
-    if (move.capture) {
+    if (move.capture)
+    {
         mPosition[move.row][move.col].player = Common::GetOtherPlayer(move.player);
         switch (move.player)
         {
@@ -156,7 +158,9 @@ void BreakthroughState::UndoMove(const BreakthroughMove& move)
             throw "Should only be player 1 or player 2 in UndoMove";
             break;
         }
-    } else {
+    }
+    else
+    {
         mPosition[move.row][move.col].player = Common::Player::NONE;
     }
 

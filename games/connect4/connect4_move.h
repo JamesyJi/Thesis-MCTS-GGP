@@ -14,14 +14,14 @@ namespace Connect4
 struct Connect4Move
 {
     Connect4Move()
-    : player(Common::Player::NONE)
-    {}
+        : player(Common::Player::NONE)
+    {
+    }
 
     Connect4Move(Common::Player player, int row, int col)
-    : player(player)
-    , row(row)
-    , col(col)
-    {}
+        : player(player), row(row), col(col)
+    {
+    }
 
     friend bool operator==(const Connect4Move& lhs, const Connect4Move& rhs)
     {
