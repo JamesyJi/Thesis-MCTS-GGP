@@ -23,6 +23,8 @@ Common::Result BreakthroughState::EvaluateState(const BreakthroughMove& lastMove
             return Common::Result::PLAYER2_WIN;
         }
         return Common::Result::ONGOING;
+    default:
+        throw std::runtime_error("Invalid Player in BreakthroughState::EvaluateState");
     }
 }
 

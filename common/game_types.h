@@ -184,6 +184,7 @@ static std::ostream& operator<<(std::ostream& os, Player player)
     case Player::NONE: return os << "NONE";
     case Player::PLAYER1: return os << "PLAYER1";
     case Player::PLAYER2: return os << "PLAYER2";
+    default: return os << "Other";
     }
 }
 
