@@ -3,6 +3,7 @@ add_library(strategy
     connect4_strategy.cpp
     breakthrough_strategy.cpp
     othello_strategy.cpp
+    catchthelion_strategy.cpp
 )
 
 set_target_properties(strategy PROPERTIES LINKER_LANGUAGE CXX)
@@ -14,5 +15,6 @@ target_link_libraries(strategy
     connect4
     breakthrough
     othello
+    catchthelion
 )
 

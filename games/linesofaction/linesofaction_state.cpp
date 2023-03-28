@@ -17,35 +17,47 @@ Common::Result LinesOfActionState::EvaluateState(const LinesOfActionMove& lastMo
     row_q[0] = lastMove.row;
     col_q[0] = lastMove.col;
 
+    bool visited_row[STARTING_PIECES] = {};
+    bool visited_col[STARTING_PIECES] = {};
+    visited_row[row_q[0]] = true;
+    visited_col[col_q[0]] = true;
+
     int q_size = 1;
     int q_index = 0;
-
     while (q_index < q_size) {
         // Visit all neighbours
         const int& row = row_q[q_index];
         const int& col = col_q[q_index];
 
-        if (IsSamePlayer(row + 1, col, lastMove.player)) {
+        if (IsSamePlayer(row + 1, col, lastMove.player) && !visited_row[row + 1] && !visited_col[col]) {
             row_q[q_size] = row + 1;
             col_q[q_size] = col;
+            visited_row[row + 1] = true;
+            visited_col[col] = true;
             ++q_size;
         }
 
-        if (IsSamePlayer(row - 1, col, lastMove.player)) {
+        if (IsSamePlayer(row - 1, col, lastMove.player) && !visited_row[row - 1] && !visited_col[col]) {
             row_q[q_size] = row - 1;
             col_q[q_size] = col;
+            visited_row[row - 1] = true;
+            visited_col[col] = true;
             ++q_size;
         }
 
-        if (IsSamePlayer(row, col + 1, lastMove.player)) {
+        if (IsSamePlayer(row, col + 1, lastMove.player) && !visited_row[row] && !visited_col[col + 1]) {
             row_q[q_size] = row;
             col_q[q_size] = col + 1;
+            visited_row[row] = true;
+            visited_col[col + 1] = true;
             ++q_size;
         }
 
-        if (IsSamePlayer(row, col - 1, lastMove.player)) {
+        if (IsSamePlayer(row, col - 1, lastMove.player) && !visited_row[row] && !visited_col[col - 1]) {
             row_q[q_size] = row;
             col_q[q_size] = col - 1;
+            visited_row[row] = true;
+            visited_col[col - 1] = true;
             ++q_size;
         }
 
@@ -78,27 +90,27 @@ int LinesOfActionState::GetLegalMoves(Common::Player player, LinesOfActionMove m
     int found = 0;
 
     // Calculate how many pieces are in each row and col
-    int inRow[SIZE]; // inRow[0] = number of pieces in row 0
-    int inCol[SIZE]; // inCol[0] = number of pieces in col 0
+    int inRow[SIZE] = {}; // inRow[0] = number of pieces in row 0
+    int inCol[SIZE] = {}; // inCol[0] = number of pieces in col 0
     // top left to bottom right diagonals. inDiag1[3] = Main diagonal
     // inDiag1[0] = bottom left square
     // inDiag1[SIZE * 2 - 2] = top right square
     // A coordinate row, col is indexed by inDiag1[col - row + (SIZE - 2) / 2]
-    int inDiag1[SIZE * 2 - 1];
+    int inDiag1[SIZE * 2 - 1] = {};
 
     // bottom left to top right diagonals. inDiag2[3] = Main diagonal
     // inDiag2[0] = top left square
     // inDiag2[SIZE * 2 - 2] = bottom right square
     // A coordinate row, col is indexed by inDiag2[row + col]
-    int inDiag2[SIZE * 2 - 1];
+    int inDiag2[SIZE * 2 - 1] = {};
 
     for (int row = 0; row < SIZE; ++row) {
         for (int col = 0; col < SIZE; ++col) {
             if (mPosition[row][col].player != Common::Player::NONE) {
-                ++inRow[row];
-                ++inCol[col];
-                ++inDiag1[col - row + (SIZE - 2) / 2];
-                ++inDiag2[row + col];
+                inRow[row]++;
+                inCol[col]++;
+                inDiag1[col - row + (SIZE - 2) / 2]++;
+                inDiag2[row + col]++;
             }
         }
     }
@@ -127,6 +139,10 @@ int LinesOfActionState::GetLegalMoves(Common::Player player, LinesOfActionMove m
         }
     }
 
+    // If no legal moves are found, we must pass which is also considered a legal move
+    if (found == 0) {
+        moves[found++] = LinesOfActionMove();
+    }
     return found;
 }
 
