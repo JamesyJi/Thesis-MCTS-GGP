@@ -15,17 +15,11 @@ int main(void)
     srand(time(NULL));
     auto resource = Common::TimeResource(1);
 
-    using MoveT = LinesOfAction::LinesOfActionMove;
-    using StateT = LinesOfAction::LinesOfActionState;
+    using MoveT = CatchTheLion::CatchTheLionMove;
+    using StateT = CatchTheLion::CatchTheLionState;
     using GameT = Models::Traits<StateT, MoveT>;
 
     resource = Common::TimeResource(1);
-
-    using Model1T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth1>;
-    using Model2T = Models::Standard::Standard<GameT>;
-    auto manager0 = Main::GameManager<Model1T, Model2T, StateT, MoveT>("linesofaction_SvS");
-    resource = Common::TimeResource(1);
-    manager0.StartExperiment(resource, 10);
 
     // using Model1T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth1>;
     // using Model2T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth2>;
