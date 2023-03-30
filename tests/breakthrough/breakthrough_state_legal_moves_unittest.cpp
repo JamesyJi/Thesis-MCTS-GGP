@@ -31,7 +31,7 @@ TEST(breakthrough_state_legal_moves_unittest, GetLegalMoves_StartingPosition) {
     BreakthroughMove legalMovesP1[BreakthroughState::MAX_MOVES];
     ASSERT_EQ(s.GetLegalMoves(P1, legalMovesP1), 16);
 
-    std::vector<BreakthroughMove> expectedMovesP1 = 
+    std::vector<BreakthroughMove> expectedMovesP1 =
     {
         BreakthroughMove(P1, 1, 0, 2, 0, false),
         BreakthroughMove(P1, 1, 0, 2, 1, false),
@@ -60,7 +60,7 @@ TEST(breakthrough_state_legal_moves_unittest, GetLegalMoves_StartingPosition) {
     // Check player 2 legal moves
     BreakthroughMove legalMovesP2[BreakthroughState::MAX_MOVES];
     ASSERT_EQ(s.GetLegalMoves(P2, legalMovesP2), 16);
-    
+
     std::vector<BreakthroughMove> expectedMovesP2 =
     {
         BreakthroughMove(P2, 4, 0, 3, 0, false),
@@ -104,7 +104,7 @@ TEST(breakthrough_state_legal_moves_unittest, GetLegalMoves_WithCaptures) {
     BreakthroughMove legalMovesP1[BreakthroughState::MAX_MOVES];
     ASSERT_EQ(s.GetLegalMoves(P1, legalMovesP1), 12);
 
-    std::vector<BreakthroughMove> expectedMovesP1 = 
+    std::vector<BreakthroughMove> expectedMovesP1 =
     {
         BreakthroughMove(P1, 0, 1, 1, 0, false),
         BreakthroughMove(P1, 0, 1, 1, 1, false),
@@ -130,7 +130,7 @@ TEST(breakthrough_state_legal_moves_unittest, GetLegalMoves_WithCaptures) {
     BreakthroughMove legalMovesP2[BreakthroughState::MAX_MOVES];
     ASSERT_EQ(s.GetLegalMoves(P2, legalMovesP2), 13);
 
-    std::vector<BreakthroughMove> expectedMovesP2 = 
+    std::vector<BreakthroughMove> expectedMovesP2 =
     {
         BreakthroughMove(P2, 4, 1, 3, 0, true),
         BreakthroughMove(P2, 4, 1, 3, 1, false),

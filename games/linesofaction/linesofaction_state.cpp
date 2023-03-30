@@ -92,24 +92,23 @@ int LinesOfActionState::GetLegalMoves(Common::Player player, LinesOfActionMove m
     // Calculate how many pieces are in each row and col
     int inRow[SIZE] = {}; // inRow[0] = number of pieces in row 0
     int inCol[SIZE] = {}; // inCol[0] = number of pieces in col 0
-    // top left to bottom right diagonals. inDiag1[3] = Main diagonal
+    // top left to bottom right diagonals. inDiag1[SIZE - 1] = Main diagonal
     // inDiag1[0] = bottom left square
     // inDiag1[SIZE * 2 - 2] = top right square
-    // A coordinate row, col is indexed by inDiag1[col - row + (SIZE - 2) / 2]
+    // A coordinate row, col is indexed by inDiag1[col - row + SIZE - 1]
     int inDiag1[SIZE * 2 - 1] = {};
 
-    // bottom left to top right diagonals. inDiag2[3] = Main diagonal
+    // bottom left to top right diagonals. inDiag2[SIZE - 1] = Main diagonal
     // inDiag2[0] = top left square
     // inDiag2[SIZE * 2 - 2] = bottom right square
     // A coordinate row, col is indexed by inDiag2[row + col]
     int inDiag2[SIZE * 2 - 1] = {};
-
     for (int row = 0; row < SIZE; ++row) {
         for (int col = 0; col < SIZE; ++col) {
             if (mPosition[row][col].player != Common::Player::NONE) {
                 inRow[row]++;
                 inCol[col]++;
-                inDiag1[col - row + (SIZE - 2) / 2]++;
+                inDiag1[col - row + SIZE - 1]++;
                 inDiag2[row + col]++;
             }
         }
@@ -132,9 +131,9 @@ int LinesOfActionState::GetLegalMoves(Common::Player player, LinesOfActionMove m
 
                 found = TryStoreLegalMove(moves, found, TryGetLegalMove<Common::Direction::SW>(row, col, player, inDiag2[row + col]));
 
-                found = TryStoreLegalMove(moves, found, TryGetLegalMove<Common::Direction::SW>(row, col, player, inDiag1[col - row + (SIZE - 2) / 2]));
+                found = TryStoreLegalMove(moves, found, TryGetLegalMove<Common::Direction::NW>(row, col, player, inDiag1[col - row + SIZE - 1]));
 
-                found = TryStoreLegalMove(moves, found, TryGetLegalMove<Common::Direction::SE>(row, col, player, inDiag1[col - row + (SIZE - 2) / 2]));
+                found = TryStoreLegalMove(moves, found, TryGetLegalMove<Common::Direction::SE>(row, col, player, inDiag1[col - row + SIZE - 1]));
             }
         }
     }
