@@ -31,5 +31,6 @@ TEST(linesofaction_state_legal_moves_unittest, GetLegalMoves_StartingPosition) {
 
     for (auto& move : expectedMovesP1) {
         ASSERT_TRUE(std::find(legalMovesP1, legalMovesP1 + 36, move) != legalMovesP1 + 36);
-    }
+    };
+}
 }
