@@ -2,7 +2,7 @@
 
 namespace Strategy
 {
-const int MAX_TURNS = 45; // Maximum number of turns we will account for in our calculations
+const std::size_t MAX_TURNS = 45; // Maximum number of turns we will account for in our calculations
 const int TURN_DEPTH_A[MAX_TURNS] = {
     -1,
     0,
@@ -52,11 +52,11 @@ const int TURN_DEPTH_A[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnA<Breakthrough::BreakthroughState>(const Games::GameState& gameState)
+int DepthFromTurnA<Breakthrough::BreakthroughState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_A[gameState.GetTurn()];
+        return TURN_DEPTH_A[turn];
     }
     else
     {
@@ -113,11 +113,11 @@ const int TURN_DEPTH_B[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnB<Breakthrough::BreakthroughState>(const Games::GameState& gameState)
+int DepthFromTurnB<Breakthrough::BreakthroughState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_B[gameState.GetTurn()];
+        return TURN_DEPTH_B[turn];
     }
     else
     {
@@ -174,11 +174,11 @@ const int TURN_DEPTH_C[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnC<Breakthrough::BreakthroughState>(const Games::GameState& gameState)
+int DepthFromTurnC<Breakthrough::BreakthroughState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_C[gameState.GetTurn()];
+        return TURN_DEPTH_C[turn];
     }
     else
     {
@@ -235,11 +235,11 @@ const int TURN_DEPTH_D[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnD<Breakthrough::BreakthroughState>(const Games::GameState& gameState)
+int DepthFromTurnD<Breakthrough::BreakthroughState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_D[gameState.GetTurn()];
+        return TURN_DEPTH_D[turn];
     }
     else
     {
@@ -296,11 +296,11 @@ const int TURN_DEPTH_E[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnE<Breakthrough::BreakthroughState>(const Games::GameState& gameState)
+int DepthFromTurnE<Breakthrough::BreakthroughState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_E[gameState.GetTurn()];
+        return TURN_DEPTH_E[turn];
     }
     else
     {
@@ -357,11 +357,11 @@ const int TURN_DEPTH_F[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnF<Breakthrough::BreakthroughState>(const Games::GameState& gameState)
+int DepthFromTurnF<Breakthrough::BreakthroughState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_F[gameState.GetTurn()];
+        return TURN_DEPTH_F[turn];
     }
     else
     {
@@ -418,11 +418,11 @@ const int TURN_DEPTH_G[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnG<Breakthrough::BreakthroughState>(const Games::GameState& gameState)
+int DepthFromTurnG<Breakthrough::BreakthroughState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_G[gameState.GetTurn()];
+        return TURN_DEPTH_G[turn];
     }
     else
     {
@@ -479,11 +479,11 @@ const int TURN_DEPTH_H[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnH<Breakthrough::BreakthroughState>(const Games::GameState& gameState)
+int DepthFromTurnH<Breakthrough::BreakthroughState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_H[gameState.GetTurn()];
+        return TURN_DEPTH_H[turn];
     }
     else
     {

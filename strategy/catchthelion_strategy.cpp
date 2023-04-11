@@ -3,7 +3,7 @@
 
 namespace Strategy {
 
-const int MAX_TURNS = 299;
+const std::size_t MAX_TURNS = 299;
 
 const int TURN_DEPTH_A[MAX_TURNS] = {
     -1,
@@ -308,8 +308,8 @@ const int TURN_DEPTH_A[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnA<CatchTheLion::CatchTheLionState>(const Games::GameState& gameState) {
-    return TURN_DEPTH_A[gameState.GetTurn()];
+int DepthFromTurnA<CatchTheLion::CatchTheLionState>(const std::size_t turn) {
+    return TURN_DEPTH_A[turn];
 }
 
 const int TURN_DEPTH_B[MAX_TURNS] = {
@@ -615,8 +615,8 @@ const int TURN_DEPTH_B[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnB<CatchTheLion::CatchTheLionState>(const Games::GameState& gameState) {
-    return TURN_DEPTH_B[gameState.GetTurn()];
+int DepthFromTurnB<CatchTheLion::CatchTheLionState>(const std::size_t turn) {
+    return TURN_DEPTH_B[turn];
 }
 
 const int TURN_DEPTH_C[MAX_TURNS] = {
@@ -922,8 +922,8 @@ const int TURN_DEPTH_C[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnC<CatchTheLion::CatchTheLionState>(const Games::GameState& gameState) {
-    return TURN_DEPTH_C[gameState.GetTurn()];
+int DepthFromTurnC<CatchTheLion::CatchTheLionState>(const std::size_t turn) {
+    return TURN_DEPTH_C[turn];
 }
 
 const int TURN_DEPTH_D[MAX_TURNS] = {
@@ -1229,8 +1229,8 @@ const int TURN_DEPTH_D[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnD<CatchTheLion::CatchTheLionState>(const Games::GameState& gameState) {
-    return TURN_DEPTH_D[gameState.GetTurn()];
+int DepthFromTurnD<CatchTheLion::CatchTheLionState>(const std::size_t turn) {
+    return TURN_DEPTH_D[turn];
 }
 
 const int TURN_DEPTH_E[MAX_TURNS] = {
@@ -1536,8 +1536,8 @@ const int TURN_DEPTH_E[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnE<CatchTheLion::CatchTheLionState>(const Games::GameState& gameState) {
-    return TURN_DEPTH_E[gameState.GetTurn()];
+int DepthFromTurnE<CatchTheLion::CatchTheLionState>(const std::size_t turn) {
+    return TURN_DEPTH_E[turn];
 }
 
 const int TURN_DEPTH_F[MAX_TURNS] = {
@@ -1843,8 +1843,8 @@ const int TURN_DEPTH_F[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnF<CatchTheLion::CatchTheLionState>(const Games::GameState& gameState) {
-    return TURN_DEPTH_F[gameState.GetTurn()];
+int DepthFromTurnF<CatchTheLion::CatchTheLionState>(const std::size_t turn) {
+    return TURN_DEPTH_F[turn];
 }
 
 }

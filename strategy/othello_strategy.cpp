@@ -1,7 +1,7 @@
 #include "strategy.h"
 namespace Strategy
 {
-const int MAX_TURNS = 73;
+const std::size_t MAX_TURNS = 73;
 
 const int TURN_DEPTH_A[MAX_TURNS] = {
     -1,
@@ -80,11 +80,11 @@ const int TURN_DEPTH_A[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnA<Othello::OthelloState>(const Games::GameState& gameState)
+int DepthFromTurnA<Othello::OthelloState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_A[gameState.GetTurn()];
+        return TURN_DEPTH_A[turn];
     }
     else
     {
@@ -169,11 +169,11 @@ const int TURN_DEPTH_B[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnB<Othello::OthelloState>(const Games::GameState& gameState)
+int DepthFromTurnB<Othello::OthelloState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_B[gameState.GetTurn()];
+        return TURN_DEPTH_B[turn];
     }
     else
     {
@@ -258,11 +258,11 @@ const int TURN_DEPTH_C[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnC<Othello::OthelloState>(const Games::GameState& gameState)
+int DepthFromTurnC<Othello::OthelloState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_C[gameState.GetTurn()];
+        return TURN_DEPTH_C[turn];
     }
     else
     {
@@ -347,11 +347,11 @@ const int TURN_DEPTH_D[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnD<Othello::OthelloState>(const Games::GameState& gameState)
+int DepthFromTurnD<Othello::OthelloState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_D[gameState.GetTurn()];
+        return TURN_DEPTH_D[turn];
     }
     else
     {
@@ -436,11 +436,11 @@ const int TURN_DEPTH_E[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnE<Othello::OthelloState>(const Games::GameState& gameState)
+int DepthFromTurnE<Othello::OthelloState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_E[gameState.GetTurn()];
+        return TURN_DEPTH_E[turn];
     }
     else
     {
@@ -525,11 +525,11 @@ const int TURN_DEPTH_F[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnF<Othello::OthelloState>(const Games::GameState& gameState)
+int DepthFromTurnF<Othello::OthelloState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_F[gameState.GetTurn()];
+        return TURN_DEPTH_F[turn];
     }
     else
     {
@@ -614,11 +614,11 @@ const int TURN_DEPTH_G[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnG<Othello::OthelloState>(const Games::GameState& gameState)
+int DepthFromTurnG<Othello::OthelloState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_G[gameState.GetTurn()];
+        return TURN_DEPTH_G[turn];
     }
     else
     {
@@ -703,11 +703,11 @@ const int TURN_DEPTH_H[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnH<Othello::OthelloState>(const Games::GameState& gameState)
+int DepthFromTurnH<Othello::OthelloState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_H[gameState.GetTurn()];
+        return TURN_DEPTH_H[turn];
     }
     else
     {
@@ -792,11 +792,11 @@ const int TURN_DEPTH_I[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnI<Othello::OthelloState>(const Games::GameState& gameState)
+int DepthFromTurnI<Othello::OthelloState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_I[gameState.GetTurn()];
+        return TURN_DEPTH_I[turn];
     }
     else
     {
@@ -881,11 +881,11 @@ const int TURN_DEPTH_J[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnJ<Othello::OthelloState>(const Games::GameState& gameState)
+int DepthFromTurnJ<Othello::OthelloState>(const std::size_t turn)
 {
-    if (gameState.GetTurn() < MAX_TURNS)
+    if (turn < MAX_TURNS)
     {
-        return TURN_DEPTH_J[gameState.GetTurn()];
+        return TURN_DEPTH_J[turn];
     }
     else
     {

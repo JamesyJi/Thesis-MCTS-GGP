@@ -28,7 +28,6 @@ public:
         NodeT& promisingNode = SelectBestChild();
         StateT& promisingState = promisingNode.GetStateRef();
 
-        // std::cout << "Expansion\n";
         // Expansion
         if (promisingState.EvaluateState(promisingNode.GetLastMove()) == Common::Result::ONGOING)
         {
@@ -45,7 +44,6 @@ public:
 
     NodeT& SelectBestChild()
     {
-        // std::cout << "Select best child\n";
         NodeT* bestChild = this->mRoot.get();
 
         while (bestChild->HasChildren())
@@ -58,7 +56,9 @@ public:
                 auto evaluation = this->MinimaxAB(
                     bestChild->GetStateRef(),
                     bestChild->GetLastMove(),
-                    DepthFunc(this->mGameState),
+                    // TODO: Run experiments with the node's depth
+                    DepthFunc(bestChild->GetDepth()),
+                    // DepthFunc(this->mGameState),
                     Common::Result::PLAYER2_WIN,
                     Common::Result::PLAYER1_WIN,
                     bestChild->GetPlayerTurn()
