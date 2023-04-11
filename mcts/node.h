@@ -11,11 +11,12 @@ template<typename TState, typename TMove>
 class Node
 {
 public:
-    Node(const TState& state, Common::Player player, Node* parent, const TMove& lastMove)
-    : mState(state)
-    , mParent(parent)
-    , mLastMove(lastMove)
-    , mPlayerTurn(player)
+    Node(const TState& state, Common::Player player, Node* parent, const TMove& lastMove, std::size_t depth)
+        : mState(state)
+        , mParent(parent)
+        , mLastMove(lastMove)
+        , mPlayerTurn(player)
+        , mDepth(depth)
     {}
 
     Node& GetRandomChild() const;
@@ -40,7 +41,8 @@ public:
         if constexpr (R == Common::Proven::WIN)
         {
             mValue = std::numeric_limits<double>::max();
-        } else if constexpr (R == Common::Proven::LOSS)
+        }
+        else if constexpr (R == Common::Proven::LOSS)
         {
             mValue = std::numeric_limits<double>::lowest();
         }
@@ -70,7 +72,7 @@ public:
     {
         return mAlreadyMinimaxed;
     }
-    
+
     inline void FlagAsAlreadyMinimaxed()
     {
         mAlreadyMinimaxed = true;
@@ -116,6 +118,10 @@ public:
         return mPlayerTurn;
     }
 
+    std::size_t GetDepth() const {
+        return mDepth;
+    }
+
     Node* GetChild(int index) const
     {
         return mChildren[index].get();
@@ -145,6 +151,9 @@ private:
 
     const TMove mLastMove;
     Common::Player mPlayerTurn;
+
+    // Starting at 1 for the original root of the Tree
+    std::size_t mDepth;
 };
 
 }
