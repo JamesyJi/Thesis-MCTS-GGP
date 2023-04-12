@@ -24,6 +24,9 @@ template <typename TState>
 int DepthFromTurnA(const Games::GameState& gameState) = delete;
 
 template <>
+int DepthFromTurnA<Connect4::Connect4State>(const Games::GameState& gameState);
+
+template <>
 int DepthFromTurnA<Breakthrough::BreakthroughState>(const Games::GameState& gameState);
 
 template <>
@@ -34,6 +37,9 @@ int DepthFromTurnA<CatchTheLion::CatchTheLionState>(const Games::GameState& game
 
 template <typename TState>
 int DepthFromTurnB(const Games::GameState& gameState) = delete;
+
+template <>
+int DepthFromTurnB<Connect4::Connect4State>(const Games::GameState& gameState);
 
 template <>
 int DepthFromTurnB<Connect4::Connect4State>(const Games::GameState& gameState);
@@ -138,10 +144,16 @@ template <typename TState>
 int DepthFromTurnI(const Games::GameState& gameState) = delete;
 
 template <>
+int DepthFromTurnI<Connect4::Connect4State>(const Games::GameState& gameState);
+
+template <>
 int DepthFromTurnI<Othello::OthelloState>(const Games::GameState& gameState);
 
 template <typename TState>
 int DepthFromTurnJ(const Games::GameState& gameState) = delete;
+
+template <>
+int DepthFromTurnJ<Connect4::Connect4State>(const Games::GameState& gameState);
 
 template <>
 int DepthFromTurnJ<Othello::OthelloState>(const Games::GameState& gameState);
