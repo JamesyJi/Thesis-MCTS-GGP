@@ -85,6 +85,7 @@ int Node<TState, TMove>::ExpandNode()
         mChildren[i] = std::make_unique<Node<TState, TMove>>(TState(mState.MakeMove(legalMoves[i])), Common::GetOtherPlayer(mPlayerTurn), this, legalMoves[i], mDepth + 1);
     }
 
+    mExpanded = true;
     return mNumChildren;
 }
 

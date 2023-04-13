@@ -136,11 +136,15 @@ public:
         }
     }
 
+    int GetBranchingFactor() const {
+        // TODO: If not expanded, expand
+    }
 private:
     TState mState;
     Node* mParent = nullptr;
     std::unique_ptr<Node> mChildren[TState::MAX_MOVES];
     int mNumChildren = 0; // This is set by expand node...
+    bool mExpanded = false; // Set to true when expanded
 
     Common::Proven mProven = Common::Proven::NONE;
     double mValue = 0;
