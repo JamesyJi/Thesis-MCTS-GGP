@@ -8,7 +8,7 @@ namespace Models::Minimax
 {
 
 template <typename TTraits, auto DepthFunc>
-class MinimaxSelection: public Model<MinimaxSelection<TTraits, DepthFunc>, TTraits>
+class MinimaxSelection : public Model<MinimaxSelection<TTraits, DepthFunc>, TTraits>
 {
 public:
     using StateT = typename TTraits::StateT;
@@ -56,8 +56,7 @@ public:
                 auto evaluation = this->MinimaxAB(
                     bestChild->GetStateRef(),
                     bestChild->GetLastMove(),
-                    // TODO: Run experiments with the node's depth
-                    DepthFunc(bestChild->GetDepth()),
+                    DepthFunc(static_cast<std::size_t>(bestChild->GetBranchingFactor())),
                     // DepthFunc(this->mGameState),
                     Common::Result::PLAYER2_WIN,
                     Common::Result::PLAYER1_WIN,

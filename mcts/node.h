@@ -137,7 +137,11 @@ public:
     }
 
     int GetBranchingFactor() const {
-        // TODO: If not expanded, expand
+        if (mExpanded) {
+            return mNumChildren;
+        }
+
+        std::runtime_error("GetBranchingFactor called on unexpanded node");
     }
 private:
     TState mState;
