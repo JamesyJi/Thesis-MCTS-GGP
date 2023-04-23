@@ -2,8 +2,8 @@
 
 namespace Strategy
 {
-const std::size_t MAX_TURNS = 45; // Maximum number of turns we will account for in our calculations
-const int TURN_DEPTH_A[MAX_TURNS] = {
+const std::size_t MAX_BRANCHING = 25; // Maximum branching factor we will account for in our calculations
+const int TURN_DEPTH_A[MAX_BRANCHING] = {
     -1,
     0,
     0,
@@ -11,52 +11,32 @@ const int TURN_DEPTH_A[MAX_TURNS] = {
     0,
     0,
     0,
-    0,
-    1,
-    1,
-    2,
-    3,
+    4,
     4,
     5,
     5,
     6,
     6,
-    8,
+    7,
     7,
     8,
-    8,
-    7,
-    8,
-    8,
-    8,
-    7,
     8,
     7,
     6,
     6,
     5,
-    5,
-    4,
+    6,
     3,
-    3,
+    1,
     2,
-    2,
-    2,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
 };
 
 template <>
-int DepthFromTurnA<Breakthrough::BreakthroughState>(const std::size_t turn)
+int DepthFromTurnA<Breakthrough::BreakthroughState>(const std::size_t branching)
 {
-    if (turn < MAX_TURNS)
+    if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_A[turn];
+        return TURN_DEPTH_A[branching];
     }
     else
     {
@@ -64,7 +44,7 @@ int DepthFromTurnA<Breakthrough::BreakthroughState>(const std::size_t turn)
     }
 }
 
-const int TURN_DEPTH_B[MAX_TURNS] = {
+const int TURN_DEPTH_B[MAX_BRANCHING] = {
     -1,
     0,
     0,
@@ -72,52 +52,32 @@ const int TURN_DEPTH_B[MAX_TURNS] = {
     0,
     0,
     0,
-    0,
-    1,
-    1,
-    2,
-    2,
     3,
     4,
     4,
     5,
+    5,
+    6,
     6,
     7,
     7,
-    7,
-    7,
-    6,
-    7,
-    7,
-    7,
-    6,
     7,
     6,
     6,
     5,
     5,
-    4,
-    4,
+    5,
     3,
-    3,
-    2,
-    2,
-    1,
-    1,
-    1,
-    1,
     0,
-    0,
-    0,
-    0,
+    1,
 };
 
 template <>
-int DepthFromTurnB<Breakthrough::BreakthroughState>(const std::size_t turn)
+int DepthFromTurnB<Breakthrough::BreakthroughState>(const std::size_t branching)
 {
-    if (turn < MAX_TURNS)
+    if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_B[turn];
+        return TURN_DEPTH_B[branching];
     }
     else
     {
@@ -125,7 +85,7 @@ int DepthFromTurnB<Breakthrough::BreakthroughState>(const std::size_t turn)
     }
 }
 
-const int TURN_DEPTH_C[MAX_TURNS] = {
+const int TURN_DEPTH_C[MAX_BRANCHING] = {
     -1,
     0,
     0,
@@ -133,52 +93,32 @@ const int TURN_DEPTH_C[MAX_TURNS] = {
     0,
     0,
     0,
-    0,
-    1,
-    1,
-    1,
-    2,
     3,
     3,
     4,
     4,
+    4,
+    5,
     5,
     6,
     6,
-    6,
-    6,
-    6,
-    6,
-    6,
-    6,
-    5,
     6,
     5,
     5,
     4,
     4,
-    4,
+    5,
     3,
-    3,
-    2,
-    2,
+    0,
     1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
 };
 
 template <>
-int DepthFromTurnC<Breakthrough::BreakthroughState>(const std::size_t turn)
+int DepthFromTurnC<Breakthrough::BreakthroughState>(const std::size_t branching)
 {
-    if (turn < MAX_TURNS)
+    if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_C[turn];
+        return TURN_DEPTH_C[branching];
     }
     else
     {
@@ -186,7 +126,7 @@ int DepthFromTurnC<Breakthrough::BreakthroughState>(const std::size_t turn)
     }
 }
 
-const int TURN_DEPTH_D[MAX_TURNS] = {
+const int TURN_DEPTH_D[MAX_BRANCHING] = {
     -1,
     0,
     0,
@@ -194,52 +134,32 @@ const int TURN_DEPTH_D[MAX_TURNS] = {
     0,
     0,
     0,
-    0,
-    1,
-    1,
-    1,
-    2,
     2,
     3,
     3,
+    3,
     4,
     4,
-    5,
-    5,
-    5,
-    5,
-    5,
-    5,
-    5,
-    5,
     4,
     5,
-    4,
+    5,
+    5,
     4,
     4,
     3,
     3,
-    3,
+    4,
     2,
-    2,
-    1,
-    1,
-    1,
-    1,
-    1,
     0,
-    0,
-    0,
-    0,
-    0,
+    1,
 };
 
 template <>
-int DepthFromTurnD<Breakthrough::BreakthroughState>(const std::size_t turn)
+int DepthFromTurnD<Breakthrough::BreakthroughState>(const std::size_t branching)
 {
-    if (turn < MAX_TURNS)
+    if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_D[turn];
+        return TURN_DEPTH_D[branching];
     }
     else
     {
@@ -247,7 +167,7 @@ int DepthFromTurnD<Breakthrough::BreakthroughState>(const std::size_t turn)
     }
 }
 
-const int TURN_DEPTH_E[MAX_TURNS] = {
+const int TURN_DEPTH_E[MAX_BRANCHING] = {
     -1,
     0,
     0,
@@ -255,22 +175,13 @@ const int TURN_DEPTH_E[MAX_TURNS] = {
     0,
     0,
     0,
-    0,
-    1,
-    1,
-    1,
-    1,
     2,
     2,
     2,
     3,
     3,
-    4,
-    4,
-    4,
-    4,
-    4,
-    4,
+    3,
+    3,
     4,
     4,
     4,
@@ -280,27 +191,16 @@ const int TURN_DEPTH_E[MAX_TURNS] = {
     3,
     3,
     2,
-    2,
-    2,
+    0,
     1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
 };
 
 template <>
-int DepthFromTurnE<Breakthrough::BreakthroughState>(const std::size_t turn)
+int DepthFromTurnE<Breakthrough::BreakthroughState>(const std::size_t branching)
 {
-    if (turn < MAX_TURNS)
+    if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_E[turn];
+        return TURN_DEPTH_E[branching];
     }
     else
     {
@@ -308,7 +208,7 @@ int DepthFromTurnE<Breakthrough::BreakthroughState>(const std::size_t turn)
     }
 }
 
-const int TURN_DEPTH_F[MAX_TURNS] = {
+const int TURN_DEPTH_F[MAX_BRANCHING] = {
     -1,
     0,
     0,
@@ -316,52 +216,32 @@ const int TURN_DEPTH_F[MAX_TURNS] = {
     0,
     0,
     0,
-    0,
-    0,
-    0,
-    1,
-    1,
     1,
     2,
     2,
     2,
     2,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
-    3,
     2,
-    2,
+    3,
+    3,
+    3,
+    3,
+    3,
     2,
     2,
     2,
     2,
     1,
+    0,
     1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
 };
 
 template <>
-int DepthFromTurnF<Breakthrough::BreakthroughState>(const std::size_t turn)
+int DepthFromTurnF<Breakthrough::BreakthroughState>(const std::size_t branching)
 {
-    if (turn < MAX_TURNS)
+    if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_F[turn];
+        return TURN_DEPTH_F[branching];
     }
     else
     {
@@ -369,7 +249,7 @@ int DepthFromTurnF<Breakthrough::BreakthroughState>(const std::size_t turn)
     }
 }
 
-const int TURN_DEPTH_G[MAX_TURNS] = {
+const int TURN_DEPTH_G[MAX_BRANCHING] = {
     -1,
     0,
     0,
@@ -377,10 +257,6 @@ const int TURN_DEPTH_G[MAX_TURNS] = {
     0,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
     1,
     1,
     1,
@@ -393,36 +269,20 @@ const int TURN_DEPTH_G[MAX_TURNS] = {
     2,
     2,
     2,
-    2,
-    2,
-    2,
-    2,
-    2,
+    1,
+    1,
     2,
     1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
     0,
     0,
 };
 
 template <>
-int DepthFromTurnG<Breakthrough::BreakthroughState>(const std::size_t turn)
+int DepthFromTurnG<Breakthrough::BreakthroughState>(const std::size_t branching)
 {
-    if (turn < MAX_TURNS)
+    if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_G[turn];
+        return TURN_DEPTH_G[branching];
     }
     else
     {
@@ -430,7 +290,7 @@ int DepthFromTurnG<Breakthrough::BreakthroughState>(const std::size_t turn)
     }
 }
 
-const int TURN_DEPTH_H[MAX_TURNS] = {
+const int TURN_DEPTH_H[MAX_BRANCHING] = {
     -1,
     0,
     0,
@@ -439,11 +299,6 @@ const int TURN_DEPTH_H[MAX_TURNS] = {
     0,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
     1,
     1,
     1,
@@ -458,32 +313,17 @@ const int TURN_DEPTH_H[MAX_TURNS] = {
     1,
     1,
     1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
     0,
     0,
     0,
 };
 
 template <>
-int DepthFromTurnH<Breakthrough::BreakthroughState>(const std::size_t turn)
+int DepthFromTurnH<Breakthrough::BreakthroughState>(const std::size_t branching)
 {
-    if (turn < MAX_TURNS)
+    if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_H[turn];
+        return TURN_DEPTH_H[branching];
     }
     else
     {

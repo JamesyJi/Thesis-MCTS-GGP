@@ -1,71 +1,20 @@
 #include "strategy.h"
 namespace Strategy
 {
-const std::size_t MAX_TURNS = 73;
+const std::size_t MAX_BRANCHING = 22;
 
-const int TURN_DEPTH_A[MAX_TURNS] = {
+const int TURN_DEPTH_A[MAX_BRANCHING] = {
     -1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1,
+    3,
+    4,
+    6,
     7,
+    9,
     10,
-    10,
-    9,
-    9,
     7,
-    6,
     5,
-    4,
-    3,
     2,
-    1,
     0,
     0,
     0,
@@ -80,11 +29,11 @@ const int TURN_DEPTH_A[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnA<Othello::OthelloState>(const std::size_t turn)
+int DepthFromTurnA<Othello::OthelloState>(const std::size_t branching)
 {
-    if (turn < MAX_TURNS)
+    if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_A[turn];
+        return TURN_DEPTH_A[branching];
     }
     else
     {
@@ -92,158 +41,56 @@ int DepthFromTurnA<Othello::OthelloState>(const std::size_t turn)
     }
 }
 
-const int TURN_DEPTH_B[MAX_TURNS] = {
+const int TURN_DEPTH_B[MAX_BRANCHING] = {
     -1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    7,
-    9,
-    9,
-    8,
-    8,
-    6,
-    6,
-    4,
-    4,
-    3,
-    2,
     1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-};
-
-template <>
-int DepthFromTurnB<Othello::OthelloState>(const std::size_t turn)
-{
-    if (turn < MAX_TURNS)
-    {
-        return TURN_DEPTH_B[turn];
-    }
-    else
-    {
-        return 0;
-    }
-}
-
-const int TURN_DEPTH_C[MAX_TURNS] = {
-    -1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    3,
+    4,
+    5,
     6,
     8,
+    9,
+    6,
+    5,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+};
+
+template <>
+int DepthFromTurnB<Othello::OthelloState>(const std::size_t branching)
+{
+    if (branching < MAX_BRANCHING)
+    {
+        return TURN_DEPTH_B[branching];
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+const int TURN_DEPTH_C[MAX_BRANCHING] = {
+    -1,
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
     8,
-    7,
-    7,
-    5,
     5,
     4,
-    3,
     2,
-    2,
-    1,
     0,
     0,
     0,
@@ -258,11 +105,11 @@ const int TURN_DEPTH_C[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnC<Othello::OthelloState>(const std::size_t turn)
+int DepthFromTurnC<Othello::OthelloState>(const std::size_t branching)
 {
-    if (turn < MAX_TURNS)
+    if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_C[turn];
+        return TURN_DEPTH_C[branching];
     }
     else
     {
@@ -270,68 +117,55 @@ int DepthFromTurnC<Othello::OthelloState>(const std::size_t turn)
     }
 }
 
-const int TURN_DEPTH_D[MAX_TURNS] = {
+const int TURN_DEPTH_D[MAX_BRANCHING] = {
     -1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1,
+    2,
+    3,
+    4,
     5,
-    7,
-    7,
     6,
+    7,
+    5,
+    4,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+};
+
+template <>
+int DepthFromTurnD<Othello::OthelloState>(const std::size_t branching)
+{
+    if (branching < MAX_BRANCHING)
+    {
+        return TURN_DEPTH_D[branching];
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+const int TURN_DEPTH_E[MAX_BRANCHING] = {
+    -1,
+    1,
+    2,
+    3,
+    3,
+    4,
+    5,
     6,
-    5,
     4,
     3,
-    3,
-    2,
-    1,
     1,
     0,
     0,
@@ -347,11 +181,11 @@ const int TURN_DEPTH_D[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnD<Othello::OthelloState>(const std::size_t turn)
+int DepthFromTurnE<Othello::OthelloState>(const std::size_t branching)
 {
-    if (turn < MAX_TURNS)
+    if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_D[turn];
+        return TURN_DEPTH_E[branching];
     }
     else
     {
@@ -359,158 +193,18 @@ int DepthFromTurnD<Othello::OthelloState>(const std::size_t turn)
     }
 }
 
-const int TURN_DEPTH_E[MAX_TURNS] = {
+const int TURN_DEPTH_F[MAX_BRANCHING] = {
     -1,
-   0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    4,
-    6,
-    6,
-    5,
-    5,
-    4,
-    4,
-    3,
-    2,
-    2,
     1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-};
-
-template <>
-int DepthFromTurnE<Othello::OthelloState>(const std::size_t turn)
-{
-    if (turn < MAX_TURNS)
-    {
-        return TURN_DEPTH_E[turn];
-    }
-    else
-    {
-        return 0;
-    }
-}
-
-const int TURN_DEPTH_F[MAX_TURNS] = {
-    -1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1,
+    2,
+    3,
+    4,
     4,
     5,
-    5,
-    4,
-    4,
     3,
     3,
-    2,
-    2,
-    2,
     1,
-    0,
     0,
     0,
     0,
@@ -525,11 +219,11 @@ const int TURN_DEPTH_F[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnF<Othello::OthelloState>(const std::size_t turn)
+int DepthFromTurnF<Othello::OthelloState>(const std::size_t branching)
 {
-    if (turn < MAX_TURNS)
+    if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_F[turn];
+        return TURN_DEPTH_F[branching];
     }
     else
     {
@@ -537,69 +231,18 @@ int DepthFromTurnF<Othello::OthelloState>(const std::size_t turn)
     }
 }
 
-const int TURN_DEPTH_G[MAX_TURNS] = {
+const int TURN_DEPTH_G[MAX_BRANCHING] = {
     -1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    3,
-    4,
-    4,
-    4,
-    3,
-    3,
-    2,
-    2,
-    2,
     1,
     1,
-    0,
+    2,
+    2,
+    3,
+    3,
+    4,
+    3,
+    2,
+    1,
     0,
     0,
     0,
@@ -614,11 +257,11 @@ const int TURN_DEPTH_G[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnG<Othello::OthelloState>(const std::size_t turn)
+int DepthFromTurnG<Othello::OthelloState>(const std::size_t branching)
 {
-    if (turn < MAX_TURNS)
+    if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_G[turn];
+        return TURN_DEPTH_G[branching];
     }
     else
     {
@@ -626,69 +269,18 @@ int DepthFromTurnG<Othello::OthelloState>(const std::size_t turn)
     }
 }
 
-const int TURN_DEPTH_H[MAX_TURNS] = {
+const int TURN_DEPTH_H[MAX_BRANCHING] = {
     -1,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1,
+    1,
     2,
-    3,
-    3,
+    2,
     3,
     3,
     2,
     2,
     1,
-    1,
-    1,
-    1,
-    0,
     0,
     0,
     0,
@@ -703,11 +295,11 @@ const int TURN_DEPTH_H[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnH<Othello::OthelloState>(const std::size_t turn)
+int DepthFromTurnH<Othello::OthelloState>(const std::size_t branching)
 {
-    if (turn < MAX_TURNS)
+    if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_H[turn];
+        return TURN_DEPTH_H[branching];
     }
     else
     {
@@ -715,68 +307,17 @@ int DepthFromTurnH<Othello::OthelloState>(const std::size_t turn)
     }
 }
 
-const int TURN_DEPTH_I[MAX_TURNS] = {
+const int TURN_DEPTH_I[MAX_BRANCHING] = {
     -1,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
     1,
-    2,
-    2,
+    1,
+    1,
+    1,
     2,
     2,
     1,
     1,
-    1,
-    1,
-    1,
-    0,
     0,
     0,
     0,
@@ -792,11 +333,11 @@ const int TURN_DEPTH_I[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnI<Othello::OthelloState>(const std::size_t turn)
+int DepthFromTurnI<Othello::OthelloState>(const std::size_t branching)
 {
-    if (turn < MAX_TURNS)
+    if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_I[turn];
+        return TURN_DEPTH_I[branching];
     }
     else
     {
@@ -804,68 +345,17 @@ int DepthFromTurnI<Othello::OthelloState>(const std::size_t turn)
     }
 }
 
-const int TURN_DEPTH_J[MAX_TURNS] = {
+const int TURN_DEPTH_J[MAX_BRANCHING] = {
     -1,
     0,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
     1,
     1,
     1,
     1,
     1,
     1,
-    1,
-    0,
-    0,
-    0,
-    0,
     0,
     0,
     0,
@@ -881,11 +371,11 @@ const int TURN_DEPTH_J[MAX_TURNS] = {
 };
 
 template <>
-int DepthFromTurnJ<Othello::OthelloState>(const std::size_t turn)
+int DepthFromTurnJ<Othello::OthelloState>(const std::size_t branching)
 {
-    if (turn < MAX_TURNS)
+    if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_J[turn];
+        return TURN_DEPTH_J[branching];
     }
     else
     {
