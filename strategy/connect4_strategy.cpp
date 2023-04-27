@@ -3,259 +3,246 @@
 namespace Strategy
 {
 
-// const std::size_t MAX_TURNS = 42; // Maximum number of turns we will account for in our calculations
+const std::size_t MAX_BRANCHING = 8; // Maximum branching factor we will account for in our calculations
+const int TURN_DEPTH_A[MAX_BRANCHING] = {
+    -1,
+    1,
+    3,
+    4,
+    6,
+    7,
+    9,
+    10,
+};
 
-// // Map depth of minimax to the turn number
-// const int TURN_DEPTH_E[] = {
-//     -1,
-//     2,
-//     2,
-//     2,
-//     2,
-//     2,
-//     2,
-//     2,
-//     2,
-//     0,
-//     0,
-//     0,
-//     1,
-//     0,
-//     0,
-//     2,
-//     1,
-//     3,
-//     1,
-//     3,
-//     2,
-//     3,
-//     2,
-//     4,
-//     3,
-//     4,
-//     4,
-//     6,
-//     7,
-//     8,
-//     10,
-//     10,
-//     10,
-//     8,
-//     7,
-//     5,
-//     4,
-//     2,
-//     2,
-//     1,
-//     1,
-//     0,
-//     0};
+template <>
+int DepthFromTurnA<Connect4::Connect4State>(const std::size_t branching)
+{
+    if (branching < MAX_BRANCHING)
+    {
+        return TURN_DEPTH_A[branching];
+    }
+    else
+    {
+        return 0;
+    }
+}
 
-// template <>
-// int DepthFromTurnE<Connect4::Connect4State>(const std::size_t turn)
-// {
-//     return TURN_DEPTH_E[turn];
-// };
+const int TURN_DEPTH_B[MAX_BRANCHING] = {
+    -1,
+    1,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+};
 
-// const int TURN_DEPTH_F[] = {
-//     -1,
-//     2,
-//     2,
-//     2,
-//     2,
-//     2,
-//     2,
-//     2,
-//     2,
-//     0,
-//     0,
-//     0,
-//     0,
-//     0,
-//     0,
-//     1,
-//     0,
-//     2,
-//     1,
-//     2,
-//     1,
-//     3,
-//     2,
-//     3,
-//     2,
-//     3,
-//     4,
-//     5,
-//     6,
-//     7,
-//     9,
-//     9,
-//     10,
-//     8,
-//     7,
-//     5,
-//     4,
-//     2,
-//     2,
-//     1,
-//     1,
-//     0,
-//     0};
-// template <>
-// int DepthFromTurnF<Connect4::Connect4State>(const std::size_t turn)
-// {
-//     return TURN_DEPTH_F[turn];
-// };
-// const int TURN_DEPTH_G[] = {
-//     -1,
-//     2,
-//     2,
-//     2,
-//     2,
-//     2,
-//     2,
-//     2,
-//     2,
-//     0,
-//     0,
-//     0,
-//     0,
-//     0,
-//     0,
-//     1,
-//     0,
-//     1,
-//     0,
-//     1,
-//     1,
-//     2,
-//     1,
-//     2,
-//     2,
-//     3,
-//     3,
-//     5,
-//     6,
-//     7,
-//     8,
-//     9,
-//     10,
-//     8,
-//     8,
-//     6,
-//     5,
-//     3,
-//     2,
-//     1,
-//     1,
-//     0,
-//     0};
+template <>
+int DepthFromTurnB<Connect4::Connect4State>(const std::size_t branching)
+{
+    if (branching < MAX_BRANCHING)
+    {
+        return TURN_DEPTH_B[branching];
+    }
+    else
+    {
+        return 0;
+    }
+}
 
-// template <>
-// int DepthFromTurnG<Connect4::Connect4State>(const std::size_t turn)
-// {
-//     return TURN_DEPTH_G[turn];
-// };
-// const int TURN_DEPTH_H[] = {
-//     -1,
-//     2,
-//     2,
-//     2,
-//     2,
-//     2,
-//     2,
-//     2,
-//     2,
-//     0,
-//     0,
-//     0,
-//     0,
-//     0,
-//     0,
-//     0,
-//     0,
-//     1,
-//     0,
-//     1,
-//     1,
-//     2,
-//     1,
-//     2,
-//     2,
-//     2,
-//     3,
-//     4,
-//     5,
-//     7,
-//     8,
-//     9,
-//     10,
-//     9,
-//     8,
-//     6,
-//     5,
-//     3,
-//     3,
-//     1,
-//     1,
-//     1,
-//     0};
+const int TURN_DEPTH_C[MAX_BRANCHING] = {
+    -1,
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+};
 
-// template <>
-// int DepthFromTurnH<Connect4::Connect4State>(const std::size_t turn)
-// {
-//     return TURN_DEPTH_H[turn];
-// };
+template <>
+int DepthFromTurnC<Connect4::Connect4State>(const std::size_t branching)
+{
+    if (branching < MAX_BRANCHING)
+    {
+        return TURN_DEPTH_C[branching];
+    }
+    else
+    {
+        return 0;
+    }
+}
 
-// const int TURN_DEPTH_I2[] = {
-//         -1,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         3,
-//         10,
-//         9,
-//         9,
-//         8,
-//         7,
-//         6,
-//         5,
-//         5,
-//         5,
-//         5,
-//         5};
+const int TURN_DEPTH_D[MAX_BRANCHING] = {
+    -1,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+};
 
-// template <>
-// int DepthFromTurnI2<Connect4::Connect4State>(const std::size_t turn)
-// {
-//     return TURN_DEPTH_I2[turn];
-// };
+template <>
+int DepthFromTurnD<Connect4::Connect4State>(const std::size_t branching)
+{
+    if (branching < MAX_BRANCHING)
+    {
+        return TURN_DEPTH_D[branching];
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+const int TURN_DEPTH_E[MAX_BRANCHING] = {
+    -1,
+    1,
+    2,
+    3,
+    3,
+    4,
+    5,
+    6,
+};
+
+template <>
+int DepthFromTurnE<Connect4::Connect4State>(const std::size_t branching)
+{
+    if (branching < MAX_BRANCHING)
+    {
+        return TURN_DEPTH_E[branching];
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+const int TURN_DEPTH_F[MAX_BRANCHING] = {
+    -1,
+    1,
+    1,
+    2,
+    3,
+    4,
+    4,
+    5,
+};
+
+template <>
+int DepthFromTurnF<Connect4::Connect4State>(const std::size_t branching)
+{
+    if (branching < MAX_BRANCHING)
+    {
+        return TURN_DEPTH_F[branching];
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+const int TURN_DEPTH_G[MAX_BRANCHING] = {
+    -1,
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+    4,
+};
+
+template <>
+int DepthFromTurnG<Connect4::Connect4State>(const std::size_t branching)
+{
+    if (branching < MAX_BRANCHING)
+    {
+        return TURN_DEPTH_G[branching];
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+const int TURN_DEPTH_H[MAX_BRANCHING] = {
+    -1,
+    0,
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+};
+
+template <>
+int DepthFromTurnH<Connect4::Connect4State>(const std::size_t branching)
+{
+    if (branching < MAX_BRANCHING)
+    {
+        return TURN_DEPTH_H[branching];
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+const int TURN_DEPTH_I[MAX_BRANCHING] = {
+    -1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+};
+
+template <>
+int DepthFromTurnI<Connect4::Connect4State>(const std::size_t branching)
+{
+    if (branching < MAX_BRANCHING)
+    {
+        return TURN_DEPTH_I[branching];
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+const int TURN_DEPTH_J[MAX_BRANCHING] = {
+    -1,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+};
+
+template <>
+int DepthFromTurnJ<Connect4::Connect4State>(const std::size_t branching)
+{
+    if (branching < MAX_BRANCHING)
+    {
+        return TURN_DEPTH_J[branching];
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 
 }

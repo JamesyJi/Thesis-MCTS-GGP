@@ -25,6 +25,9 @@ template <typename TState>
 int DepthFromTurnA(const std::size_t) = delete;
 
 template <>
+int DepthFromTurnA<Connect4::Connect4State>(const std::size_t);
+
+template <>
 int DepthFromTurnA<Breakthrough::BreakthroughState>(const std::size_t);
 
 template <>
@@ -139,10 +142,16 @@ template <typename TState>
 int DepthFromTurnI(const std::size_t) = delete;
 
 template <>
+int DepthFromTurnI<Connect4::Connect4State>(const std::size_t);
+
+template <>
 int DepthFromTurnI<Othello::OthelloState>(const std::size_t);
 
 template <typename TState>
 int DepthFromTurnJ(const std::size_t) = delete;
+
+template <>
+int DepthFromTurnJ<Connect4::Connect4State>(const std::size_t);
 
 template <>
 int DepthFromTurnJ<Othello::OthelloState>(const std::size_t);
