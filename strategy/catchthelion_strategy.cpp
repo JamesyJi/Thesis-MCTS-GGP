@@ -99,7 +99,7 @@ template <>
 int DepthFromTurnB<CatchTheLion::CatchTheLionState>(const std::size_t branching) {
     if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_A[branching];
+        return TURN_DEPTH_B[branching];
     }
     else
     {
@@ -150,7 +150,7 @@ template <>
 int DepthFromTurnC<CatchTheLion::CatchTheLionState>(const std::size_t branching) {
     if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_A[branching];
+        return TURN_DEPTH_C[branching];
     }
     else
     {
@@ -200,7 +200,7 @@ template <>
 int DepthFromTurnD<CatchTheLion::CatchTheLionState>(const std::size_t branching) {
     if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_A[branching];
+        return TURN_DEPTH_D[branching];
     }
     else
     {
@@ -251,7 +251,7 @@ template <>
 int DepthFromTurnE<CatchTheLion::CatchTheLionState>(const std::size_t branching) {
     if (branching < MAX_BRANCHING)
     {
-        return TURN_DEPTH_A[branching];
+        return TURN_DEPTH_E[branching];
     }
     else
     {
@@ -300,7 +300,14 @@ const int TURN_DEPTH_F[MAX_BRANCHING] = {
 
 template <>
 int DepthFromTurnF<CatchTheLion::CatchTheLionState>(const std::size_t branching) {
-    return TURN_DEPTH_F[branching];
+    if (branching < MAX_BRANCHING)
+    {
+        return TURN_DEPTH_F[branching];
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 }

@@ -21,17 +21,17 @@ int main(void)
 
     resource = Common::TimeResource(1);
 
-    using Model1T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnA<StateT>>;
-    using Model2T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth4>;
-    auto manager0 = Main::GameManager<Model1T, Model2T, StateT, MoveT>("catchthelion_Dv4_A");
-    resource = Common::TimeResource(1);
-    manager0.StartExperiment(resource, 200);
+    // using Model1T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnA<StateT>>;
+    // using Model2T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth4>;
+    // auto manager0 = Main::GameManager<Model1T, Model2T, StateT, MoveT>("catchthelion_Dv4_A");
+    // resource = Common::TimeResource(1);
+    // manager0.StartExperiment(resource, 200);
 
-    using Model3T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth4>;
-    using Model4T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnA<StateT>>;
-    auto manager1 = Main::GameManager<Model3T, Model4T, StateT, MoveT>("catchthelion_4vD_A");
-    resource = Common::TimeResource(1);
-    manager1.StartExperiment(resource, 200);
+    // using Model3T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth4>;
+    // using Model4T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnA<StateT>>;
+    // auto manager1 = Main::GameManager<Model3T, Model4T, StateT, MoveT>("catchthelion_4vD_A");
+    // resource = Common::TimeResource(1);
+    // manager1.StartExperiment(resource, 200);
 
     using Model5T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnB<StateT>>;
     using Model6T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth4>;
