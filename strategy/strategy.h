@@ -9,6 +9,7 @@
 namespace Strategy
 {
 
+// TODO: Make this take in no argument
 inline int FixedDepth1(const Games::GameState&) { return 1; }
 inline int FixedDepth2(const Games::GameState&) { return 2; }
 inline int FixedDepth3(const Games::GameState&) { return 3; }
@@ -25,6 +26,9 @@ int DepthFromTurnA(const Games::GameState& gameState) = delete;
 
 template <>
 int DepthFromTurnA<Connect4::Connect4State>(const Games::GameState& gameState);
+
+template <>
+int DepthFromTurnA<Breakthrough::BreakthroughState>(const Games::GameState& gameState);
 
 template <>
 int DepthFromTurnA<Breakthrough::BreakthroughState>(const Games::GameState& gameState);
