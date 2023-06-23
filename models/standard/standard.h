@@ -14,10 +14,10 @@ public:
     using NodeT = MCTS::Node<StateT, MoveT>;
 
     Standard(const StateT& state, Games::GameState& gameState)
-    : Model<Standard<TTraits>, TTraits>(state, gameState)
+        : Model<Standard<TTraits>, TTraits>(state, gameState)
     {}
 
-    ~Standard(){}
+    ~Standard() {}
 
     void ExecuteStrategy()
     {
@@ -40,14 +40,14 @@ public:
         // std::cout << *exploreNode.GetState();
 
         // std::cout << "simulation...\n";
-        auto evaluation = Model<Standard<TTraits>, TTraits>::Simulate(exploreNode);
-    
+        auto [evaluation, depth] = Model<Standard<TTraits>, TTraits>::Simulate(exploreNode);
+
         // std::cout << "explore node is after\n";
         // std::cout << *exploreNode.GetState();
 
         // Back Propagation
         // std::cout << "backpropagation...\n";
-        this->BackPropagate(exploreNode, evaluation);
+        this->BackPropagate(exploreNode, evaluation, depth);
     }
 
     NodeT& SelectBestChild()

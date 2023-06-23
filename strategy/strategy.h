@@ -9,153 +9,153 @@
 namespace Strategy
 {
 
-inline int FixedDepth1(const Games::GameState&) { return 1; }
-inline int FixedDepth2(const Games::GameState&) { return 2; }
-inline int FixedDepth3(const Games::GameState&) { return 3; }
-inline int FixedDepth4(const Games::GameState&) { return 4; }
-inline int FixedDepth5(const Games::GameState&) { return 5; }
-inline int FixedDepth6(const Games::GameState&) { return 6; }
-inline int FixedDepth7(const Games::GameState&) { return 7; }
-inline int FixedDepth8(const Games::GameState&) { return 8; }
-inline int FixedDepth9(const Games::GameState&) { return 9; }
-inline int FixedDepth10(const Games::GameState&) { return 10; }
+inline int FixedDepth1(double) { return 1; }
+inline int FixedDepth2(double) { return 2; }
+inline int FixedDepth3(double) { return 3; }
+inline int FixedDepth4(double) { return 4; }
+inline int FixedDepth5(double) { return 5; }
+inline int FixedDepth6(double) { return 6; }
+inline int FixedDepth7(double) { return 7; }
+inline int FixedDepth8(double) { return 8; }
+inline int FixedDepth9(double) { return 9; }
+inline int FixedDepth10(double) { return 10; }
 
 template <typename TState>
-int DepthFromTurnA(const Games::GameState& gameState) = delete;
+int DepthFromTurnA(double avgDepth) = delete;
 
 template <>
-int DepthFromTurnA<Connect4::Connect4State>(const Games::GameState& gameState);
+int DepthFromTurnA<Connect4::Connect4State>(double avgDepth);
 
 template <>
-int DepthFromTurnA<Breakthrough::BreakthroughState>(const Games::GameState& gameState);
+int DepthFromTurnA<Breakthrough::BreakthroughState>(double avgDepth);
 
 template <>
-int DepthFromTurnA<Othello::OthelloState>(const Games::GameState& gameState);
+int DepthFromTurnA<Othello::OthelloState>(double avgDepth);
 
 template <>
-int DepthFromTurnA<CatchTheLion::CatchTheLionState>(const Games::GameState& gameState);
+int DepthFromTurnA<CatchTheLion::CatchTheLionState>(double avgDepth);
 
 template <typename TState>
-int DepthFromTurnB(const Games::GameState& gameState) = delete;
+int DepthFromTurnB(double avgDepth) = delete;
 
 template <>
-int DepthFromTurnB<Connect4::Connect4State>(const Games::GameState& gameState);
+int DepthFromTurnB<Connect4::Connect4State>(double avgDepth);
 
 template <>
-int DepthFromTurnB<Connect4::Connect4State>(const Games::GameState& gameState);
+int DepthFromTurnB<Connect4::Connect4State>(double avgDepth);
 
 template <>
-int DepthFromTurnB<Breakthrough::BreakthroughState>(const Games::GameState& gameState);
+int DepthFromTurnB<Breakthrough::BreakthroughState>(double avgDepth);
 
 template <>
-int DepthFromTurnB<Othello::OthelloState>(const Games::GameState& gameState);
+int DepthFromTurnB<Othello::OthelloState>(double avgDepth);
 
 template <>
-int DepthFromTurnB<CatchTheLion::CatchTheLionState>(const Games::GameState& gameState);
+int DepthFromTurnB<CatchTheLion::CatchTheLionState>(double avgDepth);
 
 template <typename TState>
-int DepthFromTurnC(const Games::GameState& gameState) = delete;
+int DepthFromTurnC(double avgDepth) = delete;
 
 template <>
-int DepthFromTurnC<Connect4::Connect4State>(const Games::GameState& gameState);
+int DepthFromTurnC<Connect4::Connect4State>(double avgDepth);
 
 template <>
-int DepthFromTurnC<Breakthrough::BreakthroughState>(const Games::GameState& gameState);
+int DepthFromTurnC<Breakthrough::BreakthroughState>(double avgDepth);
 
 template <>
-int DepthFromTurnC<Othello::OthelloState>(const Games::GameState& gameState);
+int DepthFromTurnC<Othello::OthelloState>(double avgDepth);
 
 template <>
-int DepthFromTurnC<CatchTheLion::CatchTheLionState>(const Games::GameState& gameState);
+int DepthFromTurnC<CatchTheLion::CatchTheLionState>(double avgDepth);
 
 template <typename TState>
-int DepthFromTurnD(const Games::GameState& gameState) = delete;
+int DepthFromTurnD(double avgDepth) = delete;
 
 template <>
-int DepthFromTurnD<Connect4::Connect4State>(const Games::GameState& gameState);
+int DepthFromTurnD<Connect4::Connect4State>(double avgDepth);
 
 template <>
-int DepthFromTurnD<Breakthrough::BreakthroughState>(const Games::GameState& gameState);
+int DepthFromTurnD<Breakthrough::BreakthroughState>(double avgDepth);
 
 template <>
-int DepthFromTurnD<Othello::OthelloState>(const Games::GameState& gameState);
+int DepthFromTurnD<Othello::OthelloState>(double avgDepth);
 
 template <>
-int DepthFromTurnD<CatchTheLion::CatchTheLionState>(const Games::GameState& gameState);
+int DepthFromTurnD<CatchTheLion::CatchTheLionState>(double avgDepth);
 
 template <typename TState>
-int DepthFromTurnE(const Games::GameState& gameState) = delete;
+int DepthFromTurnE(double avgDepth) = delete;
 
 template <>
-int DepthFromTurnE<Connect4::Connect4State>(const Games::GameState& gameState);
+int DepthFromTurnE<Connect4::Connect4State>(double avgDepth);
 
 template <>
-int DepthFromTurnE<Breakthrough::BreakthroughState>(const Games::GameState& gameState);
+int DepthFromTurnE<Breakthrough::BreakthroughState>(double avgDepth);
 
 template <>
-int DepthFromTurnE<Othello::OthelloState>(const Games::GameState& gameState);
+int DepthFromTurnE<Othello::OthelloState>(double avgDepth);
 
 template <>
-int DepthFromTurnE<CatchTheLion::CatchTheLionState>(const Games::GameState& gameState);
+int DepthFromTurnE<CatchTheLion::CatchTheLionState>(double avgDepth);
 
 template <typename TState>
-int DepthFromTurnF(const Games::GameState& gameState) = delete;
+int DepthFromTurnF(double avgDepth) = delete;
 
 template <>
-int DepthFromTurnF<Connect4::Connect4State>(const Games::GameState& gameState);
+int DepthFromTurnF<Connect4::Connect4State>(double avgDepth);
 
 template <>
-int DepthFromTurnF<Breakthrough::BreakthroughState>(const Games::GameState& gameState);
+int DepthFromTurnF<Breakthrough::BreakthroughState>(double avgDepth);
 
 template <>
-int DepthFromTurnF<Othello::OthelloState>(const Games::GameState& gameState);
+int DepthFromTurnF<Othello::OthelloState>(double avgDepth);
 
 template <>
-int DepthFromTurnF<CatchTheLion::CatchTheLionState>(const Games::GameState& gameState);
+int DepthFromTurnF<CatchTheLion::CatchTheLionState>(double avgDepth);
 
 template <typename TState>
-int DepthFromTurnG(const Games::GameState& gameState) = delete;
+int DepthFromTurnG(double avgDepth) = delete;
 
 template <>
-int DepthFromTurnG<Connect4::Connect4State>(const Games::GameState& gameState);
+int DepthFromTurnG<Connect4::Connect4State>(double avgDepth);
 
 template <>
-int DepthFromTurnG<Breakthrough::BreakthroughState>(const Games::GameState& gameState);
+int DepthFromTurnG<Breakthrough::BreakthroughState>(double avgDepth);
 
 template <>
-int DepthFromTurnG<Othello::OthelloState>(const Games::GameState& gameState);
+int DepthFromTurnG<Othello::OthelloState>(double avgDepth);
 
 template <>
-int DepthFromTurnG<CatchTheLion::CatchTheLionState>(const Games::GameState& gameState);
+int DepthFromTurnG<CatchTheLion::CatchTheLionState>(double avgDepth);
 
 template <typename TState>
-int DepthFromTurnH(const Games::GameState& gameState) = delete;
+int DepthFromTurnH(double avgDepth) = delete;
 
 template <>
-int DepthFromTurnH<Connect4::Connect4State>(const Games::GameState& gameState);
+int DepthFromTurnH<Connect4::Connect4State>(double avgDepth);
 
 template <>
-int DepthFromTurnH<Breakthrough::BreakthroughState>(const Games::GameState& gameState);
+int DepthFromTurnH<Breakthrough::BreakthroughState>(double avgDepth);
 
 template <>
-int DepthFromTurnH<Othello::OthelloState>(const Games::GameState& gameState);
+int DepthFromTurnH<Othello::OthelloState>(double avgDepth);
 
 template <typename TState>
-int DepthFromTurnI(const Games::GameState& gameState) = delete;
+int DepthFromTurnI(double avgDepth) = delete;
 
 template <>
-int DepthFromTurnI<Connect4::Connect4State>(const Games::GameState& gameState);
+int DepthFromTurnI<Connect4::Connect4State>(double avgDepth);
 
 template <>
-int DepthFromTurnI<Othello::OthelloState>(const Games::GameState& gameState);
+int DepthFromTurnI<Othello::OthelloState>(double avgDepth);
 
 template <typename TState>
-int DepthFromTurnJ(const Games::GameState& gameState) = delete;
+int DepthFromTurnJ(double avgDepth) = delete;
 
 template <>
-int DepthFromTurnJ<Connect4::Connect4State>(const Games::GameState& gameState);
+int DepthFromTurnJ<Connect4::Connect4State>(double avgDepth);
 
 template <>
-int DepthFromTurnJ<Othello::OthelloState>(const Games::GameState& gameState);
+int DepthFromTurnJ<Othello::OthelloState>(double avgDepth);
 
 }

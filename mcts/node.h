@@ -12,10 +12,10 @@ class Node
 {
 public:
     Node(const TState& state, Common::Player player, Node* parent, const TMove& lastMove)
-    : mState(state)
-    , mParent(parent)
-    , mLastMove(lastMove)
-    , mPlayerTurn(player)
+        : mState(state)
+        , mParent(parent)
+        , mLastMove(lastMove)
+        , mPlayerTurn(player)
     {}
 
     Node& GetRandomChild() const;
@@ -40,7 +40,8 @@ public:
         if constexpr (R == Common::Proven::WIN)
         {
             mValue = std::numeric_limits<double>::max();
-        } else if constexpr (R == Common::Proven::LOSS)
+        }
+        else if constexpr (R == Common::Proven::LOSS)
         {
             mValue = std::numeric_limits<double>::lowest();
         }
@@ -66,11 +67,18 @@ public:
         ++mVisits;
     }
 
+    void VisitAndAvgDepth(int depth)
+    {
+        mDepth = (mDepth * mVisits + static_cast<double>(depth)) / (mVisits + 1);
+        ++mVisits;
+    }
+
+
     inline bool AlreadyMinimaxed() const
     {
         return mAlreadyMinimaxed;
     }
-    
+
     inline void FlagAsAlreadyMinimaxed()
     {
         mAlreadyMinimaxed = true;
@@ -104,6 +112,11 @@ public:
     int GetVisits() const
     {
         return mVisits;
+    }
+
+    double GetAvgDepth() const
+    {
+        return mDepth;
     }
 
     const TMove& GetLastMove()
@@ -142,6 +155,9 @@ private:
 
     // True if we have already minimaxed at this node
     bool mAlreadyMinimaxed = false;
+
+    // = -1 when depth is uninitialised
+    double mDepth = -1;
 
     const TMove mLastMove;
     Common::Player mPlayerTurn;

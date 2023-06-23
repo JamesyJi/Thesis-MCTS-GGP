@@ -81,65 +81,65 @@ int main(void)
     resource = Common::TimeResource(1);
     manager9.StartExperiment(resource, 200);
 
-    // using Model21T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnF<StateT>>;
-    // using Model22T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    // auto manager10 = Main::GameManager<Model21T, Model22T, StateT, MoveT>("othello_Dv3_F");
-    // resource = Common::TimeResource(1);
-    // manager10.StartExperiment(resource, 200);
+    using Model21T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnF<StateT>>;
+    using Model22T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
+    auto manager10 = Main::GameManager<Model21T, Model22T, StateT, MoveT>("othello_Dv3_F");
+    resource = Common::TimeResource(1);
+    manager10.StartExperiment(resource, 200);
 
-    // using Model23T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    // using Model24T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnF<StateT>>;
-    // auto manager11 = Main::GameManager<Model23T, Model24T, StateT, MoveT>("othello_3vD_F");
-    // resource = Common::TimeResource(1);
-    // manager11.StartExperiment(resource, 200);
+    using Model23T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
+    using Model24T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnF<StateT>>;
+    auto manager11 = Main::GameManager<Model23T, Model24T, StateT, MoveT>("othello_3vD_F");
+    resource = Common::TimeResource(1);
+    manager11.StartExperiment(resource, 200);
 
-    // using Model25T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnG<StateT>>;
-    // using Model26T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    // auto manager12 = Main::GameManager<Model25T, Model26T, StateT, MoveT>("othello_Dv3_G");
-    // resource = Common::TimeResource(1);
-    // manager12.StartExperiment(resource, 200);
+    using Model25T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnG<StateT>>;
+    using Model26T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
+    auto manager12 = Main::GameManager<Model25T, Model26T, StateT, MoveT>("othello_Dv3_G");
+    resource = Common::TimeResource(1);
+    manager12.StartExperiment(resource, 200);
 
-    // using Model27T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    // using Model28T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnG<StateT>>;
-    // auto manager13 = Main::GameManager<Model27T, Model28T, StateT, MoveT>("othello_3vD_G");
-    // resource = Common::TimeResource(1);
-    // manager13.StartExperiment(resource, 200);
+    using Model27T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
+    using Model28T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnG<StateT>>;
+    auto manager13 = Main::GameManager<Model27T, Model28T, StateT, MoveT>("othello_3vD_G");
+    resource = Common::TimeResource(1);
+    manager13.StartExperiment(resource, 200);
 
-    // using Model29T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnH<StateT>>;
-    // using Model30T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    // auto manager14 = Main::GameManager<Model29T, Model30T, StateT, MoveT>("othello_Dv3_H");
-    // resource = Common::TimeResource(1);
-    // manager14.StartExperiment(resource, 200);
+    using Model29T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnH<StateT>>;
+    using Model30T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
+    auto manager14 = Main::GameManager<Model29T, Model30T, StateT, MoveT>("othello_Dv3_H");
+    resource = Common::TimeResource(1);
+    manager14.StartExperiment(resource, 200);
 
-    // using Model31T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    // using Model32T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnH<StateT>>;
-    // auto manager15 = Main::GameManager<Model31T, Model32T, StateT, MoveT>("othello_3vD_H");
-    // resource = Common::TimeResource(1);
-    // manager15.StartExperiment(resource, 200);
+    using Model31T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
+    using Model32T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnH<StateT>>;
+    auto manager15 = Main::GameManager<Model31T, Model32T, StateT, MoveT>("othello_3vD_H");
+    resource = Common::TimeResource(1);
+    manager15.StartExperiment(resource, 200);
 
-    // using Model33T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnI<StateT>>;
-    // using Model34T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    // auto manager16 = Main::GameManager<Model33T, Model34T, StateT, MoveT>("othello_Dv3_I");
-    // resource = Common::TimeResource(1);
-    // manager16.StartExperiment(resource, 200);
+    using Model33T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnI<StateT>>;
+    using Model34T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
+    auto manager16 = Main::GameManager<Model33T, Model34T, StateT, MoveT>("othello_Dv3_I");
+    resource = Common::TimeResource(1);
+    manager16.StartExperiment(resource, 200);
 
-    // using Model35T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    // using Model36T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnI<StateT>>;
-    // auto manager17 = Main::GameManager<Model35T, Model36T, StateT, MoveT>("othello_3vD_I");
-    // resource = Common::TimeResource(1);
-    // manager17.StartExperiment(resource, 200);
+    using Model35T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
+    using Model36T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnI<StateT>>;
+    auto manager17 = Main::GameManager<Model35T, Model36T, StateT, MoveT>("othello_3vD_I");
+    resource = Common::TimeResource(1);
+    manager17.StartExperiment(resource, 200);
 
-    // using Model37T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnJ<StateT>>;
-    // using Model38T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    // auto manager18 = Main::GameManager<Model37T, Model38T, StateT, MoveT>("othello_Dv3_J");
-    // resource = Common::TimeResource(1);
-    // manager18.StartExperiment(resource, 200);
+    using Model37T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnJ<StateT>>;
+    using Model38T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
+    auto manager18 = Main::GameManager<Model37T, Model38T, StateT, MoveT>("othello_Dv3_J");
+    resource = Common::TimeResource(1);
+    manager18.StartExperiment(resource, 200);
 
-    // using Model39T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
-    // using Model40T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnJ<StateT>>;
-    // auto manager19 = Main::GameManager<Model39T, Model40T, StateT, MoveT>("othello_3vD_J");
-    // resource = Common::TimeResource(1);
-    // manager19.StartExperiment(resource, 200);
+    using Model39T = Models::Minimax::MinimaxSelection<GameT, Strategy::FixedDepth3>;
+    using Model40T = Models::Minimax::MinimaxSelection<GameT, Strategy::DepthFromTurnJ<StateT>>;
+    auto manager19 = Main::GameManager<Model39T, Model40T, StateT, MoveT>("othello_3vD_J");
+    resource = Common::TimeResource(1);
+    manager19.StartExperiment(resource, 200);
 
     return 0;
 }
