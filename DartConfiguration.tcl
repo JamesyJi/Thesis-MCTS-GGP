@@ -11,7 +11,7 @@ BuildDirectory: /Users/james/Documents/Thesis_C++
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: MacBook-Pro.local
+Site: dyn-dhcp-174.cse.unsw.EDU.AU
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Darwin-c++
@@ -45,7 +45,7 @@ SVNOptions:
 SVNUpdateOptions: 
 
 # Git options
-GITCommand: /opt/homebrew/bin/git
+GITCommand: /usr/bin/git
 GITInitSubmodules: 
 GITUpdateOptions: 
 GITUpdateCustom: 
@@ -58,13 +58,13 @@ P4UpdateOptions:
 P4UpdateCustom: 
 
 # Generic update command
-UpdateCommand: /opt/homebrew/bin/git
+UpdateCommand: /usr/bin/git
 UpdateOptions: 
 UpdateType: git
 
 # Compiler info
 Compiler: /Library/Developer/CommandLineTools/usr/bin/c++
-CompilerVersion: 14.0.0.14000029
+CompilerVersion: 12.0.0.12000032
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 

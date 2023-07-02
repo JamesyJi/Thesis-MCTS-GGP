@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc liblinesofaction.a CMakeFiles/linesofaction.dir/linesofaction_state.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib liblinesofaction.a

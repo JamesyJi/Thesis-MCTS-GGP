@@ -25,7 +25,7 @@ set(error_code 1)
 set(number_of_tries 0)
 while(error_code AND number_of_tries LESS 3)
   execute_process(
-    COMMAND "/opt/homebrew/bin/git" 
+    COMMAND "/usr/bin/git" 
             clone --no-checkout --config "advice.detachedHead=false" "https://github.com/google/googletest.git" "googletest-src"
     WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps"
     RESULT_VARIABLE error_code
@@ -40,7 +40,7 @@ if(error_code)
 endif()
 
 execute_process(
-  COMMAND "/opt/homebrew/bin/git" 
+  COMMAND "/usr/bin/git" 
           checkout "release-1.11.0" --
   WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
   RESULT_VARIABLE error_code
@@ -52,7 +52,7 @@ endif()
 set(init_submodules TRUE)
 if(init_submodules)
   execute_process(
-    COMMAND "/opt/homebrew/bin/git" 
+    COMMAND "/usr/bin/git" 
             submodule update --recursive --init 
     WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
     RESULT_VARIABLE error_code

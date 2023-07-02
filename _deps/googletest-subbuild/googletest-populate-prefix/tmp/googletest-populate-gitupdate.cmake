@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.5)
 
 function(get_hash_for_ref ref out_var err_var)
   execute_process(
-    COMMAND "/opt/homebrew/bin/git" rev-parse "${ref}^0"
+    COMMAND "/usr/bin/git" rev-parse "${ref}^0"
     WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
     RESULT_VARIABLE error_code
     OUTPUT_VARIABLE ref_hash
@@ -27,7 +27,7 @@ endif()
 
 
 execute_process(
-  COMMAND "/opt/homebrew/bin/git" show-ref "release-1.11.0"
+  COMMAND "/usr/bin/git" show-ref "release-1.11.0"
   WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
   OUTPUT_VARIABLE show_ref_output
 )
@@ -95,7 +95,7 @@ endif()
 if(fetch_required)
   message(VERBOSE "Fetching latest from the remote origin")
   execute_process(
-    COMMAND "/opt/homebrew/bin/git" fetch --tags --force "origin"
+    COMMAND "/usr/bin/git" fetch --tags --force "origin"
     WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
     COMMAND_ERROR_IS_FATAL ANY
   )
@@ -112,7 +112,7 @@ if(git_update_strategy MATCHES "^REBASE(_CHECKOUT)?$")
   # We can't if we aren't already on a branch and we shouldn't if that local
   # branch isn't tracking the one we want to checkout.
   execute_process(
-    COMMAND "/opt/homebrew/bin/git" symbolic-ref -q HEAD
+    COMMAND "/usr/bin/git" symbolic-ref -q HEAD
     WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
     OUTPUT_VARIABLE current_branch
     OUTPUT_STRIP_TRAILING_WHITESPACE
@@ -128,7 +128,7 @@ if(git_update_strategy MATCHES "^REBASE(_CHECKOUT)?$")
 
   else()
     execute_process(
-      COMMAND "/opt/homebrew/bin/git" for-each-ref "--format='%(upstream:short)'" "${current_branch}"
+      COMMAND "/usr/bin/git" for-each-ref "--format='%(upstream:short)'" "${current_branch}"
       WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
       OUTPUT_VARIABLE upstream_branch
       OUTPUT_STRIP_TRAILING_WHITESPACE
@@ -151,7 +151,7 @@ endif()
 
 # Check if stash is needed
 execute_process(
-  COMMAND "/opt/homebrew/bin/git" status --porcelain
+  COMMAND "/usr/bin/git" status --porcelain
   WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
   RESULT_VARIABLE error_code
   OUTPUT_VARIABLE repo_status
@@ -165,7 +165,7 @@ string(LENGTH "${repo_status}" need_stash)
 # rebase or checkout without losing those changes permanently
 if(need_stash)
   execute_process(
-    COMMAND "/opt/homebrew/bin/git" stash save --quiet;--include-untracked
+    COMMAND "/usr/bin/git" stash save --quiet;--include-untracked
     WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
     COMMAND_ERROR_IS_FATAL ANY
   )
@@ -173,13 +173,13 @@ endif()
 
 if(git_update_strategy STREQUAL "CHECKOUT")
   execute_process(
-    COMMAND "/opt/homebrew/bin/git" checkout "${checkout_name}"
+    COMMAND "/usr/bin/git" checkout "${checkout_name}"
     WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
     COMMAND_ERROR_IS_FATAL ANY
   )
 else()
   execute_process(
-    COMMAND "/opt/homebrew/bin/git" rebase "${checkout_name}"
+    COMMAND "/usr/bin/git" rebase "${checkout_name}"
     WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
     RESULT_VARIABLE error_code
     OUTPUT_VARIABLE rebase_output
@@ -188,7 +188,7 @@ else()
   if(error_code)
     # Rebase failed, undo the rebase attempt before continuing
     execute_process(
-      COMMAND "/opt/homebrew/bin/git" rebase --abort
+      COMMAND "/usr/bin/git" rebase --abort
       WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
     )
 
@@ -196,7 +196,7 @@ else()
       # Not allowed to do a checkout as a fallback, so cannot proceed
       if(need_stash)
         execute_process(
-          COMMAND "/opt/homebrew/bin/git" stash pop --index --quiet
+          COMMAND "/usr/bin/git" stash pop --index --quiet
           WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
           )
       endif()
@@ -218,7 +218,7 @@ else()
     message(WARNING "Rebase failed, output has been saved to ${error_log_file}"
                     "\nFalling back to checkout, previous commit tagged as ${tag_name}")
     execute_process(
-      COMMAND "/opt/homebrew/bin/git" tag -a
+      COMMAND "/usr/bin/git" tag -a
               -m "ExternalProject attempting to move from here to ${checkout_name}"
               ${tag_name}
       WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
@@ -226,7 +226,7 @@ else()
     )
 
     execute_process(
-      COMMAND "/opt/homebrew/bin/git" checkout "${checkout_name}"
+      COMMAND "/usr/bin/git" checkout "${checkout_name}"
       WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
       COMMAND_ERROR_IS_FATAL ANY
     )
@@ -236,29 +236,29 @@ endif()
 if(need_stash)
   # Put back the stashed changes
   execute_process(
-    COMMAND "/opt/homebrew/bin/git" stash pop --index --quiet
+    COMMAND "/usr/bin/git" stash pop --index --quiet
     WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
     RESULT_VARIABLE error_code
     )
   if(error_code)
     # Stash pop --index failed: Try again dropping the index
     execute_process(
-      COMMAND "/opt/homebrew/bin/git" reset --hard --quiet
+      COMMAND "/usr/bin/git" reset --hard --quiet
       WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
     )
     execute_process(
-      COMMAND "/opt/homebrew/bin/git" stash pop --quiet
+      COMMAND "/usr/bin/git" stash pop --quiet
       WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
       RESULT_VARIABLE error_code
     )
     if(error_code)
       # Stash pop failed: Restore previous state.
       execute_process(
-        COMMAND "/opt/homebrew/bin/git" reset --hard --quiet ${head_sha}
+        COMMAND "/usr/bin/git" reset --hard --quiet ${head_sha}
         WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
       )
       execute_process(
-        COMMAND "/opt/homebrew/bin/git" stash pop --index --quiet
+        COMMAND "/usr/bin/git" stash pop --index --quiet
         WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
       )
       message(FATAL_ERROR "\nFailed to unstash changes in: '/Users/james/Documents/Thesis_C++/_deps/googletest-src'."
@@ -270,7 +270,7 @@ endif()
 set(init_submodules "TRUE")
 if(init_submodules)
   execute_process(
-    COMMAND "/opt/homebrew/bin/git" submodule update --recursive --init 
+    COMMAND "/usr/bin/git" submodule update --recursive --init 
     WORKING_DIRECTORY "/Users/james/Documents/Thesis_C++/_deps/googletest-src"
     COMMAND_ERROR_IS_FATAL ANY
   )

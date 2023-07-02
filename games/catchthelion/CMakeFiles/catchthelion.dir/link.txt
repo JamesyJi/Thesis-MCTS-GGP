@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libcatchthelion.a CMakeFiles/catchthelion.dir/catchthelion_state.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libcatchthelion.a

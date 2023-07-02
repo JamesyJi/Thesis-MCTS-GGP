@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libstrategy.a CMakeFiles/strategy.dir/connect4_strategy.cpp.o CMakeFiles/strategy.dir/breakthrough_strategy.cpp.o CMakeFiles/strategy.dir/othello_strategy.cpp.o CMakeFiles/strategy.dir/catchthelion_strategy.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libstrategy.a
