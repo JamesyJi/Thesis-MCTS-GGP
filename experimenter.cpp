@@ -15,8 +15,8 @@ int main(void)
     srand(time(NULL));
     auto resource = Common::TimeResource(1);
 
-    using Connect4MoveT = Othello::OthelloMove;
-    using Connect4StateT = Othello::OthelloState;
+    using Connect4MoveT = Connect4::Connect4Move;
+    using Connect4StateT = Connect4::Connect4State;
     using Connect4GameT = Models::Traits<Connect4StateT, Connect4MoveT>;
 
     resource = Common::TimeResource(1);
